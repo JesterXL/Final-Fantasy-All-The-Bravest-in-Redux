@@ -45,7 +45,10 @@ animate();
 
 function animate() {
 
-    renderer.render(stage);
     requestAnimationFrame( animate );
+
+    graphics.rotation += 0.01;
+
+    renderer.render(stage);
 }
 
