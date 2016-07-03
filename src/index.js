@@ -108,10 +108,10 @@ export class Application
 
 		var textDropper = new TextDropper(this.stage, this.gameLoop.changes);
 
-		this.periodicStream(3000).subscribe(()=>
+		this.periodicStream(10).subscribe(()=>
 		{
 			var num = Math.round(Math.random() * 9999);
-			textDropper.addTextDrop({x: 200, y: 200, width: 100, height: 72}, num);
+			textDropper.addTextDrop({x: Math.random() * 800, y: Math.random() * 800, width: 100, height: 72}, num);
 		});
 
 		// new Stream.periodic(new Duration(seconds: 1), (_)
