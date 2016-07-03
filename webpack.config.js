@@ -1,3 +1,6 @@
+var path = require('path');
+var webpack = require('webpack');
+
 module.exports = {
 	entry: "./src/index.js",
 	output: {
@@ -13,7 +16,21 @@ module.exports = {
 				query: {
 					presets: ['es2015']
 				}
+			},
+			{
+				test: /\.json$/,
+				loader: 'json'
+			}
+		],
+		postLoaders: [
+			{
+				include: path.resolve(__dirname, 'node_modules/pixi.js'),
+				loader: 'transform/cacheable?brfs'
 			}
 		]
 	}
 };
+
+//transform?brfs
+//transform/cacheable?brfs
+//transform/cacheable?browserify-versionify

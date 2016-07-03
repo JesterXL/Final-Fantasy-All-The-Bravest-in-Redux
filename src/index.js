@@ -1,13 +1,15 @@
 import GameLoop from "./com/jessewarden/ff6rx/core/GameLoop";
 import BattleTimer from "./com/jessewarden/ff6rx/battle/BattleTimer";
 
+import './Test'; 
+
 export class Application
 {
 
 	initialize()
 	{
 		//this.testGameLoop();
-		this.testBattleTimer();
+		// this.testBattleTimer();
 	}
 
 	delayed(milliseconds, callback)
