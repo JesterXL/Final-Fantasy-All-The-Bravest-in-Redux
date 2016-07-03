@@ -78,9 +78,9 @@ class GameLoop
 		});
 	}
 
-	get subject()
+	get changes()
 	{
-		return this._subject;
+		return this._subject.asObservable();
 	}
 }
 
