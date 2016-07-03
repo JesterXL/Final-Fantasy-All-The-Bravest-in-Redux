@@ -19,24 +19,34 @@ class GameLoop
 	    this._subject = new Subject();
 	}
 
+	now()
+	{
+		// return new Date().valueOf();
+		return performance.now();
+	}
+
 	tick(time)
 	{
 		if(this.running)
 		{
 			if(this.resetDirty)
 			{
+				this.resetDirty = false;
 				this.lastTick = time;
 			}
 
-			if(this.pausedTime != 0)
-			{
-				var timeElapsed = new Date().valueOf() - this.pausedTime;
-				this.lastTick -= timeElapsed;
-				time -= timeElapsed;
-				this.pausedTime = 0;
-			}
+			// if(this.pausedTime != 0)
+			// {
+			// 	// var now = new Date().valueOf();
+			// 	var timeElapsed = this.now() - this.pausedTime;
+			// 	console.log("before:", this.lastTick);
+			// 	this.lastTick -= timeElapsed;
+			// 	console.log("after:", this.lastTick);
+			// 	time -= timeElapsed;
+			// 	this.pausedTime = 0;
+			// }
 
-			var difference = time  - this.lastTick;
+			var difference = time - this.lastTick;
 			this.lastTick = time;
 			 // _streamController.add(new GameLoopEvent(GameLoopEvent.TICK, time: difference));
 			 // console.log("difference:", difference);
@@ -48,14 +58,15 @@ class GameLoop
 	pause()
 	{
 		this.running = false;
-	    this.pausedTime = new Date().valueOf();
+		// TODO: Figure out if multiple pausing will cause timing problems
+		// since I don't remember it like I did in Dart.
+	    this.resetDirty = true;
 	    this._subject.onNext({type: "paused"});
 	}
 
 	reset()
 	{
 		this.resetDirty = true;
-		 // _streamController.add(new GameLoopEvent(GameLoopEvent.RESET));
 		this._subject.onNext({type: "reset"});
 	}
 
@@ -65,7 +76,6 @@ class GameLoop
 		{
 			this.running = true;
 			this.request();
-			// _streamController.add(new GameLoopEvent(GameLoopEvent.STARTED));
 			this._subject.onNext({type: "started"});
 		}
 	}

@@ -10,6 +10,18 @@ export class Application
 		this.testBattleTimer();
 	}
 
+	delayed(milliseconds, callback)
+	{
+		return new Promise((success, failure)=>
+		{
+			setTimeout(()=>
+			{
+				callback();
+				success();
+			}, milliseconds);
+		});
+	}
+
 	testGameLoop()
 	{
 		this.gameLoop = new GameLoop();
@@ -22,6 +34,7 @@ export class Application
 
 	testBattleTimer()
 	{
+		console.log("testBattleTimer");
 		this.gameLoop = new GameLoop();
 		this.gameLoop.start();
 
@@ -32,6 +45,16 @@ export class Application
 			console.log("event:", event);
 		});
 
+		var me = this;
+		me.delayed(300, ()=>
+		{
+			me.gameLoop.pause();
+		});
+
+		me.delayed(1000, ()=>
+		{
+			me.gameLoop.start();
+		});
 	}
 }
 

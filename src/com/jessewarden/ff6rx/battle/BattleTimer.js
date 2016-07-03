@@ -140,7 +140,8 @@ class BattleTimer
 
 	reset()
 	{
-		this.pause();
+		this.running = false;
+		this.stopListenToGameLoop();
 		this.gauge = 0;
 		this.lastTick = 0;
 		this.completed = false;
