@@ -1,8 +1,10 @@
 import GameLoop from "./com/jessewarden/ff6rx/core/GameLoop";
 import BattleTimer from "./com/jessewarden/ff6rx/battle/BattleTimer";
 import TextDropper from './com/jessewarden/ff6rx/components/TextDropper';
+import BattleTimerBar from "./com/jessewarden/ff6rx/components/BattleTimerBar";
 import PIXI from 'pixi.js';
 import {Subject} from 'rx';
+import _ from "lodash";
 
 export class Application
 {
@@ -37,7 +39,8 @@ export class Application
 
 		//this.testGameLoop();
 		// this.testBattleTimer();
-		this.testTextDropper();
+		// this.testTextDropper();
+		this.testBattleTimerBar();
 	}
 
 	animate()
@@ -77,7 +80,7 @@ export class Application
 		this.gameLoop = new GameLoop();
 		this.gameLoop.start();
 
-		this.timer = new BattleTimer(this.gameLoop.changes, BattleTimer.MODE_CHARACTER);
+		this.timer = new BattleTimer(this.gameLoop.changes, BattleTimer.MODE_PLAYER);
 		this.timer.start();
 		this.timer.changes.subscribe((event)=>
 		{
@@ -124,6 +127,28 @@ export class Application
 		// 	print("chaka");
 		// 	textDropper.addTextDrop(spot1, value);
 		// });
+	}
+
+	testBattleTimerBar()
+	{
+		var gameLoop = new GameLoop();
+		gameLoop.start();
+
+		var bar = new BattleTimerBar(gameLoop.changes);
+		this.stage.addChild(bar.container);
+		bar.container.x = 20;
+		bar.container.y = 20;
+
+		var gameLoop = new GameLoop();
+		var timer = new BattleTimer(gameLoop.changes, BattleTimer.MODE_PLAYER);
+		gameLoop.start();
+		timer.start();
+		timer.changes
+		.where(e => e.type === "progress")
+		.subscribe((event)=>
+		{
+			bar.percentage = event.percentage;
+		});
 	}
 }
 
