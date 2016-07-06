@@ -176,13 +176,15 @@ export class Application
 		var timer = BattleTimer2;
 		console.log("timer:", timer);
 		var sub;
+		var lastVal;
 		this.delayed(3000, ()=>
 		{
 			console.log("starting...");
-			var source = timer.start();
+			var source = timer.start(0);
 			sub = source.subscribe(function(r)
 			{
-				console.log("next:", r);
+				console.log("next yo:", r);
+				lastVal = r;
 			},
 			function(err)
 			{
@@ -192,16 +194,36 @@ export class Application
 			{
 				console.log("Completed, r:", r);
 				sub.dispose();
+				sub = undefined;
 			});
 		});
 		
 
-		this.delayed(7000, ()=>
+		this.delayed(5000, ()=>
 		{
 			console.log("stopping.");
-			timer.stop();
 			sub.dispose();
 			sub = undefined;
+		});
+
+		this.delayed(6000, ()=>
+		{
+			console.log("resuming.");
+			var source = timer.start(lastVal.gauge);
+			sub = source.subscribe(function(r)
+			{
+				console.log("2next yo:", r);
+			},
+			function(err)
+			{
+				console.log("2err:", err);
+			},
+			function(r)
+			{
+				console.log("2Completed, r:", r);
+				sub.dispose();
+				sub = undefined;
+			});
 		});
 	}
 }

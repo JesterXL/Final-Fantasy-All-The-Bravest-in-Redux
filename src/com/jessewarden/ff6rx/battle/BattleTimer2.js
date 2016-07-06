@@ -5,7 +5,6 @@ const MAX_GAUGE = 65536;
 const TIME_SLICE = 33;
 var source;
 var gauge = 0;
-var running = true;
 var lastTick = 0;
 
 function start(initialGauge = 0)
@@ -19,58 +18,51 @@ function start(initialGauge = 0)
 	// 	Rx.Scheduler.requestAnimationFrame
 	// )
 
-	source = Rx.Observable.interval(100)
+	source = Rx.Observable.interval(10, Rx.Scheduler.requestAnimationFrame)
 	.timeInterval()
 	.select((value, index, observer)=>
 	{
-		try
+		var time = value.interval;
+		lastTick = lastTick + Math.round(time);
+		var result = Math.floor(lastTick / TIME_SLICE);
+		if(result > 0)
 		{
-			// console.log("value:", value);
-			// console.log("index:", index);
-			var time = value.interval;
-			lastTick += Math.round(time);
-			var result = Math.floor(lastTick / TIME_SLICE);
-			if(result > 0)
+			var remainder = lastTick - (result * TIME_SLICE);
+			lastTick = remainder;
+			// TODO: if someone pauses this while running modeFunc
+			// we should respect this... this should be a Stream
+			// so we can respect subscriber control
+			while (result > 0)
 			{
-				var remainder = lastTick - (result * TIME_SLICE);
-				lastTick = remainder;
-				// TODO: if someone pauses this while running modeFunc
-				// we should respect this... this should be a Stream
-				// so we can respect subscriber control
-				while (result > 0)
-				{
-					gauge = characterTick(gauge);
-					result--;
-				}
-				var percentage = gauge / MAX_GAUGE;
-				console.log("percentage:", percentage);
-				if(percentage == null)
-				{
-					throw new Error("This can't be null home slice dice mice thrice lice kites... kites doesn't rhyme.");
-				}
-				if(gauge < MAX_GAUGE)
-				{
-					return percentage;
-				}
-				else
-				{
-					console.log("observer:", observer);
-					// observer.onCompleted();
-					return 1;
-				}
+				gauge = characterTick(gauge);
+				result--;
+			}
+			// console.log("gauge:", gauge);
+			if(gauge > MAX_GAUGE)
+			{
+				gauge = MAX_GAUGE;
+			}
+			var percentage = gauge / MAX_GAUGE;
+			if(gauge < MAX_GAUGE)
+			{
+				return {percentage: percentage, gauge: gauge};
+			}
+			else
+			{
+				// observer.onCompleted();
+				return {percentage: 1, gauge: gauge};
 			}
 		}
-		catch(err)
+		else
 		{
-			console.error("err:", err);
+			return {percentage: gauge / MAX_GAUGE, gauge: gauge};
 		}
-	});
+	})
+	.takeWhile((o)=>
+	{
+		return o.percentage !== 1;
+	})
 	return source;
-}
-
-function stop()
-{
-	running = false;
 }
 
 function characterTick(gauge)
@@ -83,6 +75,5 @@ function characterTick(gauge)
 }
 
 export default {
-	start: start,
-	stop: stop
+	start: start
 }
