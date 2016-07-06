@@ -1,10 +1,13 @@
 import GameLoop from "./com/jessewarden/ff6rx/core/GameLoop";
 import BattleTimer from "./com/jessewarden/ff6rx/battle/BattleTimer";
+import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
 import TextDropper from './com/jessewarden/ff6rx/components/TextDropper';
 import BattleTimerBar from "./com/jessewarden/ff6rx/components/BattleTimerBar";
 import PIXI from 'pixi.js';
 import {Subject} from 'rx';
 import _ from "lodash";
+import Row from "./com/jessewarden/ff6rx/enums/Row";
+import Relic from "./com/jessewarden/ff6rx/items/Relic";
 
 export class Application
 {
@@ -40,7 +43,10 @@ export class Application
 		//this.testGameLoop();
 		// this.testBattleTimer();
 		// this.testTextDropper();
-		this.testBattleTimerBar();
+		// this.testBattleTimerBar();
+		// this.testRow();
+		// this.testRelic();
+		this.testBattleTimer2();
 	}
 
 	animate()
@@ -148,6 +154,54 @@ export class Application
 		.subscribe((event)=>
 		{
 			bar.percentage = event.percentage;
+		});
+	}
+
+	testRow()
+	{
+		console.log("row front:", Row.FRONT);
+	}
+
+	testRelic()
+	{
+		var cow = new Relic();
+		console.log("cow:", cow);
+		console.log(cow instanceof Relic);
+		console.log(!cow instanceof Relic);
+	}
+
+	testBattleTimer2()
+	{
+		console.log("testBattleTimer2");
+		var timer = BattleTimer2;
+		console.log("timer:", timer);
+		var sub;
+		this.delayed(3000, ()=>
+		{
+			console.log("starting...");
+			var source = timer.start();
+			sub = source.subscribe(function(r)
+			{
+				console.log("next:", r);
+			},
+			function(err)
+			{
+				console.log("err:", err);
+			},
+			function(r)
+			{
+				console.log("Completed, r:", r);
+				sub.dispose();
+			});
+		});
+		
+
+		this.delayed(7000, ()=>
+		{
+			console.log("stopping.");
+			timer.stop();
+			sub.dispose();
+			sub = undefined;
 		});
 	}
 }

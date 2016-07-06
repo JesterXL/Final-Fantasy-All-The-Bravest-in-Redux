@@ -1,3 +1,23 @@
+/*
+const getRandomNumber = function () { return Math.random(); };
+const getRandomNumbers = new Observable((subscriber) {
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.complete();
+});
+
+console.log(getRandomNumber()); // <-- random number A
+console.log(getRandomNumber()); // <-- random number B
+
+getRandomNumbers.subscribe((randomNumber) => {
+    console.log(randomNumber) // <-- random numbers C
+});
+
+getRandomNumbers.subscribe((randomNumber) => {
+    console.log(randomNumber) // <-- random numbers D
+});
+*/
 import {Subject} from "rx";
 
 class BattleTimer

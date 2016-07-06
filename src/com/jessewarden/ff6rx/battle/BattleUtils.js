@@ -1,0 +1,626 @@
+import _ from "lodash";
+import HitResult from './HitResult';
+import TargetHitResult from './TargetHitResult';
+
+const PERFECT_HIT_RATE = 255;
+
+function divide(a, b)
+{
+	return Math.floor(a / b);
+}
+
+function getRandomNumberFromRange(start, end)
+{
+	var range = end - start;
+	var result = Math.random() * range;
+	return Math.round(result) + 1;
+}
+
+// level is an int
+function getDamageStep1(
+	vigor = 1,
+	battlePower = 1,
+	spellPower = 1,
+	magicPower = 1,
+	level = 1,
+	equippedWithGauntlet = false,
+	equippedWithOffering =  false,
+	standardFightAttack =  true,
+	isPhysicalAttack =  true,
+	isMagicalAttack =  false,
+	isPlayerAndNotMonster =  true,
+	genjiGloveEquipped =  false,
+	oneOrZeroWeapons = true
+)
+{
+
+	var damage = 0;
+
+	if(isPhysicalAttack === false && isMagicalAttack === true && isPlayerAndNotMonster === true)
+	{
+		damage = spellPower * 4 + (level * magicPower * spellPower / 32);
+	}
+	else if(isPhysicalAttack === false && isMagicalAttack === true && isPlayerAndNotMonster === false)
+	{
+		damage = spellPower * 4 + (level * (magicPower * 3/2) * spellPower / 32);
+	}
+	else if(isPhysicalAttack === true && isPlayerAndNotMonster === true)
+	{
+		var vigor2 = vigor * 2;
+		if (vigor >= 128)
+		{
+			vigor2 = 255;
+		}
+
+		var attack = battlePower + vigor2;
+
+		if (equippedWithGauntlet)
+		{
+			attack += (battlePower * 3 / 4);
+		}
+
+		damage = battlePower + ( (level * level * attack) / 256) * 3 / 2;
+
+		if (equippedWithOffering)
+		{
+			damage /= 2;
+		}
+
+		if (standardFightAttack && genjiGloveEquipped && oneOrZeroWeapons)
+		{
+			damage = Math.ceil(damage * 3/4);
+		}
+	}
+	else if(isPhysicalAttack === true && isPlayerAndNotMonster === false)
+	{
+		damage = level * level * (battlePower * 4 + vigor) / 256;
+	}
+
+	return damage;
+}
+
+function getRandomMonsterVigor()
+{
+	return getRandomNumberFromRange(56, 63);
+}
+
+function getDamageStep2(
+	damage = 0,
+	isPhysicalAttack =  true,
+	isMagicalAttack =  false,
+	equippedWithAtlasArmlet =  false,
+	equippedWith1HeroRing =  false,
+	equippedWith2HeroRings =  false,
+	equippedWith1Earring =  false,
+	equippedWith2Earrings = false
+)
+{
+	if(isPhysicalAttack && (equippedWithAtlasArmlet || equippedWith1HeroRing))
+	{
+		damage *= 5/4;
+	}
+
+	if(isMagicalAttack && (equippedWith1Earring || equippedWith2HeroRings))
+	{
+		damage *= 5/4;
+	}
+
+	if(isMagicalAttack && (equippedWith2Earrings || equippedWith2HeroRings))
+	{
+		damage += (damage / 4) + (damage / 4);
+	}
+
+	return damage;
+}
+
+function getDamageStep3(
+	damage = 0,
+	isMagicalAttack = false,
+	attackingMultipleTargets = false)
+{
+	if(isMagicalAttack === true && attackingMultipleTargets === true)
+	{
+		return damage / 2;
+	}
+	else
+	{
+		return damage;
+	}
+}
+
+// TODO: figure out 'if fight command'
+function getDamageStep4(damage = 0, attackerIsInBackRow = false)
+{
+	if(attackerIsInBackRow === true)
+	{
+		return damage / 2;
+	}
+	else
+	{
+		return damage;
+	}
+}
+
+function getCriticalHit()
+{
+	return getRandomNumberFromRange(1, 32) === 32;
+}
+
+function getDamageStep5(damage = 0,
+	hasMorphStatus = false,
+	hasBerserkStatusAndPhysicalAttack = false,
+	isCriticalHit = false)
+{
+	var multiplier = 0;
+
+	if(hasMorphStatus)
+	{
+		multiplier += 2;
+	}
+
+	if(hasBerserkStatusAndPhysicalAttack)
+	{
+		multiplier += 1;
+	}
+
+	if(isCriticalHit)
+	{
+		multiplier += 2;
+	}
+
+	damage += ((damage / 2) * multiplier);
+	return damage;
+}
+
+function getDamageModificationsVariance()
+{
+	return getRandomNumberFromRange(224, 255);
+}
+
+function getDamageStep6(damage = 0,
+	defense = 0,
+	magicalDefense = 0,
+	variance =  224,
+	isPhysicalAttack =  true,
+	isMagicalAttack =  false,
+	isHealingAttack =  false,
+	targetHasSafeStatus =  false,
+	targetHasShellStatus =  false,
+	targetDefending =  false,
+	targetIsInBackRow =  false,
+	targetHasMorphStatus =  false,
+	targetIsSelf =  false,
+	targetIsCharacter =  false,
+	attackerIsCharacter =  true)
+{
+
+	damage = (damage * variance / 256) + 1;
+
+	// defense modification
+	if(isPhysicalAttack)
+	{
+		damage = (damage * (255 - defense) / 256) + 1;
+	}
+	else
+	{
+		damage = (damage * (255 - magicalDefense) / 256) + 1;
+	}
+
+	// safe / shell
+	if((isPhysicalAttack && targetHasSafeStatus) || (isMagicalAttack && targetHasShellStatus))
+	{
+		damage = (damage * 170 / 256) + 1;
+	}
+
+	// target defending
+	if(isPhysicalAttack && targetDefending)
+	{
+		damage /= 2;
+	}
+
+	// target's back row
+	if(isPhysicalAttack && targetIsInBackRow)
+	{
+		damage /= 2;
+	}
+
+	// morph
+	if(isMagicalAttack && targetHasMorphStatus)
+	{
+		damage /= 2;
+	}
+
+	// self damage (healing attack skips this step)
+	if(isHealingAttack === false)
+	{
+		if (targetIsSelf && targetIsCharacter && attackerIsCharacter)
+		{
+			damage /= 2;
+		}
+	}
+
+	return damage;
+}
+
+function getDamageStep7(damage = 0,
+                                    hittingTargetsBack = false,
+                                    isPhysicalAttack = true)
+{
+	var multiplier = 0;
+	if(isPhysicalAttack && hittingTargetsBack)
+	{
+		multiplier += 1;
+	}
+
+	damage += ((damage / 2) * multiplier);
+	return damage;
+}
+
+function getDamageStep8(damage = 0, targetHasPetrifyStatus = false)
+{
+	if(targetHasPetrifyStatus)
+	{
+		damage = 0;
+	}
+	return damage;
+}
+
+function getDamageStep9(
+	damage = 0,
+	elementHasBeenNullified =  false,
+	targetAbsorbsElement =  false,
+	targetIsImmuneToElement =  false,
+	targetIsResistantToElement =  false,
+	targetIsWeakToElement = false
+)
+{
+	if(elementHasBeenNullified)
+	{
+		return 0;
+	}
+
+	if(targetAbsorbsElement)
+	{
+		return -damage;
+	}
+
+	if(targetIsImmuneToElement)
+	{
+		return 0;
+	}
+
+	if(targetIsResistantToElement)
+	{
+		damage /= 2;
+		return damage;
+	}
+
+	if(targetIsWeakToElement)
+	{
+		damage *= 2;
+		return damage;
+	}
+
+	return damage;
+}
+
+function getRandomHitOrMissValue()
+{
+	return getRandomNumberFromRange(0, 99);
+}
+
+function getRandomStaminaHitOrMissValue()
+{
+	return getRandomNumberFromRange(0, 127);
+}
+
+function getRandomImageStatusRemoval()
+{
+	return getRandomNumberFromRange(0, 3);
+}
+
+function getRemoveImageStatus()
+{
+	return getRandomNumberFromRange(1, 4) === 4;
+}
+
+// returns HitResult
+/*
+	These are ints, not numbers:
+
+	int randomHitOrMissValue =  0,
+	int randomStaminaHitOrMissValue =  0,
+	int randomImageStatusRemovalValue =  0,
+	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	int magicBlock =  0,
+	int targetStamina =  null,
+	specialAttackType:AttackType
+*/
+function getHit(
+	randomHitOrMissValue =  0,
+	randomStaminaHitOrMissValue =  0,
+	isPhysicalAttack =  true,
+	isMagicalAttack =  false,
+	targetHasClearStatus =  false,
+	protectedFromWound =  false,
+	attackMissesDeathProtectedTargets =  false,
+	attackCanBeBlockedByStamina =  true,
+	spellUnblockable =  false,
+	targetHasSleepStatus =  false,
+	targetHasPetrifyStatus =  false,
+	targetHasFreezeStatus =  false,
+	targetHasStopStatus =  false,
+	backOfTarget =  false,
+	targetHasImageStatus =  false,
+	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	magicBlock =  0,
+	targetStamina =  null,
+	specialAttackType = null)
+{
+	if(isPhysicalAttack && targetHasClearStatus)
+	{
+		return new HitResult(false);
+	}
+
+	if(isMagicalAttack && targetHasClearStatus)
+	{
+		return new HitResult(true);
+	}
+
+	if(protectedFromWound && attackMissesDeathProtectedTargets)
+	{
+		return new HitResult(false);
+	}
+
+	if(isMagicalAttack && spellUnblockable)
+	{
+		return new HitResult(true);
+	}
+
+	if(_.isNil(specialAttackType))
+	{
+		if(targetHasSleepStatus || targetHasPetrifyStatus || targetHasFreezeStatus || targetHasStopStatus)
+		{
+			return new HitResult(true);
+		}
+
+		if(isPhysicalAttack && backOfTarget)
+		{
+			return new HitResult(true);
+		}
+
+		if(hitRate === PERFECT_HIT_RATE)
+		{
+			return new HitResult(true);
+		}
+
+		if(isPhysicalAttack && targetHasImageStatus)
+		{
+			var removeImageStatus = getRemoveImageStatus();
+			if(removeImageStatus)
+			{
+				// this'll remove Image status
+				return new HitResult(false, true);
+			}
+			else
+			{
+				return new HitResult(false);
+			}
+		}
+
+		var blockValue = (255 - (magicBlock * 2));
+		blockValue = Math.floor(blockValue);
+		blockValue++;
+		blockValue = _.clamp(blockValue, 1, 255);
+//			num blockValue = ((255 - magicBlock * 2).floor() + 1).clamp(1, 255);
+
+		if((hitRate * blockValue / 256) > randomHitOrMissValue)
+		{
+			return new HitResult(true);
+		}
+		else
+		{
+			return new HitResult(false);
+		}
+	}
+
+	var blockValue = ((255 - magicBlock * 2) + 1).floor();
+	blockValue = _.clamp(blockValue, 1, 255);
+
+	if( ((hitRate * blockValue) / 256) > randomHitOrMissValue)
+	{
+		if(targetStamina >= randomStaminaHitOrMissValue)
+		{
+			return new HitResult(false);
+		}
+		else
+		{
+			return new HitResult(true);
+		}
+	}
+	else
+	{
+		return new HitResult(false);
+	}
+}
+
+function isStandardFightAttack(isPhysicalAttack, isMagicalAttack)
+{
+	return isPhysicalAttack && isMagicalAttack === false;
+}
+
+// returns TargetHitResult 
+/*
+	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	int magicBlock =  0,
+	int targetStamina =  null,
+*/
+function getHitAndApplyDamage(
+	attacker, // Character
+	isPhysicalAttack =  true,
+	isMagicalAttack =  false,
+	targetHasClearStatus =  false,
+	protectedFromWound =  false,
+	attackMissesDeathProtectedTargets =  false,
+	attackCanBeBlockedByStamina =  true,
+	spellUnblockable =  false,
+	targetHasSleepStatus =  false,
+	targetHasPetrifyStatus =  false,
+	targetHasFreezeStatus =  false,
+	targetHasStopStatus =  false,
+	targetHasSafeStatus =  false,
+	targetHasShellStatus =  false,
+	targetDefending =  false,
+	targetIsInBackRow =  false,
+	targetHasMorphStatus =  false,
+	targetIsSelf =  false,
+	targetIsCharacter =  false,
+	backOfTarget =  false,
+	targetHasImageStatus =  false,
+	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	magicBlock =  0,
+	targetStamina =  null,
+	AttackType specialAttackType =  null,
+	attackerIsCharacter =  true,
+	attackingMultipleTargets =  false,
+	attackerIsInBackRow =  false,
+	attackerHasMorphStatus =  false,
+	attackerHasBerserkStatusAndPhysicalAttack =  false,
+	elementHasBeenNullified =  false,
+	targetAbsorbsElement =  false,
+	targetIsImmuneToElement =  false,
+	targetIsResistantToElement =  false,
+	targetIsWeakToElement = false})
+{
+	var hitResult = BattleUtils.getHit(
+		getRandomHitOrMissValue(),
+		getRandomStaminaHitOrMissValue(),
+		getRandomImageStatusRemoval(),
+		isPhysicalAttack,
+		isMagicalAttack,
+		targetHasClearStatus,
+		protectedFromWound,
+		attackMissesDeathProtectedTargets,
+		attackCanBeBlockedByStamina,
+		spellUnblockable,
+		targetHasSleepStatus,
+		targetHasPetrifyStatus,
+		targetHasFreezeStatus,
+		targetHasStopStatus,
+		backOfTarget,
+		targetHasImageStatus,
+		hitRate,
+		magicBlock,
+		targetStamina,
+		specialAttackType
+	);
+	var damage = 0;
+	var criticalHit = getCriticalHit();
+	var damageModificationVariance = getDamageModificationsVariance();
+	var standardFightAttack = isStandardFightAttack(isPhysicalAttack, isMagicalAttack);
+	if(hitResult.hit)
+	{
+		damage = BattleUtils.getDamageStep1(
+			attacker.vigor,
+			attacker.battlePower,
+			attacker.level,
+			attacker.equippedWithGauntlet(),
+			attacker.equippedWithOffering(),
+			standardFightAttack,
+			attacker.genjiGloveEquipped(),
+			attacker.oneOrZeroWeapons()
+		);
+
+		damage = BattleUtils.getDamageStep2(
+			damage,
+			isPhysicalAttack,
+			isMagicalAttack,
+			attacker.equippedWithAtlasArmlet(),
+			attacker.equippedWith1HeroRing(),
+			attacker.equippedWith2HeroRings(),
+			attacker.equippedWith1Earring(),
+			attacker.equippedWith2Earrings()
+		);
+
+		damage = BattleUtils.getDamageStep3(
+			damage,
+			isMagicalAttack,
+			attackingMultipleTargets);
+
+		damage = BattleUtils.getDamageStep4(
+			damage,
+			attackerIsInBackRow
+		);
+
+		damage = BattleUtils.getDamageStep5(
+			damage,
+			attackerHasMorphStatus,
+			attackerHasBerserkStatusAndPhysicalAttack,
+			criticalHit
+		);
+
+		damage = BattleUtils.getDamageStep6(
+			damage,
+			attacker.defense,
+			attacker.magicDefense,
+			damageModificationVariance,
+			isPhysicalAttack,
+			isMagicalAttack,
+			targetHasSafeStatus,
+			targetHasShellStatus,
+			targetDefending,
+			targetIsInBackRow,
+			targetHasMorphStatus,
+			targetIsSelf,
+			targetIsCharacter,
+			attackerIsCharacter
+		);
+
+		damage = BattleUtils.getDamageStep7(
+			damage,
+			backOfTarget,
+			isPhysicalAttack
+		);
+
+		damage = BattleUtils.getDamageStep8(
+			damage,
+			targetHasPetrifyStatus
+		);
+
+		damage = BattleUtils.getDamageStep9(
+			damage,
+			elementHasBeenNullified,
+			targetAbsorbsElement,
+			targetIsImmuneToElement,
+			targetIsResistantToElement,
+			targetIsWeakToElement
+		);
+	}
+
+	damage = Math.round(damage);
+	damage = _.clamp(damage, -9999, 9999);
+
+	// TODO: support attacking mulitple targets
+	return new TargetHitResult(
+		criticalHit,
+		hitResult.hit,
+		damage,
+		hitResult.removeImageStatus
+	);
+
+//		targetHitResults.add(
+//			new TargetHitResult(
+//				criticalHit: criticalHit,
+//				hit: hitResult.hit,
+//				damage: damage,
+//				removeImageStatus: hitResult.removeImageStatus,
+//				target: target
+//			)
+//		);
+	}
+}
+
+export default {
+	getHitAndApplyDamage: getHitAndApplyDamage,
+	getRandomMonsterVigor: getRandomMonsterVigor
+}
