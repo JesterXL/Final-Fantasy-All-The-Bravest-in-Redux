@@ -44,11 +44,11 @@ class BattleTimerBar
 		return this._container;
 	}
 
-	constructor(gameLoopStream)
+	constructor()
 	{
 		this._percentage = 1;
 		this.percentageDirty = false;
-		this.fsm = undefined;
+		// this.fsm = undefined;
 		// this.flash = new TimelineLite();
 		this.flashDirty = false;
 
@@ -112,13 +112,13 @@ class BattleTimerBar
 		this.fsm.initialState = "idle";
 
 		// TODO: clean up subscription
-		var me = this;
-		gameLoopStream
-		.where(e => e.type === 'tick')
-		.subscribe((event)=>
-		{
-			me.render();
-		});
+		// var me = this;
+		// gameLoopStream
+		// .where(e => e.type === 'tick')
+		// .subscribe((event)=>
+		// {
+		// 	me.render();
+		// });
 	}
 
 	redraw()

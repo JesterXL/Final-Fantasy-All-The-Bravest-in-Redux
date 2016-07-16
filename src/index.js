@@ -18,8 +18,8 @@ import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 // import './com/jessewarden/ff6rx/sagas/TestSagas';
-import './TestBattleTimers';
-
+// import './TestBattleTimers';
+import './TestBattleTimerBars';
 
 export class Application
 {
@@ -524,4 +524,4 @@ export class Application
 }
 
 var app = new Application();
-app.initialize();
+// app.initialize();
