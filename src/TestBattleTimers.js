@@ -4,20 +4,63 @@ import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import {timer, timerFlow}
-				from './GameLoopSaga';
+				from './com/jessewarden/ff6rx/sagas/GameLoopSaga';
+import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
 
 var defaultState = {
 	difference: performance.now(),
-	running: false
+	running: false,
+	battleTimer: {
+		generator: BattleTimer2.battleTimer(),
+		percentage: 0,
+	}
 };
+
+function battleTimerReducer(state, action)
+{
+	if(action.type === 'TICK')
+	{
+		var timerResult = state.generator.next(action.difference);
+		if(timerResult.value === undefined)
+		{
+			timerResult = state.generator.next(action.difference);
+		}
+		return Object.assign({},
+			state,
+			{
+				percentage: timerResult.value.percentage
+			});
+	}
+	else
+	{
+		return state;
+	}
+}
+
+function differenceReducer(state, action)
+{
+	if(action.type === 'TICK')
+	{
+		return Object.assign({},
+			state,
+			{
+				difference: action.difference
+			});
+	}
+	else
+	{
+		return state;
+	}
+}
 
 function reducer(state=defaultState, action)
 {
-	console.log("reducer action:", action);
 	switch(action.type)
 	{
 		case 'TICK':
-			return Object.assign({}, state, {difference: action.difference});
+			state = differenceReducer(state, action);
+			state.battleTimer = battleTimerReducer(state.battleTimer, action);
+			return state;
 		
 		case 'START_TIMER':
 			state.running = true;
@@ -74,17 +117,6 @@ function run()
 	{
 		store.dispatch({type: 'STOP_TIMER'})
 	});
-
-	delayed(6000, ()=>
-	{
-		store.dispatch({type: 'START_TIMER'})
-	});
-
-	delayed(8000, ()=>
-	{
-		store.dispatch({type: 'STOP_TIMER'})
-	});
 }
-
 
 run();

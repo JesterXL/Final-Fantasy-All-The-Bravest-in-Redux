@@ -1,7 +1,5 @@
 import 'babel-polyfill';
 
-import GameLoop from "./com/jessewarden/ff6rx/core/GameLoop";
-import GameLoop2 from "./com/jessewarden/ff6rx/core/GameLoop2";
 import BattleTimer from "./com/jessewarden/ff6rx/battle/BattleTimer";
 import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
 import TextDropper from './com/jessewarden/ff6rx/components/TextDropper';
@@ -13,15 +11,14 @@ import Row from "./com/jessewarden/ff6rx/enums/Row";
 import Relic from "./com/jessewarden/ff6rx/items/Relic";
 import Player from './com/jessewarden/ff6rx/battle/Player';
 import Monster from './com/jessewarden/ff6rx/battle/Monster';
-import GameLoop3 from './com/jessewarden/ff6rx/core/GameLoop3';
 
 import { createStore, applyMiddleware } from 'redux'
 
 import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
-import './com/jessewarden/ff6rx/sagas/TestSagas';
-
+// import './com/jessewarden/ff6rx/sagas/TestSagas';
+import './TestBattleTimers';
 
 
 export class Application
@@ -69,7 +66,8 @@ export class Application
 
 		//this.basicRedux();
 		// this.reduxPlayerList();
-		this.sagaGameLoop();
+		// this.sagaGameLoop();
+		// this.testingBattleTimer2Generator();
 	}
 
 	animate()
@@ -508,22 +506,19 @@ export class Application
 			me.delayed(1000, ()=>
 			{
 				store.dispatch({type: 'START_TIMER'})
-			})
+			});
 
 			me.delayed(2000, ()=>
 			{
 				store.dispatch({type: 'STOP_TIMER'})
-			})
-			
-			
+			});
 		}
+		
+	}
 
-		function testingModuleSagaGameLoop()
-		{
-		}
-
-		// testingSagaGameLoop();
-		testingModuleSagaGameLoop();
+	testingBattleTimer2Generator()
+	{
+		var battleTimer = BattleTimer2.battleTimer();
 		
 	}
 }

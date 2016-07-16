@@ -6,27 +6,42 @@ var unsubscribe;
 
 export function *timer(action)
 {
-	// try
-	// {
-	// 	while(true)
-	// 	{
-	// 		yield put({type: 'TICK', now: performance.now()});
-	// 		yield call(delay, 60);
-	// 	}
-	// }
-	// finally
-	// {
-	// 	if(yield cancelled())
-	// 	{
-	// 		// console.log("timer cancelled");
-	// 	}
-	// }
-
-	while(true)
+	// console.log("timer");
+	try
 	{
-		yield put({type: 'TICK', now: performance.now()});
-		yield call(delay, 60);
+		var lastTick = performance.now();
+		while(true)
+		{
+			var now = performance.now();
+			// console.log("lastTick:", lastTick);
+			var difference = now - lastTick;
+			lastTick = now;
+			yield put({
+				type: 'TICK', 
+				difference: difference,
+				now: now
+			});
+			yield call(delay, 60);
+		}
 	}
+	finally
+	{
+		if(yield cancelled())
+		{
+			// console.log("timer cancelled");
+		}
+	}
+
+	// if(this.pausedTime != 0)
+	// {
+	// 	// var now = new Date().valueOf();
+	// 	var timeElapsed = this.now() - this.pausedTime;
+	// 	console.log("before:", this.lastTick);
+	// 	this.lastTick -= timeElapsed;
+	// 	console.log("after:", this.lastTick);
+	// 	time -= timeElapsed;
+	// 	this.pausedTime = 0;
+	// }
 }
 
 export function *timerFlow()
