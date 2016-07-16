@@ -3,8 +3,8 @@ import BattleUtils from "../battle/BattleUtils";
 
 class Monster extends Character
 {
-	static const LEAFER = "Leafer";
-	static const ARENEID = "Areneid";
+	static get LEAFER() { return "Leafer"};
+	static get ARENEID() { return "Areneid"};
 
 	get type()
 	{

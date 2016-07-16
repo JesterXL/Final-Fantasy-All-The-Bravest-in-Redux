@@ -2,9 +2,9 @@ import Character from "./Character";
 
 class Player extends Character
 {
-	static const WARRIOR = "Warrior";
-	static const BLACK_MAGE = "Black Mage";
-	static const THIEF = "Thief";
+	static get WARRIOR (){ return "Warrior"};
+	static get BLACK_MAGE (){ return "Black Mage"};
+	static get THIEF (){return "Thief"};
 
 	get type()
 	{

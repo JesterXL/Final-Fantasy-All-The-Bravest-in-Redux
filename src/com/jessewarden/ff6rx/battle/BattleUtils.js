@@ -480,7 +480,7 @@ function getHitAndApplyDamage(
 	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
 	magicBlock =  0,
 	targetStamina =  null,
-	AttackType specialAttackType =  null,
+	specialAttackType =  null,
 	attackerIsCharacter =  true,
 	attackingMultipleTargets =  false,
 	attackerIsInBackRow =  false,
@@ -490,7 +490,7 @@ function getHitAndApplyDamage(
 	targetAbsorbsElement =  false,
 	targetIsImmuneToElement =  false,
 	targetIsResistantToElement =  false,
-	targetIsWeakToElement = false})
+	targetIsWeakToElement = false)
 {
 	var hitResult = BattleUtils.getHit(
 		getRandomHitOrMissValue(),
@@ -617,7 +617,6 @@ function getHitAndApplyDamage(
 //				target: target
 //			)
 //		);
-	}
 }
 
 export default {

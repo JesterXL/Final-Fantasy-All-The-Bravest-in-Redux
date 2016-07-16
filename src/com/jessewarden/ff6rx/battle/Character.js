@@ -2,10 +2,14 @@ import Row from "../enums/Row";
 import _ from "lodash";
 import {Subject} from "rx";
 
+var _INCREMENT = 0;
 class Character
 {
-	
-	static INCREMENT = 0;
+	static get INCREMENT(){return _INCREMENT;}
+	static set INCREMENT(value)
+	{
+		return _INCREMENT;
+	}
 
 	// TODO: figure out reflection/mirrors
 	equippedWithNoRelics()
@@ -71,11 +75,11 @@ class Character
 		return this.relic1 instanceof Earring && this.relic2 instanceof Earring;
 	}
 
-	rightHandHasWeapon() => notNil(this.rightHand);
-	leftHandHasWeapon() => notNil(this.leftHand);
-	rightHandHasNoWeapon() => !this.rightHandHasWeapon();
-	leftHandHasNoWeapon() => !this.rightHandHasWeapon();
-	hasZeroWeapons() => this.rightHandHasNoWeapon() && this.leftHandHasNoWeapon();
+	get rightHandHasWeapon(){ notNil(this.rightHand)};
+	get leftHandHasWeapon(){ notNil(this.leftHand)};
+	get rightHandHasNoWeapon(){ !this.rightHandHasWeapon()};
+	get leftHandHasNoWeapon(){ !this.rightHandHasWeapon()};
+	get hasZeroWeapons(){ this.rightHandHasNoWeapon() && this.leftHandHasNoWeapon()};
 
 	oneOrZeroWeapons()
 	{
@@ -166,7 +170,7 @@ class Character
 		});
 	}
 
-	Character(speed = 80,
+	constructor(speed = 80,
 		vigor = 10,
 		stamina = 10,
 		magicPower = 10,
