@@ -19,7 +19,8 @@ import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 // import './com/jessewarden/ff6rx/sagas/TestSagas';
 // import './TestBattleTimers';
-import './TestBattleTimerBars';
+// import './TestBattleTimerBars';
+import './TestInitiative';
 
 export class Application
 {

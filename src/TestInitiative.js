@@ -19,7 +19,9 @@ var defaultState = {
 	difference: performance.now(),
 	running: false,
 	battleTimers: [],
-	battleTimerSeedID: 0
+	battleTimerSeedID: -1,
+	players: [],
+	monsters: []
 };
 
 function battleTimerReducer(state, action)
@@ -132,7 +134,7 @@ function run()
 
 	store.subscribe(() =>
 	{
-		console.log("state:", store.getState());
+		// console.log("state:", store.getState());
 		reduceBattleTimers(store.getState().battleTimers);
 	});
 
@@ -150,8 +152,15 @@ function run()
 
 	delayed(4000, ()=>
 	{
+		store.dispatch({type: REMOVE_BATTLETIMER, id: 2})
+	});
+
+	delayed(5000, ()=>
+	{
 		store.dispatch({type: STOP_TIMER})
 	});
+
+	
 
 	initializeGUI();
 }
@@ -189,11 +198,11 @@ function reduceBattleTimers(battleTimers)
 		// first, remove ID's that aren't there
 		battleTimerBarMap.forEach((bar, id)=>
 		{
-			var index = _.find(battleTimers, o => o.id === id);
+			var index = _.findIndex(battleTimers, o => o.id === id);
 			if(index === -1)
 			{
 				battleTimerBarMap.delete(id);
-				stage.remove(bar);
+				stage.removeChild(bar.container);
 			}
 		});
 
@@ -205,7 +214,6 @@ function reduceBattleTimers(battleTimers)
 			if(bar === undefined)
 			{
 				bar = createBattleTimerBar(startX, startY, stage);
-				console.log("bar.height:", bar.height);
 				startY += BattleTimerBar.HEIGHT + 20;
 				battleTimerBarMap.set(t.id, bar);
 			}

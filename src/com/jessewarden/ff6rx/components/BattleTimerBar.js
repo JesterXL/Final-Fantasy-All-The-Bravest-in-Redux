@@ -6,7 +6,7 @@ import "gsap";
 class BattleTimerBar
 {
 
-	static get ROUND(){ return 8};
+	static get ROUND(){ return 2};
 	static get WIDTH(){ return 70};
 	static get HEIGHT(){ return 20};
 
@@ -131,14 +131,20 @@ class BattleTimerBar
 									BattleTimerBar.HEIGHT, 
 									BattleTimerBar.ROUND);
 		
+		var OFFSET = 1;
+		var percentageWidth = BattleTimerBar.WIDTH * this._percentage - OFFSET * 2;
+		percentageWidth = _.clamp(percentageWidth, 0, BattleTimerBar.WIDTH);
 		this.graphics.beginFill(0xffd700);
 		this.graphics.lineStyle(0);
-		const OFFSET = 1;
+		//this.graphics.moveTo(OFFSET, OFFSET);
+
 		this.graphics.drawRoundedRect(OFFSET, 
 			OFFSET,
-			BattleTimerBar.WIDTH * this._percentage - OFFSET * 2, 
+			percentageWidth, 
 			BattleTimerBar.HEIGHT - OFFSET * 2,
 			BattleTimerBar.ROUND);
+		
+		//this.graphics.drawRect(0, 0, percentageWidth, BattleTimerBar.HEIGHT - OFFSET * 2);
 	}
 
 	render()
