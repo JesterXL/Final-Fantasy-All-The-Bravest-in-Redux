@@ -16,6 +16,7 @@ export function *timer(action)
 			// console.log("lastTick:", lastTick);
 			var difference = now - lastTick;
 			lastTick = now;
+			// console.log("difference: " + difference + ", now: " + now);
 			yield put({
 				type: 'TICK', 
 				difference: difference,

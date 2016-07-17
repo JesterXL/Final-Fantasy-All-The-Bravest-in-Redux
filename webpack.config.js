@@ -5,7 +5,8 @@ module.exports = {
 	entry: ['babel-polyfill', "./src/index.js"],
 	output: {
 		path: __dirname,
-		filename: "bundle.js"
+		filename: "bundle.js",
+		sourceMapFilename: 'bundle.map'
 	},
 	module: {
 		loaders: [
@@ -20,6 +21,10 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json'
+			},
+			{
+				test: /\.png/,
+				loader: "url-loader?limit=10000&mimetype=image/png"
 			}
 		],
 		postLoaders: [
@@ -28,7 +33,8 @@ module.exports = {
 				loader: 'transform/cacheable?brfs'
 			}
 		]
-	}
+	},
+	devtool: 'source-map'
 };
 
 

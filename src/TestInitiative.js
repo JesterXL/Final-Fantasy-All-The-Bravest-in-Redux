@@ -5,44 +5,58 @@ import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import {timer, timerFlow}
 				from './com/jessewarden/ff6rx/sagas/GameLoopSaga';
-import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
 import _ from 'lodash';
 import BattleTimerBar from "./com/jessewarden/ff6rx/components/BattleTimerBar";
+// import Player from "./com/jessewarden/ff6rx/battle/Player";
+import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
+import Warrior from "./com/jessewarden/ff6rx/sprites/Warrior";
 
 const TICK = 'TICK';
-const ADD_BATTLETIMER = 'ADD_BATTLETIMER';
-const REMOVE_BATTLETIMER = 'REMOVE_BATTLETIMER';
 const START_TIMER = 'START_TIMER';
 const STOP_TIMER = 'STOP_TIMER';
+const ADD_PLAYER = 'ADD_PLAYER';
+const REMOVE_PLAYER = 'REMOVE_PLAYER';
 
 var defaultState = {
 	difference: performance.now(),
 	running: false,
-	battleTimers: [],
-	battleTimerSeedID: -1,
 	players: [],
 	monsters: []
 };
 
-function battleTimerReducer(state, action)
+var playerIDSeed = -1;
+
+function playerReducer(state, action)
 {
-	if(action.type === TICK)
+	switch(action.type)
 	{
-		var timerResult = state.generator.next(action.difference);
-		if(timerResult.value === undefined)
-		{
-			timerResult = state.generator.next(action.difference);
-		}
-		return Object.assign({},
-			state,
+		case 'ADD_PLAYER':
+			// var player = new Player();
+			var player = {
+				type: 'Warrior',
+				generator: BattleTimer2.battleTimer(),
+				percentage: 0,
+				ready: false,
+				id: ++playerIDSeed
+			};
+			return player;
+
+		case 'TICK':
+			var timerResult = state.generator.next(action.difference);
+			if(timerResult.value === undefined)
 			{
-				percentage: timerResult.value.percentage,
-				ready: timerResult.value.percentage === 1
-			});
-	}
-	else
-	{
-		return state;
+				timerResult = state.generator.next(action.difference);
+			}
+			return Object.assign({},
+				state,
+				{
+					percentage: timerResult.value.percentage,
+					ready: timerResult.value.percentage === 1
+				});
+
+		default:
+			return state;
+
 	}
 }
 
@@ -68,9 +82,9 @@ function reducer(state=defaultState, action)
 	{
 		case TICK:
 			state = differenceReducer(state, action);
-			state.battleTimers = _.map(state.battleTimers, (t)=>
+			state.players = _.map(state.players, (p)=>
 			{
-				return battleTimerReducer(t, action);
+				return playerReducer(p, action);
 			});
 			return state;
 		
@@ -82,27 +96,18 @@ function reducer(state=defaultState, action)
 			state.running = false;
 			return state;
 
-		case ADD_BATTLETIMER:
-			state.battleTimers = [
-				...state.battleTimers,
-				{
-					generator: BattleTimer2.battleTimer(),
-					percentage: 0,
-					id: state.battleTimerSeedID + 1,
-					ready: false
-				}
+		case ADD_PLAYER:
+			state.players = [
+				...state.players,
+				playerReducer(undefined, action)
 			];
-			state = Object.assign({}, state,
-			{
-				battleTimerSeedID: state.battleTimerSeedID + 1
-			});
 			return state;
 
-		case REMOVE_BATTLETIMER:
-			var index = _.findIndex(state.battleTimers, t => t.id === action.id);
-			state.battleTimers = [
-				...state.battleTimers.slice(0, index),
-				...state.battleTimers.slice(index + 1)
+		case REMOVE_PLAYER:
+			var index = _.findIndex(state.players, t => t.id === action.id);
+			state.players = [
+				...state.players.slice(0, index),
+				...state.players.slice(index + 1)
 			];
 			return state;
 
@@ -132,19 +137,21 @@ function run()
 	  applyMiddleware(sagaMiddleware)
 	)
 
-	sagaMiddleware.run(timerFlow)
+	sagaMiddleware.run(timerFlow);
 
 	store.subscribe(() =>
 	{
 		// console.log("state:", store.getState());
-		mapToBattleTimerBars(store.getState().battleTimers);
+		var state = store.getState();
+		mapToBattleTimerBars(state.players);
+		mapToSprites(state.players);
 	});
 
 	delayed(2000, ()=>
 	{
-		store.dispatch({type: ADD_BATTLETIMER});
-		store.dispatch({type: ADD_BATTLETIMER});
-		store.dispatch({type: ADD_BATTLETIMER});
+		store.dispatch({type: ADD_PLAYER});
+		store.dispatch({type: ADD_PLAYER});
+		store.dispatch({type: ADD_PLAYER});
 	});
 
 	delayed(3000, ()=>
@@ -154,15 +161,13 @@ function run()
 
 	delayed(4000, ()=>
 	{
-		store.dispatch({type: REMOVE_BATTLETIMER, id: 2})
+		store.dispatch({type: REMOVE_PLAYER, id: 2})
 	});
 
 	delayed(5000, ()=>
 	{
 		store.dispatch({type: STOP_TIMER})
 	});
-
-	
 
 	initializeGUI();
 }
@@ -172,6 +177,7 @@ var stage;
 var startX = 20;
 var startY = 20;
 var battleTimerBarMap = new Map();
+var playerSpriteMap = new Map();
 
 function initializeGUI()
 {
@@ -191,16 +197,25 @@ function createBattleTimerBar(x, y, stage)
 	return bar;
 }
 
-function mapToBattleTimerBars(battleTimers)
+function createPlayerSprite(x, y, stage)
 {
-	if(battleTimers && battleTimers.length > 0)
+	var sprite = new Warrior();
+	stage.addChild(sprite.sprite);
+	sprite.sprite.x = x;
+	sprite.sprite.y = y;
+	return sprite;
+}
+
+function mapToBattleTimerBars(players)
+{
+	if(players && players.length > 0)
 	{
 		// ghetto loop, not very functional slacker, TODO
 
 		// first, remove ID's that aren't there
 		battleTimerBarMap.forEach((bar, id)=>
 		{
-			var index = _.findIndex(battleTimers, o => o.id === id);
+			var index = _.findIndex(players, o => o.id === id);
 			if(index === -1)
 			{
 				battleTimerBarMap.delete(id);
@@ -209,18 +224,52 @@ function mapToBattleTimerBars(battleTimers)
 		});
 
 		// second, create new ones and update all percentages
-		_.forEach(battleTimers, (t)=>
+		var localY = startY;
+		_.forEach(players, (p)=>
 		{
 			// have one already?
-			var bar = battleTimerBarMap.get(t.id);
+			var bar = battleTimerBarMap.get(p.id);
 			if(bar === undefined)
 			{
-				bar = createBattleTimerBar(startX, startY, stage);
-				startY += BattleTimerBar.HEIGHT + 20;
-				battleTimerBarMap.set(t.id, bar);
+				console.log("localY:", localY);
+				bar = createBattleTimerBar(startX, localY, stage);
+				battleTimerBarMap.set(p.id, bar);
 			}
-			bar.percentage = t.percentage;
+			localY += BattleTimerBar.HEIGHT + 20;
+			bar.percentage = p.percentage;
 			bar.render();
+		});
+	}
+}
+
+function mapToSprites(players)
+{
+	if(players && players.length > 0)
+	{
+		// first, remove ID's that aren't there
+		playerSpriteMap.forEach((sprite, id)=>
+		{
+			var index = _.findIndex(players, o => o.id === id);
+			if(index === -1)
+			{
+				playerSpriteMap.delete(id);
+				stage.removeChild(sprite.sprite);
+			}
+		});
+
+		// second, create new ones and update all percentages
+		var localY = startY;
+		_.forEach(players, (p)=>
+		{
+			// have one already?
+			var sprite = playerSpriteMap.get(p.id);
+			if(sprite === undefined)
+			{
+				console.log("localY:", localY);
+				sprite = createPlayerSprite(startX + 100, localY, stage);
+				playerSpriteMap.set(p.id, sprite);
+			}
+			localY += Warrior.HEIGHT + 20;
 		});
 	}
 }
