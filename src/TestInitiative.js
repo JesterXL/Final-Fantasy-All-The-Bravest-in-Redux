@@ -36,7 +36,8 @@ function battleTimerReducer(state, action)
 		return Object.assign({},
 			state,
 			{
-				percentage: timerResult.value.percentage
+				percentage: timerResult.value.percentage,
+				ready: timerResult.value.percentage === 1
 			});
 	}
 	else
@@ -87,7 +88,8 @@ function reducer(state=defaultState, action)
 				{
 					generator: BattleTimer2.battleTimer(),
 					percentage: 0,
-					id: state.battleTimerSeedID + 1
+					id: state.battleTimerSeedID + 1,
+					ready: false
 				}
 			];
 			state = Object.assign({}, state,
@@ -135,7 +137,7 @@ function run()
 	store.subscribe(() =>
 	{
 		// console.log("state:", store.getState());
-		reduceBattleTimers(store.getState().battleTimers);
+		mapToBattleTimerBars(store.getState().battleTimers);
 	});
 
 	delayed(2000, ()=>
@@ -189,7 +191,7 @@ function createBattleTimerBar(x, y, stage)
 	return bar;
 }
 
-function reduceBattleTimers(battleTimers)
+function mapToBattleTimerBars(battleTimers)
 {
 	if(battleTimers && battleTimers.length > 0)
 	{
