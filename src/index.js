@@ -20,7 +20,8 @@ import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 // import './com/jessewarden/ff6rx/sagas/TestSagas';
 // import './TestBattleTimers';
 // import './TestBattleTimerBars';
-import './TestInitiative';
+// import './TestInitiative';
+import './TestMovieClip';
 
 export class Application
 {
