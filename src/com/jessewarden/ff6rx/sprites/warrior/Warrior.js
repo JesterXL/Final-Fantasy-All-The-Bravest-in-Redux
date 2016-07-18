@@ -9,11 +9,13 @@ class Warrior
 
 	get sprite()
 	{
-		return this.movie;
+		return this._container;
 	}
 
 	constructor()
 	{
+		this._container = new PIXI.Container();
+
 		var prefix = 'src/com/jessewarden/ff6rx/sprites/warrior/';
 		var attack = prefix + "warrior_attack.png";
 		var attack2 = prefix + 'warrior_attack2.png';
@@ -50,6 +52,31 @@ class Warrior
 		];
 		this.movie = new PIXI.extras.MovieClip(this.textureArray);
 		this.movie.animationSpeed = 0.1;
+		this._container.addChild(this.movie);
+
+		var blueBlank = prefix + 'frame-blank.png';
+		var blue1 = prefix + "frame-000000.png";
+		var blue2 = prefix + "frame-000001.png";
+		var blue3 = prefix + "frame-000002.png";
+		var blue4 = prefix + "frame-000003.png";
+		this.blueBlank = new PIXI.Texture.fromImage(blueBlank);
+		this.blueLine1 = new PIXI.Texture.fromImage(blue1);
+		this.blueLine2 = new PIXI.Texture.fromImage(blue2);
+		this.blueLine3 = new PIXI.Texture.fromImage(blue3);
+		this.blueLine4 = new PIXI.Texture.fromImage(blue4);
+		this.blueAttack = new PIXI.extras.MovieClip([
+			this.blueBlank,
+			this.blueLine1,
+			this.blueLine2,
+			this.blueLine3,
+			this.blueLine4,
+			this.blueBlank
+		]);
+		this._container.addChild(this.blueAttack);
+		this.blueAttack.loop = false;
+		this.blueAttack.gotoAndStop(0);
+		this.blueAttack.x = -100;
+		this.blueAttack.y = -47;
 	}
 
 	play()
@@ -107,6 +134,13 @@ class Warrior
 	{
 		this.movie.textures = [this.raiseTexture];
 		this.showFirstFrame();
+	}
+
+	attackAnimation()
+	{
+		this.blueAttack.animationSpeed = 0.4;
+		this.blueAttack.gotoAndStop(1);
+		this.blueAttack.play();
 	}
 }
 

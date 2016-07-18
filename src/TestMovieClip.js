@@ -52,11 +52,11 @@ var startWY = w.sprite.y;
 var bezier = [
 	{ x: startWX, y: startWY}, 
 	{x: 100, y: 100},
-	{ x: 20, y: 200}
+	{ x: 50, y: 200}
 ];
 
 var bezier2 = [
-	{ x: 20, y: 200},
+	{ x: 50, y: 200},
 	{x: 100, y: 100},
 	{ x: startWX, y: startWY}
 ];
@@ -76,6 +76,7 @@ tl.add( TweenMax.to(w.sprite, 0.6, {
 tl.add( TweenMax.to(w.sprite, 0.3, {onStart: ()=>
 {
 	w.attack2();
+	w.attackAnimation();
 }}));
 tl.add( TweenMax.to(w.sprite, 0.3, {onStart: ()=>
 {
@@ -84,6 +85,7 @@ tl.add( TweenMax.to(w.sprite, 0.3, {onStart: ()=>
 tl.add( TweenMax.to(w.sprite, 0.3, {onStart: ()=>
 {
 	w.attack2();
+	w.attackAnimation();
 }}));
 tl.add( TweenMax.to(w.sprite, 0.6, {
 	bezier: {
