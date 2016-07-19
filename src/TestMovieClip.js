@@ -61,7 +61,7 @@ var bezier2 = [
 	{ x: startWX, y: startWY}
 ];
 
-tl.add( TweenMax.to(w.sprite, 0.6, {
+tl.add( TweenMax.to(w.sprite, 0.7, {
 	bezier: {
 		type: 'thru',
 		values: bezier,
@@ -87,7 +87,7 @@ tl.add( TweenMax.to(w.sprite, 0.3, {onStart: ()=>
 	w.attack2();
 	w.attackAnimation();
 }}));
-tl.add( TweenMax.to(w.sprite, 0.6, {
+tl.add( TweenMax.to(w.sprite, 0.7, {
 	bezier: {
 		type: 'thru',
 		values: bezier2,
@@ -96,10 +96,12 @@ tl.add( TweenMax.to(w.sprite, 0.6, {
 	ease: Linear.easeInOut, onStart: ()=>
 {
 	w.raise();
+	w.faceRight();
 },
 onComplete: ()=>
 {
 	w.stand();
+	w.faceLeft();
 	tl.restart();
 }}));
 

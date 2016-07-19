@@ -142,6 +142,19 @@ class Warrior
 		this.blueAttack.gotoAndStop(1);
 		this.blueAttack.play();
 	}
+
+	faceRight()
+	{
+		var w = this.movie.width;
+		this.movie.width = -w;
+		this.movie.x += w;
+	}
+
+	faceLeft()
+	{
+		this.movie.width = -this.movie.width;
+		this.movie.x = 0;
+	}
 }
 
 export default Warrior
