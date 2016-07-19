@@ -1,6 +1,7 @@
 import PIXI from "pixi.js";
 import _ from "lodash";
 import "gsap";
+import "howler";
 
 class Warrior
 {
@@ -77,6 +78,10 @@ class Warrior
 		this.blueAttack.gotoAndStop(0);
 		this.blueAttack.x = -100;
 		this.blueAttack.y = -47;
+
+		this.hitSound = new Howl({
+		  urls: ['src/audio/claw-slash.wav']
+		});
 	}
 
 	play()
@@ -141,6 +146,7 @@ class Warrior
 		this.blueAttack.animationSpeed = 0.4;
 		this.blueAttack.gotoAndStop(1);
 		this.blueAttack.play();
+		this.hitSound.play();	
 	}
 
 	faceRight()
