@@ -82,6 +82,8 @@ class Warrior
 		this.hitSound = new Howl({
 		  urls: ['src/audio/claw-slash.wav']
 		});
+
+		this.facingLeft = true;
 	}
 
 	play()
@@ -135,6 +137,24 @@ class Warrior
 		this.showFirstFrame();
 	}
 
+	hitAnimation()
+	{
+		if(_.isNil(this.hitAnimationTimeline))
+		{
+			this.hitAnimationTimeline = new TimelineMax();
+			var tl = this.hitAnimationTimeline;
+			var startX = 0;
+			const movement = 20;
+			tl.to(this.movie, 0.08, {x: startX - movement, ease: Linear.easeOut})
+			.to(this.movie, 0.08, {x: startX + movement, ease: Linear.easeOut})
+			.to(this.movie, 0.08, {x: startX - movement, ease: Linear.easeOut})
+			.to(this.movie, 0.08, {x: startX + movement, ease: Linear.easeOut})
+			.to(this.movie, 0.08, {x: startX - movement, ease: Linear.easeOut})
+			.to(this.movie, 0.01, {x: 0, ease: Linear.easeOut});
+		}
+		tl.restart();
+	}
+
 	raise()
 	{
 		this.movie.textures = [this.raiseTexture];
@@ -146,20 +166,29 @@ class Warrior
 		this.blueAttack.animationSpeed = 0.4;
 		this.blueAttack.gotoAndStop(1);
 		this.blueAttack.play();
-		this.hitSound.play();	
+		this.hitSound.play();
 	}
 
 	faceRight()
 	{
-		var w = this.movie.width;
-		this.movie.width = -w;
-		this.movie.x += w;
+		if(this.facingLeft)
+		{
+			this.facingLeft = false;
+		
+			var w = this.movie.width;
+			this.movie.width = -w;
+			this.movie.x += w;
+		}
 	}
 
 	faceLeft()
 	{
-		this.movie.width = -this.movie.width;
-		this.movie.x = 0;
+		if(this.facingLeft === false)
+		{
+			this.facingLeft = true;
+			this.movie.width = -this.movie.width;
+			this.movie.x = 0;
+		}
 	}
 }
 

@@ -1,0 +1,3241 @@
+Final Fantasy III (VI)
+                             Algorithms FAQ V 2.3
+                             
+                                      By
+
+                       Terii senshi (teriisenshi@aol.com)
+
+*****************
+Table of Contents
+*****************
+
+1.0 Introduction
+
+2.0 Basic Algorithms
+   2.1  Damage Calculation
+   2.2  Hit Determination
+   2.3  Random encounters
+   2.4  Averaging levels
+   2.5  Desperation attacks
+   2.6  Character Stats
+   2.7  Status Effects
+   2.8  Battle Timing
+   2.9  Dropped Items
+   2.10 Find Doom Gaze
+   2.11 Saving Cid
+   2.12 Umaro's attacks
+   2.13 Running from combat
+   2.14 Shadow Leaving
+   2.15 Pincer, Side, Back, and Preemptive attacks
+   2.16 Veldt
+
+3.0 Weapons
+   3.1  Randomly casts spell
+   3.2  Casts spell when used
+   3.3  Deals normal damage from the back row
+   3.4  Uses MP to do critical hits
+   3.5  Ignores Defense
+   3.6  Randomly kills enemy
+   3.7  Atma Weapon
+   3.8  Dice
+   3.9  Drainer
+   3.10 Fixed Dice
+   3.11 Hawk Eye
+   3.12 Heal Rod
+   3.13 Imp Halberd
+   3.14 Illumina
+   3.15 Man Eater
+   3.16 Ogre Nix
+   3.17 Scimitar
+   3.18 Sniper
+   3.19 Soul Sabre
+   3.20 Tempest
+   3.21 Thief Knife
+   3.22 Valiant Knife
+   3.23 Empty (Fists)
+
+4.0 Armors
+   4.1 Casts spell when used
+   4.2 Imp Equipment
+   4.3 Beret
+   4.4 Coronet
+   4.5 Cursed Shield
+   4.6 Force Shield
+   4.7 Mirage Vest
+   4.8 Thornlet
+
+5.0 Relics
+   5.1  Atlas Armlet
+   5.2  Black Belt
+   5.3  Charm Bangle
+   5.4  Cursed Ring
+   5.5  Dragon Horn
+   5.6  Earrings
+   5.7  Gauntlet
+   5.8  Genji Glove
+   5.9  Hero Ring
+   5.10 Hyper Wrist
+   5.11 Marvel Shoes
+   5.12 Offering
+   5.13 Relic Ring
+   5.14 Ribbon
+   5.15 Sneak Ring
+   5.16 Sniper Sight
+   5.17 Tintinabar
+   5.18 True Knight
+
+6.0 Commands
+   6.1 Capture
+   6.2 Dance
+   6.3 GP Rain
+   6.4 Morph
+   6.5 Throw
+   6.6 Steal
+   6.7 Sketch
+   6.8 Control
+   6.9 Jump
+
+7.0 Espers
+   7.1 Earth Wall (Golem)
+   7.2 Metamorph (Ragnarok)
+
+8.0 Lores
+   8.1  Dischord
+   8.2  Exploder
+   8.3  L.4 Flare
+   8.4  L.5 Doom
+   8.5  L.3 Muddle
+   8.6  L.? Pearl
+   8.7  Pearl Wind
+   8.8  Pep Up
+   8.9  Reflect???
+   8.10 Revenge
+   8.11 Step Mine
+   8.12 Stone
+
+9.0 Blitzes
+   9.1 Mantra
+   9.2 Spiraler
+   9.3 Suplex
+
+10.0 Enemy Attacks
+   10.1 Flare Star
+   10.2 N. Cross
+
+11.0 Spell Listings
+
+
+
+Version Changes:
+
+2.3 3/10/2004. Adding details to section 2.8 Battle timing for how often
+Poison/Regen/Seizure damage is taken, how long Condemned, Stop, Refelect,
+Freeze and Sleep status last, and how frequently characters get a chance to run.
+Corrected the amount of Vigor monsters start with. Added to the Condemned status
+details on how the value of the timer is determined. Removed groups that
+couldn't actually be encountered from the Veldt listings.
+
+Revised Suplex description (section 9.3). Switched
+probabilities for 1st and 2nd Sketch attacks (section 6.7). Added notes for
+Sketch (6.7) and Control (6.8). Added note to Mute status (section 2.7). Added
+hit rate note for Stunner SwdTech (section 11.0).
+
+Finally fixed the inequalities in both Chances to Hit formulas. Added Defend
+to the Physical Damage Calculation (step 6d). Slightly adjusted one of the
+Metamorph success percentages. :) Fixed the algorithm for determining maximum
+enemy Stamina (section 2.6). Adjusted the Defense boost given by Imp equipment
+to non-Imps (section 4.2). Adjusted the Bat Pwr boost given by Imp Halberd to
+non-Imps (section 3.13). Adjusted the Bat Pwr boost given to Imps by weapons
+besides Imp Halberd (section 2.7). Added Seizure note for Stamina (section 2.6)
+in keeping with section 2.7. Minor change to Genji Glove (sections 5.8 and 2.1)
+to account for barehanded characters. Fixed probability of Wind Slash being
+cast with Tempest (section 3.20). Made a few changes to Steal algorithm
+(section 6.6) Added damage limit to Poison status (section 2.7). Differentiated
+Mag Roader types in the Veldt group listing. Revised explanation of how you can
+encounter undead SrBehemoth in two different Veldt groups. Added the Empty
+(Fists) item to the weapons (section 3.23). Various spelling and grammatical
+corrections, and other minor changes.
+
+
+2.2 2/29/2004. Added step 5 to damage calculation, modified steps 1 and 7. This
+splits the "damage multipliers" step into 2 steps, the way it's supposed to be.
+Modified step 4 in hit determination to account for getting hit in the back.
+Added section 2.12 Umaro's attacks, 2.13 Running from combat, and 2.14 Shadow
+leaving, 2.15 Pincer, Side, Back, and Preemptive attacks. Added to the Berserk
+and Muddle status. Made corrections to 2.11 Saving Cid section. Made small
+corrections to sections 2.2 and 2.16. Revised step 1 of damage calculation to
+make magic attacks made by monsters accurate.
+   
+2.1 7/1/2003. Made some corrections to section 3.1 - Randomly casts spell.
+Added a section for the Jump command (section 6.9). Fixed a few other typos
+and such.
+
+2.0 6/24/2003. Fixed a mistake in physical damage calculation. Added Desert
+Aria to the list of dances. Added step 6 of damage calculation. Added sections
+3.1 to 3.6 to the weapons section. Added sections 4.1 and 4.2 to the armor
+sections. Added info for Black Belt relic. Corrected an error in the Steal
+command section. Added Shock to the spell listing. Added info for saving Cid
+and finding Doom Gaze.
+
+1.6 6/3/2002. Added a section for the Veldt, a section for enemy attacks, and
+a section for dropped items. Added Dispatch to the spell stats list (it was
+blank before). Made corrections and/or additions to: Damage Determination, Hit
+Determination, Desperation Attacks, Steal, Morph, Atma Weapon, Spell Stats
+list.
+
+1.5 2/11/2002. Added Character stats, status effects, and battle timing
+sections. Added Morph, Dance, and Capture. Made corrections and/or additions
+to: Desperation attacks, Atma Weapon, Tintinabar, and True Knight. Added a
+listing of spell powers for all attacks.
+
+1.4 10/29/2001. Pretty much changed everything. Added averaging levels and
+desperation attacks sections. Added many more weapons. Added armors, lores,
+and blitzes sections. Made many changes and minor corrections to the other
+sections
+
+1.3 9/10/2001. Added Genji Glove, Earth Wall, and Stone. Corrected or added
+to Physical Damage Calculation, Random Encounters, Chance to Hit, Dice, Fixed
+Dice, Gauntlet, and Metamorph.
+
+1.2 Added chance to hit calculation, steal command, sneak ring, and Metamorph.
+Changed the layout slightly.
+
+1.1 Added a 100% accurate physical damage formula. Fixed a few other errors.
+
+1.0 The original version.
+
+
+Credits and Acknowledgements:
+
+Squaresoft
+  For making this game :)
+
+GameFAQs
+  For giving me a place other than my website to post my FAQ
+
+Everyone at FF3 Message Boards on GameFAQS, especially Master Zed, Assassin17,
+Mech Gouki, Mnrogar, and anyone else who figured out some of the things I put
+in this FAQ. Thanks to Assassin17 for most of the changes in version 2.3
+
+
+
+******************
+ 1.0 Introduction
+******************
+
+This FAQ explains how the algorithms and calculations for Final Fantasy III
+work. It contains details on how damage is calculated, how random encounters
+are determined, as well as how other items and things work.  Obviously, this
+FAQ doesn't cover everything, but it's getting closer.
+
+NOTE: All divisions done in all calculations are integer division. This means
+the result after the division is truncated (rounded down), so (4 / 2) = 2,
+(8 / 3) = 2, and ((17 / 2) / 5) = (8 / 5) = 1.
+
+
+[A..B] is used to indicate a random number between A and B inclusive. For
+example [2..4] is a random number: either 2, 3, or 4.
+
+
+                            **********************
+                             2.0 Basic Algorithms
+                            **********************
+
+
+************************
+ 2.1 Damage calculation
+************************
+
+Determining the amount of damage an attack can do is complicated, and I broke
+it down into 9 steps. The 1st step has 4 parts. Depending on whether the attack
+is physical or magical, and whether the attacker it a character or monster, it
+uses a different part of step 1. After step 1, you have the base maximum
+damage that the attack can do. The following 8 steps will further modify the
+damage, and are used for all attacks, magical or physical, made by monsters or
+characters. At the end of all steps you will have the amount of damage the
+attack can do.
+
+
+Step 1. Maximum damage calculation
+
+  For magical attacks made by characters:
+
+    Damage = Spell Power * 4 + (Level * Magic Power * Spell Power / 32)
+
+  
+  For magical attacks made by monsters:
+
+    Damage = Spell Power * 4 + (Level * (Magic Power * 3/2) * Spell Power / 32)
+
+
+  For physical attacks made by characters :
+
+    Step 1a. Vigor2 = Vigor * 2
+             If Vigor >= 128 then Vigor2 = 255 instead
+
+    Step 1b. Attack = Battle Power + Vigor2
+
+    Step 1c. If equipped with Gauntlet, Attack = Attack + Battle Power * 3 / 4
+
+    Step 1d. Damage = Battle Power + ((Level * Level * Attack) / 256) * 3 / 2
+
+    Step 1e. If character is equipped with an Offering:
+
+    Damage = Damage / 2
+
+    Step 1f. If the attack is a standard fight attack and the character is
+    equipped with a Genji Glove, but only one or zero weapons:
+
+    Damage = ceil(Damage * 3 / 4)
+
+
+  For physical attacks made by monsters :
+        
+    Step 1a. Damage = Level * Level * (Battle Power * 4 + Vigor) / 256
+
+    Note that vigor for each monster is randomly determined at the beginning of
+    the battle as [56..63]
+
+
+Step 2. Atlas Armlet / Earring
+
+  Step 2a. If physical attack and attacker is equipped with Atlas Armlet or
+  Hero Ring:
+
+  Damage = Damage * 5/4
+
+  Step 2b. If magical attack and attacker is equipped with 1 Earring or
+  Hero Ring:
+
+  Damage = Damage * 5/4 
+
+  Step 2c. If magical attack and attacker is equipped with 2 Earrings / Hero
+  Rings:
+
+  Damage = Damage + (Damage / 4) + (Damage / 4)
+
+
+Step 3. Multiple targets
+
+  If magical attack and the attack is targeting more than one target:
+
+  Damage = Damage / 2
+
+  Note: Some spells skip this step
+
+
+Step 4. Attacker's row
+
+  If Fight command and the attacker is in the back row:
+
+  Damage = Damage / 2
+
+
+Step 5. Damage Multipliers #1
+
+  The damage multiplier starts out = 0.
+
+  The following add to the damage multiplier:
+
+  Morph (attacker) - If Attacker has morph status add 2 to damage multiplier
+
+  Berserk - If physical attack and attacker has berserk status add 1 to damage
+  multiplier
+  
+  Critical hit -
+    Standard attacks have a 1 in 32 chance of being a critical hit. If attack
+    is a critical hit add 2 to damage multiplier
+
+  Step 5a. Damage = Damage + ((Damage / 2) * damage multiplier)
+
+
+Step 6. Damage modification
+
+  Step 6a. Random Variance
+
+    Damage = (Damage * [224..255] / 256) + 1
+
+  Step 6b. Defense modification
+
+    Damage = (Damage * (255 - Defense) / 256) + 1
+
+    Magical attacks use Magic defense
+
+  Step 6c. Safe / Shell
+
+    If magical attack and target has shell status, or physical attack and
+    target has safe status:
+
+    Damage = (Damage * 170 / 256) + 1
+
+  Step 6d. Target Defending
+
+    If physical attack and target is Defending:
+
+    Damage = Damage / 2
+
+  Step 6e. Target's row
+
+    If physical attack and target is in back row:
+
+    Damage = Damage / 2
+
+  Step 6f. Morph (target)
+
+    If magical attack and target has morph status:
+
+    Damage = Damage / 2
+    
+  Step 6g. Self Damage
+
+    Healing attacks skip this step
+
+    If the attacker and target are both characters:
+
+    Damage = Damage / 2
+
+
+Step 7. Damage multipliers #2
+
+  The damage multiplier starts out = 0.
+
+  The following add to the damage multiplier:
+
+  Hitting target in back - If physical attack and attack hits the back of the
+    target, then 1 is added to the damage multiplier
+
+  Step 7a. Damage = Damage + ((Damage / 2) * damage multiplier)
+
+
+Step 8. Petrify damage
+
+  If the target has petrify status, then damage is set to 0.
+
+
+Step 9. Elemental resistance
+
+  For each step, if the condition is met, no further steps are checked. So for
+  example, if the target absorbs the element, then steps 9c to 9e are not
+  checked.
+
+  Step 9a. If the element has been nullified (by Force Field), then: Damage = 0.
+
+  Step 9b. If target absorbs the element of the attack, then damage is
+           unchanged, but it heals HP instead of dealing damage
+
+  Step 9c. If target is immune to the element of the attack: Damage = 0
+
+  Step 9d. If target is resistant to the element of the attack:
+           Damage = Damage / 2
+
+  Step 9e. If target is weak to the element of the attack: Damage = Damage * 2
+
+
+***********************
+ 2.2 Hit Determination
+***********************
+
+  If at any step the attack always hits or always misses, then any further
+  steps are skipped.
+
+  Step 1. Clear
+
+    If physical attack and the target has clear status, the attack always misses
+    If magical attack and the target has clear status, the attack always hits.
+
+  Step 2. Death Protection
+
+    If the target is protected from Wound status, and the attack misses death
+    protected targets, then the attack always misses.
+
+  Step 3. Unblockable attacks
+
+    If the spell is unblockable, then it always hits.
+
+  Step 4. Check to hit for normal attacks
+
+    Attacks which can be blocked by Stamina skip this step, and instead use
+    step 5.
+
+    Step 4a. If target has Sleep, Petrify, Freeze, or Stop status, then the
+             attack always hits.
+
+    Step 4b. If attack is physical and hits the back of the target, then it
+             always hits.
+
+    Step 4c. If perfect (255) hit rate, then the attack always hits.
+
+    Step 4d. If physical attack, and target has Image status, then the attack
+             always misses, and there is a 1 in 4 chance of removing the
+             Image status.
+
+    Step 4e. Chance to hit
+
+      1. BlockValue = (255 - MBlock * 2) + 1
+ 
+      2. If BlockValue > 255 then BlockValue = 255
+         If BlockValue < 1 then BlockValue = 1
+
+      3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
+         you miss.
+
+  Step 5. Check to hit for attacks that can be blocked by Stamina
+
+    Most attacks use step 4 instead of this step. Only Break, Doom, Demi,
+    Quartr, X-Zone, W Wind, Shoat, Odin, Raiden, Antlion, Snare, X-Fer, and
+    Grav Bomb use this step.
+
+    Step 5a. Chance to hit
+
+      1. BlockValue = (255 - MBlock * 2) + 1
+ 
+      2. If BlockValue > 255 then BlockValue = 255
+         If BlockValue < 1 then BlockValue = 1
+
+      3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit, otherwise
+      you miss.
+
+    Step 5b. Check if Stamina blocks
+
+      If target's stamina >= [0..127] then the attack misses (even if it hit in
+      step 5a); otherwise, the attack hits as long as it hit in step 5a.
+
+
+***********************
+ 2.3 Random Encounters
+***********************
+
+The game keeps a counter that increases each time you take a step. Walking on
+the overworld map adds 192 to the counter for each step taken; walking in
+caves, towns, etc. where monsters can be encountered adds 112 to the counter
+for each step. Each step, a random number is picked from 0 to 255; if this
+number is less than (counter / 256 ) then a fight occurs. When a random
+encounter occurs, the counter is reset to 0.  If the lead party member has a
+Charm Bangle equipped, then the number added is cut in half. If Mog has the
+Moogle Charm equipped, then the counter is not increased, and there is no
+chance of random encounters.
+
+
+**********************
+ 2.4 Averaging levels
+**********************
+
+When a character first joins your party (in the World of Balance, or the World
+of Ruin), their level is calculated based on the average level of your current
+party members.  The level for characters is also recalculated at a few other
+points in the game as well.  When you first start the game with Terra, her
+level is always 3.
+
+The new character's level =
+Average of all current members' levels (rounded down)
+
+If a character is joining in the WoR, then the new level will never be lower
+than their old level.
+
+If a character is joining for the first time, then a value is added to the
+average party level to determine their new level, as follows for each
+character:
+
+Terra  : +0
+Locke  : +2
+Cyan   : +2
+Shadow : +0
+Edgar  : +2
+Sabin  : +2
+Celes  : +0
+Strago : +2
+Relm   : +0
+Setzer : +0
+Mog    : +5
+Gau    : +2
+Gogo   : +2
+Umaro  : +0
+Banon  : -3
+Leo    : +5
+
+
+*************************
+ 2.5 Desperation Attacks
+*************************
+
+If you attack while the character's current HP < their max HP / 8, then there
+is a 1 in 16 chance of doing a desperation attack instead of a normal attack.
+
+Gau and Umaro do not have desperation attacks.
+
+If the character has any of the following statuses, then they will never do
+a desperation attack: Muddle, Image, Clear, Zombie
+
+Characters will never use their desperation attack more than once each combat.
+
+While the Battle Time Counter (See section 2.8 Battle Timing) is less than
+768, characters won't use their desperation attacks. (i.e. Characters will
+never use Desperation Attacks during the first 25.6 seconds of combat)
+
+All Desperation attacks are unblockable (see step 3 in hit determination)
+
+All Desperation attacks are magical attacks, that ignore defense (skip steps
+5, 6b, 6c, 6d, 6e, 6f, and 7 in damage calculation.)
+
+Sabre Soul and Star Prism are instant death attacks, rather than damage-dealing
+attacks like the others. Shadow Fang will also inflict seizure status.
+
+Here is every character's desperation attack:
+
+Char     Attack              Power
+Locke    Mirager             139
+Terra    Riot Blade          142
+Celes    Spin Edge           143
+Edgar    Royal Shock         143
+Sabin    Tiger Break         140
+Cyan     Back Blade          140
+Mog      Moogle Rush         150
+Strago   Sabre Soul            0
+Relm     Star Prism            0
+Shadow   Shadow Fang         140
+Setzer   Red Card            147
+Gogo     X-Meteo             146
+
+
+*********************
+ 2.6 Character Stats
+*********************
+
+Vigor:
+
+Higher vigor increases damage done by physical attacks (see section 2.1
+Damage calculation).  Raising Vigor over 128 with relics and equipment does
+no more damage than having a Vigor of 128.
+
+Monsters do not have individual Vigor stats; instead, their vigor is randomly
+determined at the beginning of combat as : [56..63]
+
+
+Speed:
+
+The higher speed a character has, the faster their ATB gauge increases in
+combat. (see section 2.8 Battle Timing)
+
+
+Stamina:
+
+Stamina increases you chance of blocking most instant death attacks. (see
+section 2.2 Hit Determination, step 5)
+
+Stamina increases the amount of HP gained by Tintinabar (see section 5.17),
+and Regen (see section 2.7 Status effects), as well as the damage done by poison
+and seizure (see section 2.7 Status Effects).
+
+As with Vigor, monsters do not have individual Stamina stats; a monster's
+Stamina is figured as follows:
+
+Stamina = (Max HP / 512) + 16. If this number is greater than 40, then the
+monster's stamina is 40 instead.
+
+
+Mag. Pwr:
+
+Mag. Pwr increases damage done by magical attacks (see section 2.1 Damage
+Calculation). Unlike Vigor, increasing Mag. Pwr over 128 is more effective.
+
+
+Evade%:
+
+Evade% is supposed to increase the chance of dodging physical attacks, but due
+to a bug in the game, Evade% has no effect, so don't bother trying to
+increase it.
+
+
+MBlock%:
+
+MBlock% increases the chance of dodging attacks (due to a bug in the game, this
+affects both magical and physical attacks)
+
+
+********************
+ 2.7 Status Effects
+********************
+
+Dark:
+
+Dark is supposed to make it harder to hit with physical attacks, but due to
+the same bug that makes Evade useless, Dark does not decrease your chance to
+hit with physical attacks. The only effect Dark has is that Strago can't
+learn new lores while blinded.
+
+
+Zombie:
+
+While in Zombie status, a character is uncontrollable and automatically
+attacks. Characters in Zombie status do not die when reduced to 0 HP.
+
+When a zombie character hits, they have a 1 in 16 chance of inflicting
+dark status on the target, and a 1 in 16 chance of inflicting poison status
+on the target.
+
+
+Poison:
+
+While a character is poisoned, they will periodically take poison damage.
+Damage from poison is taken approximtely once every 17 seconds, more often if
+you're hasted, less often if you're slowed (see section 2.8 Battle Timing for
+exact details). The amount of damage done by poison is calculated as follows:
+
+Max Damage = (Max HP * stamina / 1024) + 2 (if this value is greater than
+255 it is set to 255)
+Damage = Max Damage * ([224..255]) / 256
+If a character is poisoned (instead of a monster), Damage = Damage / 2
+
+This damage is the amount of damage taken from Poison the first time in
+combat. The second time, the damage is double; the third time it is tripled,
+etc.  This damage levels off after the eighth round; in other words, the damage
+taken from Poison in a round (for characters or monsters) can't exceed 8x what
+it was the first round (random variance aside).
+
+Outside of combat, the amount of damage done per step is : (Max HP / 32). This
+will never reduce HP below 1.
+
+
+
+M-Tek:
+
+While in this status, the character is wearing Magitek Armor, they can't use
+their normal commands, and instead can only use M-Tek. Terra has extra
+M-Tek commands that other characters don't. If Umaro has this status, he will
+use a random M-Tek attack rather than his standard attacks.
+
+This status is only used three times in the game: in the beginning, in the
+camp in the desert, and in a part of Cyan's Dream.
+
+
+Clear:
+
+This status is inflicted by casting Vanish. While in this status, physical
+attacks will always miss the target, and magical attacks will always hit.
+
+Any magical attack will remove the clear status.
+
+
+Imp:
+
+While in Imp status a character can only use fight, item, and magic commands.
+The only magic that can be cast is Imp.
+
+While an Imp, the Battle Power of the character's weapon is not added to their
+base battle power when determining damage (1 is added instead), unless equipped
+with an Imp Halberd.
+
+For monsters, their battle power is instead considered to be 1 while an Imp.
+
+Some monsters however, retain their full battle power while imped, and do
+automatic critical hits as well.
+
+
+Petrify:
+
+While in Petrify status, the character cannot act. Their HP is reduced to 0, but
+they don't die.
+
+All damage done to a petrified character is reduced to 0 (see step
+8 in damage calculation). Note that the Atma weapon adds 1 to the damage after
+this, and thus can do 1 damage to a petrified character.
+
+Attacks always hit a character with Petrify status (see step 4a in hit
+determination).
+
+If a monster is ever inflicted with Petrify status, then they are automatically
+killed.
+
+
+Wound:
+
+This means the character is dead, and cannot act until revived.
+
+
+Condemned:
+
+In Condemned status, the character has a countdown over their head. When this
+countdown reaches 0, the character dies. The value that the countdown starts
+at is determined as follows:
+
+Timer = 79 - a random number from level to ((2 * level) - 1)
+If this value is less than 20 then the countdown is set to 20 instead
+Level refers to the level of the monster/character that cast the spell that
+caused Condemned status.
+
+The countdown timer is decreased by 1 approximately once every 2 seconds, more
+often if you're hasted, and less often if you're slowed (see section 2.8 Battle
+Timing for exact details).
+
+
+Near Fatal:
+
+This status means the character is below 1/8 of their max HP. Characters
+can use desperation attacks while in Near Fatal status (see section 2.5
+Desperation Attacks).
+
+
+Image:
+
+While in image status, all physical attacks will miss the character. Every time
+the character is missed by a physical attack, there is a 1 in 4 chance of the
+image status being removed.
+
+
+Mute:
+
+While in mute status, a character can't cast spells or lores.  If a spell or
+lore is confirmed before the character gets Muted, or if they're casting it
+via Rage or Sketch, they'll still be able to use it if it *normally* costs
+0 MP (Rage/Sketch making it free won't matter).
+
+
+Berserk:
+
+While in berserk status, a character is uncontrollable, and will automatically
+attack a random enemy. In berserk status characters do more damage (see step 5
+in damage calculation). To determine which command the character uses, a list
+is created. Each of these comands: Fight, Capture, Jump, Rage, and Magitek,
+that the character can use is added to the list. An extra Fight command is
+added as well (even if the character can't normally use the Fight command). One
+of the commands from the list is randomly chosen to be used. Monsters always do
+a standard attack while berserked. If a character selects a command before being
+berserked, but before they act, then the command selected is still executed.
+
+
+Muddle:
+
+Muddled characters are uncontrollable and will take random actions. If the
+action would normally target the enemy, it targets you characters instead.
+If the action would normally target your characters, it targets the enemies
+instead. The following commands will never be used when muddled: Item, Revert,
+Throw, Control, Slot, Leap, Def., Summon, and Possess.
+Being hit by a physical attack will remove Muddle status. If a character selects
+a command before being muddled, but before they act, then the command selected
+is still executed, although the target(s) change.
+
+
+Seizure:
+
+Seizure status causes periodic damage to the character, just like poison. The
+amount of damage done is the same as poison, except the damage does not
+increase over time.
+
+Damage from seizure is taken approximtely once every 8.5 seconds, more often if
+you're hasted, less often if you're slowed (see section 2.8 Battle Timing for
+exact details). 
+
+Since seizure status is not poison, spells / relics that prevent or cure
+poison will have no effect against seizure.
+
+
+Sleep:
+
+While asleep, characters cannot select commands.  While asleep, the character's
+ATB gauge does not increase. (see section 2.8 Battle Timing)
+
+All attacks will automatically hit a character with sleep status, and any
+physical attack will remove sleep status. A tapir will appear and wake up the
+monster/character after approximately 38 seconds, faster if you're hasted,
+slower if you're slowed (see section 2.8 Battle Timing for exact details)
+
+
+Dance:
+
+This is the status you receive when you successfully dance. While in dance
+status, a character is uncontrollable and instead randomly uses dance moves.
+See the section on the Dance command for more info.
+
+
+Regen:
+
+While in regen status, a character will be periodically healed. The amount
+of HP healed is calculated as follows:
+
+Max HP Gained = (Max HP * stamina / 1024) + 2 (if this value is greater than
+255 it is set to 255)
+HP Gained = Max HP Gained * ([224..255]) / 256
+
+HP is gained from Regen approximtely once every 8.5 seconds, more often if
+you're hasted, less often if you're slowed (see section 2.8 Battle Timing for
+exact details). 
+
+
+Slow:
+
+Slow status causes the character's ATB gauge increase at a slower than normal
+rate (See section 2.8 Battle Timing).
+
+
+Haste:
+
+Haste status causes the character's ATB gauge increase at a faster than normal
+rate (See section 2.8 Battle Timing).
+
+
+Stop:
+
+While stopped, a character's ATB gauge does not increase. Wears off after
+approximately 38 seconds, less time if you're hasted, and more time if you're
+slowed (See section 2.8 Battle timing for exact details)
+
+
+Shell:
+
+Shell status causes a character to take 170/256 normal damage from magical
+attacks (see step 6c in Damage Calculation). Defense ignoring attacks ignore
+shell status.
+
+
+Safe:
+
+Safe status causes a character to take 170/256 normal damage from physical
+attacks (see step 6c in Damage Calculation). Defense ignoring spells ignore
+safe status.
+
+
+Reflect:
+
+Reflect status causes spells to be reflected back at the caster's party.
+Reflected spells deal half normal damage. Not all spells are reflectable. Wears
+off after approximately 55 seconds, less time if you're hasted, and more time
+if you're slowed (See section 2.8 Battle timing for exact details)
+
+
+*******************
+ 2.8 Battle Timing
+*******************
+
+In battle, the game keeps track of a battle time counter. This counter is
+incremented by one approximately 30 times a second. If the "Bat. Mode" is
+set to "Wait", then the counter will not be incremented while you're
+selecting spells, items, etc. from the menu. Every time this counter is
+incremented, each character's and monster's ATB gauge is increased by the
+following amount:
+
+For characters:
+
+Normal speed:
+
+(96 * (Speed + 20)) / 16
+
+If Hasted:
+
+(126 * (Speed + 20)) / 16
+
+If Slowed:
+
+(48 * (Speed + 20)) / 16
+
+For monsters:
+
+Normal speed:
+
+((96 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+If Hasted:
+
+((126 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+If Slowed:
+
+((48 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+Battle Speed is controlled by the "Bat.Speed" option in the game's
+Config menu.
+
+Because Speed + 20 must fit in a single byte, any speed over 235 would
+result in a very slow-moving ATB gauge.
+
+Once the ATB gauge has reached 65536, then characters are able to select
+a command.  The battle time counter and ATB gauges will increase during
+attack animations, as well as while you select a command, but not while
+selecting spells, items, etc. from a menu if "Bat. Mode" is set to "Wait".
+
+
+Each character and monster also has an individual Time counter. Once every 16
+times that the Battle timer is increased these counters are increased by the
+following amount:
+
+If character/monster is at normal speed: 64
+If character/monster is hasted: 84
+If character/monster is slowed: 32
+
+
+If any character's/monster's time counter is over 255, then that counter is
+reduced by 256 and the following occur:
+
+
+If the character/monster has Stop status, then the "stop timer" is reduced by
+1. If the "stop timer" reaches 0, then Stop status is removed. When inflicted
+with Stop status, the "stop timer" is set 18.
+
+If the character/monster does not have Stop status then the following also
+occur:
+
+
+If the party is trying to run, then the character will get a chance to run (see
+section 2.13 Running From Combat)
+
+If the character/monster has Condemned status, the countdown is decreased by 1.
+(See the section for Condemned status)
+
+If they have Reflect status, then the "reflect timer" is reduced by 1. If the
+"reflect timer" reaches 0, then Reflect status is removed. When inflicted with
+Reflect status, the "reflect timer" is set 26.
+
+If they have Freeze status, then the "freeze timer" is reduced by 1. If the
+"freeze timer" reaches 0, then Freeze status is removed. When inflicted with
+Freeze status, the "freeze timer" is set 34.
+
+If they have Sleep status, then the "sleep timer" is reduced by 1. If the
+"sleep timer" reaches 0, then Sleep status is removed. When inflicted with
+Sleep status, the "sleep timer" is set 18.
+
+1 in 8 times, the character/monster will receive Poison damage if they are
+poisoned.
+
+2 in 8 times, the character/monster will receive Seizure damage if they have
+Seizure status.
+
+2 in 8 times, the character/monster will gain HP from Regen if they have Regen
+status.
+
+
+*******************
+ 2.9 Dropped Items
+*******************
+
+At the end of combat, the game checks each monster to see which item it will
+drop.  Each monster has a 1 in 8 chance of dropping their rare item; otherwise,
+they drop their common item.  If the monster doesn't have an item in that slot
+then it doesn't drop anything.
+
+Note that most monsters only have a rare item, and some monsters don't have
+either, which means they'll never drop an item.
+
+
+************************
+ 2.10 Finding Doom Gaze
+************************
+
+In the World of Ruin, if you haven't defeated Doom Gaze, Doom Gaze moves to a
+random location on the World Map every time you get on or off the airship.
+While you're flying around, Doom Gaze stays in the same location. Although its
+location is random, Doom Gaze always stays still while you're flying, so in
+order to ensure that you find Doom Gaze, you need to cover the entire map.
+
+
+*****************
+ 2.11 Saving Cid
+*****************
+
+When you're trying to save (or kill) Cid on the deserted island, the game
+keeps track of a counter for Cid's health.  This counter starts at 120 and
+decreases by 1 every second (when you're in the menu screen or a battle,
+the counter doesn't decrease).  Feeding Cid fish lowers or raises the counter,
+depending on the type of fish (as follows):
+
+Fish (Slow speed)            -16
+A Rotten Fish (Medium speed) -4
+Just a Fish (Medium speed)   +16
+A Yummy Fish (Fast speed)    +32
+
+If you feed him multiple fish at a time, the effects of all of the fish count.
+The type(s) of fish that are in the water is reset every time you talk to Cid.
+
+What Cid says when you talk to him depends on this "health" counter as follows:
+
+231 - 255 My dear, I ... feel I'm not going to be around much longer...
+
+201 - 230 CELES, thanks for all you've done for me!
+
+161 - 200 HackAck!! I feel a little better!
+
+121 - 160 Cough...wheeze...I can't bear this any longer...
+
+91  - 120 I...I'm not long for this cruel new world ...
+
+61  - 90  My worst nightmare is to think of you alone here on this wretched
+          island ... hack ... wheeze!!
+
+31  - 60  Cough...hack...ACK!! While I can still talk, I...wheeze...pant...want
+          to thank you...cough!
+
+0   - 30  Good-bye...
+
+If you enter his room when the counter is below 30, then Cid is dead when you
+talk to him (If the counter is over 30 when you enter, but lowers below 30 while
+you're in the room, Cid won't die until you leave and come back in).
+
+If you feed Cid fish which increase the counter to 256 or more, then Cid is
+saved.
+
+
+**********************
+ 2.12 Umaro's attacks
+**********************
+
+When Umaro attacks, he has 4 different attacks he can use: a standard attack,
+a charge attack where he flies at the enemy, a rage attack where he throws a
+character at the enemy (only if equipped with Rage Ring), and a Storm attack
+(only if equipped with Blizzard Orb).
+
+The chance he'll use each attack is:
+
+If no Rage Ring or Blizzard Orb equipped:
+
+159/255 chance : Normal attack
+96/255 chance  : Charge attack
+
+If equipped with a Rage Ring:
+
+95/255 chance  : Normal attack
+64/255 chance  : Charge attack
+96/255 chance  : Rage attack
+
+If equipped with a Blizzard Orb:
+
+95/255 chance  : Normal attack
+64/255 chance  : Charge attack
+96/255 chance  : Storm attack
+
+If equipped with a Rage Ring and Blizzard Orb:
+
+63/255 chance  : Normal attack
+64/255 chance  : Charge attack
+64/255 chance  : Storm attack
+64/255 chance  : Rage attack
+
+Normal Attack:
+
+This is just a normal fight attack, using the standard chance to hit, and
+damage calculations.
+
+Charge Attack:
+
+This attack uses the same chance to hit calculations as a normal attack. For
+determining damage, it uses the same calculations as a normal attack, except
+that it ignores defense (skips steps 5, 6b, 6c, 6d, 6e, 6f, and 7 in damage
+calculation)
+
+Storm Attack:
+
+This is the "Storm" monster attack (see section 11.0). It's a Magical attack
+with 100 Spell power that hits all enemies. It's also unblockable (see step 3
+in hit determination)
+
+Rage Attack:
+
+This is the attack where Umaro throws a character. In order to use this attack
+there must be at least one character besides Umaro that is alive and present.
+If there isn't then Umaro will do a charge attack instead.
+
+Umaro determines at random which character to throw. However, if any character
+has Sleep or Muddle status, then Umaro will always choose to throw that
+character. If more than one character has Sleep or Muddle status, then the
+character with Muddle or Sleep who is closest to the top of the screen is
+thrown. When a character is thrown, Sleep and Muddle status are automatically
+removed from them.
+
+The chance to hit is calculated normally. For determining damage, the battle
+power of the attack is equal to Umaro's battle power plus the thrown character's
+battle power (or 255 if that number is over 255). The attack is also defense
+ignoring (skips step 5, 6b, 6c, 6d, 6e, 6f, and 7 of damage calculation).
+
+
+
+**************************
+ 2.13 Running from combat
+**************************
+
+The chance to run from a combat is dependent on that character, which monster(s)
+are present, and how long you've been trying to run.
+
+The game keeps track of a "run difficulty" variable. In side attacks this
+value is 0; otherwise, the value is equal to 2 times the number of monsters
+present (some monsters are harder to run from and add 6 to this value instead
+of 2). There is also a "run success" variable for each character. This value
+starts at 0 for each character.
+
+Approximately once every 2 seconds, more often for hasted characters, less
+often for slowed characters (see section 2.8 Batle Timing for exact details),
+the game checks to see if the characters are trying to run (it won't check
+during attack animations). If they are trying to run, then each character's
+"run success" value is increased. The amount added is dependent on the
+character, and is a random number from 1 to a maximum value depending on the
+character as follows:
+
+Terra:     4
+Locke:     5
+Cyan:      3
+Shadow:    5
+Edgar:     4
+Sabin:     4
+Celes:     4
+Strago:    3
+Relm:      5
+Setzer:    4
+Mog:       5
+Gau:       5
+Gogo:      4
+Umaro:     3
+Banon:     2
+Leo:       3
+Vicks:     4
+Wedge:     4
+
+If the character's "run success" value is greater than or equal to the "run
+difficulty" value, and the character's ATB gauge is full, then they
+successfully run away, otherwise they keep trying, and 2 seconds later their
+"run success" value is increased again.
+
+If certain monsters are present (bosses, ninjas, phases, etc.) then characters
+can't run no matter what. They also can't run if caught in a pincer attack and
+monsters are still alive on both sides.
+
+
+*********************
+ 2.14 Shadow Leaving
+*********************
+
+Any time after the Imperial Camp, and before the Floating Continent, and not
+on the Phantom Train, if Shadow is in your party he has a chance to leave at
+the end of combat. He has a 1 in 16 chance of leaving at the end of every
+combat. If Shadow is the only character alive, then he won't run. If the
+combat is a pincer, side, or back attack he won't run. Shadow also won't run
+if he has Wound, Petrify, or Zombie status.
+
+
+*************************************************
+ 2.15 Pincer, Side, Back, and Preemptive attacks
+*************************************************
+
+Which type of battle you encounter depends on which types are allowed. If any
+character is equipped with a Back Guard, then Pincer and Back attacks are
+disabled. Depending on which monster formation you encounter certain types
+may be disabled as well. (Get FF3usME at http://www.angelire.com/pq/jumparound
+to see which battle types each formation allows). Most formations allow all
+types, some disabled pincer attacks, a few disable other types. Most boss
+battles disable all but Normal attacks.
+
+If only one type of battle is allowed, then that is the type of battle you
+encounter. Otherwise the chance for each depends on which are allowed as
+follows:
+
+If all types allowed:
+Normal:   208/255 chance
+Back:     8/255 chance
+Pincer:   8/255 chance
+Side:     31/255 chance
+
+If normal, back, and pincer allowed:
+Normal:   13/14 chance
+Back:     1/28 chance
+Pincer:   1/28 chance
+
+If normal, back, and side allowed:
+Normal:   208/247 chance
+Back:     8/247 chance
+Side:     31/247 chance
+
+If normal, and back allowed:
+Normal:   26/27 chance
+Back:     1/27 chance
+
+If normal, pincer, and side allowed:
+Normal:   208/247 chance
+Pincer:   8/247 chance
+Side:     31/247 chance
+
+If normal, and pincer allowed:
+Normal:   26/27 chance
+Pincer:   1/27 chance
+
+If normal and side allowed:
+Normal:   208/239 chance
+Side:     31/239 chance
+
+If back, pincer, and side allowed:
+Back:     8/47 chance
+Pincer:   8/47 chance
+Side:     31/47 chance
+
+If back, and pincer allowed:
+Back:     1/2 chance
+Pincer:   1/2 chance
+
+If back, and side allowed:
+Back:     8/39 chance
+Side:     31/39 chance
+
+If pincer, and side allowed:
+Pincer:   8/39 chance
+Side:     31/39 chance
+
+Pincer and back attacks will never be a preemptive attacks. For a normal
+attack there is a 1 in 8 chance of a preemptive attack. Side attacks have a
+7 in 32 chance of being a preemptive attack. If any character is equipped with
+a Gale Hairpin, then the chances are doubled. Certain monster formations
+(mostly bosses) disable preemptive attacks.
+
+
+************
+ 2.16 Veldt
+************
+
+When fighting on the veldt, the monsters you run into are not completely
+random. Instead you run into 1 battle from a group, and then the next time,
+you run into a battle from the next group (the groups are listed below).
+
+When you first start a new game, the first group you'll run into a battle
+from is group 1. To determine which battle in the group you run into, the game
+picks a random number from 0 to 7, and that determines which battle you'll
+encounter.
+
+However, you can only run into battles that you've run into before (you don't
+need to have won the battle; if you escape, you can encounter it on the Veldt
+as well). If the game determines that you should run into a battle that you
+haven't encountered, then you encounter the next battle in the group instead.
+It keeps doing this until it finds a battle that you've encountered. If you're
+on battle 7 of a group and haven't encountered that battle, it starts over at
+battle 0 from the group and keeps checking.
+
+Some battles can't ever be encountered on the Veldt (these are mostly boss
+battles). These are marked as "Empty" in the list. If a battle is empty, it's
+treated exactly the same as if you have never encountered it.
+
+After you fight a battle, the next time you fight on the veldt you'll fight a
+battle from the next group, or if you're on group 64, then the next fight will
+be from group 1.  If a group is entirely empty and/or you haven't encountered
+any battles from the group, it skips that group and moves on to the next group.
+It keeps doing this until it runs into a group which has 1 or more battles
+that you have encountered.
+
+When you reload a game, it adds 13 to the group number that you'll fight next.
+
+A special note about the 2 SrBehemoth battles (in groups 54 and 57): After you
+beat the living SrBehemoth in the Veldt Cave (Don't Vanish + X-Zone him!), the
+game turns on a flag that causes the undead SrBehemoth formation to be loaded
+whenever a subsequent battle (i.e. a Veldt one) tries to load the living
+SrBehemoth formation.  When you beat the undead one in the Veldt Cave, the
+game marks the LIVING formation as encounterable for the Veldt (this works
+because one variable still holds the first formation number, but all the
+enemies in the current formation have a value <= 255).
+
+So you can now encounter the SrBehemoth (undead) battle in group 57 on the
+Veldt, in place of SrBehemoth (living).  Once you've fought that, you'll also
+be able to encounter the SrBehemoth (undead) battle in group 54.
+
+
+Group 1:
+0 Lobo
+1 Lobo, Lobo
+2 Guard, Guard
+3 Bleary, Bleary, Crawly
+4 Lobo, Lobo, Marshal
+5 Hornet, Bleary, Bleary, Bleary, Hornet
+6 Leafer
+7 Leafer, Leafer, Dark Wind
+
+Group 2:
+0 Leafer, Leafer, Dark Wind, Dark Wind
+1 Sand Ray, Areneid, Areneid, Areneid
+2 Sand Ray, Sand Ray
+3 Areneid, Areneid, Areneid
+4 Sand Ray, Areneid, Areneid
+5 Hornet, Hornet
+6 Were-Rat, Were-Rat, Were-Rat
+7 Hornet, Crawly, Crawly
+
+Group 3:
+0 Tusker, Tusker
+1 Vomammoth, Lobo
+2 Crawly, Crawly, Crawly
+3 Rhinotaur
+4 Rhinotaur, Rhodox, Rhodox
+5 Rhodox, Rhodox, GreaseMonk
+6 Rhinotaur, GreaseMonk, Rhodox, Rhodox
+7 GreaseMonk, GreaseMonk
+
+Group 4:
+0 Rhodox, Rhodox, Rhodox, Rhodox
+1 Soldier, Soldier, M-TekArmor
+2 Repo Man, Vaporite
+3 M-TekArmor
+4 Trilium, Tusker, Cirpius, Cirpius
+5 Cirpius, Cirpius, Cirpius
+6 Trilium, Trilium
+7 Tusker, Cirpius, Cirpius, Cirpius
+
+Group 5:
+0 Brawler, Brawler
+1 Brawler, Trilium, Vaporite, Vaporite
+2 M-TekArmor, M-TekArmor
+3 Pterodon, Pterodon
+4 Zombone, Zombone
+5 Nautiloid, Exocite, Pterodon
+6 Nautiloid, Exocite
+7 Pterodon, Exocite, Exocite
+
+Group 6:
+0 Empty
+1 Lobo, Guard, Guard
+2 Empty
+3 Empty
+4 Were-Rat, Repo Man
+5 Were-Rat, Were-Rat
+6 Doberman, Doberman
+7 Actaneon, Actaneon, Actaneon
+
+Group 7:
+0 Empty
+1 Stray Cat, Stray Cat, Stray Cat
+2 CrassHoppr, CrassHoppr, Stray Cat, Stray Cat
+3 CrassHoppr, CrassHoppr, CrassHoppr
+4 Rhobite, Rhobite, Rhobite, Rhobite, Rhobite
+5 Beakor
+6 Beakor, Beakor, Stray Cat
+7 Beakor, Rhobite, Rhobite
+
+Group 8:
+0 Rhobite, Rhobite, Rhobite
+1 Beakor, Stray Cat, CrassHoppr, CrassHoppr
+2 Templar, Templar
+3 Empty
+4 Empty
+5 Telstar, Soldier, Soldier, Soldier, Soldier
+6 Doberman, Doberman, Doberman
+7 Empty
+
+Group 9:
+0 HeavyArmor
+1 Ghost
+2 Ghost, Ghost, Ghost
+3 Actaneon, Actaneon, Actaneon, Aspik, Aspik
+4 Ghost, Poplium, Poplium
+5 Ghost, Ghost, Poplium, Poplium, Poplium
+6 Whisper, Whisper, Hazer
+7 Vaporite, Vaporite
+
+Group 10:
+0 Bomb, Bomb, Hazer, Hazer
+1 Apparite, Apparite, Lich, Lich
+2 Whisper, Whisper, Whisper, Whisper
+3 Over-Mind, Over-Mind
+4 Bomb, Bomb, Bomb
+5 Bomb
+6 Over-Mind, StillGoing, StillGoing
+7 Empty
+
+Group 11:
+0 Whisper, StillGoing, Hazer, Hazer
+1 Whisper, Hazer, Hazer, Hazer
+2 Anguiform
+3 Anguiform, Anguiform
+4 Vomammoth, Vomammoth, Guard, Guard
+5 StillGoing, StillGoing, StillGoing
+6 Anguiform, Actaneon, Aspik
+7 Rider
+
+Group 12:
+0 HeavyArmor, Trooper, Trooper
+1 Fidor, Trooper
+2 Whisper
+3 Trooper, Trooper, Trooper, Trooper
+4 Bounty Man, Trooper, Trooper
+5 FossilFang
+6 Red Fang, Red Fang
+7 Over Grunk, Vulture, Iron Fist
+
+Group 13:
+0 Iron Fist, Iron Fist, Mind Candy, Mind Candy
+1 Red Fang, Vulture, Red Fang
+2 Over Grunk, Over Grunk, Mind Candy, Mind Candy, Mind Candy
+3 Vulture, Vulture
+4 Vulture, Iron Fist
+5 Mind Candy, Mind Candy, Mind Candy, Mind Candy
+6 HadesGigas
+7 Crawler
+
+Group 14:
+0 Gabbldegak, Gabbldegak, Gabbldegak, Gabbldegak
+1 SlamDancer
+2 SlamDancer, Gabbldegak, Gabbldegak, Gabbldegak
+3 Harvester
+4 SlamDancer, Harvester, Harvester
+5 Harvester, Gabbldegak, Gabbldegak
+6 HadesGigas, Harvester
+7 Mag Roader (purple)
+
+Group 15:
+0 Vermin, Sewer Rat, Sewer Rat
+1 Sewer Rat, Vermin, Sewer Rat, Sewer Rat, Vermin
+2 Crawler, Crawler, Crawler, Crawler
+3 Garm, Garm, Commando, Commando
+4 Garm, Garm, Commando
+5 Mag Roader (purple), Mag Roader (red)
+6 Trapper, Trapper, Trapper
+7 General, General
+
+Group 16:
+0 General, Pipsqueak, Pipsqueak
+1 Pipsqueak, Pipsqueak, Pipsqueak, Pipsqueak
+2 Chaser, Trapper, Trapper, Trapper
+3 Chaser, Pipsqueak, Pipsqueak, Pipsqueak
+4 Gobbler
+5 Commander, Commander, Commander
+6 Empty (Allo Ver would go here)
+7 Empty
+
+Group 17:
+0 Nastidon, Nastidon
+1 Empty
+2 Empty
+3 Empty
+4 Empty
+5 Empty
+6 Nohrabbit, Nohrabbit, Nohrabbit
+7 Bomb
+
+Group 18:
+0 Bomb, Bomb, Bomb, Bomb, Bomb, Bomb
+1 Io
+2 Maliga, Maliga, Maliga
+3 FossilFang, FossilFang
+4 FossilFang, Bug, Bug, Bug
+5 Bug, Bug, Bug
+6 Bug, Bug, Bug, Bug, Bug, Bug
+7 Ralph, Ralph
+
+Group 19:
+0 Ralph, Wyvern, Wyvern
+1 Ralph, Wyvern, ChickenLip, ChickenLip
+2 WeedFeeder, WeedFeeder, WeedFeeder
+3 Ralph, Joker
+4 Joker, Joker, Joker
+5 ChickenLip, ChickenLip, ChickenLip, ChickenLip, ChickenLip
+6 Zombone
+7 Zombone, Ing, Ing
+
+Group 20:
+0 Ing, Ing, Ing
+1 Apparite, Apparite
+2 Coelecite, Coelecite, Coelecite
+3 Lich, Apparite, Coelecite
+4 Lich, Lich, Lich
+5 Sp Forces, Sp Forces, Sp Forces
+6 Balloon, Balloon, Balloon
+7 Balloon, Balloon, Balloon, Balloon, Balloon, Balloon
+
+Group 21:
+0 Baskervor
+1 Chimera
+2 Cephaler, Baskervor
+3 Cephaler, Cephaler, Cephaler
+4 Adamanchyt, Slurm, Slurm
+5 Adamanchyt, Adamanchyt
+6 Slurm, Slurm, Slurm, Slurm, Slurm
+7 Mandrake, Mandrake, Mandrake
+
+Group 22:
+0 Mandrake, Insecare, Insecare
+1 Abolisher, Abolisher
+2 Gigantos
+3 Empty
+4 Empty
+5 Empty
+6 Empty
+7 Sky Armor, Sky Armor, Spit Fire
+
+Group 23:
+0 Sky Armor, Spit Fire
+1 Behemoth
+2 Apokryphos, Misfit, Misfit
+3 Apokryphos
+4 Ninja, Ninja
+5 Wirey Drgn, Wirey Drgn, Wirey Drgn
+6 Apokryphos, Apokryphos, Apokryphos
+7 Brainpan, Misfit, Apokryphos, Brainpan
+
+Group 24:
+0 Brainpan, Brainpan, Brainpan
+1 Dragon
+2 Behemoth, Misfit, Misfit
+3 Behemoth, Behemoth
+4 Ninja, Ninja, Wirey Drgn
+5 Grenade
+6 Chimera, Cephaler, Cephaler
+7 Baskervor, Baskervor
+
+Group 25:
+0 Peepers, Peepers
+1 Peepers, Peepers, Peepers
+2 EarthGuard, Peepers, Peepers
+3 Black Drgn
+4 Didalos, Veteran
+5 Mesosaur, Mesosaur
+6 Mesosaur, Mesosaur, Mesosaur, Mesosaur
+7 Gilomantis, Mesosaur
+
+Group 26:
+0 Gilomantis, Gilomantis, Mesosaur
+1 Chitonid, Gigan Toad, Gigan Toad
+2 Lunaris, Osprey
+3 Lunaris, Lunaris
+4 Osprey, Chitonid, Gigan Toad
+5 Madam, Veteran, Veteran
+6 Veteran, Veteran, Veteran
+7 HermitCrab, HermitCrab, Pm Stalker
+
+Group 27:
+0 Empty
+1 Scorpion, Scorpion, Scorpion
+2 Intangir
+3 Pm Stalker, Pm Stalker, Pm Stalker, Pm Stalker
+4 Vectagoyle, Vectagoyle
+5 Buffalax
+6 Buffalax, Delta Bug, Delta Bug
+7 Bloompire, Bloompire, Lizard
+
+Group 28:
+0 Bloompire, Bloompire
+1 Delta Bug, Delta Bug, Delta Bug, Delta Bug
+2 Bloompire, Bloompire, Delta Bug
+3 Buffalax, Lizard
+4 Maliga, Maliga, Nohrabbit, Nohrabbit
+5 Cactrot
+6 Sand Horse, Sand Horse
+7 Sand Horse, Maliga, Maliga
+
+Group 29:
+0 Latimeria
+1 Latimeria, Nohrabbit, Nohrabbit, Nohrabbit
+2 Doom Drgn, Doom Drgn
+3 Land Worm
+4 Humpty, Humpty, Humpty
+5 Cruller, Humpty, Humpty
+6 Humpty, Humpty, Humpty, Humpty
+7 NeckHunter, NeckHunter
+
+Group 30:
+0 NeckHunter, Cruller, Humpty, Humpty
+1 Dante
+2 Drop, Drop, Drop
+3 Pugs, Pugs, Pugs
+4 Harpiai
+5 Hoover
+6 Harpiai, Deep Eye, Deep Eye
+7 Bogy, Bogy
+
+Group 31:
+0 Deep Eye, Deep Eye, Deep Eye, Deep Eye, Deep Eye, Deep Eye
+1 Deep Eye, Muus, Muus, Deep Eye
+2 Muus, Muus, Muus
+3 Muus
+4 Orog, Orog
+5 Orog, PowerDemon, PowerDemon
+6 Osteosaur
+7 PowerDemon
+
+Group 32:
+0 PowerDemon, Exoray, Exoray
+1 Exoray, Exoray, Exoray
+2 Mad Oscar, Exoray
+3 Mad Oscar
+4 Empty
+5 Pug
+6 Poppers, Poppers, Poppers, Poppers
+7 Kiwok, Ceritops
+
+Group 33:
+0 Kiwok, Poppers, Poppers, Poppers
+1 Ceritops, Ceritops, Ceritops
+2 Anemone, Anemone, Tomb Thumb
+3 Anemone, Anemone, Anemone, Anemone
+4 Ceritops, Tomb Thumb, Tomb Thumb
+5 Luridan, Luridan, Luridan
+6 Punisher, Scrapper, Punisher
+7 Borras
+
+Group 34:
+0 Borras, Ursus, Scrapper
+1 Ursus
+2 Luridan, Luridan, Luridan, Luridan, Luridan, Luridan
+3 Ursus, Punisher
+4 Toe Cutter
+5 Toe Cutter, Toe Cutter
+6 Rhyos
+7 Vectaur, Vectaur, Vectaur, Vectaur
+
+Group 35:
+0 Brontaur, Evil Oscar
+1 Red Wolf, Red Wolf, Red Wolf
+2 Test Rider
+3 Nastidon, Red Wolf, Red Wolf
+4 Wizard, Wizard, Wizard
+5 Wizard, Wizard, Psychot, Psychot, Psychot
+6 Red Wolf, Red Wolf, Psychot, Psychot
+7 Psychot, Psychot, Psychot, Psychot, Psychot, Psychot
+
+Group 36:
+0 Mag Roader (yellow), Mag Roader (yellow), Mag Roader (brown)
+1 Mag Roader (yellow), Mag Roader (brown), Mag Roader (brown)
+2 Brontaur, Brontaur
+3 Empty
+4 SoulDancer, SoulDancer, Crusher, Crusher
+5 Vindr, Vindr, Wild Cat, Crusher, Crusher
+6 Vindr, Vindr
+7 SoulDancer, Wild Cat, Wild Cat, Wild Cat, Wild Cat
+
+Group 37:
+0 Dahling, Dahling
+1 Nightshade, Nightshade, Nightshade
+2 Still Life
+3 Opinicus, Opinicus
+4 Displayer
+5 Opinicus, Hipocampus, Eland
+6 Hipocampus, Hipocampus, Hipocampus
+7 Hipocampus, Cluck, Cluck, Cluck
+
+Group 38:
+0 Slatter, Warlock, Eland
+1 Slatter, Slatter
+2 Warlock, Cluck, Cluck, Eland, Eland
+3 GtBehemoth, Vectaur, Vectaur
+4 Doom Drgn
+5 Goblin, Goblin
+6 Goblin, Figaliz, Figaliz
+7 Boxed Set, Boxed Set, Figaliz, Figaliz
+
+Group 39:
+0 Boxed Set
+1 Lethal Wpn
+2 Enuo, Enuo
+3 Enuo, Goblin, Figaliz
+4 Boxed Set, Boxed Set, Boxed Set, Boxed Set
+5 Rain Man, Rain Man
+6 Samurai, Rain Man, Rain Man
+7 PlutoArmor, PlutoArmor
+
+Group 40:
+0 Barb-e, Critic
+1 PlutoArmor, Sky Cap
+2 Allosaurus, Parasite, Parasite, Parasite
+3 Critic, Pan Dora, Pan Dora, Pan Dora
+4 Allosaurus
+5 Barb-e, Samurai, Suriander
+6 Suriander, Pan Dora, Parasite, Parasite
+7 Crawler, Crawler, Crawler
+
+Group 41:
+0 Tyranosaur, Tyranosaur
+1 Tyranosaur
+2 Brachosaur
+3 Mantodea, Sprinter, Spek Tor, Spek Tor
+4 Reach Frog, Reach Frog, Reach Frog, Reach Frog
+5 Mantodea, Mantodea
+6 Geckorex, Geckorex, Reach Frog
+7 TumbleWeed, TumbleWeed, TumbleWeed, TumbleWeed
+
+Group 42:
+0 Sprinter, Sprinter, Spek Tor, Spek Tor
+1 GtBehemoth, Evil Oscar, Vectaur
+2 Evil Oscar, Evil Oscar, Evil Oscar
+3 Harpy
+4 Harpy, Prussian
+5 Prussian, GloomShell
+6 GloomShell, GloomShell, GloomShell
+7 Empty
+
+Group 43:
+0 Phase, Phase
+1 Trixter, Trixter, Trixter
+2 Phase, Parasoul, Necromancr, Necromancr
+3 Trixter, Trixter, Necromancr
+4 Sea Flower, Sea Flower, Sea Flower, Sea Flower, Sea Flower
+5 Uroburos, Sea Flower, Sea Flower
+6 Chaos Drgn, Uroburos, Sea Flower, Sea Flower
+7 Aquila, Chaos Drgn, Chaos Drgn
+
+Group 44:
+0 Empty
+1 Empty
+2 Ogor, Ogor
+3 Covert, Ogor
+4 Wart Puck, Wart Puck
+5 Karkass, Karkass
+6 Tap Dancer, Covert, Covert
+7 Tap Dancer, Woolly
+
+Group 45:
+0 Woolly, Woolly, Karkass, Karkass
+1 Wart Puck, Ogor
+2 Empty
+3 Magic Urn, Magic Urn
+4 Flan, Flan, Flan, Flan, Flan, Flan
+5 Flan, Flan, Flan, Flan
+6 Empty
+7 Empty
+
+Group 46:
+0 Rhinox, Rhinox
+1 Gobbler, Rhinox, Gobbler
+2 Empty
+3 Empty
+4 Empty
+5 Empty
+6 Empty
+7 Empty
+
+Group 47:
+0 Empty
+1 Empty
+2 Empty
+3 Empty
+4 Empty
+5 Vector Pup, Vector Pup, Commander
+6 Vector Pup, Vector Pup
+7 Trilobiter, Primordite, Primordite
+
+Group 48:
+0 Gold Bear, Primordite
+1 Trilobiter, Trilobiter, Trilobiter
+2 Primordite, Primordite
+3 Dark Side, Dark Side
+4 Dark Side, Spectre, Rinn, Rinn, Rinn
+5 1st Class, Wild Rat
+6 1st Class, 1st Class, 1st Class
+7 Wild Rat, 1st Class, 1st Class, Wild Rat, Wild Rat
+
+Group 49:
+Empty
+
+Group 50:
+0 Empty
+1 Empty
+2 Empty
+3 Innoc, Fortis
+4 Fortis, Fortis
+5 Empty
+6 Dueller, Dueller, Sky Base
+7 Scullion
+
+Group 51:
+0 Innoc, Innoc, Innoc
+1 Junk, Junk, Junk
+2 Empty
+3 Empty
+4 ProtoArmor, Pipsqueak, Pipsqueak
+5 Pipsqueak, Pipsqueak, Pipsqueak, Pipsqueak, Pipsqueak
+6 Mag Roader, Mag Roader (both purple)
+7 Mag Roader, Mag Roader, Mag Roader, Mag Roader (all red)
+
+Group 52:
+0 Empty
+1 Empty
+2 Templar, Templar, Soldier, Soldier
+3 Balloon, Balloon, Balloon, Balloon
+4 Soldier, Soldier
+5 Sky Base, IronHitman, IronHitman, IronHitman, IronHitman
+6 IronHitman, IronHitman, IronHitman
+7 Dueller, Fortis
+
+Group 53:
+0 Commando, Commando, Commando, Commando
+1 Empty
+2 Commando
+3 Empty
+4 Empty
+5 Empty
+6 Empty
+7 Empty
+
+Group 54:
+0 SrBehemoth (undead)
+1 Dark Force, Dark Force
+2 Retainer, Retainer, Dark Force
+3 Hemophyte, Retainer
+4 Outsider, Outsider, Madam
+5 Mover, Mover, Mover
+6 Steroidite
+7 Didalos, Didalos
+
+Group 55:
+Empty
+
+Group 56:
+Empty
+
+Group 57:
+0 Empty
+1 Empty
+2 Empty
+3 Empty
+4 SrBehemoth (undead.  the living formation is swapped out at battle start.)
+5 Empty
+6 Empty
+7 Empty
+
+Group 58:
+Empty
+
+Group 59:
+Empty
+
+Group 60:
+Empty
+
+Group 61:
+0 Empty
+1 White Drgn
+2 Empty
+3 Empty
+4 Empty
+5 Empty
+6 Empty
+7 Empty
+
+Group 62:
+Empty
+
+Group 63:
+Empty
+
+Group 64:
+Empty
+
+
+                                *************
+                                 3.0 Weapons
+                                *************
+**************************
+ 3.1 Randomly casts spell
+**************************
+
+Weapons with this effect: Flame Sabre (Fire), Blizzard (Ice),
+ThunderBlade (Bolt), Break Blade (Break), Soul Sabre (Doom),
+Illumina (Pearl), Ragnarok (Flare), Pearl Lance (Pearl),
+Stunner (Stop), Fire Rod (Fire 2), Ice Rod (Ice 2), Thunder Rod (Bolt 2),
+Poison Rod (Poison), Pearl Rod (Pearl), Gravity Rod (Quartr),
+Doom Darts (Doom), Poison Claw (Poison), Fire Knuckle (Fire).
+
+For weapons that randomly cast a spell when they hit the enemy, the
+chance that the spell will be cast is 1 in 4. 
+
+This spell can't be absorbed by Runic or reflected by the Reflect status, and
+costs 0 MP to cast.
+
+If the spell that is cast can be blocked by Stamina (see step 5 in hit
+determination), then the chance to hit for the spell is determined as
+normal. Otherwise that spell always hits (see step 3 in hit determination).
+
+The damage done by the spell is determined as normal, with a few exceptions:
+
+1. The spell does not ignore your row, so if you're in the back row it will
+do half damage. If the weapon that cast the spell ignores row, then the spell
+cast will still do full damage if you're in the back row.
+
+2. The damage multiplier added by Jump (see section 6.9) affects the spell as
+well, so if you jump and it casts a spell, then the spell does extra damage.
+
+3. If the weapon does automatic criticals, then the spell automatically does
+a critical as well (even though spells normally can't do criticals). However,
+if the weapon does a critical because of the standard 1 in 32 chance, then the
+spell does not do a critical.
+
+
+***************************
+ 3.2 Casts spell when used
+***************************
+
+Weapons with this effect: Fire Rod (Fire 2), Ice Rod (Ice 2),
+Thunder Rod (Bolt 2), Poison Rod (Poison), Pearl Rod (Pearl),
+Gravity Rod (Quartr).
+
+When an item casts a spell when used, the item is destroyed when used. The
+spell cast uses the same chance to hit, and damage calculation as if cast by
+the character, with the exception that it skips steps 6 and 7 of damage
+calculation.
+
+
+*******************************************
+ 3.3 Deals normal damage from the back row
+*******************************************
+
+Weapons with this effect: Illumina, Flail, Full Moon, Morning Star, Boomerang,
+Rising Sun, Hawk Eye, Sniper, Wing Edge, Cards, Darts, Doom Dart, Trump, Dice,
+Fixed Dice.
+
+Weapons with this effect still deal full damage if the character equipped with
+the weapon is in the back row (i.e. skips step 4 of damage calculation).
+However, it still gets reduced damage if the target is in the back row.
+
+*********************************
+ 3.4 Uses MP to do critical hits
+*********************************
+
+Weapons with this effect: Rune Edge, Illumina, Ragnarok, Punisher
+
+These weapons Uses MP to do automatic critical hits. The amount of MP
+used = [12..19]. If the attacker does not have that many MP, then no MP are
+used, but the attack is not a critical hit either (although it still has the
+standard 1 in 32 chance of doing a critical)
+
+*********************
+ 3.5 Ignores Defense
+*********************
+
+Weapons with this effect: Atma Weapon, ValiantKnife
+
+These weapons ignore the defense of the target, as well as many other steps in
+damage calculation. The steps skipped are:  5 - Damage Multiplier #1,
+6b - Defense Modifcation, 6c - Safe, 6d - Target Defending, 6e - Target's Row,
+6f - Morph (target), and 7 - Damage Multiplier #2.
+
+**************************
+ 3.6 Randomly kills enemy
+**************************
+
+Weapons with this effect: Assassin, Striker, Wing Edge, Trump
+
+If the target is undead, then it is always killed, and then revived. If the
+target is not undead, there is a 25% chance that the Weapon will attempt
+to kill it. Stamina can block this (see step 5b in hit determination).
+
+*****************
+ 3.7 Atma Weapon
+*****************
+
+Deals damage as normal weapon with the following exception:
+
+After step 9 in damage calculation, the damage is modified as follows:
+
+step 10a. damage = damage * level
+step 10b. damage = damage * ((current HP / 256) + 1) / ((max HP / 256) + 1)
+step 10c. damage = (damage / 64) + 1
+
+Is also defense ignoring (see section 3.5)
+
+The length of the Atma Weapon is determined solely by the damage you do as
+follows:
+
+Damage       Length
+0 - 500      Shortest
+501 - 1000   Medium
+1001 - 9999  Longest
+
+
+**********
+ 3.8 Dice
+**********
+
+damage = Dice Roll 1 * Dice Roll 2 * Level * 2
+
+Skips all normal steps for physical damage calculation.
+
+For determining the dice rolls, each number does not have an equal chance of
+coming up. 1, 2, 3, and 4 each have a 18.75% chance of coming up.  5 and 6
+only have a 12.5% chance of coming up.
+
+
+*************
+ 3.9 Drainer
+*************
+
+Heals the attacker an amount equal to the damage dealt. Cannot do more damage
+than the attacker's max HP - current HP. If the target is undead, then it
+heals the target, and hurts the attacker instead.
+
+
+*****************
+ 3.10 Fixed Dice
+*****************
+
+damage = Dice Roll 1 * Dice Roll 2 * Dice Roll 3 * Level * 2
+
+if all Dice Rolls are the same then:
+
+damage = damage * Dice Roll
+
+Skips all normal steps for physical damage calculation.
+
+For determining the dice rolls, each number does not have an equal chance of
+coming up. 1, 2, 3, and 4 each have a 18.75% chance of coming up.  5 and 6
+only have a 12.5% chance of coming up.
+
+
+***************
+ 3.11 Hawk Eye
+***************
+
+Has a 50% chance of having an additional effect, as follows:
+
+If the target has float status, then the Hawk eye is thrown at the target,
+and 4 is added to the damage multiplier (see step 7 of damage calculation).
+If the target does not have the float status, then 1 is added to the damage
+multiplier (see step 7 of damage calculation).
+
+Does full damage from the back row (see section 3.3)
+
+
+***************
+ 3.12 Heal Rod
+***************
+
+Heals HP instead of dealing damage.
+
+Ignores self damage (see step 6g in damage calculation).
+
+Has a perfect (255) hit rate (see step 4c in hit determination).
+
+
+******************
+ 3.13 Imp Halberd
+******************
+
+When a character is equipped with an Imp Halberd, they only get the battle
+power from the weapon if they have imp status; otherwise, the battle power
+of the weapon is considered to be 1.
+
+***************
+ 3.14 Illumina
+***************
+
+Has a perfect (255) hit rate (see step 4c in hit determination).
+
+Deals normal damage from the back row (see section 3.3).
+Uses MP to do critical hits (see section 3.4).
+
+
+****************
+ 3.15 Man Eater
+****************
+
+If the target is human: Add 2 to the damage multiplier (see step 7 of damage
+calculation)
+
+
+***************
+ 3.16 Ogre Nix
+***************
+
+Has a chance of breaking every time you attack. The chance of breaking
+is calculated as follows:
+
+if [0..(last digit of attacker's HP + 1)] = 0 then the Ogre Nix breaks
+
+Use MP to do critical hits (see section 3.4)
+
+***************
+ 3.17 Scimitar
+***************
+
+Has a 25% chance of slicing the target (killing it).
+
+Stamina can block this (see step 5b in hit determination).
+
+
+*************
+ 3.18 Sniper
+*************
+
+Has a 50% chance of having an additional effect, as follows:
+
+If the target has float status, then the Sniper is thrown at the target,
+and 4 is added to the damage multiplier (see step 7 of damage calculation).
+If the target does not have the float status, then 1 is added to the damage
+multiplier (see step 7 of damage calculation).
+
+Does full damage from the back row (skips step 4 of damage calculation).
+See also Section 3.3.
+
+
+*****************
+ 3.19 Soul Sabre
+*****************
+
+Does MP damage instead of HP damage.  Heals the attacker an amount equal to
+the damage dealt. Cannot do more damage than the attacker's max MP -
+current MP. If the target is undead, then it heals the target, and hurts the
+attacker instead.
+
+Randomly casts Doom (see section 3.1).
+
+**************
+ 3.20 Tempest
+**************
+
+When you attack, there is a 1 in 2 chance that Wind Slash will be cast. 
+Casting Wind Slash replaces the weapon's attack rather than being cast in
+addition to it, so it's not quite the same as magic randomly cast (see
+section 3.1), and will not be disabled by the Offering (see section 5.11). 
+
+******************
+ 3.21 Thief Knife
+******************
+
+Has a 50% chance of attempting to steal as well as dealing its normal damage.
+When it attempts to steal, it is exactly as if the Capture command were used
+(see section 6.1).
+
+
+********************
+ 3.22 Valiant Knife
+********************
+
+Deals damage as normal weapon with the following exception:
+
+After step 1 in damage calculation, the damage is modified as follows:
+
+damage = damage + (Max HP - Current HP)
+
+Is defense ignoring (see section 3.5).
+
+
+********************
+ 3.23 Empty (Fists)
+********************
+
+When you don't have a weapon in either hand slot, the Empty item is treated
+as your weapon.  It actually adds 10 to Battle Power, and has a respectable
+hit rate of 200.
+
+
+
+                                 ************
+                                  4.0 Armors
+                                 ************
+
+***************************
+ 4.1 Casts spell when used
+***************************
+
+Amor with this effect: Flame Shld (Fire 3), Ice Shld (Ice 3), Thunder Shld
+(Bolt 3)
+
+When an item casts a spell when used, the item is destroyed when used. The
+spell cast uses the same chance to hit and damage calculation as if cast by
+the character, with the exception that it skips steps 6 and 7 of damage
+calculation.
+
+
+*******************
+ 4.2 Imp equipment
+*******************
+
+Armor with this effect: TortoiseShld, Titanium, Imp's Armor
+
+Armor with this effect only gains the Defense from the armor if the wearer is
+in Imp status.  Magic Defense, Bonuses to Mblock, and all other bonuses are
+still obtained whether the wearer is an Imp or not, but the Defense is
+considered 1 if the wearer is not an Imp.
+
+***********
+ 4.3 Beret
+***********
+
+Increases success chance of sketch. (see section 6.7)
+
+
+*************
+ 4.4 Coronet
+*************
+
+Increases success chance of control. (see section 6.8)
+
+
+*******************
+ 4.5 Cursed Shield
+*******************
+
+Gives the wearer the following statuses: Condemned, Mute, Berserk, Muddle,
+Seizure.
+
+To uncurse it you must fight 256 fights (yes, 256 not 255). The character
+equipped with the shield must be alive at the end of the battle, and Gogo
+cannot uncurse it.
+
+
+******************
+ 4.6 Force Shield
+******************
+
+Gives the wearer Shell status.
+
+
+*****************
+ 4.7 Mirage Vest
+*****************
+
+Gives the wearer image status (see step 4d in hit determination).
+
+
+**************
+ 4.8 Thornlet
+**************
+
+Gives the wearer Seizure status.
+
+
+                                 ************
+                                  5.0 Relics
+                                 ************
+
+******************
+ 5.1 Atlas Armlet
+******************
+
+See damage calculation, step 2.
+
+
+****************
+ 5.2 Black Belt
+****************
+
+If a character is equipped with a Black Belt, they may counter physical
+attacks that hit them. You can only counter attack against physical attacks
+made by enemies, not by your own characters. If you have any of the following
+status effects, you can't counter either: Wound, Petrify, M-Tek, Zombie,
+Sleep, Muddle, Stop, Dance, or Freeze. If those conditions are met, you have
+a 1 in 4 chance of countering the attack.
+
+
+******************
+ 5.3 Charm Bangle
+******************
+
+Decreases amount of random encounters by 25%. See random encounters (2.3) for
+more information.
+
+
+*****************
+ 5.4 Cursed Ring
+*****************
+
+Gives the wearer Condemned status. And no, you can't uncurse it.
+
+Teaches X-Zone at a rate of 5.
+
+
+*****************
+ 5.5 Dragon Horn
+*****************
+
+When you land from a jump, does extra attacks as follows:
+
+75% chance for 2 attacks
+18.75% chance for 3 attacks
+6.25% chance for 4 attacks
+
+
+**************
+ 5.6 Earrings
+**************
+
+See damage calculation, step 2.
+
+
+**************
+ 5.7 Gauntlet
+**************
+
+Increases your attack power; see step 1c in damage calculation.
+
+
+*****************
+ 5.8 Genji Glove
+*****************
+
+Allows you to attack with a weapon in both hands. If you only have zero or one
+weapons equipped, the attack does only 75% of normal damage; it does full
+damage if you have 2 weapons equipped.
+
+
+***************
+ 5.9 Hero Ring
+***************
+
+See damage calculation, step 2.
+
+
+*****************
+ 5.10 Hyper Wrist
+*****************
+
+Increases Vigor by 50%.  Note: because of step 1 in physical damage calculation,
+increasing vigor over 128 is worthless.
+
+
+*******************
+ 5.11 Marvel Shoes
+*******************
+
+Gives the wearer Regen, Safe, Shell, and Haste status.
+
+
+***************
+ 5.12 Offering
+***************
+
+Allows you to attack 4 times. For each attack, damage = damage / 2 (see step 1e
+in damage calculation).
+
+Disables critical hits (even automatic criticals from weapons like Rune Edge).
+
+Makes all attacks unblockable (see step 3 in hit determination).
+
+Disables magic from randomly being cast when the weapon hits (in section 3.1).
+
+
+*****************
+ 5.13 Relic Ring
+*****************
+
+Makes the wearer undead.
+
+
+*************
+ 5.14 Ribbon
+*************
+
+Blocks the following statuses: Dark, Zombie, Poison, Imp, Petrify, Mute,
+Berserk, Muddle, Seizure, Sleep.
+
+
+*****************
+ 5.15 Sneak Ring
+*****************
+
+Doubles your chance of successfully stealing.  Does not affect the chance of
+getting a rare item instead of a common item.
+
+See Steal (section 6.6) for more information.
+
+
+*******************
+ 5.16 Sniper Sight
+*******************
+
+Makes standard attacks unblockable (see step 3 in hit determination)
+
+
+*****************
+ 5.17 Tintinabar:
+*****************
+
+HP gained per step = Stamina / 4
+
+Base stamina, not modified by equipment, is used to determine how much HP
+is gained.
+
+
+******************
+ 5.18 True Knight
+******************
+
+If any other party member is in Near Fatal status (below 1/8 max HP), then a
+character will take damage from any physical attack that hits the weak
+character.
+
+If the weak character is invisible, then you won't take damage for them.
+
+If the character with the True Knight has any of the following statuses, they
+won't take damage for the weak character: Petrify, Clear, Zombie, Sleep,
+Muddle, Stop, Freeze, Spell, Hide
+
+
+                                 **************
+                                 6.0 Commands
+                                **************
+
+*************
+ 6.1 Capture
+*************
+
+Capture attempts to steal an item as well as dealing damage. The chance to
+steal is the same as for the steal command. (see section 6.6) Capture disables
+the special effects from the following weapons:
+ThiefKnife, Assassin, Man Eater, ValiantKnife, Rune Edge, Drainer, Soul Sabre,
+Ogre Nix, Scimitar, Illumina, Ragnarok, Atma Weapon, Striker, Heal Rod,
+Punisher, Hawkeye, Sniper, Wing Edge, Trump, Dice, and Fixed Dice.
+
+***********
+ 6.2 Dance
+***********
+
+If you are in the correct terrain for the dance, it automatically succeeds. If
+you attempt to dance in a terrain which is different from the dance you are
+performing, you have a 50% chance of stumbling. If you succeed, the terrain is
+changed to the correct terrain for the dance.
+
+Every time a dancing character gets an action, they randomly pick a dance move.
+Each dance has four different moves. Here is a list of each move for the
+dances with the random chance of that move being picked:
+
+Wind Song:
+Wind Slash   - 7 in 16
+Sun Bath     - 6 in 16
+Plasma       - 2 in 16
+Cockatrice   - 1 in 16
+
+Forest Suite:
+Rage        - 7 in 16
+Harvester   - 6 in 16
+Elf Fire    - 2 in 16
+Wombat      - 1 in 16
+
+Desert Aria:
+Sand Storm  - 7 in 16
+Antlion     - 6 in 16
+Wind Slash  - 2 in 16
+Kitty       - 1 in 16
+
+Love Sonata:
+Elf Fire    - 7 in 16
+Specter     - 6 in 16
+Snare       - 2 in 16
+Tapir       - 1 in 16
+
+Earth Blues:
+Land Slide  - 7 in 16
+Sonic Boom  - 6 in 16
+Sun Bath    - 2 in 16
+Whump       - 1 in 16
+
+Water Rondo:
+El Nino     - 7 in 16
+Plasma      - 6 in 16
+Specter     - 2 in 16
+Wild Bear   - 1 in 16
+
+Dusk Requiem:
+Cave In     - 7 in 16
+Snare       - 6 in 16
+Elf Fire    - 2 in 16
+Pois. Frog  - 1 in 16
+
+Snowman Jazz:
+Snowball    - 7 in 16
+Surge       - 6 in 16
+Snare       - 2 in 16
+Ice Rabbit  - 1 in 16
+
+
+**************
+ 6.3 GP Rain:
+**************
+
+Amount of gold used = Level * 30
+
+If the party doesn't have that much gold, then all remaining gold is used.
+
+Damage = Gold Thrown * 2 / # of enemies hit
+
+Monsters use the gold you get when defeating them, rather than the party's gold.
+
+
+***********
+ 6.4 Morph
+***********
+
+The morph command causes the character to morph into an esper.
+
+While morphed, the character deals double normal damage, and receives half
+normal damage from magical attacks. (see steps 5 and 6e in damage calculation).
+
+The length of time you can stay morphed is based on the number of magic points
+you have gained (the kind of magic points that are gained after battles). The
+game keeps an invisible morph duration counter to determine how long morph
+will last. At the beginning of the game, this counter is 0. Every time you win a
+battle with Terra in your party, this counter is increased by 2x the amount of
+MP you earned. If this counter is less than 16, then you can't morph. This
+counter has a maximum value of 255.
+
+Once you morph, there is another morph time counter to determine when morph will
+wear off.  When you morph, this counter is set to 65535.  Every time the battle
+time counter (see section 2.8 Battle Timing) is increased, the morph time
+counter is reduced by an amount as follows:
+
+((65535 / morph duration counter) / 16) + 1
+
+When this counter reaches 0, morph wears off and you return to normal, with
+the morph duration counter reset to 0.
+
+If the battle ends, or you revert before the counter runs out, then the morph
+duration counter is modified as follows:
+
+new morph duration counter =
+original morph duration counter * morph time counter / 65535.
+
+
+************
+ 6.5 Throw:
+************
+
+Deals damage as a normal physical attack with these exceptions:
+
+Adds 2 to the damage multiplier (in step 5 of damage calculation)
+
+Is defense ignoring (skips steps 6b, 6c, 6d, 6e, 6f, but not steps 5 or 7)
+
+Ignores row (see section 3.3)
+
+Is Unblockable (see step 3 in hit determination)
+
+The Battle Power used is the Battle Power of the thrown weapon. The elemental
+property of the weapon counts, but all other special properties of the thrown
+weapon are ignored.
+
+
+***********
+ 6.6 Steal
+***********
+
+1. If the monster has no items, then you automatically fail to steal.
+
+2. If your level is >= 205 (hacks only), you automatically steal.
+   (Skip steps 3 through 7)
+
+3. StealValue = Your Level + 50 - Monster's level
+
+4. If StealValue < 0 then you fail to steal.
+
+5. If StealValue >=128 then you automatically steal.  (Skip steps 6 and 7)
+
+6. If you have a Sneak Ring equipped:
+      StealValue = StealValue * 2
+
+7. If StealValue <= [0..99] then you fail to steal.
+
+8. You have 1 in 8 chance of getting a rare item; otherwise, you get a common
+   item.
+
+9. If the monster doesn't have an item to steal in that slot, then you fail to
+   steal; otherwise, you successfully steal that item.
+
+
+************
+ 6.7 Sketch
+************
+
+The chance to successfully sketch an enemy is calculated as follows:
+
+If (Sketcher's level * 256) / Target's level > [0..255] then
+you successfully sketch, otherwise you miss.
+
+If you are equipped with a Beret, then the chance to sketch is:
+
+If (Sketcher's level * 256) / (Target's level * 170 / 256) > [0..255] then
+you successfully sketch, otherwise you miss.
+
+NOTE: Some monsters can never be sketched.
+
+If you successfully sketch the enemy, then there 2 possible attacks that will
+occur.  The first attack has a 25% chance of happening; the other attack has a
+75% chance of happening.
+
+Attacks resulting from Sketch use the sketcher's level to determine damage,
+but the target's Vigor or Magic Power.
+
+
+*************
+ 6.8 Control
+*************
+
+The chance to successfully control an enemy is calculated as follows:
+
+If (Controller's level * 256) / Target's level > [0..255] then
+you successfully control the enemy, otherwise you miss.
+
+If you are equipped with a Coronet, then the chance to control is:
+
+If (Controller's level * 256) / (Target's level * 170 / 256) > [0..255] then
+you successfully control the enemy, otherwise you miss.
+
+If the monster has any of the following statuses, then any attempt to control
+them will fail: Clear, Zombie, Sleep, Muddle, Rage, Morph, Hide
+
+NOTE: Some monsters can never be controlled.
+
+Once an enemy is controlled, every time Relm's turn comes around you can
+select one of 4 commands to use.  Each monster has their own list of commands.
+Once the monster if hit with a physical attack, the control stops.
+
+Note that attacks which cost more MP than the monster currently has will be
+inaccessible and greyed out on Relm's Control menu.  Yet the spells don't
+actually cost a controlled monster a red cent.  Go bloody figure.
+
+
+**********
+ 6.9 Jump
+**********
+
+When a character lands from a Jump attack, the attack always hits (see step 3
+in hit determination)
+
+If you're equipped with a spear, then 2 is added to the damage multiplier (see
+step 5 in damage calculation); otherwise, only 1 is added.
+
+The attack also ignores row (i.e. skips step 4 of damage calculation).
+
+If you are equipped with 2 weapons, then you will only get one attack, and one
+will be randomly chosen to be attacked with.  If you are equipped with a spear
+and a non-spear, then 2 is added to the damage multiplier, even if the non-spear
+is the one that is attacked with.
+
+
+                                 ************
+                                  7.0 Espers
+                                 ************
+
+************************
+ 7.1 Earth Wall (Golem)
+************************
+
+Will block physical damage for all party members.  The amount of damage it can
+block is equal to the HP of the caster when it was cast.  Once it has blocked
+that much damage, it will no longer block attacks for the rest of combat.
+
+
+**************************
+ 7.2 Metamorph (Ragnarok)
+**************************
+
+Each enemy has a number 0 to 7 that determines how hard it is to morph.
+For each value, The chance to morph is:
+
+0: 99.609375%
+1: 75%
+2: 50%
+3: 25%
+4: 12.5%
+5: 6.25%
+6: 3.125%
+7: 0%
+
+
+Each monster has 4 items it can be morphed into. The item you get is randomly
+determined from among the items, each having a 1 in 4 chance of being the
+item you get.
+
+
+                                 ***********
+                                  8.0 Lores
+                                 ***********
+
+In order to learn Lores, Strago must be in the party when a lore is cast (Gogo
+can't learn lores).  If Strago has any of the following statuses when the lore
+is cast, then he won't learn the lore: Wound, Petrify, Zombie, Dark, Sleep,
+Muddle, Stop, Hide, Rage, Freeze.  Strago's status at the end of battle doesn't
+matter (he can even be dead).
+
+
+**************
+ 8.1 Dischord
+**************
+
+For the remainder of the combat, the target's level = (current level + 1) / 2
+
+
+**************
+ 8.2 Exploder
+**************
+
+Deals an amount of damage equal to caster's current HP.  Kills the caster.
+
+
+***************
+ 8.3 L.4 Flare
+***************
+
+Casts Flare on any target if their level is evenly divisible by 4. Ignores
+the automatic hit caused by Clear status at step 1 in Hit Determination.
+Removes Clear status from the target whether it hits or not.
+
+
+**************
+ 8.4 L.5 Doom
+**************
+
+Kills any target if their level is evenly divisible by 5.  Ignores the
+automatic hit caused by Clear status at step 1 in Hit Determination.
+Removes Clear status from the target whether it hits or not.
+
+
+****************
+ 8.5 L.3 Muddle
+****************
+
+Confuses any target if their level is evenly divisible by 3.  Ignores the
+automatic hit caused by Clear status at step 1 in Hit Determination.
+Removes Clear status from the target whether it hits or not.
+
+
+****************
+ 8.6 L.? Pearl
+****************
+
+Casts any target if their level is evenly divisible by the last digit in the
+party's gold. Ignores the automatic hit caused by Clear status at step 1 in
+Hit Determination. Removes Clear status from the target whether it hits or not.
+
+
+****************
+ 8.7 Pearl Wind
+****************
+
+Heals all allies (including the caster) by an amount equal to the casters'
+current HP.
+
+
+************
+ 8.8 Pep Up
+************
+
+Restores the target to Max HP. Removes the caster from combat, killing them,
+and leaving them with 0 HP and 0 MP.
+
+Also removes the following statuses: Dark, Zombie, Poison, Imp, Petrify,
+Condemned, Mute, Berserk, Muddle, Seizure, Sleep, Slow, Stop, and Freeze.
+
+
+****************
+ 8.9 Reflect???
+****************
+
+If any target has reflect status, then it sets the following statuses:
+Dark, Mute, Slow.
+
+
+**************
+ 8.10 Revenge
+**************
+
+Deals an amount of damage equal to Caster's Max HP - Current HP.
+
+
+****************
+ 8.11 Step Mine
+****************
+
+Damage dealt = Number of steps taken / 32
+
+MP Used = Minutes played / 30
+
+
+************
+ 8.12 Stone
+************
+
+If the caster and target are the same level, then 13 is added to the damage
+multiplier (see step 7 of damage calculation).
+
+
+                                *************
+                                 9.0 Blitzes
+                                *************
+
+************
+ 9.1 Mantra
+************
+
+Heals every character except the caster. Heals an amount of HP equal to the
+(caster's current HP) / (number of targets - 1).  Sabin is considered to be a
+target for purposes of determining damage.
+
+Also removes the following statuses: Dark, Poison, Mute, and Seizure.
+
+
+**************
+ 9.2 Spiraler
+**************
+
+Heals all characters except the caster.  Removes the caster from combat, killing
+them, and leaving them with 0 HP, and 0 MP.
+
+Also removes the following statuses: Dark, Zombie, Poison, Imp, Petrify,
+Condemned, Mute, Berserk, Muddle, Seizure, Sleep, Slow, Stop, and Freeze.
+
+
+************
+ 9.3 Suplex
+************
+
+Is actually a spread attack, but its special effect removes all targets
+except for one.  Like most spread attacks, it will deal half damage if the
+target is not the only enemy remaining.
+
+Is defense ignoring (see section 3.5).
+
+Is Unblockable (see step 3 in hit determination).
+
+Some monsters can't be affected by Suplex.
+
+
+                             ********************
+                              10.0 Enemy Attacks
+                             ********************
+
+*****************
+ 10.1 Flare Star
+*****************
+
+Ignores all normal steps in damage calculation (except step 9) and instead
+damage is calculated as follows:
+
+Damage = 80 * (level of a random character that is hit) / Number of characters
+hit
+
+
+***************
+ 10.2 N. Cross
+***************
+
+N. Cross gives freeze status to any character that is hit. It determines which
+characters are hit normally, but then has an additional step as follows:
+
+After determining which characters are hit, it randomly makes N. Cross not hit
+0, 1, 2, 3, or all 4 characters. Which character(s) it sets as not hit is
+completely random.
+
+After this step, any characters that are still hit are frozen.
+
+
+                             ********************
+                              11.0 Spell Listing
+                             ********************
+
+For these listings:
+
+Power = the spell power or battle power used for determining damage in step 
+1 of damage determination
+
+Physical = whether the attack is physical (if it's not physical it's a magical
+attack)
+
+Ign. Def = whether the attack ignores defense (see section 3.5)
+
+Unblock = whether the attack is unblockable (see step 3 in hit determination)
+
+Hit Rate = the hit rate used in step 4e or 5a of hit determination
+
+
+Spells:
+
+Black Magic:
+
+Spell              Power     Physical  Ign. Def. Unblock   Hit Rate
+Bio                53        No        No        No        120
+Bolt               20        No        No        No        150
+Bolt 2             61        No        No        No        150
+Bolt 3             120       No        No        No        150
+Break              0         No        No        No        120
+Demi               8         No        No        No        120
+Doom               0         No        No        No        95
+Drain              38        No        No        No        120
+Fire               21        No        No        No        150 
+Fire 2             60        No        No        No        150
+Fire 3             121       No        No        No        150
+Flare              60        No        Yes       No        150
+Ice                22        No        No        No        150
+Ice 2              62        No        No        No        150
+Ice 3              122       No        No        No        150
+Merton             138       No        Yes       Yes       n/a
+Meteor             36        No        Yes       Yes       n/a
+Pearl              108       No        No        No        150
+Poison             25        No        No        No        100
+Quake              111       No        Yes       Yes       n/a
+Quartr             12        No        No        No        100
+Ultima             150       No        Yes       Yes       n/a
+W Wind             15        No        No        No        100
+X-Zone             0         No        No        No        85
+
+
+Gray Magic:
+
+Spell              Power     Physical  Ign. Def. Unblock   Hit Rate
+Bserk              0         No        No        No        150
+Dispel             0         No        No        Yes       n/a
+Float              0         No        No        Yes       n/a
+Haste              0         No        No        Yes       n/a
+Haste2             0         No        No        Yes       n/a
+Imp                0         No        No        No        100
+Muddle             0         No        No        No        94
+Mute               0         No        No        No        100
+Osmose             26        No        No        No        150
+Quick              0         No        No        Yes       n/a
+Rasp               10        No        No        No        150
+Rflect             0         No        No        Yes       n/a
+Safe               0         No        No        Yes       n/a
+Scan               0         No        No        No        222
+Shell              0         No        No        Yes       n/a
+Sleep              0         No        No        No        111
+Slow               0         No        No        No        120
+Slow 2             0         No        No        No        150
+Stop               0         No        No        No        100
+Vanish             0         No        No        Yes       n/a
+Warp               0         No        No        Yes       n/a
+
+
+White Magic:
+
+Spell              Power     Physical  Ign. Def. Unblock   Hit Rate
+Antdot             0         No        No        Yes       n/a
+Cure               10        No        Yes       Yes       n/a
+Cure 2             28        No        Yes       Yes       n/a
+Cure 3             66        No        Yes       Yes       n/a
+Life               2         No        Yes       Yes       n/a
+Life 2             16        No        Yes       Yes       n/a
+Life 3             0         No        No        Yes       n/a
+Regen              0         No        No        Yes       n/a
+Remedy             0         No        No        Yes       n/a
+
+
+Espers:
+
+Esper              Power     Physical  Ign. Def. Unblock   Hit Rate
+Alexander          114       No        No        Yes       n/a
+Bahamut            92        No        Yes       Yes       n/a
+Bismark            58        No        No        Yes       n/a
+Carbunkl           0         No        No        Yes       n/a
+Crusader           190       No        No        Yes       n/a
+Fenrir             0         No        No        Yes       n/a
+Golem              0         No        No        Yes       n/a
+Ifrit              51        No        No        Yes       n/a
+Kirin              0         No        NO        Yes       n/a
+Ramuh              50        No        No        Yes       n/a
+Shiva              52        No        No        Yes       n/a
+Shoat              0         No        No        No        96
+Siren              0         No        No        No        136
+Stray              0         No        No        No        n/a
+Maduin             55        No        No        Yes       n/a
+Odin               0         No        No        No        110
+Palidor            0         No        Yes       Yes       n/a
+Phantom            0         No        No        Yes       n/a
+Phoenix            4         No        No        Yes       n/a
+Ragnarok           0         No        No        No        n/a
+Raiden             0         No        No        No        140
+Sraphim            18        No        Yes       Yes       n/a
+Starlet            34        No        Yes       Yes       n/a
+Terrato            93        No        No        Yes       150
+Tritoch            110       No        No        Yes       n/a
+Unicorn            0         No        No        Yes       n/a
+Zoneseek           0         No        No        Yes       n/a
+
+
+SwdTech:
+
+SwdTech            Power     Physical  Ign. Def. Unblock   Hit Rate
+Dispatch           120       Yes       Yes       Yes       n/a
+Retort             56        No        Yes       Yes       n/a
+Slash              8         Yes       No        Yes       n/a
+Quadra Slam        72        Yes       No        Yes       n/a
+Empowerer          49        No        Yes       Yes       n/a
+Stunner            97        No        No        Yes       140*
+Quadra Slice       70        Yes       Yes       Yes       n/a
+Cleave             0         No        Yes       No        182
+
+* The main damage portion of Stunner is unblockable, but the special
+effect will only try to inflict the ailment 116/256 of the time
+(116 = 256 - 140).  
+
+
+Blitzes:
+
+Blitz              Power     Physical  Ign. Def. Unblock   Hit Rate
+Pummel             110       Yes       Yes       Yes       n/a
+Aurabolt           68        No        No        Yes       n/a
+Suplex             180       Yes       Yes       Yes       n/a
+Fire Dance         42        No        No        Yes       n/a
+Mantra             1         No        Yes       Yes       n/a
+Air Blade          78        No        No        Yes       n/a
+Spiraler           200       No        Yes       Yes       n/a
+Bum Rush           128       No        Yes       Yes       n/a
+
+
+Dance moves:
+
+Dance move         Power     Physical  Ign. Def  Unblock    Hit Rate
+Antlion            0         No        No        No         100
+Cave In            12        No        No        Yes        n/a
+Cockatrice         50        No        Yes       No         96
+Elf Fire           72        No        No        Yes        n/a
+El Nino            61        No        No        Yes        n/a
+Harvester          0         No        No        Yes        n/a
+Ice Rabbit         60        No        Yes       Yes        n/a
+Kitty              0         No        No        Yes        n/a
+Land Slide         65        No        Yes       Yes        n/a
+Plasma             70        No        No        Yes        n/a
+Pois. Frog         56        No        No        Yes        n/a
+Rage               50        No        No        Yes        n/a
+Sand Storm         45        No        No        Yes        n/a
+Snare              0         No        No        No         100
+Snowball           8         No        No        Yes        n/a
+Sonic Boom         10        No        No        Yes        n/a
+Specter            0         No        No        No         120
+Surge              55        No        No        Yes        n/a
+Sun Bath           50        No        Yes       Yes        n/a
+Tapir              0         No        No        Yes        n/a
+Whump              53        No        Yes       Yes        n/a
+Wild Bear          100       No        Yes       Yes        n/a
+Wind Slash         48        No        No        Yes        n/a
+Wombat             88        No        Yes       Yes        n/a
+
+
+Lores:
+
+Lore               Power     Physical  Ign. Def  Unblock    Hit Rate
+Aero               125       No        No        No         150
+Aqua Rake          71        No        No        No         150
+Big Guard          0         No        No        Yes        n/a
+Blow Fish          1         No        Yes       Yes        n/a
+Cleansweep         50        No        No        No         150
+Condemned          0         No        No        Yes        n/a
+Dischord           0         No        No        No         100
+Exploder           1         No        Yes       Yes        n/a
+ForceField         0         No        No        Yes        n/a
+GrandTrain         84        No        Yes       Yes        n/a
+L.3 Muddle         0         No        No        No         n/a
+L.4 Flare          66        No        Yes       No         n/a
+L.5 Doom           0         No        No        No         n/a
+L? Pearl           120       No        No        No         n/a 
+Pearl Wind         1         No        Yes       Yes        n/a
+Pep Up             16        No        No        Yes        n/a
+Quasar             57        No        Yes       Yes        n/a
+Reflect???         0         No        No        Yes        n/a
+Revenge            1         No        Yes       Yes        n/a
+Rippler            0         No        No        No         111
+Roulette           0         No        No        Yes        n/a
+Sour Mouth         0         No        No        No         100
+Step Mine          32        No        Yes       Yes        n/a
+Stone              40        No        No        No         75
+
+
+Magitek:
+
+Attack             Power     Physical  Ign. Def  Unblock    Hit Rate
+Bio Blast          60        No        No        Yes        n/a
+Bolt Beam          62        No        No        Yes        n/a
+Confuser           0         No        No        No         128
+Fire Beam          60        No        No        Yes        n/a
+Heal Force         50        No        Yes       Yes        n/a
+Ice Beam           61        No        No        Yes        n/a
+TekMissile         58        No        Yes       Yes        n/a
+X-Fer              0         No        No        No         120
+
+
+Desparation attacks:
+
+Attack             Power     Physical  Ign. Def  Unblock    Hit Rate
+Back Blade         140       No        Yes       Yes        n/a
+Mirager            139       No        Yes       Yes        n/a
+MoogleRush         150       No        Yes       Yes        n/a
+Red Card           147       No        Yes       Yes        n/a
+Riot Blade         142       No        Yes       Yes        n/a
+Royal Shock        143       No        Yes       Yes        n/a
+SabreSoul          0         No        No        Yes        n/a
+ShadowFang         140       No        Yes       Yes        n/a
+Spin Edge          143       No        Yes       Yes        n/a
+StarPrism          0         No        No        Yes        n/a
+TigerBreak         140       No        Yes       Yes        n/a
+X-Meteo            146       No        Yes       Yes        n/a
+
+
+Miscellaneous:
+
+Attack             Power     Physical  Ign. Def  Unblock    Hit Rate
+50 Gs              0         No        No        Yes        n/a
+7-Flush            84        No        No        Yes        n/a
+Absolute 0         110       No        No        No         140
+Acid Rain          25        No        No        No         100
+Atomic Ray         80        No        No        No         150
+BabaBreath         0         No        No        Yes        n/a
+Bio Blast          20        No        No        Yes        n/a
+Blaster            0         No        No        No         70
+Blaze              68        No        No        No         120
+Blizzard           25        No        No        No         140
+Bolt Edge          100       No        No        Yes        n/a
+Bomblet            0         No        No        Yes        n/a
+Charm              0         No        No        No         80
+Chocobop           36        No        Yes       Yes        n/a
+Chokesmoke         0         No        No        Yes        n/a
+Cold Dust          0         No        No        Yes        n/a
+Cyclonic           15        No        No        No         75
+Delta Hit          0         No        No        Yes        n/a
+Diffuser           62        No        No        No         150
+Disaster           0         No        No        No         62
+Discard            0         No        No        Yes        n/a
+Dread              0         No        No        No         75
+Engulf             0         No        No        Yes        n/a
+Entwine            0         No        No        Yes        n/a
+Escape             0         No        No        Yes        n/a
+Evil Toot          0         No        No        No         120
+Fallen One         0         No        No        Yes        n/a
+Fire Ball          50        No        No        No         150
+Fire Skean         100       No        No        Yes        n/a
+Fire Wall          50        No        No        Yes        n/a
+Flare Star         80        No        Yes       Yes        n/a
+Flash              42        No        No        No         128
+Flash Rain         60        No        No        No         140
+Gale Cut           15        No        No        Yes        n/a
+Giga Volt          110       No        No        No         130
+Goner              220       No        No        Yes        n/a
+Grav Bomb          8         No        No        No         100
+H-Bomb             130       No        No        Yes        n/a
+Heart Burn         30        No        No        No         120
+HyperDrive         118       No        Yes       Yes        n/a
+Imp Song           0         No        No        No         100
+Lagomorph          10        No        No        Yes        n/a
+Launcher           8         No        Yes       No         100
+LifeShaver         84        No        No        Yes        n/a
+Lode Stone         12        No        No        Yes        n/a
+Love Token         0         No        No        Yes        n/a
+Lullaby            0         No        No        No         90
+Magnitude 8        100       No        No        No         130
+Megazerk           0         No        No        Yes        n/a
+Mega Volt          20        No        No        No         150
+Meteo              60        No        Yes       No         80
+Mind Blast         0         No        No        No         110
+Missile            4         No        No        No         126
+Mute               0         No        No        No         90
+N. Cross           0         No        No        No         90
+Net                0         No        No        No         100
+Overcast           0         No        No        Yes        n/a
+Phantasm           0         No        No        Yes        n/a
+R. Polarity        0         No        No        Yes        n/a
+Raid               40        No        No        No         100
+Revenger           0         No        No        Yes        n/a
+S. Cross           120       No        No        No         120
+Scar Beam          28        No        No        Yes        n/a
+Schiller           0         No        No        No         80
+Seize              0         No        No        Yes        n/a
+Shimsham           8         No        No        Yes        n/a
+Shock              128       No        No        Yes        n/a
+Shock Wave         25        No        No        No         120
+Shrapnel           120       No        No        No         120
+Slide              75        No        No        Yes        n/a
+Slimer             0         No        No        No         100
+Sneeze             0         No        No        Yes        n/a
+Soul Out           0         No        No        Yes        n/a
+Storm              100       No        No        Yes        n/a
+Takedown           55        No        Yes       Yes        n/a
+Targetting         0         No        No        Yes        n/a
+TekBarrier         0         No        No        Yes        n/a
+Tek Laser          20        No        No        No         150
+Tentacle           146       Yes       No        Yes        n/a
+Train              0         No        No        Yes        n/a
+Virite             20        No        No        No         80
+WallChange         0         No        No        Yes        n/a
+Water Edge         100       No        No        Yes        n/a
+WaveCannon         110       No        No        No         150
+Wild Fang          66        No        Yes       Yes        n/a
+Zinger             0         No        No        Yes        n/a
+
+
+Copyright notice:
+This document is Copyright 2003 by Kris DeHart. I do not authorize any part
+of this FAQ to be copied or used in anyone else's FAQ without my explicit
+permission. The most recent version of this FAQ and all my other FAQs can
+always be found at GameFAQs (http://www.gamefaqs.com) or my website
+(http://www.teriisenshi.web1000.com)
