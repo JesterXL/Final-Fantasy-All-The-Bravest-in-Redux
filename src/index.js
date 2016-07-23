@@ -1,27 +1,28 @@
 import 'babel-polyfill';
 
-import BattleTimer from "./com/jessewarden/ff6rx/battle/BattleTimer";
-import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
-import TextDropper from './com/jessewarden/ff6rx/components/TextDropper';
-import BattleTimerBar from "./com/jessewarden/ff6rx/components/BattleTimerBar";
+import BattleTimer from "./com/jessewarden/ff6redux/battle/BattleTimer";
+import BattleTimer2 from "./com/jessewarden/ff6redux/battle/BattleTimer2";
+import TextDropper from './com/jessewarden/ff6redux/components/TextDropper';
+import BattleTimerBar from "./com/jessewarden/ff6redux/components/BattleTimerBar";
 import PIXI from 'pixi.js';
 import {Subject} from 'rx';
 import _ from "lodash";
-import Row from "./com/jessewarden/ff6rx/enums/Row";
-import Relic from "./com/jessewarden/ff6rx/items/Relic";
-import Player from './com/jessewarden/ff6rx/battle/Player';
-import Monster from './com/jessewarden/ff6rx/battle/Monster';
+import Row from "./com/jessewarden/ff6redux/enums/Row";
+import Relic from "./com/jessewarden/ff6redux/items/Relic";
+import Player from './com/jessewarden/ff6redux/battle/Player';
+import Monster from './com/jessewarden/ff6redux/battle/Monster';
 
 import { createStore, applyMiddleware } from 'redux'
 
 import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
-// import './com/jessewarden/ff6rx/sagas/TestSagas';
+// import './com/jessewarden/ff6redux/sagas/TestSagas';
 // import './TestBattleTimers';
 // import './TestBattleTimerBars';
 // import './TestInitiative';
-import './TestMovieClip';
+// import './TestMovieClip';
+import './TestCursorManager';
 
 export class Application
 {

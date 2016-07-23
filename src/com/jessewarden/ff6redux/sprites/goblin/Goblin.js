@@ -17,7 +17,7 @@ class Goblin
 	{
 		this._container = new PIXI.Container();
 
-		var prefix = 'src/com/jessewarden/ff6rx/sprites/goblin/';
+		var prefix = 'src/com/jessewarden/ff6redux/sprites/goblin/';
 		var stand = prefix + "goblin.png";
 		this.standTexture  = new PIXI.Texture.fromImage(stand);
 		this._sprite = new PIXI.Sprite(this.standTexture);
