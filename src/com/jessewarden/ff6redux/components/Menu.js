@@ -123,6 +123,17 @@ export default class Menu
 			// create name
 			var field = vm.getTextField();
 			field.text = item.name;
+			var style = field.style;
+			if(item.disabled)
+			{
+				field.interactive = false;
+				style.fill = "#666666";
+			}
+			else
+			{
+				field.interactive = true;
+				style.fill = "#FFFFFF";
+			}
 			field.x = startX;
 			field.y = startY;
 			// field.width = 200;

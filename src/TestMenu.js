@@ -41,7 +41,7 @@ function testMenu()
 
 	var menu = new Menu(320, 160, [
 		{name: 'Uno'},
-		{name: 'Dos'},
+		{name: 'Dos', disabled: true},
 		{name: 'Tres'}
 	]);
 	menu.container.x = 100;

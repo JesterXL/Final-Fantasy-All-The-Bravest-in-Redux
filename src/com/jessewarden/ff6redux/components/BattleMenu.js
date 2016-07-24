@@ -1,8 +1,13 @@
-class BattleMenu
+import PIXI from "pixi.js";
+import _ from "lodash";
+import "gsap";
+import {Subject} from 'rx';
+
+export default class BattleMenu
 {
-	ObservableList<MenuItem> mainMenuItems;
-	ObservableList<MenuItem> defendMenuItems;
-	ObservableList<MenuItem> rowMenuItems;
+	var mainMenuItems = [];
+	var defendMenuItems = [];
+	var rowMenuItems = [];
 	Menu mainMenu;
 	Menu defendMenu;
 	Menu rowMenu;
@@ -15,21 +20,19 @@ class BattleMenu
 
 	Stream stream;
 
-	BattleMenu(ResourceManager this.resourceManager,
-	           CursorFocusManager this.cursorManager,
-	           Stage this.stage)
+	constructor(stage)
 	{
-		init();
+		init(stage);
 	}
 
-	void init()
+	void init(stage)
 	{
-		_controller = new StreamController.broadcast();
-		stream = _controller.stream;
+		var vm = this;
+		vm.stage = stage;
 
-		mainMenuItems = new ObservableList<MenuItem>();
-		mainMenuItems.add(new MenuItem("Attack"));
-		mainMenuItems.add(new MenuItem("Items"));
+		vm.mainMenuItems = new ObservableList<MenuItem>();
+		vm.mainMenuItems.push({name: "Attack"});
+		vm.mainMenuItems.push({name: "Items"});
 
 		mainMenu = new Menu(300, 280, mainMenuItems);
 		mainMenu.x = 20;
