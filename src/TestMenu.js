@@ -8,6 +8,7 @@ document.body.appendChild(renderer.view);
 var stage = new PIXI.Container();
 stage.interactive = true;
 
+// loadFont();
 testMenu();
 
 function delayed(milliseconds, callback)
@@ -20,6 +21,18 @@ function delayed(milliseconds, callback)
 			success();
 		}, milliseconds);
 	});
+}
+
+function loadFont()
+{
+	var loader = new PIXI.loaders.Loader();
+
+	loader.add('ff6fonta',"src/fonts/Final Fantasy VI SNESa.ttf");
+	loader.add('ff6fontb',"src/fonts/Final Fantasy VI SNESb.ttf");
+
+	loader.once('complete',testMenu);
+
+	loader.load();
 }
 
 function testMenu()
