@@ -17,7 +17,7 @@ class GoblinAttack
 	{
 		this._container = new PIXI.Container();
 
-		var prefix = 'src/com/jessewarden/ff6rx/sprites/goblin/';
+		var prefix = 'src/com/jessewarden/ff6redux/sprites/goblin/';
 
 		var red1 = prefix + 'goblin-attack/frame-000000.png';
 		var red2 = prefix + "goblin-attack/frame-000001.png";

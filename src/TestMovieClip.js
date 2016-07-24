@@ -1,8 +1,8 @@
 import PIXI from 'pixi.js';
 import _ from 'lodash';
-import Warrior from './com/jessewarden/ff6rx/sprites/warrior/Warrior';
-import Goblin from './com/jessewarden/ff6rx/sprites/goblin/Goblin';
-import GoblinAttack from './com/jessewarden/ff6rx/sprites/goblin/GoblinAttack';
+import Warrior from './com/jessewarden/ff6redux/sprites/warrior/Warrior';
+import Goblin from './com/jessewarden/ff6redux/sprites/goblin/Goblin';
+import GoblinAttack from './com/jessewarden/ff6redux/sprites/goblin/GoblinAttack';
 import 'gsap';
 
 var renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
@@ -13,7 +13,7 @@ stage.interactive = true;
 // testWarrior();
 // testWarriorHit();
 // testGoblin();
-testGoblinAttack();
+// testGoblinAttack();
 
 function delayed(milliseconds, callback)
 {

@@ -17,7 +17,7 @@ class Warrior
 	{
 		this._container = new PIXI.Container();
 
-		var prefix = 'src/com/jessewarden/ff6rx/sprites/warrior/';
+		var prefix = 'src/com/jessewarden/ff6redux/sprites/warrior/';
 		var attack = prefix + "warrior_attack.png";
 		var attack2 = prefix + 'warrior_attack2.png';
 		var hit    = prefix + "warrior_hit.png";

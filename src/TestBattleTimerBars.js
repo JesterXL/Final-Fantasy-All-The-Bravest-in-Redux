@@ -4,10 +4,10 @@ import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import {timer, timerFlow}
-				from './com/jessewarden/ff6rx/sagas/GameLoopSaga';
-import BattleTimer2 from "./com/jessewarden/ff6rx/battle/BattleTimer2";
+				from './com/jessewarden/ff6redux/sagas/GameLoopSaga';
+import BattleTimer2 from "./com/jessewarden/ff6redux/battle/BattleTimer2";
 import _ from 'lodash';
-import BattleTimerBar from "./com/jessewarden/ff6rx/components/BattleTimerBar";
+import BattleTimerBar from "./com/jessewarden/ff6redux/components/BattleTimerBar";
 
 const TICK = 'TICK';
 const ADD_BATTLETIMER = 'ADD_BATTLETIMER';
