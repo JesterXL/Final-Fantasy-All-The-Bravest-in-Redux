@@ -22,7 +22,8 @@ import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 // import './TestBattleTimerBars';
 // import './TestInitiative';
 // import './TestMovieClip';
-import './TestCursorManager';
+// import './TestCursorManager';
+import './TestMenu';
 
 export class Application
 {
