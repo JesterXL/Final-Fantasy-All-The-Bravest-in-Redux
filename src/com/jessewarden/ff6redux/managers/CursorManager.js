@@ -32,7 +32,7 @@ export default class CursorManager
 		.filter(e => event.type === 'keydown')
 		.subscribe((event)=>
 		{
-			console.log("CursorManager::keyboard:", event);
+			// console.log("CursorManager::keyboard:", event.type);
 			var prevent = false;
 			switch(event.keyCode)
 			{
@@ -81,8 +81,9 @@ export default class CursorManager
 		this.stage.setChildIndex(this.sprite, this.stage.children.length - 1);
 	}
 
-	setTargets(list)
+	setTargets(parent, list)
 	{
+		this.targetsParent = parent;
 		this.targets = _.map(list, i => i);
 		this.hackToTop();
 		this.toggleVisibility();
@@ -160,8 +161,11 @@ export default class CursorManager
 
 		var target = this.targets[this._selectedIndex];
 		this._setCursorVisible(true);
-		var point = target.parent.toLocal(new PIXI.Point(target.x, target.y));
-		this.sprite.x = point.x - this.sprite.width - 2;
+		console.log("target.parent.y:", this.targetsParent.y);
+		var targetPoint = new PIXI.Point(target.x, target.y);
+		var point = this.targetsParent.toGlobal(targetPoint);
+		console.log("point:", point);
+		this.sprite.x = point.x - 16 - 2;
 		this.sprite.y = point.y + target.height / 2;
 		this.beepSound.play();
 	}
