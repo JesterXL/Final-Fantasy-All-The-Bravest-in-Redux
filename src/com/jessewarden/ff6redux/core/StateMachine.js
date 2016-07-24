@@ -92,7 +92,7 @@ class State
 		return false;
 	}
 	
-	constructor(_name, from = undefined, 
+	constructor(name, from = undefined, 
 						enter = undefined, 
 						exit = undefined, 
 						parent = undefined)
@@ -205,25 +205,31 @@ class StateMachine
 	
 	canChangeStateTo(stateName)
 	{
+		console.log("StateMachine::canChangeStateTo, stateName:", stateName);
+		console.log("states:", this.states);
 		var targetToState = this.states[stateName];
 		var score = 0;
 		var win = 2;
 		
+		console.log("stateName: " + stateName + ", current: " + this.currentState.name);
 		if(stateName !== this.currentState.name)
 		{
 			score++;
 		}
 		
 		// NOTE: Lua via State.inFrom was walking up one parent if from was null... why?
+		console.log("targetToState:", targetToState);
 		if(notNil(targetToState.from))
 		{
 			if(targetToState.from.contains(this._currentState.name) === true)
 			{
+				console.log("state is in from list");
 				score++;
 			}
 			
 			if(targetToState.from.contains("*") === true)
 			{
+				console.log("has a star");
 				score++;
 			}
 		}
@@ -240,7 +246,7 @@ class StateMachine
 		{
 			score++;
 		}
-		
+		console.log("StateMachine::canChangeStateTo, score:", score);
 		if(score >= win)
 		{
 			return true;

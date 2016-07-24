@@ -2,6 +2,7 @@ import PIXI from 'pixi.js';
 import _ from 'lodash';
 import 'gsap';
 import Menu from './com/jessewarden/ff6redux/components/Menu'
+import BattleMenu from './com/jessewarden/ff6redux/components/BattleMenu';
 
 var renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
 document.body.appendChild(renderer.view);
@@ -9,7 +10,8 @@ var stage = new PIXI.Container();
 stage.interactive = true;
 
 // loadFont();
-testMenu();
+// testMenu();
+testBattleMenu();
 
 function delayed(milliseconds, callback)
 {
@@ -52,6 +54,24 @@ function testMenu()
 	{
 		console.log("event:", event);
 	});
+}
+
+function testBattleMenu()
+{
+	animate();
+
+	var battleMenu = new BattleMenu(stage);
+	battleMenu.changes
+	.subscribe((event)=>
+	{
+		console.log("event:", event);
+	});
+
+	delayed(2000, ()=>
+	{
+		battleMenu.show();
+	});
+	
 }
 
 function animate()

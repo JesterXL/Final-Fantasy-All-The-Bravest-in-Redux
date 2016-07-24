@@ -7,6 +7,7 @@ export default class Menu
 {
 	get container(){return this._container;}
 	get changes(){ return this._changes; }
+	get targets(){ return this._items.children;}
 
 	constructor(width=320, height=160, menuItems)
 	{

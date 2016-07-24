@@ -2,124 +2,59 @@ import PIXI from "pixi.js";
 import _ from "lodash";
 import "gsap";
 import {Subject} from 'rx';
+import Menu from './Menu';
+import CursorManager from '../managers/CursorManager';
+import keyboardManager from '../managers/keyboardManager';
+import StateMachine from '../core/StateMachine';
 
 export default class BattleMenu
 {
-	var mainMenuItems = [];
-	var defendMenuItems = [];
-	var rowMenuItems = [];
-	Menu mainMenu;
-	Menu defendMenu;
-	Menu rowMenu;
-	StateMachine fsm;
 
-	ResourceManager resourceManager;
-	CursorFocusManager cursorManager;
-	Stage stage;
-	StreamController _controller;
-
-	Stream stream;
+	get changes(){return this._changes;}
 
 	constructor(stage)
-	{
-		init(stage);
-	}
-
-	void init(stage)
 	{
 		var vm = this;
 		vm.stage = stage;
 
-		vm.mainMenuItems = new ObservableList<MenuItem>();
+		vm._changes = new Subject();
+
+		vm.mainMenuItems = []
 		vm.mainMenuItems.push({name: "Attack"});
 		vm.mainMenuItems.push({name: "Items"});
 
-		mainMenu = new Menu(300, 280, mainMenuItems);
-		mainMenu.x = 20;
-		mainMenu.y = 200;
+		vm.mainMenu = new Menu(300, 280, vm.mainMenuItems);
+		vm.mainMenu.container.x = 20;
+		vm.mainMenu.container.y = 200;
 
-		defendMenuItems = new ObservableList<MenuItem>();
-		defendMenuItems.add(new MenuItem("Defend"));
+		vm.defendMenuItems = []
+		vm.defendMenuItems.push({name: "Defend"});
 
-		defendMenu = new Menu(300, 280, defendMenuItems);
-		defendMenu.x = mainMenu.x + 30;
-		defendMenu.y = mainMenu.y;
+		vm.defendMenu = new Menu(300, 280, vm.defendMenuItems);
+		vm.defendMenu.container.x = vm.mainMenu.container.x + 30;
+		vm.defendMenu.container.y = vm.mainMenu.container.y;
 
-		rowMenuItems = new ObservableList<MenuItem>();
-		rowMenuItems.add(new MenuItem("Change Row"));
+		vm.rowMenuItems = [];
+		vm.rowMenuItems.push({name: "Change Row"});
 
-		rowMenu = new Menu(300, 280, rowMenuItems);
-		rowMenu.x = mainMenu.x - 30;
-		rowMenu.y = mainMenu.y;
+		vm.rowMenu = new Menu(300, 280, vm.rowMenuItems);
+		vm.rowMenu.x = vm.mainMenu.container.x - 30;
+		vm.rowMenu.y = vm.mainMenu.container.y;
 
-		fsm = new StateMachine();
+		vm.stage.addChild(vm.mainMenu.container);
+		vm.stage.addChild(vm.defendMenu.container);
+		vm.stage.addChild(vm.rowMenu.container);
 
-		StreamSubscription streamSubscription;
-
-		fsm.addState('hide',
-		enter: ()
+		vm.keyboardManager = new keyboardManager();
+		vm.cursorManager = new CursorManager(stage, vm.keyboardManager);
+		vm.cursorManager.changes
+		.subscribe((event)=>
 		{
-			mainMenu.removeFromParent();
-			defendMenu.removeFromParent();
-			rowMenu.removeFromParent();
-			cursorManager.clearAllTargets();
-			if(streamSubscription != null)
-			{
-				streamSubscription.cancel();
-				streamSubscription = null;
-			}
-			stage.focus = null;
-		});
-
-		fsm.addState("main",
-		enter: ()
-		{
-			stage.addChild(mainMenu);
-			cursorManager.setTargets(mainMenu.hitAreas);
-			if (streamSubscription == null)
-			{
-				streamSubscription = getCursorManagerStreamSubscription();
-			}
-			stage.focus = stage;
-		});
-		fsm.addState("defense", from: ["main"],
-		enter: ()
-		{
-			stage.addChild(defendMenu);
-			cursorManager.setTargets(defendMenu.hitAreas);
-		},
-		exit: ()
-		{
-			stage.removeChild(defendMenu);
-		});
-		fsm.addState("row", from: ["main"],
-		enter: ()
-		{
-			stage.addChild(rowMenu);
-			cursorManager.setTargets(rowMenu.hitAreas);
-		},
-		exit: ()
-		{
-			stage.removeChild(rowMenu);
-		});
-
-
-		resourceManager.load()
-		.then((_)
-		{
-			fsm.initialState = 'hide';
-		});
-	}
-
-	StreamSubscription getCursorManagerStreamSubscription()
-	{
-		return cursorManager.stream
-		.listen((CursorFocusManagerEvent event)
-		{
-			String currentState = fsm.currentState.name;
+			var currentState = vm.fsm.currentState.name;
+			var fsm = vm.fsm;
 			switch(event.type)
 			{
-				case CursorFocusManagerEvent.MOVE_RIGHT:
+				case 'cursorManager:moveRight':
 					if(currentState == 'main')
 					{
 						fsm.changeState('defense');
@@ -130,7 +65,7 @@ export default class BattleMenu
 					}
 					break;
 
-				case CursorFocusManagerEvent.MOVE_LEFT:
+				case 'cursorManager:moveLeft':
 					if(currentState == 'defense')
 					{
 						fsm.changeState('main');
@@ -141,38 +76,91 @@ export default class BattleMenu
 					}
 					break;
 
-				case CursorFocusManagerEvent.SELECTED:
-					String selectedItem;
+				case 'cursorManager:selected':
+					var selectedItem;
 					switch(currentState)
 					{
 						case "main":
-							selectedItem = mainMenuItems[cursorManager.selectedIndex].name;
+							selectedItem = vm.mainMenuItems[vm.cursorManager.selectedIndex].name;
 							break;
 
 						case "defense":
-							selectedItem = defendMenuItems[cursorManager.selectedIndex].name;
+							selectedItem = vm.defendMenuItems[vm.cursorManager.selectedIndex].name;
 							break;
 
 						case "row":
-							selectedItem = rowMenuItems[cursorManager.selectedIndex].name;
+							selectedItem = vm.rowMenuItems[vm.cursorManager.selectedIndex].name;
 							break;
 					}
 					fsm.changeState('hide');
-					_controller.add(new BattleMenuEvent(BattleMenuEvent.ITEM_SELECTED, selectedItem));
+					vm._changes.onNext({type: 'battleMenu:itemSelected', item: selectedItem});
 					break;
 			}
 		});
+
+		vm.fsm = new StateMachine();
+		vm.fsm.changes.subscribe((event)=>
+		{
+			console.log("BattleMenu::fsm::event", event);
+		});
+
+		vm.fsm.addState('hide',
+		['*'],
+		()=>
+		{
+			console.log("BattleMenu::hide");
+			vm.mainMenu.container.visible = false;
+			vm.defendMenu.container.visible = false;
+			vm.rowMenu.container.visible = false;
+			vm.cursorManager.clearAllTargets();
+		});
+
+		vm.fsm.addState("main",
+		['*'],
+		()=>
+		{
+			console.log("BattleMenu::main");
+			vm.mainMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.mainMenu.targets);
+		});
+
+		vm.fsm.addState("defense", 
+		["main"],
+		()=>
+		{
+			console.log("BattleMenu::defense");
+			vm.defendMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.defendMenu.targets);
+		},
+		()=>
+		{
+			vm.defendMenu.container.visible = false;
+		});
+		
+		vm.fsm.addState("row", 
+		["main"],
+		()=>
+		{
+			console.log("BattleMenu::row");
+			vm.rowMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.rowMenu.targets);
+		},
+		()=>
+		{
+			vm.rowMenu.container.visible = false;
+		});
+
+		vm.fsm.initialState = 'hide';
+
 	}
 
-	void show()
+	show()
 	{
-		fsm.changeState("main");
+		this.fsm.changeState("main");
 	}
 
-	void hide()
+	hide()
 	{
-		fsm.changeState("hide");
+		this.fsm.changeState("hide");
 	}
-
-
 }
