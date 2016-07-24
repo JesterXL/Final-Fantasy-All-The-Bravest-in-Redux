@@ -28,6 +28,8 @@ import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 export function Application()
 {
 	var renderer, stage;
+	const START_TIMER = 'START_TIMER';
+	const STOP_TIMER = 'STOP_TIMER';
 
 	function bootstrap()
 	{
@@ -38,6 +40,8 @@ export function Application()
 		stage.interactive = true;
 
 		animate();
+
+
 
 		var startState = {
 			now: performance.now(),
@@ -76,22 +80,39 @@ export function Application()
 
 		function *timer(action)
 		{
-			console.log("timer");
-			while(yield call(timerIsRunning))
+			try
 			{
-				console.log("inside while true loop");
-				yield call(delay, 60);
-				yield put({type: 'TICK', now: performance.now()});
+				while(true)
+				{
+					console.log("inside while true loop");
+					yield call(delay, 60);
+					yield put({type: 'TICK', now: performance.now()});
+				}
+			}
+			finally
+			{
+				if(yield cancelled())
+				{
+
+				}
 			}
 		}
 
-		function *mySaga()
+		function *gameLoop()
 		{
-			console.log("mySaga");
-			yield* takeEvery('START_TIMER', timer);
+			while(yield take(START_TIMER))
+			{
+				const task = yield fork(timer);
+				yield take(STOP_TIMER);
+				yield cancel(task);
+			}
 		}
 
-
+		// function *mySaga()
+		// {
+		// 	console.log("mySaga");
+		// 	yield* takeEvery('START_TIMER', timer);
+		// }
 
 		const sagaMiddleware = createSagaMiddleware();
 
@@ -100,12 +121,7 @@ export function Application()
 			applyMiddleware(sagaMiddleware)
 		);
 
-		sagaMiddleware.run(mySaga);
-
-		function timerIsRunning()
-		{
-			return store.getState().running;
-		}
+		sagaMiddleware.run(gameLoop);
 
 		store.subscribe(() =>
 			console.log(store.getState())
