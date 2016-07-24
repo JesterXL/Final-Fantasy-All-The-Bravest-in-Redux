@@ -12,7 +12,7 @@ import Relic from "./com/jessewarden/ff6redux/items/Relic";
 import Player from './com/jessewarden/ff6redux/battle/Player';
 import Monster from './com/jessewarden/ff6redux/battle/Monster';
 
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers} from 'redux'
 
 import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
@@ -28,8 +28,14 @@ import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 export function Application()
 {
 	var renderer, stage;
+
+	const TICK = 'TICK';
 	const START_TIMER = 'START_TIMER';
 	const STOP_TIMER = 'STOP_TIMER';
+	
+	const ADD_PLAYER = 'ADD_PLAYER';
+	const ADD_MONSTER = 'ADD_MONSTER';
+	
 
 	function bootstrap()
 	{
@@ -41,68 +47,103 @@ export function Application()
 
 		animate();
 
-
-
 		var startState = {
-			now: performance.now(),
-			running: false,
+			gameLoop: {
+				now: performance.now(),
+				running: false
+			},
 			players: [],
-			monsters: [],
-			battleTimers: new Map()
+			monsters: []
 		};
 
-		function reducer(state=startState, action)
+		function players(state=[], action)
 		{
-			console.log("reducer action:", action);
 			switch(action.type)
 			{
-				case 'TICK':
-					return Object.assign({}, state, {now: action.now});
+				case ADD_PLAYER:
+					return [...state, action.player];
 				
-				case 'START_TIMER':
-					state.running = true;
-					return state;
-
-				case 'STOP_TIMER':
-					state.running = false;
-					return state;
-
-				case 'ADD_PLAYER':
-					return Object.assign(
-						{}, 
-						state, 
-						{players: [...state.players, action.player]});
+				case TICK:
+					return _.map(state, (player)=>
+					{
+						var timerResult = player.generator.next(action.difference);
+						if(timerResult.value === undefined)
+						{
+							timerResult = player.generator.next(action.difference);
+						}
+						return Object.assign({}, player,
+						{
+							percentage: timerResult.value.percentage
+						});
+					});
 
 				default:
 					return state;
 			}
 		}
 
-		function *timer(action)
+		function monsters(state=[], action)
 		{
-			try
+			switch(action.type)
 			{
-				while(true)
-				{
-					console.log("inside while true loop");
-					yield call(delay, 60);
-					yield put({type: 'TICK', now: performance.now()});
-				}
-			}
-			finally
-			{
-				if(yield cancelled())
-				{
+				case ADD_MONSTER:
+					return [...state, action.monster];
 
-				}
+				case TICK:
+					return _.map(state, (monster)=>
+					{
+						var timerResult = monster.generator.next(action.difference);
+						if(timerResult.value === undefined)
+						{
+							timerResult = monster.generator.next(action.difference);
+						}
+						return Object.assign({}, monster,
+						{
+							percentage: timerResult.value.percentage
+						});
+					});
+				default:
+					return state;
 			}
 		}
 
-		function *gameLoop()
+		function gameLoop(state=startState.gameLoop, action)
+		{
+			switch(action.type)
+			{
+				case TICK:
+					return Object.assign({}, state, {now: action.now});
+				
+				case START_TIMER:
+					return Object.assign({}, state, {running: true});
+					return state;
+
+				case STOP_TIMER:
+					return Object.assign({}, state, {running: false});
+
+				default:
+					return state;
+			}
+		}
+
+		function *ticker(action)
+		{
+			var lastTick = performance.now();
+			while(true)
+			{
+				yield call(delay, 60);
+				var now = performance.now();
+				var difference = now - lastTick;
+				lastTick = now;
+				yield put({type: TICK, now: now, difference: difference});
+			}
+		}
+
+		function *timer()
 		{
 			while(yield take(START_TIMER))
 			{
-				const task = yield fork(timer);
+				const task = yield fork(ticker);
 				yield take(STOP_TIMER);
 				yield cancel(task);
 			}
@@ -116,30 +157,43 @@ export function Application()
 
 		const sagaMiddleware = createSagaMiddleware();
 
+		let reducers = combineReducers({
+			gameLoop,
+			players,
+			monsters
+		})
 		let store = createStore(
-			reducer,
+			reducers,
 			applyMiddleware(sagaMiddleware)
 		);
 
-		sagaMiddleware.run(gameLoop);
+		sagaMiddleware.run(timer);
 
-		store.subscribe(() =>
-			console.log(store.getState())
-			)
+		// store.subscribe(() =>
+		// 	console.log(store.getState())
+		// 	)
 
-		store.dispatch({ type: 'ADD_PLAYER', player: new Player() });
-		store.dispatch({ type: 'ADD_PLAYER', player: new Player() });
-		store.dispatch({ type: 'ADD_PLAYER', player: new Player() });
+		store.dispatch({ type: ADD_PLAYER, player: new Player() });
+		store.dispatch({ type: ADD_PLAYER, player: new Player() });
+		store.dispatch({ type: ADD_PLAYER, player: new Player() });
 
+		store.dispatch({ type: ADD_MONSTER, monster: new Monster()});
+
+		var times = _.map(store.getState().players, p => p.percentage);
+		console.log("before times:", times);
 		delayed(1000, ()=>
 		{
-			store.dispatch({type: 'START_TIMER'})
+			store.dispatch({type: START_TIMER})
 		});
 
 		delayed(2000, ()=>
 		{
-			store.dispatch({type: 'STOP_TIMER'})
+			store.dispatch({type: STOP_TIMER})
+			times = _.map(store.getState().players, p => p.percentage);
+		console.log("after times:", times);
 		});
+
+		
 	}
 	
 	

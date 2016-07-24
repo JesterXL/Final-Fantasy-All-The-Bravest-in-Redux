@@ -1,5 +1,4 @@
 import Character from "./Character";
-import BattleTimer2 from "./BattleTimer2";
 
 class Player extends Character
 {
@@ -22,9 +21,7 @@ class Player extends Character
 
 		this._type = type;
 		this.name = name;
-
-		this.generator = BattleTimer2.battleTimer()
-		this.percentage = 0;
+		
 		this.ready = false;
 		this.id = Player.idSeed + 1;
 		Player.idSeed++;

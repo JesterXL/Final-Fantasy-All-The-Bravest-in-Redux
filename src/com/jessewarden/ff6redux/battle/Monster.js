@@ -1,5 +1,5 @@
 import Character from "./Character";
-import BattleUtils from "../battle/BattleUtils";
+import BattleUtils from "./BattleUtils";
 
 class Monster extends Character
 {
@@ -11,8 +11,10 @@ class Monster extends Character
 		return this._type;
 	}
 
-	Monster(type = LEAFER)
+	constructor(type = Monster.LEAFER)
 	{
+		super();
+
 		this._type = type;
 		this.vigor = BattleUtils.getRandomMonsterVigor();
 	}

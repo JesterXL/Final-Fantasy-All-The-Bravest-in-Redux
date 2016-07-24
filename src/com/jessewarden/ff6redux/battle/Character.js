@@ -1,6 +1,7 @@
 import Row from "../enums/Row";
 import _ from "lodash";
 import {Subject} from "rx";
+import BattleTimer from './BattleTimer2';
 
 var _INCREMENT = 0;
 class Character
@@ -185,6 +186,9 @@ class Character
 	    battlePower = 1,
 	    hitRate = 100)
 	{
+		this.generator = BattleTimer.battleTimer();
+		this.percentage = 0;
+		
 		this.name = "";
 		this._battleState = undefined; // BattleState
 		this._hitPoints = hitPoints;
