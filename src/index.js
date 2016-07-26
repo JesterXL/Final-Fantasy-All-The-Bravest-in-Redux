@@ -29,13 +29,15 @@ export function Application()
 {
 	var renderer, stage;
 
-	const TICK = 'TICK';
+	const TICK        = 'TICK';
 	const START_TIMER = 'START_TIMER';
-	const STOP_TIMER = 'STOP_TIMER';
+	const STOP_TIMER  = 'STOP_TIMER';
 	
-	const ADD_PLAYER = 'ADD_PLAYER';
-	const ADD_MONSTER = 'ADD_MONSTER';
-	
+	const ADD_PLAYER  = 'ADD_PLAYER';
+	const ADD_MONSTER = 'ADD_MONSTER';	
+
+	var startBarX = 200;
+	var startBarY = 200;
 
 	function bootstrap()
 	{
@@ -44,6 +46,8 @@ export function Application()
 		document.body.appendChild(renderer.view);
 		stage = new PIXI.Container();
 		stage.interactive = true;
+		const battleTimerBars = new PIXI.Container();
+		stage.addChild(battleTimerBars);
 
 		animate();
 
@@ -155,6 +159,43 @@ export function Application()
 		// 	yield* takeEvery('START_TIMER', timer);
 		// }
 
+		function buildBattleTimerBars(players)
+		{
+			var barsToRemove = _.differenceWith(
+				battleTimerBars.children, 
+				players, 
+				(barContainer, player)=> barContainer.playerID === player.id);
+			_.forEach(barsToRemove, (bar) => 
+			{
+				bar.parent.removeChild(b);
+				startBarY -= BattleTimerBar.HEIGHT + 20;
+			});
+
+			var playersToAdd = _.differenceWith(
+				players, 
+				battleTimerBars.children, 
+				(player, barContainer)=> barContainer.playerID === player.id);
+			_.forEach(playersToAdd, (player)=>
+			{
+				var bar = new BattleTimerBar();
+				battleTimerBars.addChild(bar.container);
+				bar.container.x = startBarX;
+				bar.container.y = startBarY;
+				bar.container.bar = bar;
+				bar.container.playerID = player.id;
+				startBarY += BattleTimerBar.HEIGHT + 20;
+				return bar;
+			});
+
+			_.forEach(battleTimerBars.children, barContainer =>
+			{ 
+				var bar = barContainer.bar;
+				var player = _.find(players, p => p.id === barContainer.playerID);
+				bar.percentage = player.percentage;
+				bar.render();
+			});
+		}
+
 		const sagaMiddleware = createSagaMiddleware();
 
 		let reducers = combineReducers({
@@ -169,9 +210,11 @@ export function Application()
 
 		sagaMiddleware.run(timer);
 
-		// store.subscribe(() =>
-		// 	console.log(store.getState())
-		// 	)
+		store.subscribe(() =>
+		{
+			var state = store.getState();
+			buildBattleTimerBars(state.players);
+		});
 
 		store.dispatch({ type: ADD_PLAYER, player: new Player() });
 		store.dispatch({ type: ADD_PLAYER, player: new Player() });
@@ -192,10 +235,7 @@ export function Application()
 			times = _.map(store.getState().players, p => p.percentage);
 		console.log("after times:", times);
 		});
-
-		
 	}
-	
 	
 	function animate()
 	{

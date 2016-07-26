@@ -5,8 +5,6 @@ class Player extends Character
 	static get WARRIOR (){ return "Warrior"};
 	static get BLACK_MAGE (){ return "Black Mage"};
 	static get THIEF (){return "Thief"};
-	static get idSeed(){this._idSeed = 0;};
-	static set idSeed(val){this._idSeed = val;};
 
 	get type()
 	{
@@ -23,8 +21,6 @@ class Player extends Character
 		this.name = name;
 		
 		this.ready = false;
-		this.id = Player.idSeed + 1;
-		Player.idSeed++;
 	}
 }
 

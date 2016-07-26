@@ -123,6 +123,7 @@ class BattleTimerBar
 
 	redraw()
 	{
+		console.log("asdfasdfasdf:", this._percentage);
 		this.graphics.beginFill(0x000080);
 		this.graphics.lineStyle(3, 0xFFFFFF, 1);
 		this.graphics.drawRoundedRect(0, 

@@ -6,12 +6,6 @@ import BattleTimer from './BattleTimer2';
 var _INCREMENT = 0;
 class Character
 {
-	static get INCREMENT(){return _INCREMENT;}
-	static set INCREMENT(value)
-	{
-		return _INCREMENT;
-	}
-
 	// TODO: figure out reflection/mirrors
 	equippedWithNoRelics()
 	{
@@ -207,8 +201,6 @@ class Character
 
 		this.dead = dead;
 		this.level = level;
-
-		this.ID = -1;
 		
 		this.rightHand = null;
 		this.leftHand = null;
@@ -220,7 +212,7 @@ class Character
 
 		this._row = row;
 
-		this.ID = Character.INCREMENT++;
+		this.id = _INCREMENT++;
 
 		this.subject = new Subject();
 	}
