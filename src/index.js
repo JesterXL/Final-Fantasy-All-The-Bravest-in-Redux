@@ -11,6 +11,8 @@ import Row from "./com/jessewarden/ff6redux/enums/Row";
 import Relic from "./com/jessewarden/ff6redux/items/Relic";
 import Player from './com/jessewarden/ff6redux/battle/Player';
 import Monster from './com/jessewarden/ff6redux/battle/Monster';
+import BattleState from './com/jessewarden/ff6redux/enums/BattleState';
+import Warrior from './com/jessewarden/ff6redux/sprites/warrior/Warrior';
 
 import { createStore, applyMiddleware, combineReducers} from 'redux'
 
@@ -25,6 +27,7 @@ import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 // import './TestCursorManager';
 // import './TestMenu';
 
+
 export function Application()
 {
 	var renderer, stage;
@@ -38,6 +41,8 @@ export function Application()
 
 	var startBarX = 200;
 	var startBarY = 200;
+	var startSpriteX = 200;
+	var startSpriteY = 20;
 
 	function bootstrap()
 	{
@@ -48,6 +53,8 @@ export function Application()
 		stage.interactive = true;
 		const battleTimerBars = new PIXI.Container();
 		stage.addChild(battleTimerBars);
+		const playerSprites = new PIXI.Container();
+		stage.addChild(playerSprites);
 
 		animate();
 
@@ -71,9 +78,22 @@ export function Application()
 					return _.map(state, (player)=>
 					{
 						var timerResult = player.generator.next(action.difference);
+						if(timerResult.done)
+						{
+							return player;
+						}
+
 						if(timerResult.value === undefined)
 						{
 							timerResult = player.generator.next(action.difference);
+						}
+						if(timerResult.value.percentage === 1)
+						{
+							return Object.assign({}, player,
+							{
+								percentage: 1,
+								battleState: BattleState.NORMAL
+							});
 						}
 						return Object.assign({}, player,
 						{
@@ -97,6 +117,11 @@ export function Application()
 					return _.map(state, (monster)=>
 					{
 						var timerResult = monster.generator.next(action.difference);
+						if(timerResult.done)
+						{
+							return monster;
+						}
+
 						if(timerResult.value === undefined)
 						{
 							timerResult = monster.generator.next(action.difference);
@@ -159,22 +184,34 @@ export function Application()
 		// 	yield* takeEvery('START_TIMER', timer);
 		// }
 
-		function buildBattleTimerBars(players)
+		// LET THE MUTABLE STATE BEGIN... MORRRTAALLL KOOOMMBAAATTT! #mutablekombat
+		function getBarsToRemove(battleTimerBars, players)
 		{
-			var barsToRemove = _.differenceWith(
+			return _.differenceWith(
 				battleTimerBars.children, 
 				players, 
-				(barContainer, player)=> barContainer.playerID === player.id);
-			_.forEach(barsToRemove, (bar) => 
-			{
-				bar.parent.removeChild(b);
-				startBarY -= BattleTimerBar.HEIGHT + 20;
-			});
+				(barContainer, player) => barContainer.playerID === player.id);
+		}
 
-			var playersToAdd = _.differenceWith(
+		function removeBattleTimerBars(barsToRemove)
+		{
+			return _.forEach(barsToRemove, (bar) => 
+			{
+				bar.parent.removeChild(bar);
+				startBarY -= BattleTimerBar.HEIGHT + 20;
+			});	
+		}
+
+		function getBarsToAdd(battleTimerBars, players)
+		{
+			return _.differenceWith(
 				players, 
 				battleTimerBars.children, 
 				(player, barContainer)=> barContainer.playerID === player.id);
+		}
+
+		function addBattleTimerBars(playersToAdd)
+		{
 			_.forEach(playersToAdd, (player)=>
 			{
 				var bar = new BattleTimerBar();
@@ -186,13 +223,71 @@ export function Application()
 				startBarY += BattleTimerBar.HEIGHT + 20;
 				return bar;
 			});
+		}
 
+		function renderBattleTimerBarPercentages(battleTimerBars, players)
+		{
 			_.forEach(battleTimerBars.children, barContainer =>
 			{ 
 				var bar = barContainer.bar;
 				var player = _.find(players, p => p.id === barContainer.playerID);
 				bar.percentage = player.percentage;
 				bar.render();
+			});
+		}
+
+		function updateBattleTimerBars(players)
+		{
+			removeBattleTimerBars(getBarsToRemove(battleTimerBars, players));
+			addBattleTimerBars(getBarsToAdd(battleTimerBars, players));
+			renderBattleTimerBarPercentages(battleTimerBars, players);
+		}
+
+		function updatePlayerSprites(players)
+		{
+			var playersToRemove = getPlayersSpritesToRemove(playerSprites, players);
+			removePlayerSprites(playersToRemove);
+			var playersToAdd = getPlayerSpritesToAdd(playerSprites, players);
+			addPlayerSprites(playersToAdd, playerSprites);
+		}
+
+		function getPlayersSpritesToRemove(playerSprites, players)
+		{
+			return _.differenceWith(
+				playerSprites.children, 
+				players, 
+				(sprite, player) => sprite.playerID === player.id);
+		}
+
+		function removePlayerSprites(playerSpritesToRemove)
+		{
+			return _.forEach(playerSpritesToRemove, (sprite) => 
+			{
+				sprite.parent.removeChild(sprite);
+				startSpriteY -= Warrior.HEIGHT + 20;
+			});	
+		}
+
+		function getPlayerSpritesToAdd(playerSprites, players)
+		{
+			return _.differenceWith(
+				players, 
+				playerSprites.children, 
+				(player, playerSpriteContainer)=> playerSpriteContainer.playerID === player.id);
+		}
+
+		function addPlayerSprites(playersToAdd, container)
+		{
+			_.forEach(playersToAdd, (player)=>
+			{
+				var warrior = new Warrior();
+				container.addChild(warrior.sprite);
+				warrior.sprite.x = startSpriteX;
+				warrior.sprite.y = startSpriteY;
+				warrior.sprite.warrior = warrior;
+				warrior.sprite.playerID = player.id;
+				startSpriteY += Warrior.HEIGHT + 20;
+				return warrior;
 			});
 		}
 
@@ -210,10 +305,19 @@ export function Application()
 
 		sagaMiddleware.run(timer);
 
+		function charactersReady(characters)
+		{
+			return _.filter(characters, p => p.battleState === BattleState.NORMAL);
+		}
+
 		store.subscribe(() =>
 		{
 			var state = store.getState();
-			buildBattleTimerBars(state.players);
+			updateBattleTimerBars(state.players);
+			updatePlayerSprites(state.players);
+			var playersReadyToGo = charactersReady(state.players);
+			var monstersReadyToGo = charactersReady(state.monsters);
+
 		});
 
 		store.dispatch({ type: ADD_PLAYER, player: new Player() });
@@ -223,18 +327,18 @@ export function Application()
 		store.dispatch({ type: ADD_MONSTER, monster: new Monster()});
 
 		var times = _.map(store.getState().players, p => p.percentage);
-		console.log("before times:", times);
+		// console.log("before times:", times);
 		delayed(1000, ()=>
 		{
 			store.dispatch({type: START_TIMER})
 		});
 
-		delayed(2000, ()=>
-		{
-			store.dispatch({type: STOP_TIMER})
-			times = _.map(store.getState().players, p => p.percentage);
-		console.log("after times:", times);
-		});
+		// delayed(2000, ()=>
+		// {
+		// 	store.dispatch({type: STOP_TIMER})
+		// 	times = _.map(store.getState().players, p => p.percentage);
+		// // console.log("after times:", times);
+		// });
 	}
 	
 	function animate()

@@ -3,7 +3,7 @@ import _ from "lodash";
 import "gsap";
 import "howler";
 
-class Warrior
+export default class Warrior
 {
 	static get WIDTH(){ return 66};
 	static get HEIGHT(){ return 66};
@@ -191,5 +191,3 @@ class Warrior
 		}
 	}
 }
-
-export default Warrior
