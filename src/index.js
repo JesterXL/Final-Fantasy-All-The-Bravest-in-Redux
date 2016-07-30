@@ -55,6 +55,7 @@ export function Application()
 		stage.addChild(battleTimerBars);
 		const playerSprites = new PIXI.Container();
 		stage.addChild(playerSprites);
+		const playerSpriteMap = []; // {playerID: 1, sprite: [Sprite]}
 
 		animate();
 
@@ -185,109 +186,82 @@ export function Application()
 		// }
 
 		// LET THE MUTABLE STATE BEGIN... MORRRTAALLL KOOOMMBAAATTT! #mutablekombat
-		function getBarsToRemove(battleTimerBars, players)
-		{
-			return _.differenceWith(
-				battleTimerBars.children, 
-				players, 
-				(barContainer, player) => barContainer.playerID === player.id);
-		}
-
-		function removeBattleTimerBars(barsToRemove)
-		{
-			return _.forEach(barsToRemove, (bar) => 
-			{
-				bar.parent.removeChild(bar);
-				startBarY -= BattleTimerBar.HEIGHT + 20;
-			});	
-		}
-
-		function getBarsToAdd(battleTimerBars, players)
-		{
-			return _.differenceWith(
-				players, 
-				battleTimerBars.children, 
-				(player, barContainer)=> barContainer.playerID === player.id);
-		}
-
-		function addBattleTimerBars(playersToAdd)
-		{
-			_.forEach(playersToAdd, (player)=>
-			{
-				var bar = new BattleTimerBar();
-				battleTimerBars.addChild(bar.container);
-				bar.container.x = startBarX;
-				bar.container.y = startBarY;
-				bar.container.bar = bar;
-				bar.container.playerID = player.id;
-				startBarY += BattleTimerBar.HEIGHT + 20;
-				return bar;
-			});
-		}
-
-		function renderBattleTimerBarPercentages(battleTimerBars, players)
-		{
-			_.forEach(battleTimerBars.children, barContainer =>
-			{ 
-				var bar = barContainer.bar;
-				var player = _.find(players, p => p.id === barContainer.playerID);
-				bar.percentage = player.percentage;
-				bar.render();
-			});
-		}
-
-		function updateBattleTimerBars(players)
-		{
-			removeBattleTimerBars(getBarsToRemove(battleTimerBars, players));
-			addBattleTimerBars(getBarsToAdd(battleTimerBars, players));
-			renderBattleTimerBarPercentages(battleTimerBars, players);
-		}
-
 		function updatePlayerSprites(players)
 		{
-			var playersToRemove = getPlayersSpritesToRemove(playerSprites, players);
-			removePlayerSprites(playersToRemove);
+			var playersToRemove = getPlayersSpritesToRemove(playerSpriteMap, players);
+			removePlayerSprites(playersToRemove, playerSpriteMap, startSpriteY);
 			var playersToAdd = getPlayerSpritesToAdd(playerSprites, players);
-			addPlayerSprites(playersToAdd, playerSprites);
+			addPlayerSprites(playersToAdd, playerSprites, playerSpriteMap, startSpriteY);
+			renderPlayerUpdates(players, playerSpriteMap);
+			// console.log("playersToRemove:", playersToRemove);
+			// console.log("playersToAdd:", playersToAdd);
 		}
 
-		function getPlayersSpritesToRemove(playerSprites, players)
+		function getPlayersSpritesToRemove(playerSpriteMap, players)
 		{
 			return _.differenceWith(
-				playerSprites.children, 
+				playerSpriteMap, 
 				players, 
-				(sprite, player) => sprite.playerID === player.id);
+				(psObject, player) => psObject.playerID === player.id);
 		}
 
-		function removePlayerSprites(playerSpritesToRemove)
+		function removePlayerSprites(playerSpritesToRemove, playerSpriteMap, startSpriteY)
 		{
 			return _.forEach(playerSpritesToRemove, (sprite) => 
 			{
-				sprite.parent.removeChild(sprite);
+				sprite.parent.removeChild(sprite.sprite);
+				_.remove(playerSpriteMap, o => o.sprite = sprite);
 				startSpriteY -= Warrior.HEIGHT + 20;
-			});	
+			});
 		}
 
-		function getPlayerSpritesToAdd(playerSprites, players)
+		function getPlayerSpritesToAdd(playerSpriteMap, players)
 		{
 			return _.differenceWith(
 				players, 
-				playerSprites.children, 
-				(player, playerSpriteContainer)=> playerSpriteContainer.playerID === player.id);
+				playerSpriteMap, 
+				(player, psObject)=> psObject.playerID === player.id);
 		}
 
-		function addPlayerSprites(playersToAdd, container)
+		function addPlayerSprites(playersToAdd, playerSprites, playerSpriteMap, startSpriteY)
 		{
 			_.forEach(playersToAdd, (player)=>
 			{
 				var warrior = new Warrior();
-				container.addChild(warrior.sprite);
+				playerSprites.addChild(warrior.sprite);
 				warrior.sprite.x = startSpriteX;
 				warrior.sprite.y = startSpriteY;
-				warrior.sprite.warrior = warrior;
-				warrior.sprite.playerID = player.id;
+				playerSpriteMap.push({playerID: player.id, sprite: warrior});
 				startSpriteY += Warrior.HEIGHT + 20;
 				return warrior;
+			});
+		}
+
+		function renderPlayerUpdates(players, playerSpriteMap)
+		{
+			_.forEach(playerSpriteMap, (psObject)=>
+			{
+				var player = _.find(players, o => o.id === psObject.playerID);
+				// console.log("psObject.sprite.percentage:", psObject.sprite.percentage);
+				psObject.sprite.setPercentage(player.percentage);
+				psObject.sprite.stand();
+				// switch(player.battleState)
+				// {
+				// 	case BattleState.NORMAL:
+				// 		psObject.sprite.stand();
+				// 		break;
+
+				// 	case BattleState.WAITING:
+				// 		psObject.sprite.stand();
+				// 		break;
+
+				// 	case BattleState.DEFENDING:
+				// 		psObject.sprite.stand();
+				// 		break;
+
+				// 	// case BattleState.ANIMATING:
+				// 	// case BattleState.RUNNING:
+				// }
 			});
 		}
 
@@ -313,7 +287,6 @@ export function Application()
 		store.subscribe(() =>
 		{
 			var state = store.getState();
-			updateBattleTimerBars(state.players);
 			updatePlayerSprites(state.players);
 			var playersReadyToGo = charactersReady(state.players);
 			var monstersReadyToGo = charactersReady(state.monsters);

@@ -6,9 +6,9 @@ import "gsap";
 class BattleTimerBar
 {
 
-	static get ROUND(){ return 2};
-	static get WIDTH(){ return 70};
-	static get HEIGHT(){ return 20};
+	static get ROUND(){ return 1};
+	static get WIDTH(){ return 30};
+	static get HEIGHT(){ return 6};
 
 	get percentage()
 	{
@@ -39,7 +39,7 @@ class BattleTimerBar
 		}
 	}
 
-	get container()
+	get sprite()
 	{
 		return this._container;
 	}
@@ -54,7 +54,7 @@ class BattleTimerBar
 
 		this._container = new PIXI.Container();
 		this.graphics = new PIXI.Graphics();
-		this.container.addChild(this.graphics);
+		this._container.addChild(this.graphics);
 
 		this.redraw();
 
@@ -124,7 +124,7 @@ class BattleTimerBar
 	redraw()
 	{
 		this.graphics.beginFill(0x000080);
-		this.graphics.lineStyle(3, 0xFFFFFF, 1);
+		this.graphics.lineStyle(1, 0xFFFFFF, 1);
 		this.graphics.drawRoundedRect(0, 
 									0, 
 									BattleTimerBar.WIDTH, 

@@ -2,6 +2,7 @@ import PIXI from "pixi.js";
 import _ from "lodash";
 import "gsap";
 import "howler";
+import BattleTimerBar from '../../components/BattleTimerBar';
 
 export default class Warrior
 {
@@ -84,6 +85,16 @@ export default class Warrior
 		});
 
 		this.facingLeft = true;
+
+		this.battleTimerBar = new BattleTimerBar();
+		this._container.addChild(this.battleTimerBar.sprite);
+		this.battleTimerBar.sprite.x = Warrior.WIDTH / 2 - this.battleTimerBar.sprite.width / 2;
+	}
+
+	setPercentage(value)
+	{
+		this.battleTimerBar.percentage = value;
+		this.battleTimerBar.render();
 	}
 
 	play()
