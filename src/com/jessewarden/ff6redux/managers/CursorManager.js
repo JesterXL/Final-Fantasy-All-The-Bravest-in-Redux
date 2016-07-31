@@ -161,10 +161,10 @@ export default class CursorManager
 
 		var target = this.targets[this._selectedIndex];
 		this._setCursorVisible(true);
-		console.log("target.parent.y:", this.targetsParent.y);
+		// console.log("target.parent.y:", this.targetsParent.y);
 		var targetPoint = new PIXI.Point(target.x, target.y);
 		var point = this.targetsParent.toGlobal(targetPoint);
-		console.log("point:", point);
+		// console.log("point:", point);
 		this.sprite.x = point.x - 16 - 2;
 		this.sprite.y = point.y + target.height / 2;
 		this.beepSound.play();
