@@ -32,10 +32,15 @@ export default class CursorManager
 		.filter(e => event.type === 'keydown')
 		.subscribe((event)=>
 		{
-			// console.log("CursorManager::keyboard:", event.type);
+			console.log("CursorManager::keyboard:", event);
 			var prevent = false;
 			switch(event.keyCode)
 			{
+				case 0: // Escape
+					prevent = true;
+					vm._changes.onNext({type: 'cursorManager:escape'});
+					break;
+					
 				case 87: // w
 				case 38: // up arrow
 					prevent = true;

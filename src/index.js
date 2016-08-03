@@ -121,12 +121,17 @@ function updatePlayerSprites(players)
 	var playersToRemove = getPlayersSpritesToRemove(playerSpriteMap, players);
 	if(playersToRemove.length > 0)
 	{
-		removePlayerSprites(playersToRemove, playerSpriteMap, startSpriteY);
+		startSpriteY = removePlayerSprites(playersToRemove, playerSpriteMap, startSpriteY);
 	}
-	var playersToAdd = getPlayerSpritesToAdd(playerSprites, players);
+	var playersToAdd = getPlayerSpritesToAdd(playerSpriteMap, players);
+	// console.log("------");
+	// console.log("playersToAdd:", playersToAdd);
+	// console.log("playerSpriteMap:", playerSpriteMap);
+	// console.log("players:", players);
 	if(playersToAdd.length > 0)
 	{
-		addPlayerSprites(playersToAdd, playerSprites, playerSpriteMap, startSpriteY);
+		// console.log("playersToAdd length:", playersToAdd.length);
+		startSpriteY = addPlayerSprites(playersToAdd, playerSprites, playerSpriteMap, startSpriteY);
 	}
 	renderPlayerUpdates(players, playerSpriteMap);
 	// console.log("playersToRemove:", playersToRemove);
@@ -143,25 +148,23 @@ function getPlayersSpritesToRemove(playerSpriteMap, players)
 
 function removePlayerSprites(playerSpritesToRemove, playerSpriteMap, startSpriteY)
 {
-	return _.forEach(playerSpritesToRemove, (sprite) => 
+	_.forEach(playerSpritesToRemove, (sprite) => 
 	{
 		sprite.parent.removeChild(sprite.sprite);
 		_.remove(playerSpriteMap, o => o.sprite === sprite);
 		startSpriteY -= Warrior.HEIGHT + 20;
 	});
+	return startSpriteY
 }
 
 function getPlayerSpritesToAdd(playerSpriteMap, players)
 {
-	console.log("getPlayerSpritesToAdd");
-	console.log("playerSpriteMap:", playerSpriteMap);
-	console.log("players:", players);
 	return _.differenceWith(
 		players, 
 		playerSpriteMap, 
 		(player, psObject)=> {
-			console.log("psObject.playerID:", psObject.playerID);
-			console.log("player.id:", player.id);
+			// console.log("psObject.playerID:", psObject.playerID);
+			// console.log("player.id:", player.id);
 			return psObject.playerID === player.id;
 
 		});
@@ -180,6 +183,7 @@ function addPlayerSprites(playersToAdd, playerSprites, playerSpriteMap, startSpr
 		startSpriteY += Warrior.HEIGHT + 20;
 		return warrior;
 	});
+	return startSpriteY;
 }
 
 function renderPlayerUpdates(players, playerSpriteMap)
@@ -266,6 +270,8 @@ export function Application()
 			}
 		});
 		
+		var cursorManagerTargetSelectionSub;
+
 		battleMenuFSM = new StateMachine();
 		battleMenuFSM.addState('hide',
 		['*'],
@@ -282,7 +288,19 @@ export function Application()
 		['*'],
 		()=>{
 			battleMenu.hide();
-			cursorManager.setTargets(store.getState().monsters)
+			var monsterSpriteTargets = _.map(store.getState().monsters, (monster)=>
+			{
+				return _.find(monsterSpriteMap, psObject => psObject.monsterID === monster.id).sprite.sprite;
+			});
+			cursorManager.setTargets(monsterSprites, monsterSpriteTargets);
+			cursorManagerTargetSelectionSub = cursorManager.changes.subscribe((event)=>
+			{
+				console.log("event:", event);
+			});
+		},
+		()=>{
+			cursorManagerTargetSelectionSub.dispose();
+			cursorManagerTargetSelectionSub = undefined;
 		});
 		battleMenuFSM.addState("items",
 		['*'],

@@ -4,7 +4,7 @@ import "gsap";
 import {Subject} from 'rx';
 import Menu from './Menu';
 import CursorManager from '../managers/CursorManager';
-import keyboardManager from '../managers/keyboardManager';
+import KeyboardManager from '../managers/KeyboardManager';
 import StateMachine from '../core/StateMachine';
 
 export default class BattleMenu
@@ -41,7 +41,7 @@ export default class BattleMenu
 		vm.rowMenu.container.x = vm.mainMenu.container.x - 30;
 		vm.rowMenu.container.y = vm.mainMenu.container.y;
 
-		vm.keyboardManager = new keyboardManager();
+		vm.keyboardManager = new KeyboardManager();
 		vm.cursorManager = new CursorManager(stage, vm.keyboardManager);
 		vm.cursorManager.changes
 		.subscribe((event)=>
