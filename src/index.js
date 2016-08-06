@@ -256,108 +256,124 @@ export function Application()
 		playerSprites = new PIXI.Container();
 		stage.addChild(playerSprites);
 
-		keyboardManager = new KeyboardManager();
-		cursorManager = new CursorManager(stage, keyboardManager);
-
-		battleMenu = new BattleMenu(stage);
-		battleMenu.changes.subscribe((event)=>
-		{
-			switch(event.item)
-			{
-				case "Attack":
-					battleMenuFSM.changeState('attackTarget');
-					break;
-			}
-		});
-		
-		var cursorManagerTargetSelectionSub;
-
-		battleMenuFSM = new StateMachine();
-		battleMenuFSM.addState('hide',
-		['*'],
-		()=>
-		{
-			battleMenu.hide();
-		});
-		battleMenuFSM.addState("choose",
-		['*'],
-		()=>{
-			battleMenu.show();
-		});
-		battleMenuFSM.addState("attackTarget",
-		['*'],
-		()=>{
-			battleMenu.hide();
-			var monsterSpriteTargets = _.map(store.getState().monsters, (monster)=>
-			{
-				return _.find(monsterSpriteMap, psObject => psObject.monsterID === monster.id).sprite.sprite;
-			});
-			cursorManager.setTargets(monsterSprites, monsterSpriteTargets);
-			cursorManagerTargetSelectionSub = cursorManager.changes.subscribe((event)=>
-			{
-				console.log("event:", event);
-			});
-		},
-		()=>{
-			cursorManagerTargetSelectionSub.dispose();
-			cursorManagerTargetSelectionSub = undefined;
-		});
-		battleMenuFSM.addState("items",
-		['*'],
-		()=>{});
-		battleMenuFSM.initialState = "hide";
-
 		animate();
 
-		const sagaMiddleware = createSagaMiddleware();
-
-		let store = createStore(
-			rootReducer,
-			applyMiddleware(sagaMiddleware)
-		);
-
-		sagaMiddleware.run(timer);
-
-		store.subscribe(() =>
+		var warrior2 = new Warrior();
+		stage.addChild(warrior2.sprite);
+		warrior2.sprite.x = 300;
+		warrior2.sprite.y = 20;
+		warrior2.animateAttackingTarget(20, 200)
+		.then(()=>
 		{
-			var state = store.getState();
-			updateMonsterSprites(state.monsters);
-			updatePlayerSprites(state.players);
-			// console.log("state.playerWhoseTurnItIs:", state.playerWhoseTurnItIs);
-			if(state.playerWhoseTurnItIs === noPlayer)
-			{
-				var playersReadyToGo = charactersReady(state.players);
-				if(playersReadyToGo.length > 0)
-				{
-					var playerTurn = _.head(playersReadyToGo);
-					store.dispatch({type: PLAYER_TURN, player: playerTurn});
-					battleMenuFSM.changeState('choose');
-				}
-			}
-
-			if(state.monsterWhoseTurnItIs === noMonster)
-			{
-				var monstersReadyToGo = charactersReady(state.monsters);
-				if(monstersReadyToGo.length > 0)
-				{
-					store.dispatch({type: MONSTER_TURN, monster: _.head(monstersReadyToGo)});
-				}	
-			}
+			return warrior2.animateAttackingTarget(40, 100);
+		})
+		.then(()=>
+		{
+			return warrior2.animateAttackingTarget(50, 300);
 		});
 
-		store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
-		store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
 
-		store.dispatch({ type: ADD_PLAYER, player: new Player() });
-		store.dispatch({ type: ADD_PLAYER, player: new Player() });
-		store.dispatch({ type: ADD_PLAYER, player: new Player() });
 
-		store.dispatch({ type: ADD_MONSTER, monster: new Monster()});
+		// keyboardManager = new KeyboardManager();
+		// cursorManager = new CursorManager(stage, keyboardManager);
 
-		delayed(1000, ()=>
-		{
-			store.dispatch({type: START_TIMER})
-		});
+		// battleMenu = new BattleMenu(stage);
+		// battleMenu.changes.subscribe((event)=>
+		// {
+		// 	switch(event.item)
+		// 	{
+		// 		case "Attack":
+		// 			battleMenuFSM.changeState('attackTarget');
+		// 			break;
+		// 	}
+		// });
+		
+		// var cursorManagerTargetSelectionSub;
+
+		// battleMenuFSM = new StateMachine();
+		// battleMenuFSM.addState('hide',
+		// ['*'],
+		// ()=>
+		// {
+		// 	battleMenu.hide();
+		// });
+		// battleMenuFSM.addState("choose",
+		// ['*'],
+		// ()=>{
+		// 	battleMenu.show();
+		// });
+		// battleMenuFSM.addState("attackTarget",
+		// ['*'],
+		// ()=>{
+		// 	battleMenu.hide();
+		// 	var monsterSpriteTargets = _.map(store.getState().monsters, (monster)=>
+		// 	{
+		// 		return _.find(monsterSpriteMap, psObject => psObject.monsterID === monster.id).sprite.sprite;
+		// 	});
+		// 	cursorManager.setTargets(monsterSprites, monsterSpriteTargets);
+		// 	cursorManagerTargetSelectionSub = cursorManager.changes.subscribe((event)=>
+		// 	{
+		// 		console.log("event:", event);
+		// 	});
+		// },
+		// ()=>{
+		// 	cursorManagerTargetSelectionSub.dispose();
+		// 	cursorManagerTargetSelectionSub = undefined;
+		// });
+		// battleMenuFSM.addState("items",
+		// ['*'],
+		// ()=>{});
+		// battleMenuFSM.initialState = "hide";
+
+		// const sagaMiddleware = createSagaMiddleware();
+
+		// let store = createStore(
+		// 	rootReducer,
+		// 	applyMiddleware(sagaMiddleware)
+		// );
+
+		// sagaMiddleware.run(timer);
+
+		// store.subscribe(() =>
+		// {
+		// 	var state = store.getState();
+		// 	updateMonsterSprites(state.monsters);
+		// 	updatePlayerSprites(state.players);
+		// 	// console.log("state.playerWhoseTurnItIs:", state.playerWhoseTurnItIs);
+		// 	if(state.playerWhoseTurnItIs === noPlayer)
+		// 	{
+		// 		var playersReadyToGo = charactersReady(state.players);
+		// 		if(playersReadyToGo.length > 0)
+		// 		{
+		// 			var playerTurn = _.head(playersReadyToGo);
+		// 			store.dispatch({type: PLAYER_TURN, player: playerTurn});
+		// 			battleMenuFSM.changeState('choose');
+		// 		}
+		// 	}
+
+		// 	if(state.monsterWhoseTurnItIs === noMonster)
+		// 	{
+		// 		var monstersReadyToGo = charactersReady(state.monsters);
+		// 		if(monstersReadyToGo.length > 0)
+		// 		{
+		// 			store.dispatch({type: MONSTER_TURN, monster: _.head(monstersReadyToGo)});
+		// 		}	
+		// 	}
+		// });
+
+		// store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
+		// store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
+
+		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
+		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
+		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
+
+		// store.dispatch({ type: ADD_MONSTER, monster: new Monster()});
+
+		// delayed(1000, ()=>
+		// {
+		// 	store.dispatch({type: START_TIMER})
+		// });
 	}
 
 	return {

@@ -201,4 +201,84 @@ export default class Warrior
 			this.movie.x = 0;
 		}
 	}
+
+	animateAttackingTarget(targetX, targetY)
+	{
+		var me = this;
+		return new Promise((success)=>
+		{
+			me.battleTimerBar.sprite.visible = false;
+			var tl = new TimelineMax();
+			var mySprite = me.sprite;
+			var startWX = mySprite.x;
+			var startWY = mySprite.y;
+			// welcome kids to lessons in not paying attention in math class
+			var dist = Math.sqrt(Math.pow(targetX - startWX, 2) + Math.pow(targetY - startWY, 2));
+			var half = dist / 2;
+			var halfX = Math.abs(targetX - startWX);
+			var halfY = Math.abs(targetY - startWY);
+			var middleY = Math.min(startWY, targetY);
+			middleY /= 2;
+			middleY = -middleY;
+			var middleX = halfX;
+			
+			
+			var bezier = [
+				{ x: startWX, y: startWY}, 
+				{x: middleX, y: middleY},
+				{ x: targetX, y: targetY}
+			];
+
+			var bezier2 = [
+				{ x: targetX, y: targetY},
+				{x: middleX, y: middleY},
+				{ x: startWX, y: startWY}
+			];
+
+			tl.add( TweenMax.to(mySprite, 0.7, {
+				bezier: {
+					type: 'thru',
+					values: bezier,
+					curviness: 2
+				},
+				ease: Linear.easeInOut,
+			    onStart: ()=>
+				{
+					me.attack();
+				}
+			}));
+			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
+			{
+				me.attack2();
+				me.attackAnimation();
+			}}));
+			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
+			{
+				me.attack();
+			}}));
+			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
+			{
+				me.attack2();
+				me.attackAnimation();
+			}}));
+			tl.add( TweenMax.to(mySprite, 0.7, {
+				bezier: {
+					type: 'thru',
+					values: bezier2,
+					curviness: 2
+				},
+				ease: Linear.easeInOut, onStart: ()=>
+			{
+				me.raise();
+				me.faceRight();
+			},
+			onComplete: ()=>
+			{
+				me.stand();
+				me.faceLeft();
+				me.battleTimerBar.sprite.visible = true;
+				success();
+			}}));	
+		});	
+	}
 }

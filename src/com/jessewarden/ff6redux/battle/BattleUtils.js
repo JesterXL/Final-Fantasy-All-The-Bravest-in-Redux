@@ -457,6 +457,7 @@ function isStandardFightAttack(isPhysicalAttack, isMagicalAttack)
 */
 function getHitAndApplyDamage(
 	attacker, // Character
+	targetStamina =  null,
 	isPhysicalAttack =  true,
 	isMagicalAttack =  false,
 	targetHasClearStatus =  false,
@@ -479,7 +480,6 @@ function getHitAndApplyDamage(
 	targetHasImageStatus =  false,
 	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
 	magicBlock =  0,
-	targetStamina =  null,
 	specialAttackType =  null,
 	attackerIsCharacter =  true,
 	attackingMultipleTargets =  false,
