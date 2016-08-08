@@ -2,6 +2,7 @@ import PIXI from "pixi.js";
 import _ from "lodash";
 import "gsap";
 import "howler";
+import { Subject } from 'rx';
 import BattleTimerBar from '../../components/BattleTimerBar';
 
 export default class Warrior
@@ -202,13 +203,12 @@ export default class Warrior
 		}
 	}
 
-	animateAttackingTarget(targetX, targetY)
+	leapTowardsTarget(targetX, targetY)
 	{
 		var me = this;
 		return new Promise((success)=>
 		{
 			me.battleTimerBar.sprite.visible = false;
-			var tl = new TimelineMax();
 			var mySprite = me.sprite;
 			var startWX = mySprite.x;
 			var startWY = mySprite.y;
@@ -221,50 +221,82 @@ export default class Warrior
 			middleY /= 2;
 			middleY = -middleY;
 			var middleX = halfX;
-			
-			
-			var bezier = [
+
+			TweenMax.to(me.sprite, 0.7, {
+				bezier: {
+					type: 'thru',
+					values: [
 				{ x: startWX, y: startWY}, 
 				{x: middleX, y: middleY},
 				{ x: targetX, y: targetY}
-			];
-
-			var bezier2 = [
-				{ x: targetX, y: targetY},
-				{x: middleX, y: middleY},
-				{ x: startWX, y: startWY}
-			];
-
-			tl.add( TweenMax.to(mySprite, 0.7, {
-				bezier: {
-					type: 'thru',
-					values: bezier,
+			],
 					curviness: 2
 				},
 				ease: Linear.easeInOut,
 			    onStart: ()=>
 				{
 					me.attack();
+				},
+				onComplete: success
+			});
+		});
+	}
+
+	firstAttack()
+	{
+		var me = this;
+		return new Promise((resolve)=>
+		{
+			TweenMax.to(me.sprite, 0.3, {
+				onStart: ()=>
+				{
+					me.attack2();
+					me.attackAnimation();
+				},
+				onComplete: resolve
+			});
+		});
+	}
+
+	secondAttack()
+	{
+		var me = this;
+		return new Promise((resolve)=>
+		{
+			var mySprite = me.sprite;
+			var tl = new TimelineMax();
+			tl.add( TweenMax.to(mySprite, 0.3, {
+				onStart: ()=>
+				{
+					me.attack();
 				}
 			}));
-			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
-			{
-				me.attack2();
-				me.attackAnimation();
-			}}));
-			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
-			{
-				me.attack();
-			}}));
-			tl.add( TweenMax.to(mySprite, 0.3, {onStart: ()=>
-			{
-				me.attack2();
-				me.attackAnimation();
-			}}));
+			tl.add( TweenMax.to(mySprite, 0.3, {
+				onStart: ()=>
+				{
+					me.attack2();
+					me.attackAnimation();
+				},
+				onComplete: resolve
+			}));
+		});
+	}
+
+	leapBackToStartingPosition(startX, startY, middleX, middleY)
+	{
+		var me = this;
+		return new Promise((resolve)=>
+		{
+			var mySprite = me.sprite;
+			var tl = new TimelineMax();
 			tl.add( TweenMax.to(mySprite, 0.7, {
 				bezier: {
 					type: 'thru',
-					values: bezier2,
+					values: [
+						{ x: mySprite.x, y: mySprite.y},
+						{ x: middleX, y: middleY},
+						{ x: startX, y: startY}
+					],
 					curviness: 2
 				},
 				ease: Linear.easeInOut, onStart: ()=>
@@ -277,8 +309,8 @@ export default class Warrior
 				me.stand();
 				me.faceLeft();
 				me.battleTimerBar.sprite.visible = true;
-				success();
-			}}));	
-		});	
+				resolve();
+			}}));
+		});
 	}
 }

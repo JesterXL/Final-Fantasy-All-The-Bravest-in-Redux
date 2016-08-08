@@ -32,7 +32,7 @@ export default class CursorManager
 		.filter(e => event.type === 'keydown')
 		.subscribe((event)=>
 		{
-			console.log("CursorManager::keyboard:", event);
+			// console.log("CursorManager::keyboard:", event);
 			var prevent = false;
 			switch(event.keyCode)
 			{
@@ -88,6 +88,10 @@ export default class CursorManager
 
 	setTargets(parent, list)
 	{
+		if(_.isNil(parent) || _.isNil(list))
+		{
+			throw new Error('CursorManager::setTargets requires a parent and list property.');
+		}
 		this.targetsParent = parent;
 		this.targets = _.map(list, i => i);
 		this.hackToTop();

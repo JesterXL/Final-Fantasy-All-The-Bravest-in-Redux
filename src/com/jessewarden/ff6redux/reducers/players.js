@@ -1,4 +1,4 @@
-import { ADD_PLAYER, TICK } from '../core/actions';
+import { ADD_PLAYER, TICK, PLAYER_HITPOINTS_CHANGED } from '../core/actions';
 import BattleState from '../enums/BattleState';
 
 export default function players(state=[], action)
@@ -7,6 +7,15 @@ export default function players(state=[], action)
 	{
 		case ADD_PLAYER:
 			return [...state, action.player];
+
+		case PLAYER_HITPOINTS_CHANGED:
+			var updatedPlayer = Object.assign({}, action.player, {
+				hitPoints: action.hitPoints
+			});
+			return state
+				.slice(0, index)
+				.concat([updatedPlayer])
+				.concat(list.slice(index + 1));
 		
 		case TICK:
 			return _.map(state, (player)=>

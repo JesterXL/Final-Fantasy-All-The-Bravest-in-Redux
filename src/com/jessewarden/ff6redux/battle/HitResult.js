@@ -10,7 +10,7 @@ class HitResult
 		return this._removeImageStatus;
 	}
 	
-	HitResult(hit, removeImageStatus = false)
+	constructor(hit, removeImageStatus = false)
 	{
 		this._hit = hit;
 		this._removeImageStatus = removeImageStatus;

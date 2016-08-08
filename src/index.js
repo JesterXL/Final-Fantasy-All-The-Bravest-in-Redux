@@ -24,7 +24,8 @@ import {
 	ADD_PLAYER, 
 	START_TIMER, 
 	PLAYER_TURN, 
-	MONSTER_TURN
+	MONSTER_TURN,
+	PLAYER_ATTACK
 } from './com/jessewarden/ff6redux/core/actions';
 
 import rootReducer from './com/jessewarden/ff6redux/reducers/';
@@ -35,6 +36,13 @@ import { createStore, applyMiddleware, combineReducers} from 'redux'
 import { takeEvery, takeLatest, delay } from 'redux-saga'
 import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
+import {watchPlayerAttack} from './com/jessewarden/ff6redux/sagas/playerAttack';
+import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTurnItIs';
+
+import BaseMan from './BaseMan';
+import TasteMan from './TasteMan';
+
+
 // import './com/jessewarden/ff6redux/sagas/TestSagas';
 // import './TestBattleTimers';
 // import './TestBattleTimerBars';
@@ -69,10 +77,10 @@ function updateMonsterSprites(monsters)
 	{
 		removeMonsterSprites(monstersToRemove, monsterSpriteMap, startMonsterSpriteY);
 	}
-	var monstersToAdd = getMonsterSpritesToAdd(monsterSprites, monsters);
+	var monstersToAdd = getMonsterSpritesToAdd(monsterSpriteMap, monsters);
 	if(monstersToAdd.length > 0)
 	{
-		addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, startMonsterSpriteX, startMonsterSpriteY);
+		startMonsterSpriteY = addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, startMonsterSpriteX, startMonsterSpriteY);
 	}
 }
 
@@ -102,11 +110,13 @@ function getMonsterSpritesToAdd(monsterSpriteMap, monsters)
 		(monster, psObject)=> psObject.monsterID === monster.id);
 }
 
+var added = 0;
 function addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, startMonsterSpriteX, startMonsterSpriteY)
 {
 	_.forEach(monstersToAdd, (monster)=>
 	{
 		var goblin = new Goblin();
+		added++;
 		monsterSprites.addChild(goblin.sprite);
 		goblin.sprite.x = startMonsterSpriteX;
 		goblin.sprite.y = startMonsterSpriteY;
@@ -114,6 +124,7 @@ function addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, star
 		startMonsterSpriteY += 60;
 		return goblin;
 	});
+	return startMonsterSpriteY;
 }
 
 function updatePlayerSprites(players)
@@ -258,19 +269,65 @@ export function Application()
 
 		animate();
 
-		var warrior2 = new Warrior();
-		stage.addChild(warrior2.sprite);
-		warrior2.sprite.x = 300;
-		warrior2.sprite.y = 20;
-		warrior2.animateAttackingTarget(20, 200)
-		.then(()=>
-		{
-			return warrior2.animateAttackingTarget(40, 100);
-		})
-		.then(()=>
-		{
-			return warrior2.animateAttackingTarget(50, 300);
-		});
+		var a = new TasteMan();
+		console.log("a:", a);
+		console.log("a.equipped:", a.equipped);
+		var b = Object.assign({}, a, {cow: true});
+		console.log("b:", b);
+		console.log("b.equipped:", b.equipped);
+
+		// var warrior2 = new Warrior();
+		// stage.addChild(warrior2.sprite);
+		// warrior2.sprite.x = 300;
+		// warrior2.sprite.y = 20;
+		// warrior2.stand();
+		
+		// warrior2.animateAttackingTarget(20, 200)
+		// .then(()=>
+		// {
+		// 	return warrior2.animateAttackingTarget(40, 100);
+		// })
+		// .then(()=>
+		// {
+		// 	return warrior2.animateAttackingTarget(50, 300);
+		// });
+
+		// var mySprite = warrior2.sprite;
+
+		// function *animateTimeline()
+		// {
+		// 	yield goLeft();
+		// 	yield goRight();
+		// }
+
+		// function goLeft()
+		// {
+		// 	return new Promise((resolve)=>
+		// 	{
+		// 		TweenMax.to(mySprite, 1, {x: 20, onComplete: resolve});
+		// 	});
+		// }
+
+		// function goRight()
+		// {
+		// 	return new Promise((resolve)=>
+		// 	{
+		// 		TweenMax.to(mySprite, 1, {x: 200, onComplete: resolve});
+		// 	});
+		// }
+
+		// var gen = animateTimeline();
+		// gen.next().value.then(()=>
+		// {
+		// 	return gen.next().value;
+		// })
+		// .then(()=>
+		// {
+		// 	console.log("We done.");
+		// });
+
+
+
 
 
 
@@ -283,47 +340,25 @@ export function Application()
 		// 	switch(event.item)
 		// 	{
 		// 		case "Attack":
-		// 			battleMenuFSM.changeState('attackTarget');
+		// 			console.log("playerSprites.children:", playerSprites.children);
+		// 			console.log("monsterSprites.children:", monsterSprites.children);
+		// 			var state = store.getState();
+		// 			store.dispatch({
+		// 				type: PLAYER_ATTACK,
+		// 				stage,
+		// 				players: state.players,
+		// 				monsters: state.monsters,
+		// 				playerSpriteMap,
+		// 				monsterSpriteMap,
+		// 				cursorManager,
+		// 				battleMenu,
+		// 				player: state.playerWhoseTurnItIs,
+		// 				playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs.id),
+		// 				spriteTargets: playerSprites.children.concat(monsterSprites.children),
+		// 			});
 		// 			break;
 		// 	}
 		// });
-		
-		// var cursorManagerTargetSelectionSub;
-
-		// battleMenuFSM = new StateMachine();
-		// battleMenuFSM.addState('hide',
-		// ['*'],
-		// ()=>
-		// {
-		// 	battleMenu.hide();
-		// });
-		// battleMenuFSM.addState("choose",
-		// ['*'],
-		// ()=>{
-		// 	battleMenu.show();
-		// });
-		// battleMenuFSM.addState("attackTarget",
-		// ['*'],
-		// ()=>{
-		// 	battleMenu.hide();
-		// 	var monsterSpriteTargets = _.map(store.getState().monsters, (monster)=>
-		// 	{
-		// 		return _.find(monsterSpriteMap, psObject => psObject.monsterID === monster.id).sprite.sprite;
-		// 	});
-		// 	cursorManager.setTargets(monsterSprites, monsterSpriteTargets);
-		// 	cursorManagerTargetSelectionSub = cursorManager.changes.subscribe((event)=>
-		// 	{
-		// 		console.log("event:", event);
-		// 	});
-		// },
-		// ()=>{
-		// 	cursorManagerTargetSelectionSub.dispose();
-		// 	cursorManagerTargetSelectionSub = undefined;
-		// });
-		// battleMenuFSM.addState("items",
-		// ['*'],
-		// ()=>{});
-		// battleMenuFSM.initialState = "hide";
 
 		// const sagaMiddleware = createSagaMiddleware();
 
@@ -332,22 +367,33 @@ export function Application()
 		// 	applyMiddleware(sagaMiddleware)
 		// );
 
-		// sagaMiddleware.run(timer);
+		// function *rootSaga()
+		// {
+		// 	yield [
+		// 		timer(),
+		// 		watchPlayerTurn(),
+		// 		watchPlayerAttack()
+		// 	];
+		// }
+
+		// sagaMiddleware.run(rootSaga);
 
 		// store.subscribe(() =>
 		// {
 		// 	var state = store.getState();
 		// 	updateMonsterSprites(state.monsters);
 		// 	updatePlayerSprites(state.players);
-		// 	// console.log("state.playerWhoseTurnItIs:", state.playerWhoseTurnItIs);
 		// 	if(state.playerWhoseTurnItIs === noPlayer)
 		// 	{
 		// 		var playersReadyToGo = charactersReady(state.players);
 		// 		if(playersReadyToGo.length > 0)
 		// 		{
 		// 			var playerTurn = _.head(playersReadyToGo);
-		// 			store.dispatch({type: PLAYER_TURN, player: playerTurn});
-		// 			battleMenuFSM.changeState('choose');
+		// 			store.dispatch({
+		// 				type: PLAYER_TURN, 
+		// 				player: playerTurn,
+		// 				battleMenu
+		// 			});
 		// 		}
 		// 	}
 

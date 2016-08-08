@@ -1,4 +1,4 @@
-import { ADD_MONSTER, TICK } from '../core/actions';
+import { ADD_MONSTER, TICK, MONSTER_HITPOINTS_CHANGED } from '../core/actions';
 
 export default function monsters(state=[], action)
 {
@@ -6,6 +6,15 @@ export default function monsters(state=[], action)
 	{
 		case ADD_MONSTER:
 			return [...state, action.monster];
+
+		case MONSTER_HITPOINTS_CHANGED:
+			var updatedMonster = Object.assign({}, action.monster, {
+				hitPoints: action.hitPoints
+			});
+			return state
+				.slice(0, index)
+				.concat([updatedMonster])
+				.concat(list.slice(index + 1));
 
 		case TICK:
 			return _.map(state, (monster)=>

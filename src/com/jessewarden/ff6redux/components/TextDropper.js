@@ -5,11 +5,9 @@ import "gsap";
 class TextDropper
 {
 
-	constructor(_stage, _renderLoop)
+	constructor(stage)
 	{
-		this._stage = _stage;
-		this._renderLoop = _renderLoop;
-
+		this._stage = stage;
 		this._pool = [];
 	}
 
@@ -21,7 +19,7 @@ class TextDropper
 //		point = target.localToGlobal(point);
 		field.x = point.x + (target.width / 2) - (field.width / 2);
 		field.y = point.y + target.height - field.height;
-		console.log("x: " + field.x + ", y: " + field.y);
+		// console.log("x: " + field.x + ", y: " + field.y);
 		if(miss == false)
 		{
 			field.text = Math.abs(value);

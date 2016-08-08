@@ -216,6 +216,8 @@ class Character
 		this.id = _INCREMENT++;
 
 		this.subject = new Subject();
+
+		console.log("Character::constructor, equippedWithGauntlet:", this.equippedWithGauntlet);
 	}
 
 	toggleRow()

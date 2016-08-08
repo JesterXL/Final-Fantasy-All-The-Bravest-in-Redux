@@ -7,7 +7,7 @@ class TargetHitResult
 	get criticalHit(){ return this._criticalHit;}
 	get removeImageStatus(){ return this._removeImageStatus;}
 
-	TargetHitResult(
+	constructor(
 	                hit,
 	                target,
 	                damage,

@@ -492,7 +492,7 @@ function getHitAndApplyDamage(
 	targetIsResistantToElement =  false,
 	targetIsWeakToElement = false)
 {
-	var hitResult = BattleUtils.getHit(
+	var hitResult = getHit(
 		getRandomHitOrMissValue(),
 		getRandomStaminaHitOrMissValue(),
 		getRandomImageStatusRemoval(),
@@ -518,9 +518,10 @@ function getHitAndApplyDamage(
 	var criticalHit = getCriticalHit();
 	var damageModificationVariance = getDamageModificationsVariance();
 	var standardFightAttack = isStandardFightAttack(isPhysicalAttack, isMagicalAttack);
+	console.log("BattleUtils::attacker.equippedWithGauntlet:", attacker.equippedWithGauntlet);
 	if(hitResult.hit)
 	{
-		damage = BattleUtils.getDamageStep1(
+		damage = getDamageStep1(
 			attacker.vigor,
 			attacker.battlePower,
 			attacker.level,
@@ -531,7 +532,7 @@ function getHitAndApplyDamage(
 			attacker.oneOrZeroWeapons()
 		);
 
-		damage = BattleUtils.getDamageStep2(
+		damage = getDamageStep2(
 			damage,
 			isPhysicalAttack,
 			isMagicalAttack,
@@ -542,24 +543,24 @@ function getHitAndApplyDamage(
 			attacker.equippedWith2Earrings()
 		);
 
-		damage = BattleUtils.getDamageStep3(
+		damage = getDamageStep3(
 			damage,
 			isMagicalAttack,
 			attackingMultipleTargets);
 
-		damage = BattleUtils.getDamageStep4(
+		damage = getDamageStep4(
 			damage,
 			attackerIsInBackRow
 		);
 
-		damage = BattleUtils.getDamageStep5(
+		damage = getDamageStep5(
 			damage,
 			attackerHasMorphStatus,
 			attackerHasBerserkStatusAndPhysicalAttack,
 			criticalHit
 		);
 
-		damage = BattleUtils.getDamageStep6(
+		damage = getDamageStep6(
 			damage,
 			attacker.defense,
 			attacker.magicDefense,
@@ -576,18 +577,18 @@ function getHitAndApplyDamage(
 			attackerIsCharacter
 		);
 
-		damage = BattleUtils.getDamageStep7(
+		damage = getDamageStep7(
 			damage,
 			backOfTarget,
 			isPhysicalAttack
 		);
 
-		damage = BattleUtils.getDamageStep8(
+		damage = getDamageStep8(
 			damage,
 			targetHasPetrifyStatus
 		);
 
-		damage = BattleUtils.getDamageStep9(
+		damage = getDamageStep9(
 			damage,
 			elementHasBeenNullified,
 			targetAbsorbsElement,
@@ -601,10 +602,12 @@ function getHitAndApplyDamage(
 	damage = _.clamp(damage, -9999, 9999);
 
 	// TODO: support attacking mulitple targets
+	console.log("hitResult:", hitResult);
 	return new TargetHitResult(
-		criticalHit,
 		hitResult.hit,
+		undefined,
 		damage,
+		criticalHit,
 		hitResult.removeImageStatus
 	);
 
