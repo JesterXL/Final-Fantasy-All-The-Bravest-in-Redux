@@ -11,10 +11,11 @@ export default function monsters(state=[], action)
 			var updatedMonster = Object.assign({}, action.monster, {
 				hitPoints: action.hitPoints
 			});
+			var index = _.findIndex(state, m => m.id === action.monster.id);
 			return state
 				.slice(0, index)
 				.concat([updatedMonster])
-				.concat(list.slice(index + 1));
+				.concat(state.slice(index + 1));
 
 		case TICK:
 			return _.map(state, (monster)=>

@@ -12,14 +12,20 @@ export default function players(state=[], action)
 			var updatedPlayer = Object.assign({}, action.player, {
 				hitPoints: action.hitPoints
 			});
+			var index = _.findIndex(state, p => p.id === action.player.id);
 			return state
 				.slice(0, index)
 				.concat([updatedPlayer])
-				.concat(list.slice(index + 1));
+				.concat(state.slice(index + 1));
 		
 		case TICK:
 			return _.map(state, (player)=>
 			{
+				if(_.isNil(player.generator))
+				{
+					console.log("player:", player);
+					throw new Error("No gen");
+				}
 				var timerResult = player.generator.next(action.difference);
 				if(timerResult.done)
 				{

@@ -1,6 +1,17 @@
 import _ from "lodash";
 import HitResult from './HitResult';
 import TargetHitResult from './TargetHitResult';
+import {
+	equippedWithGauntlet,
+	equippedWithOffering,
+	genjiGloveEquipped,
+	oneOrZeroWeapons,
+	equippedWithAtlasArmlet,
+	equippedWith1HeroRing,
+	equippedWith2HeroRings,
+	equippedWith1Earring,
+	equippedWith2Earrings
+} from './Character';
 
 const PERFECT_HIT_RATE = 255;
 
@@ -518,29 +529,28 @@ function getHitAndApplyDamage(
 	var criticalHit = getCriticalHit();
 	var damageModificationVariance = getDamageModificationsVariance();
 	var standardFightAttack = isStandardFightAttack(isPhysicalAttack, isMagicalAttack);
-	console.log("BattleUtils::attacker.equippedWithGauntlet:", attacker.equippedWithGauntlet);
 	if(hitResult.hit)
 	{
 		damage = getDamageStep1(
 			attacker.vigor,
 			attacker.battlePower,
 			attacker.level,
-			attacker.equippedWithGauntlet(),
-			attacker.equippedWithOffering(),
+			equippedWithGauntlet(attacker),
+			equippedWithOffering(attacker),
 			standardFightAttack,
-			attacker.genjiGloveEquipped(),
-			attacker.oneOrZeroWeapons()
+			genjiGloveEquipped(attacker),
+			oneOrZeroWeapons(attacker)
 		);
 
 		damage = getDamageStep2(
 			damage,
 			isPhysicalAttack,
 			isMagicalAttack,
-			attacker.equippedWithAtlasArmlet(),
-			attacker.equippedWith1HeroRing(),
-			attacker.equippedWith2HeroRings(),
-			attacker.equippedWith1Earring(),
-			attacker.equippedWith2Earrings()
+			equippedWithAtlasArmlet(attacker),
+			equippedWith1HeroRing(attacker),
+			equippedWith2HeroRings(attacker),
+			equippedWith1Earring(attacker),
+			equippedWith2Earrings(attacker)
 		);
 
 		damage = getDamageStep3(

@@ -3,235 +3,237 @@ import _ from "lodash";
 import {Subject} from "rx";
 import BattleTimer from './BattleTimer2';
 import BattleState from '../enums/BattleState';
+import Relic from '../items/Relic';
+import AtlasArmlet from '../items/AtlasArmlet';
+import Earring from '../items/Earring';
+import Gauntlet from '../items/Gauntlet';
+import GenjiGlove from '../items/GenjiGlove';
+import HeroRing from '../items/HeroRing';
+import Offering from '../items/Offering';
 
 var _INCREMENT = 0;
-class Character
+
+var notNil = _.negate(_.isNil);
+
+export function Character()
 {
-	// TODO: figure out reflection/mirrors
-	equippedWithNoRelics()
-	{
-		return _.isNil(this.relic1) && _.isNil(this.relic2);
-	}
-
-	equippedWithGauntlet()
-	{
-		return this.relic1 instanceof Gauntlet || this.relic2 instanceof Gauntlet;
-	}
-
-	equippedWithOffering()
-	{
-		return this.relic1 instanceof Offering || this.relic2 instanceof Offering;
-	}
-
-	genjiGloveEquipped()
-	{
-		return this.relic1 instanceof GenjiGlove || this.relic2 instanceof GenjiGlove;
-	}
-
-	equippedWithAtlasArmlet()
-	{
-		return this.relic1 instanceof AtlasArmlet || this.relic2 instanceof AtlasArmlet;
-	}
-
-	equippedWithHeroRing()
-	{
-		return this.relic1 instanceof HeroRing || this.relic2 instanceof HeroRing;
-	}
-
-	equippedWith1HeroRing()
-	{
-		return (this.relic1 instanceof HeroRing 
-				&& !this.relic2 instanceof HeroRing) || 
-				(!this.relic1 instanceof HeroRing 
-					&& this.relic2 instanceof HeroRing);
-	}
-
-	equippedWith2HeroRings()
-	{
-		return this.relic1 instanceof HeroRing && 
-				this.relic2 instanceof HeroRing;
-	}
-
-	equippedWithEarring()
-	{
-		return this.relic1 instanceof Earring || 
-				this.relic2 instanceof Earring;
-	}
-
-	equippedWith1Earring()
-	{
-		return (this.relic1 instanceof Earring 
-				&& !this.relic2 instanceof Earring) 
-				|| (!this.relic1 instanceof Earring && 
-						this.relic2 instanceof Earring);
-	}
-
-	equippedWith2Earrings()
-	{
-		return this.relic1 instanceof Earring && this.relic2 instanceof Earring;
-	}
-
-	get rightHandHasWeapon(){ notNil(this.rightHand)};
-	get leftHandHasWeapon(){ notNil(this.leftHand)};
-	get rightHandHasNoWeapon(){ !this.rightHandHasWeapon()};
-	get leftHandHasNoWeapon(){ !this.rightHandHasWeapon()};
-	get hasZeroWeapons(){ this.rightHandHasNoWeapon() && this.leftHandHasNoWeapon()};
-
-	oneOrZeroWeapons()
-	{
-		if(this.rightHandHasWeapon() && leftHandHasNoWeapon())
-		{
-			return true;
-		}
-		else if(this.rightHandHasNoWeapon() && this.leftHandHasWeapon())
-		{
-			return true;
-		}
-		else if(this.hasZeroWeapons())
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	get hitPoints()
-	{
-		return this._hitPoints;
-	}
-	set hitPoints(newValue)
-	{
-		var oldValue = _hitPoints;
-		if(this._hitPoints != newValue)
-		{
-			this._hitPoints = newValue;
-			this.subject.onNext({
-				type: "hitPointsChanged", 
-				target: this, 
-				changeAmount: newValue - oldValue
-			});
-			if(oldValue <= 0 && newValue >= 1)
-			{
-				this.dead = false;
-				this.subject.onNext({type: "noLongerSwoon", target: this});
-			}
-			else if(oldValue >= 1 && newValue <= 0)
-			{
-				this.dead = true;
-				this.subject.onNext({type: "swoon", target: this});
-			}
-		}
-	}
-
-	get battleState()
-	{
-		return this._battleState;
-	}
-
-	set battleState(newState)
-	{
-		if(newState == this._battleState)
-		{
-			return;
-		}
-		var oldState = this._battleState;
-		this._battleState = newState;
-		this.subject.onNext({
-			type: "battleStateChanged",
-			target: this,
-			oldBattleState: oldState,
-			newBattleState: newState
-		});
-	}
-
-	get row()
-	{
-		return this._row;
-	}
-	set row(newRow)
-	{
-		if(newRow === this._row)
-		{
-			return;
-		}
-		var oldRow = this._row;
-		this._row = newRow;
-		this.subject.onNext({
-			type: "rowChanged",
-			target: this,
-			oldRow: oldRow,
-			newRow: newRow
-		});
-	}
-
-	constructor(speed = 80,
-		vigor = 10,
-		stamina = 10,
-		magicPower = 10,
-		magicBlock = 10,
-		magicDefense = 10,
-		row = Row.FRONT,
-		hitPoints = 0,
-		defense = 10,
-		dead = false,
-	    level = 3,
-	    evade = 1,
-	    battlePower = 1,
-	    hitRate = 100)
-	{
-		this.generator = BattleTimer.battleTimer();
-		this.percentage = 0;
-		
-		this.name = "";
-		this._battleState = BattleState.WAITING;
-		this._hitPoints = hitPoints;
-
-		this.vigor = vigor;
-		this.speed = speed;
-		this.stamina = stamina;
-		this.magicPower = magicPower;
-		this.evade = evade;
-		this.magicBlock = magicBlock;
-
-		this.defense = defense;
-		this.magicDefense = magicDefense;
-		this.battlePower = battlePower;
-		this.hitRate = hitRate;
-
-		this.dead = dead;
-		this.level = level;
-		
-		this.rightHand = null;
-		this.leftHand = null;
-		this.head = null;
-		this.body = null;
-
-		this.relic1 = null;
-		this.relic2 = null;
-
-		this._row = row;
-
-		this.id = _INCREMENT++;
-
-		this.subject = new Subject();
-
-		console.log("Character::constructor, equippedWithGauntlet:", this.equippedWithGauntlet);
-	}
-
-	toggleRow()
-	{
-		if(row === Row.FRONT)
-		{
-			row = Row.BACK;
-		}
-		else
-		{
-			row = Row.FRONT;
-		}
-	}
-
+	var vm = this;
+	vm.generator = BattleTimer.battleTimer();
+	vm.percentage = 0;
+	vm.name = '';
+	vm._battleState = BattleState.WAITING;
+	vm._hitPoints = 0;
+	vm.vigor = 10;
+	vm.speed = 80;
+	vm.stamina = 10;
+	vm.magicPower = 10;
+	vm.evade = 1;
+	vm.magicBlock = 10;
+	vm.defense = 10;
+	vm.magicDefense = 10;
+	vm.battlePower = 1;
+	vm.hitRate = 100;
+	vm.dead = false;
+	vm.level = 3;
+	vm.rightHand;
+	vm.leftHand;
+	vm.head;
+	vm.body;
+	vm.relic1;
+	vm.relic2;
+	vm._row = Row.FRONT;
+	vm.id = _INCREMENT++;
+	vm.subject = new Subject();
+	vm.type = 'player';
 }
 
-export default Character
+export function makePlayer()
+{
+	var chr = new Character();
+	chr.type = 'player';
+	return chr;
+}
+
+export function makeMonster()
+{
+	var chr = new Character();
+	chr.type = 'monster';
+	return chr;
+}
+
+export function getRandomMonsterVigor()
+{
+	return BattleUtils.getRandomMonsterVigor();
+}
+
+// TODO: figure out reflection/mirrors
+export function equippedWithNoRelics(chr)
+{
+	return _.isNil(chr.relic1) && _.isNil(chr.relic2);
+}
+
+export function equippedWithGauntlet(chr)
+{
+	return chr.relic1 instanceof Gauntlet || chr.relic2 instanceof Gauntlet;
+}
+
+export function equippedWithOffering(chr)
+{
+	return chr.relic1 instanceof Offering || chr.relic2 instanceof Offering;
+}
+
+export function genjiGloveEquipped(chr)
+{
+	return chr.relic1 instanceof GenjiGlove || chr.relic2 instanceof GenjiGlove;
+}
+
+export function equippedWithAtlasArmlet(chr)
+{
+	return chr.relic1 instanceof AtlasArmlet || chr.relic2 instanceof AtlasArmlet;
+}
+
+export function equippedWithHeroRing(chr)
+{
+	return chr.relic1 instanceof HeroRing || chr.relic2 instanceof HeroRing;
+}
+
+export function equippedWith1HeroRing(chr)
+{
+	return (chr.relic1 instanceof HeroRing 
+			&& !chr.relic2 instanceof HeroRing) || 
+			(!chr.relic1 instanceof HeroRing 
+				&& chr.relic2 instanceof HeroRing);
+}
+
+export function equippedWith2HeroRings(chr)
+{
+	return chr.relic1 instanceof HeroRing && 
+			chr.relic2 instanceof HeroRing;
+}
+
+export function equippedWithEarring(chr)
+{
+	return chr.relic1 instanceof Earring || 
+			chr.relic2 instanceof Earring;
+}
+
+export function equippedWith1Earring(chr)
+{
+	return (chr.relic1 instanceof Earring 
+			&& !chr.relic2 instanceof Earring) 
+			|| (!chr.relic1 instanceof Earring && 
+					chr.relic2 instanceof Earring);
+}
+
+export function equippedWith2Earrings(chr)
+{
+	return chr.relic1 instanceof Earring && chr.relic2 instanceof Earring;
+}
+
+export function rightHandHasWeapon(chr){ notNil(chr.rightHand)};
+export function leftHandHasWeapon(chr){ notNil(chr.leftHand)};
+export function rightHandHasNoWeapon(chr){ !rightHandHasWeapon(chr)};
+export function leftHandHasNoWeapon(chr){ !rightHandHasWeapon(chr)};
+export function hasZeroWeapons(chr){ rightHandHasNoWeapon(chr) && leftHandHasNoWeapon(chr)};
+
+export function oneOrZeroWeapons(chr)
+{
+	if(rightHandHasWeapon(chr) && leftHandHasNoWeapon(chr))
+	{
+		return true;
+	}
+	else if(rightHandHasNoWeapon(chr) && leftHandHasWeapon(chr))
+	{
+		return true;
+	}
+	else if(hasZeroWeapons(chr))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+export function getHitPoints(chr)
+{
+	return chr._hitPoints;
+}
+
+export function setHitPoints(chr, newValue)
+{
+	var oldValue = chr._hitPoints;
+	if(chr._hitPoints != newValue)
+	{
+		chr._hitPoints = newValue;
+		chr.subject.onNext({
+			type: "hitPointsChanged", 
+			target: chr, 
+			changeAmount: newValue - oldValue
+		});
+		if(oldValue <= 0 && newValue >= 1)
+		{
+			chr.dead = false;
+			subject.onNext({type: "noLongerSwoon", target: chr});
+		}
+		else if(oldValue >= 1 && newValue <= 0)
+		{
+			chr.dead = true;
+			subject.onNext({type: "swoon", target: chr});
+		}
+	}
+}
+
+export function getBattleState(chr)
+{
+	return chr._battleState;
+}
+
+export function setBattleState(chr, newState)
+{
+	if(newState === chr._battleState)
+	{
+		return;
+	}
+	var oldState = chr._battleState;
+	chr._battleState = newState;
+	chr.subject.onNext({
+		type: "battleStateChanged",
+		target: chr,
+		oldBattleState: oldState,
+		newBattleState: newState
+	});
+}
+
+export function getRow(chr)
+{
+	return chr._row;
+}
+export function setRow(chr, newRow)
+{
+	if(newRow === chr._row)
+	{
+		return;
+	}
+	var oldRow = chr._row;
+	chr._row = newRow;
+	chr.subject.onNext({
+		type: "rowChanged",
+		target: chr,
+		oldRow: oldRow,
+		newRow: newRow
+	});
+}
+
+export function toggleRow(chr)
+{
+	if(chr.row === Row.FRONT)
+	{
+		chr.row = Row.BACK;
+	}
+	else
+	{
+		chr.row = Row.FRONT;
+	}
+}

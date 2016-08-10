@@ -8,6 +8,7 @@ import { takeEvery, takeLatest, delay } from 'redux-saga';
 import TextDropper from '../components/TextDropper';
 import BattleUtils from '../battle/BattleUtils';
 import _ from 'lodash';
+import {equippedWithGauntlet} from '../battle/Character';
 
 export function *playerAttack(action)
 {
@@ -17,7 +18,7 @@ export function *playerAttack(action)
 	var targetIndex = yield call(waitForSelectTargetOrCancel, action.cursorManager);
 	yield call(clearCursorTargets, action.cursorManager);
 
-	var mySprite = action.playerSprite.sprite;
+	var mySprite = action.playerSprite.sprite.sprite;
 	var startWX = mySprite.x;
 	var startWY = mySprite.y;
 	if(targetIndex === -1)
@@ -60,27 +61,26 @@ export function *playerAttack(action)
 			throw new Error("Couldn't find targetEntity in player or monster lists.");
 		}
 		console.log("action.player:", action.player);
-		console.log("action.player.equippedWithGauntlet:", action.player.equippedWithGauntlet);
 		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetEntity.stamina);
 		console.log("targetHitResult:", targetHitResult);
 		var textDropper = new TextDropper(action.stage);
 		console.log("hit:", targetHitResult.hit);
 		if(targetHitResult.hit)
 		{
-			if(target instanceof Monster)
+			if(targetEntity.type === 'monster')
 			{
 				yield put({
 					type: MONSTER_HITPOINTS_CHANGED, 
-					hitPoints: target.hitPoints - targetHitResult.damage,
-					monster: target
+					hitPoints: targetEntity.hitPoints - targetHitResult.damage,
+					monster: targetEntity
 				});
 			}
 			else
 			{
 				yield put({
 					type: PLAYER_HITPOINTS_CHANGED, 
-					hitPoints: target.hitPoints - targetHitResult.damage,
-					player: target
+					hitPoints: targetEntity.hitPoints - targetHitResult.damage,
+					player: targetEntity
 				});
 			}
 			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage);
@@ -89,7 +89,7 @@ export function *playerAttack(action)
 		{
 			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
 		}
-		yield call(leapBackToStartingPosition, action.playerSprite.sprite, startWX, startWY, middleX, middleX);
+		yield call(leapBackToStartingPosition, action.playerSprite.sprite, startWX, startWY, middleX, middleY);
 	}
 }
 
@@ -146,8 +146,7 @@ export function showBattleMenu(battleMenu)
 
 export function leapTowardsTarget(playerSprite, target)
 {
-	console.log("playerSprite:", playerSprite);
-	console.log("playerSprite.leapTowardsTarget:", playerSprite.leapTowardsTarget);
+	console.log("1 playerSprite:", playerSprite);
 	return playerSprite.leapTowardsTarget(target.x, target.y);
 }
 
@@ -158,6 +157,7 @@ export function firstAttack(playerSprite)
 
 export function leapBackToStartingPosition(playerSprite, targetX, targetY, middleX, middleY)
 {
+	console.log("2 playerSprite:", playerSprite);
 	return playerSprite.leapBackToStartingPosition(targetX, targetY, middleX, middleY);
 }
 

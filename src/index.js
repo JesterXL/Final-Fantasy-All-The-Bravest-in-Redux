@@ -11,8 +11,7 @@ import {Subject} from 'rx';
 import _ from "lodash";
 import Row from "./com/jessewarden/ff6redux/enums/Row";
 import Relic from "./com/jessewarden/ff6redux/items/Relic";
-import Player from './com/jessewarden/ff6redux/battle/Player';
-import Monster from './com/jessewarden/ff6redux/battle/Monster';
+import {Character, makeMonster, makePlayer } from './com/jessewarden/ff6redux/battle/Character';
 import BattleState from './com/jessewarden/ff6redux/enums/BattleState';
 import Warrior from './com/jessewarden/ff6redux/sprites/warrior/Warrior';
 import Goblin from './com/jessewarden/ff6redux/sprites/goblin/Goblin';
@@ -38,10 +37,6 @@ import createSagaMiddleware from 'redux-saga'
 import {  take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import {watchPlayerAttack} from './com/jessewarden/ff6redux/sagas/playerAttack';
 import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTurnItIs';
-
-import BaseMan from './BaseMan';
-import TasteMan from './TasteMan';
-
 
 // import './com/jessewarden/ff6redux/sagas/TestSagas';
 // import './TestBattleTimers';
@@ -269,13 +264,6 @@ export function Application()
 
 		animate();
 
-		var a = new TasteMan();
-		console.log("a:", a);
-		console.log("a.equipped:", a.equipped);
-		var b = Object.assign({}, a, {cow: true});
-		console.log("b:", b);
-		console.log("b.equipped:", b.equipped);
-
 		// var warrior2 = new Warrior();
 		// stage.addChild(warrior2.sprite);
 		// warrior2.sprite.x = 300;
@@ -326,100 +314,95 @@ export function Application()
 		// 	console.log("We done.");
 		// });
 
+		keyboardManager = new KeyboardManager();
+		cursorManager = new CursorManager(stage, keyboardManager);
 
+		battleMenu = new BattleMenu(stage);
+		battleMenu.changes.subscribe((event)=>
+		{
+			switch(event.item)
+			{
+				case "Attack":
+					console.log("playerSprites.children:", playerSprites.children);
+					console.log("monsterSprites.children:", monsterSprites.children);
+					var state = store.getState();
+					store.dispatch({
+						type: PLAYER_ATTACK,
+						stage,
+						players: state.players,
+						monsters: state.monsters,
+						playerSpriteMap,
+						monsterSpriteMap,
+						cursorManager,
+						battleMenu,
+						player: state.playerWhoseTurnItIs,
+						playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs.id),
+						spriteTargets: playerSprites.children.concat(monsterSprites.children),
+					});
+					break;
+			}
+		});
 
+		const sagaMiddleware = createSagaMiddleware();
 
+		let store = createStore(
+			rootReducer,
+			applyMiddleware(sagaMiddleware)
+		);
 
+		function *rootSaga()
+		{
+			yield [
+				timer(),
+				watchPlayerTurn(),
+				watchPlayerAttack()
+			];
+		}
 
-		// keyboardManager = new KeyboardManager();
-		// cursorManager = new CursorManager(stage, keyboardManager);
+		sagaMiddleware.run(rootSaga);
 
-		// battleMenu = new BattleMenu(stage);
-		// battleMenu.changes.subscribe((event)=>
-		// {
-		// 	switch(event.item)
-		// 	{
-		// 		case "Attack":
-		// 			console.log("playerSprites.children:", playerSprites.children);
-		// 			console.log("monsterSprites.children:", monsterSprites.children);
-		// 			var state = store.getState();
-		// 			store.dispatch({
-		// 				type: PLAYER_ATTACK,
-		// 				stage,
-		// 				players: state.players,
-		// 				monsters: state.monsters,
-		// 				playerSpriteMap,
-		// 				monsterSpriteMap,
-		// 				cursorManager,
-		// 				battleMenu,
-		// 				player: state.playerWhoseTurnItIs,
-		// 				playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs.id),
-		// 				spriteTargets: playerSprites.children.concat(monsterSprites.children),
-		// 			});
-		// 			break;
-		// 	}
-		// });
+		store.subscribe(() =>
+		{
+			var state = store.getState();
+			updateMonsterSprites(state.monsters);
+			updatePlayerSprites(state.players);
+			if(state.playerWhoseTurnItIs === noPlayer)
+			{
+				var playersReadyToGo = charactersReady(state.players);
+				if(playersReadyToGo.length > 0)
+				{
+					var playerTurn = _.head(playersReadyToGo);
+					store.dispatch({
+						type: PLAYER_TURN, 
+						player: playerTurn,
+						battleMenu
+					});
+				}
+			}
 
-		// const sagaMiddleware = createSagaMiddleware();
+			if(state.monsterWhoseTurnItIs === noMonster)
+			{
+				var monstersReadyToGo = charactersReady(state.monsters);
+				if(monstersReadyToGo.length > 0)
+				{
+					store.dispatch({type: MONSTER_TURN, monster: _.head(monstersReadyToGo)});
+				}	
+			}
+		});
 
-		// let store = createStore(
-		// 	rootReducer,
-		// 	applyMiddleware(sagaMiddleware)
-		// );
+		store.dispatch({ type: ADD_MONSTER, monster: makeMonster() });
+		store.dispatch({ type: ADD_MONSTER, monster: makeMonster() });
 
-		// function *rootSaga()
-		// {
-		// 	yield [
-		// 		timer(),
-		// 		watchPlayerTurn(),
-		// 		watchPlayerAttack()
-		// 	];
-		// }
+		store.dispatch({ type: ADD_PLAYER, player: makePlayer() });
+		store.dispatch({ type: ADD_PLAYER, player: makePlayer() });
+		store.dispatch({ type: ADD_PLAYER, player: makePlayer() });
 
-		// sagaMiddleware.run(rootSaga);
+		store.dispatch({ type: ADD_MONSTER, monster: makeMonster() });
 
-		// store.subscribe(() =>
-		// {
-		// 	var state = store.getState();
-		// 	updateMonsterSprites(state.monsters);
-		// 	updatePlayerSprites(state.players);
-		// 	if(state.playerWhoseTurnItIs === noPlayer)
-		// 	{
-		// 		var playersReadyToGo = charactersReady(state.players);
-		// 		if(playersReadyToGo.length > 0)
-		// 		{
-		// 			var playerTurn = _.head(playersReadyToGo);
-		// 			store.dispatch({
-		// 				type: PLAYER_TURN, 
-		// 				player: playerTurn,
-		// 				battleMenu
-		// 			});
-		// 		}
-		// 	}
-
-		// 	if(state.monsterWhoseTurnItIs === noMonster)
-		// 	{
-		// 		var monstersReadyToGo = charactersReady(state.monsters);
-		// 		if(monstersReadyToGo.length > 0)
-		// 		{
-		// 			store.dispatch({type: MONSTER_TURN, monster: _.head(monstersReadyToGo)});
-		// 		}	
-		// 	}
-		// });
-
-		// store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
-		// store.dispatch({ type: ADD_MONSTER, monster: new Monster() });
-
-		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
-		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
-		// store.dispatch({ type: ADD_PLAYER, player: new Player() });
-
-		// store.dispatch({ type: ADD_MONSTER, monster: new Monster()});
-
-		// delayed(1000, ()=>
-		// {
-		// 	store.dispatch({type: START_TIMER})
-		// });
+		delayed(1000, ()=>
+		{
+			store.dispatch({type: START_TIMER})
+		});
 	}
 
 	return {
