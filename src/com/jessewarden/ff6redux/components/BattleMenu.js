@@ -12,10 +12,11 @@ export default class BattleMenu
 
 	get changes(){return this._changes;}
 
-	constructor(stage)
+	constructor(stage, containerToAddTo)
 	{
 		var vm = this;
 		vm.stage = stage;
+		vm.containerToAddTo = containerToAddTo;
 
 		vm._changes = new Subject();
 
@@ -95,9 +96,9 @@ export default class BattleMenu
 			}
 		});
 
-		vm.stage.addChild(vm.mainMenu.container);
-		vm.stage.addChild(vm.defendMenu.container);
-		vm.stage.addChild(vm.rowMenu.container);
+		vm.containerToAddTo.addChild(vm.mainMenu.container);
+		vm.containerToAddTo.addChild(vm.defendMenu.container);
+		vm.containerToAddTo.addChild(vm.rowMenu.container);
 
 		vm.fsm = new StateMachine();
 		// vm.fsm.changes.subscribe((event)=>

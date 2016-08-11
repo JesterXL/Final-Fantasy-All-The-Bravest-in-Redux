@@ -18,10 +18,9 @@ var notNil = _.negate(_.isNil);
 export function Character()
 {
 	var vm = this;
-	vm.generator = BattleTimer.battleTimer();
 	vm.percentage = 0;
 	vm.name = '';
-	vm._battleState = BattleState.WAITING;
+	vm.battleState = BattleState.WAITING;
 	vm._hitPoints = 0;
 	vm.vigor = 10;
 	vm.speed = 80;
@@ -44,6 +43,7 @@ export function Character()
 	vm._row = Row.FRONT;
 	vm.id = _INCREMENT++;
 	vm.subject = new Subject();
+	vm.generator = makeBattleTimer(vm);
 	vm.type = 'player';
 }
 
@@ -64,6 +64,11 @@ export function makeMonster()
 export function getRandomMonsterVigor()
 {
 	return BattleUtils.getRandomMonsterVigor();
+}
+
+export function makeBattleTimer(chr)
+{
+	return BattleTimer.battleTimer(0, 0, chr.speed);
 }
 
 // TODO: figure out reflection/mirrors
@@ -183,27 +188,6 @@ export function setHitPoints(chr, newValue)
 			subject.onNext({type: "swoon", target: chr});
 		}
 	}
-}
-
-export function getBattleState(chr)
-{
-	return chr._battleState;
-}
-
-export function setBattleState(chr, newState)
-{
-	if(newState === chr._battleState)
-	{
-		return;
-	}
-	var oldState = chr._battleState;
-	chr._battleState = newState;
-	chr.subject.onNext({
-		type: "battleStateChanged",
-		target: chr,
-		oldBattleState: oldState,
-		newBattleState: newState
-	});
 }
 
 export function getRow(chr)

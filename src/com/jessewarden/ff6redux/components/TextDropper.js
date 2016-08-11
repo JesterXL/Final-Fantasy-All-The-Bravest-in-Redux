@@ -61,7 +61,7 @@ class TextDropper
 
 			var style = {
 			    
-			    font: '36px Arial',
+			    font: '24px Arial',
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,

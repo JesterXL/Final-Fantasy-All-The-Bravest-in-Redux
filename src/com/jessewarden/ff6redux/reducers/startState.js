@@ -9,5 +9,5 @@ export var startState = {
 	monsterWhoseTurnItIs: noMonster
 };
 
-export const noPlayer = {};
+export const noPlayer = "-1";
 export const noMonster = {};

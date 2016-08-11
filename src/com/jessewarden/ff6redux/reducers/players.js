@@ -1,5 +1,15 @@
-import { ADD_PLAYER, TICK, PLAYER_HITPOINTS_CHANGED } from '../core/actions';
+import { ADD_PLAYER, TICK, PLAYER_HITPOINTS_CHANGED, PLAYER_TURN_OVER } from '../core/actions';
 import BattleState from '../enums/BattleState';
+import {makeBattleTimer} from '../battle/Character';
+
+function replacePlayer(list, player, updatedPlayer)
+{
+	var index = _.findIndex(list, p => p.id === player.id);
+	return list
+		.slice(0, index)
+		.concat([updatedPlayer])
+		.concat(list.slice(index + 1));
+}
 
 export default function players(state=[], action)
 {
@@ -12,11 +22,15 @@ export default function players(state=[], action)
 			var updatedPlayer = Object.assign({}, action.player, {
 				hitPoints: action.hitPoints
 			});
-			var index = _.findIndex(state, p => p.id === action.player.id);
-			return state
-				.slice(0, index)
-				.concat([updatedPlayer])
-				.concat(state.slice(index + 1));
+			return replacePlayer(state, action.player, updatedPlayer);
+			
+		case PLAYER_TURN_OVER:
+			var updatedPlayer = Object.assign({}, action.player, {
+				battleState: BattleState.WAITING,
+				generator: makeBattleTimer(action.player)
+			});
+			return replacePlayer(state, action.player, updatedPlayer);
+
 		
 		case TICK:
 			return _.map(state, (player)=>

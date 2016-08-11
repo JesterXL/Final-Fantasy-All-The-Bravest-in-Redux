@@ -48,9 +48,7 @@ import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTur
 
 var renderer, stage;
 
-var startBarX = 200;
-var startBarY = 200;
-var startSpriteX = 200;
+var startSpriteX = 400;
 var startSpriteY = 20;
 var startMonsterSpriteX = 20;
 var startMonsterSpriteY = 20;
@@ -63,6 +61,8 @@ const monsterSpriteMap = []; // {monsterID: 1, spite: [Sprite]}
 var battleTimerBars;
 var monsterSprites;
 var playerSprites;
+var textDrops;
+var battleMenus;
 
 // LET THE MUTABLE STATE BEGIN... MORRRTAALLL KOOOMMBAAATTT! #mutablekombat
 function updateMonsterSprites(monsters)
@@ -70,7 +70,7 @@ function updateMonsterSprites(monsters)
 	var monstersToRemove = getMonstersToRemove(monsterSpriteMap, monsters);
 	if(monstersToRemove.length > 0)
 	{
-		removeMonsterSprites(monstersToRemove, monsterSpriteMap, startMonsterSpriteY);
+		startMonsterSpriteY = removeMonsterSprites(monstersToRemove, monsterSpriteMap, startMonsterSpriteY);
 	}
 	var monstersToAdd = getMonsterSpritesToAdd(monsterSpriteMap, monsters);
 	if(monstersToAdd.length > 0)
@@ -93,8 +93,9 @@ function removeMonsterSprites(monsterSpritesToRemove, monsterSpriteMap, startMon
 	{
 		sprite.parent.removeChild(sprite.sprite);
 		_.remove(monsterSpriteMap, o => o.sprite === o);
-		startMonsterSpriteY -= 60;
+		startMonsterSpriteY -= (Goblin.HEIGHT + 10);
 	});
+	return startMonsterSpriteY;
 }
 
 function getMonsterSpritesToAdd(monsterSpriteMap, monsters)
@@ -116,7 +117,7 @@ function addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, star
 		goblin.sprite.x = startMonsterSpriteX;
 		goblin.sprite.y = startMonsterSpriteY;
 		monsterSpriteMap.push({monsterID: monster.id, sprite: goblin});
-		startMonsterSpriteY += 60;
+		startMonsterSpriteY += (Goblin.HEIGHT + 10);
 		return goblin;
 	});
 	return startMonsterSpriteY;
@@ -261,6 +262,10 @@ export function Application()
 		stage.addChild(monsterSprites);
 		playerSprites = new PIXI.Container();
 		stage.addChild(playerSprites);
+		textDrops = new PIXI.Container();
+		stage.addChild(textDrops);
+		battleMenus = new PIXI.Container();
+		stage.addChild(battleMenus);
 
 		animate();
 
@@ -317,7 +322,7 @@ export function Application()
 		keyboardManager = new KeyboardManager();
 		cursorManager = new CursorManager(stage, keyboardManager);
 
-		battleMenu = new BattleMenu(stage);
+		battleMenu = new BattleMenu(stage, battleMenus);
 		battleMenu.changes.subscribe((event)=>
 		{
 			switch(event.item)
@@ -329,14 +334,15 @@ export function Application()
 					store.dispatch({
 						type: PLAYER_ATTACK,
 						stage,
+						textDrops,
 						players: state.players,
 						monsters: state.monsters,
 						playerSpriteMap,
 						monsterSpriteMap,
 						cursorManager,
 						battleMenu,
-						player: state.playerWhoseTurnItIs,
-						playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs.id),
+						player: _.find(state.players, p => p.id === state.playerWhoseTurnItIs),
+						playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs),
 						spriteTargets: playerSprites.children.concat(monsterSprites.children),
 					});
 					break;
@@ -366,9 +372,11 @@ export function Application()
 			var state = store.getState();
 			updateMonsterSprites(state.monsters);
 			updatePlayerSprites(state.players);
+			// console.log("state.playerWhoseTurnItIs:", state.playerWhoseTurnItIs);
 			if(state.playerWhoseTurnItIs === noPlayer)
 			{
 				var playersReadyToGo = charactersReady(state.players);
+				// console.log("playersReadyToGo:", playersReadyToGo);
 				if(playersReadyToGo.length > 0)
 				{
 					var playerTurn = _.head(playersReadyToGo);

@@ -1,7 +1,8 @@
 import { 
 	PLAYER_ATTACK, 
 	PLAYER_HITPOINTS_CHANGED,
-	MONSTER_HITPOINTS_CHANGED } 
+	MONSTER_HITPOINTS_CHANGED,
+	PLAYER_TURN_OVER } 
 	from '../core/actions';
 import { take, put, call, fork} from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga';
@@ -12,7 +13,6 @@ import {equippedWithGauntlet} from '../battle/Character';
 
 export function *playerAttack(action)
 {
-	console.log("player sprite:", action.playerSprite);
 	yield call(hideBattleMenu, action.battleMenu);
 	yield call(setPlayerAttackTargets, action.cursorManager, action.stage, action.spriteTargets);
 	var targetIndex = yield call(waitForSelectTargetOrCancel, action.cursorManager);
@@ -63,7 +63,7 @@ export function *playerAttack(action)
 		console.log("action.player:", action.player);
 		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetEntity.stamina);
 		console.log("targetHitResult:", targetHitResult);
-		var textDropper = new TextDropper(action.stage);
+		var textDropper = new TextDropper(action.textDrops);
 		console.log("hit:", targetHitResult.hit);
 		if(targetHitResult.hit)
 		{
@@ -90,6 +90,7 @@ export function *playerAttack(action)
 			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
 		}
 		yield call(leapBackToStartingPosition, action.playerSprite.sprite, startWX, startWY, middleX, middleY);
+		yield put({type: PLAYER_TURN_OVER, player: action.player});
 	}
 }
 
@@ -146,7 +147,6 @@ export function showBattleMenu(battleMenu)
 
 export function leapTowardsTarget(playerSprite, target)
 {
-	console.log("1 playerSprite:", playerSprite);
 	return playerSprite.leapTowardsTarget(target.x, target.y);
 }
 
@@ -157,9 +157,9 @@ export function firstAttack(playerSprite)
 
 export function leapBackToStartingPosition(playerSprite, targetX, targetY, middleX, middleY)
 {
-	console.log("2 playerSprite:", playerSprite);
 	return playerSprite.leapBackToStartingPosition(targetX, targetY, middleX, middleY);
 }
+
 
 export function *watchPlayerAttack()
 {
