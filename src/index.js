@@ -109,6 +109,27 @@ function getMonsterSpritesToAdd(monsterSpriteMap, monsters)
 var added = 0;
 function addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, startMonsterSpriteX, startMonsterSpriteY)
 {
+	/*
+	int newTank()
+	{
+		int new_id = createNewEntity();
+
+		// Attach components to the entity; they will have DEFAULT values
+
+		createComponentAndAddTo( TRACKED_COMPONENT, new_id );
+		createComponentAndAddTo( RENDERABLE_COMPONENT, new_id );
+		createComponentAndAddTo( PHYSICS_COMPONENT, new_id );
+		createComponentAndAddTo( GUN_COMPONENT, new_id );
+
+		// Setup code that EDITS the data in each component, e.g:
+		float[] gunData = getComponentDataForEntity( GUN_COMPONENT, new_id );
+		gunData[ GUN_SIZE ] = 500;
+		gunData[ GUN_DAMAGE ] = 10000;
+		gunData[ GUN_FIRE_RATE ] = 0.001;
+		setComponentDataForEntity( GUN_COMPONENT, new_id, gunData );
+		return new_id;
+	}
+	*/
 	_.forEach(monstersToAdd, (monster)=>
 	{
 		var goblin = new Goblin();
