@@ -21,7 +21,7 @@ export function Character()
 	vm.percentage = 0;
 	vm.name = '';
 	vm.battleState = BattleState.WAITING;
-	vm._hitPoints = 0;
+	vm.hitPoints = 10;
 	vm.vigor = 10;
 	vm.speed = 80;
 	vm.stamina = 10;
@@ -51,6 +51,7 @@ export function makePlayer()
 {
 	var chr = new Character();
 	chr.type = 'player';
+	chr.battlePower = 50;
 	return chr;
 }
 
@@ -161,34 +162,34 @@ export function oneOrZeroWeapons(chr)
 	}
 }
 
-export function getHitPoints(chr)
-{
-	return chr._hitPoints;
-}
+// export function getHitPoints(chr)
+// {
+// 	return chr._hitPoints;
+// }
 
-export function setHitPoints(chr, newValue)
-{
-	var oldValue = chr._hitPoints;
-	if(chr._hitPoints != newValue)
-	{
-		chr._hitPoints = newValue;
-		chr.subject.onNext({
-			type: "hitPointsChanged", 
-			target: chr, 
-			changeAmount: newValue - oldValue
-		});
-		if(oldValue <= 0 && newValue >= 1)
-		{
-			chr.dead = false;
-			subject.onNext({type: "noLongerSwoon", target: chr});
-		}
-		else if(oldValue >= 1 && newValue <= 0)
-		{
-			chr.dead = true;
-			subject.onNext({type: "swoon", target: chr});
-		}
-	}
-}
+// export function setHitPoints(chr, newValue)
+// {
+// 	var oldValue = chr._hitPoints;
+// 	if(chr._hitPoints != newValue)
+// 	{
+// 		chr._hitPoints = newValue;
+// 		chr.subject.onNext({
+// 			type: "hitPointsChanged", 
+// 			target: chr, 
+// 			changeAmount: newValue - oldValue
+// 		});
+// 		if(oldValue <= 0 && newValue >= 1)
+// 		{
+// 			chr.dead = false;
+// 			subject.onNext({type: "noLongerSwoon", target: chr});
+// 		}
+// 		else if(oldValue >= 1 && newValue <= 0)
+// 		{
+// 			chr.dead = true;
+// 			subject.onNext({type: "swoon", target: chr});
+// 		}
+// 	}
+// }
 
 export function getRow(chr)
 {

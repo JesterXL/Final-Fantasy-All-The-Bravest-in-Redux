@@ -23,6 +23,19 @@ class Goblin
 		this._sprite = new PIXI.Sprite(this.standTexture);
 		this._container.addChild(this._sprite);
 	}
+
+	animateDeath()
+	{
+		var me = this;
+		return new Promise((resolve)=>
+		{
+			var mySprite = me.sprite;
+			TweenMax.to(mySprite, 1, {
+				alpha: 0,
+				onComplete: resolve
+			})
+		});
+	}
 }
 
 export default Goblin

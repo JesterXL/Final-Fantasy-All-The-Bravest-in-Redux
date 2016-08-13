@@ -89,9 +89,9 @@ function getMonstersToRemove(monsterSpriteMap, monsters)
 
 function removeMonsterSprites(monsterSpritesToRemove, monsterSpriteMap, startMonsterSpriteY)
 {
-	return _.forEach(monsterSpritesToRemove, (sprite)=>
+	return _.forEach(monsterSpritesToRemove, (spriteMap)=>
 	{
-		sprite.parent.removeChild(sprite.sprite);
+		spriteMap.sprite.sprite.parent.removeChild(spriteMap.sprite.sprite);
 		_.remove(monsterSpriteMap, o => o.sprite === o);
 		startMonsterSpriteY -= (Goblin.HEIGHT + 10);
 	});

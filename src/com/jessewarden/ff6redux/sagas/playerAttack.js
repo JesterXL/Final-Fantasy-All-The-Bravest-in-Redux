@@ -2,9 +2,12 @@ import {
 	PLAYER_ATTACK, 
 	PLAYER_HITPOINTS_CHANGED,
 	MONSTER_HITPOINTS_CHANGED,
-	PLAYER_TURN_OVER } 
+	PLAYER_TURN_OVER,
+	STOP_TIMER,
+	MONSTER_DEAD
+	 } 
 	from '../core/actions';
-import { take, put, call, fork} from 'redux-saga/effects'
+import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga';
 import TextDropper from '../components/TextDropper';
 import BattleUtils from '../battle/BattleUtils';
@@ -60,11 +63,8 @@ export function *playerAttack(action)
 		{
 			throw new Error("Couldn't find targetEntity in player or monster lists.");
 		}
-		console.log("action.player:", action.player);
 		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetEntity.stamina);
-		console.log("targetHitResult:", targetHitResult);
 		var textDropper = new TextDropper(action.textDrops);
-		console.log("hit:", targetHitResult.hit);
 		if(targetHitResult.hit)
 		{
 			if(targetEntity.type === 'monster')
@@ -74,6 +74,14 @@ export function *playerAttack(action)
 					hitPoints: targetEntity.hitPoints - targetHitResult.damage,
 					monster: targetEntity
 				});
+				console.log("targetEntity:", targetEntity);
+				console.log("targetEntity.hitPoints:", targetEntity.hitPoints);
+				if(targetEntity.hitPoints <= 0)
+				{
+					yield put({type: STOP_TIMER});
+					yield call(animateMonsterDeath, targetEntity, _.find(action.monsterSpriteMap, ms => ms.monsterID === targetEntity.id).sprite);
+					yield put({type: MONSTER_DEAD, monster: targetEntity});
+				}
 			}
 			else
 			{
@@ -101,7 +109,6 @@ export function dropText(textDropper, target, damage)
 
 export function getHitAndApplyDamage(player, stamina)
 {
-	console.log("getHitAndApplyDamage, stamina:", stamina);
 	return BattleUtils.getHitAndApplyDamage(player, stamina);
 }
 
@@ -160,6 +167,10 @@ export function leapBackToStartingPosition(playerSprite, targetX, targetY, middl
 	return playerSprite.leapBackToStartingPosition(targetX, targetY, middleX, middleY);
 }
 
+export function animateMonsterDeath(entity, sprite)
+{
+	return sprite.animateDeath();
+}
 
 export function *watchPlayerAttack()
 {

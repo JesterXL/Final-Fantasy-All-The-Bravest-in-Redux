@@ -1,4 +1,4 @@
-import { ADD_MONSTER, TICK, MONSTER_HITPOINTS_CHANGED } from '../core/actions';
+import { ADD_MONSTER, TICK, MONSTER_HITPOINTS_CHANGED, MONSTER_DEAD } from '../core/actions';
 
 export default function monsters(state=[], action)
 {
@@ -16,6 +16,10 @@ export default function monsters(state=[], action)
 				.slice(0, index)
 				.concat([updatedMonster])
 				.concat(state.slice(index + 1));
+
+		case MONSTER_DEAD:
+			var index = _.findIndex(state, m => m.id === action.id);
+			return [...state.slice(0, index), state.slice(index + 1)];
 
 		case TICK:
 			return _.map(state, (monster)=>
