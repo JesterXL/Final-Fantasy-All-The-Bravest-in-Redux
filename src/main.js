@@ -8,6 +8,8 @@ import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
 import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT } from './com/jessewarden/ff6redux/core/actions';
 
 import {BattleTimerComponent} from './com/jessewarden/ff6redux/components/BattleTimerComponent';
+import {Character} from './com/jessewarden/ff6redux/battle/Character';
+import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 
 
 var sagaMiddleware;
@@ -64,29 +66,24 @@ export function stopTimer(store)
 	return store.dispatch( { type: STOP_TIMER });
 }
 
-export function addWarrior(store, action)
+export function *addWarrior(warriorCreator, store)
 {
-	var addEntityAction = addEntity(Warrior, store, ADD_ENTITY);
-	addComponent(
+	var addEntityAction = yield addEntity(warriorCreator, store, ADD_ENTITY);
+	yield addComponent(
 		()=>{return BattleTimerComponent(addEntityAction.entity);},
 		store,
 		ADD_COMPONENT
 	);
-	addComponent(
-		()=>{return }
-	)
-
-
-
-
-	console.log("addPlayerSprites");
-		var warrior = new Warrior();
-		playerSprites.addChild(warrior.sprite);
-		warrior.sprite.x = startSpriteX;
-		warrior.sprite.y = startSpriteY;
-		playerSpriteMap.push({playerID: player.id, sprite: warrior});
-		startSpriteY += Warrior.HEIGHT + 20;
-		return warrior;
+	yield addComponent(
+		()=>{return Character(addEntityAction.entity);},
+		store,
+		ADD_COMPONENT
+	);
+	yield addComponent(
+		()=>{return WarriorSprite(addEntityAction.entity);},
+		store,
+		ADD_COMPONENT
+	);
 }
 
 function *rootSaga()

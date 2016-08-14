@@ -3,9 +3,9 @@ import _ from "lodash";
 import "gsap";
 import "howler";
 import { Subject } from 'rx';
-import BattleTimerBar from '../../components/BattleTimerBar';
+import BattleTimerBar from '../../views/BattleTimerBar';
 
-export default class Warrior
+export default class WarriorSprite
 {
 	static get WIDTH(){ return 66};
 	static get HEIGHT(){ return 66};

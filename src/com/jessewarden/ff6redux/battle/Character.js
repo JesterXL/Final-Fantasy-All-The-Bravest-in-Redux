@@ -15,9 +15,10 @@ var _INCREMENT = 0;
 
 var notNil = _.negate(_.isNil);
 
-export function Character()
+export function Character(entity)
 {
 	var vm = this;
+	vm.entity = entity;
 	vm.percentage = 0;
 	vm.name = '';
 	vm.battleState = BattleState.WAITING;

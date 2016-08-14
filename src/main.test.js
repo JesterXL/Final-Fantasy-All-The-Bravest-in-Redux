@@ -3,7 +3,8 @@ import {
 	addEntity, 
 	addComponent,
 	startTimer,
-	stopTimer } from './main';
+	stopTimer,
+	addWarrior } from './main';
 import { createStore, applyMiddleware, combineReducers} from 'redux'
 import { 
 	ADD_ENTITY, 
@@ -12,6 +13,12 @@ import {
 	STOP_TIMER } from './com/jessewarden/ff6redux/core/actions';
 import rootReducer from './com/jessewarden/ff6redux/reducers/';
 import _ from 'lodash';
+
+import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
+
+import {BattleTimerComponent} from './com/jessewarden/ff6redux/components/BattleTimerComponent';
+import {Character} from './com/jessewarden/ff6redux/battle/Character';
+import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 
 test('timing test', (t)=>
 {
@@ -56,6 +63,17 @@ test("#main::stopTimer", (t)=>
 	t.plan(1);
 	t.deepEqual(
 		stopTimer(store), 
-		{type: STOP_TIMER}
+		{type: ADD_ENTITY}
+	);
+});
+test("#main::*addWarrior", (t)=>
+{
+	var store = createStore(rootReducer);
+	t.plan(1);
+	var mockEntity = Warrior();
+	var gen = addWarrior(Warrior, store);
+	t.deepEqual(
+		gen.next().value, 
+		{type: ADD_ENTITY, entity: mockEntity}
 	);
 });
