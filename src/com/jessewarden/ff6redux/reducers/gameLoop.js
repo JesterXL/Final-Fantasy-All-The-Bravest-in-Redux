@@ -1,5 +1,6 @@
 import { TICK, START_TIMER, STOP_TIMER } from '../core/actions';
 import startState from './startState';
+import performance from '../core/perfnow';
 //var defaultValue = startState.gameLoop; // this breaks webpack
 var defaultValue = {
 	now: performance.now(),

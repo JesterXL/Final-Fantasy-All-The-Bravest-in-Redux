@@ -15,8 +15,9 @@ export default class Warrior
 		return this._container;
 	}
 
-	constructor()
+	constructor(entity)
 	{
+		this.entity = entity;
 		this._container = new PIXI.Container();
 
 		var prefix = 'src/com/jessewarden/ff6redux/sprites/warrior/';

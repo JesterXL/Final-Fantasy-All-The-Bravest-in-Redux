@@ -1,12 +1,4 @@
-export function makeEntity(name)
-{
-	return {
-		name: name,
-		id: guid()
-	}
-}
-
-function guid() {
+export default function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 }

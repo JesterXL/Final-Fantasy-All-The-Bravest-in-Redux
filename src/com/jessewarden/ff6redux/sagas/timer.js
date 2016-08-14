@@ -1,13 +1,14 @@
 import {START_TIMER, STOP_TIMER, TICK} from '../core/actions';
 import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga'
+import { performance } from '../core/perfnow';
 
 export function *ticker(action)
 {
 	var lastTick = performance.now();
 	while(true)
 	{
-		yield call(delay, 100);
+		yield call(delay, 1000);
 		var now = performance.now();
 		var difference = now - lastTick;
 		lastTick = now;

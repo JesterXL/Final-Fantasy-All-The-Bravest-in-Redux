@@ -2,7 +2,9 @@ export const TICK                      = 'TICK';
 export const START_TIMER               = 'START_TIMER';
 export const STOP_TIMER                = 'STOP_TIMER';
 
-export const ADD_PLAYER                = 'ADD_PLAYER';
+export const ADD_ENTITY                = 'ADD_ENTITY';
+export const ADD_COMPONENT				= 'ADD_COMPONENT';
+
 export const ADD_MONSTER               = 'ADD_MONSTER';
 export const PLAYER_HITPOINTS_CHANGED  = 'PLAYER_HITPOINTS_CHANGED';
 export const MONSTER_HITPOINTS_CHANGED = 'MONSTER_HITPOINTS_CHANGED';
