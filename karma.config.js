@@ -3,11 +3,12 @@ module.exports = function karmaConfig (config) {
 	config.set({
 		plugins: [
 			require('karma-webpack'),
-			require('karma-tap'),
-			require('karma-chrome-launcher'),
-			require('karma-phantomjs2-launcher'),
+			require('karma-sourcemap-loader'),
+			require('karma-mocha'),
+			require('karma-nyan-reporter'),
+			require('karma-threshold-reporter'),
 			require('karma-coverage'),
-			require('karma-sourcemap-loader')
+			require('karma-phantomjs2-launcher')
 		],
 		logLevel: config.LOG_INFO,  /** Log our errors */
 
@@ -17,12 +18,12 @@ module.exports = function karmaConfig (config) {
 
 		frameworks: [
 
-		/**
-		* Reference: https://github.com/karma-runner/karma-jasmine
-		* Set framework to jasmine
-		*/
-		'tap'
-		],
+			/**
+			* Reference: https://github.com/karma-runner/karma-jasmine
+			* Set framework to jasmine
+			*/
+			'mocha'
+			],
 
 		// reporters: [
 
@@ -39,35 +40,35 @@ module.exports = function karmaConfig (config) {
 		//   'coverage'
 		// ],
 
-		// reporters: [ 'tap-spec' ],
+		reporters: [ 'nyan', 'coverage', 'threshold' ],
 
 		files: [
-			/** Grab all files in the app folder that contain .spec. */
-			'./src/tests.webpack.js'
-			/** each file acts as entry point for the webpack configuration */
+		/** Grab all files in the app folder that contain .spec. */
+		'./src/tests.webpack.js'
+		/** each file acts as entry point for the webpack configuration */
 		],
 
 		preprocessors: {
 
 			/**
-			* Reference: http://webpack.github.io/docs/testing.html
-			* Reference: https://github.com/webpack/karma-webpack
-			* Convert files with webpack and load sourcemaps
-			*/
-			'./src/tests.webpack.js': ['webpack', 'sourcemap']
-		},
+			 * Reference: http://webpack.github.io/docs/testing.html
+			 * Reference: https://github.com/webpack/karma-webpack
+			 * Convert files with webpack and load sourcemaps
+			 */
+			 './src/tests.webpack.js': ['webpack', 'sourcemap']
+		 },
 
-		browsers: [
-			'PhantomJS2'
-		],
+		 browsers: [
+		 'PhantomJS2'
+		 ],
 
-		singleRun: false,
+		 singleRun: false,
 
-		/** Configure code coverage reporter */
-		coverageReporter: {
+		 /** Configure code coverage reporter */
+		 coverageReporter: {
 			dir: 'coverage',
 			reporters: [
-				{type: 'html', subdir: 'html'}
+			{type: 'html', subdir: 'html'}
 			],
 			check: {
 				statements: 50,
@@ -84,77 +85,18 @@ module.exports = function karmaConfig (config) {
 		},
 
 		thresholdReporter: {
-			statements: 50,
-			branches: 50,
-			functions: 50,
-			lines: 50
-		},
+		 statements: 50,
+		 branches: 50,
+		 functions: 50,
+		 lines: 50
+	 },
 
 
-		webpack: require('./webpack.config'),
+	 webpack: require('./webpack.config'),
 
-		/** Hide webpack build information from output */
-		webpackMiddleware: {
-			noInfo: 'errors-only'
-		}
-	});
+	 /** Hide webpack build information from output */
+	 webpackMiddleware: {
+		noInfo: 'errors-only'
+	}
+});
 };
-
-
-// var webpack = require('webpack');
-
-// module.exports = function(config) {
-//   config.set({
-//     plugins: [
-//       require('karma-webpack'),
-//       require('karma-tap'),
-//       require('karma-chrome-launcher'),
-//       require('karma-phantomjs-launcher'),
-//       require('karma-coverage')
-//     ],
-
-//     basePath: '',
-//     frameworks: [ 'tap' ],
-//     files: [ 'src/**/*.js' ],
-
-//     preprocessors: {
-//       'src/**/*.js': [ 'webpack' ]
-//     },
-
-//     webpack: {
-//       node : {
-//         fs: 'empty'
-//       },
-
-//       // Instrument code that isn't test or vendor code.
-//       module: {
-//         postLoaders: [{
-//           test: /\.js$/,
-//           exclude: /(test|node_modules)\//,
-//           loader: 'istanbul-instrumenter'
-//         }]
-//       }
-//     },
-
-//     webpackMiddleware: {
-//       noInfo: true
-//     },
-
-//     reporters: [
-//       'dots',
-//       'coverage'
-//     ],
-
-//     coverageReporter: {
-//       type: 'text',
-//       dir: 'coverage/'
-//     },
-
-//     port: 9876,
-//     colors: true,
-//     logLevel: config.LOG_INFO,
-//     autoWatch: true,
-//     browsers: ['Chrome'],
-//     singleRun: false
-//   })
-// };
