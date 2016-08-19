@@ -3,6 +3,7 @@ export const START_TIMER               = 'START_TIMER';
 export const STOP_TIMER                = 'STOP_TIMER';
 
 export const ADD_ENTITY                = 'ADD_ENTITY';
+export const REMOVE_ENTITY 				= 'REMOVE_ENTITY';
 export const ADD_COMPONENT				= 'ADD_COMPONENT';
 
 export const ADD_MONSTER               = 'ADD_MONSTER';

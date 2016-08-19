@@ -18,6 +18,8 @@ export default class WarriorSprite
 	constructor(entity)
 	{
 		this.entity = entity;
+		this.type = 'componentSprite';
+		this.player = true;
 		this._container = new PIXI.Container();
 
 		var prefix = 'src/com/jessewarden/ff6redux/sprites/warrior/';
@@ -90,7 +92,7 @@ export default class WarriorSprite
 
 		this.battleTimerBar = new BattleTimerBar();
 		this._container.addChild(this.battleTimerBar.sprite);
-		this.battleTimerBar.sprite.x = Warrior.WIDTH / 2 - this.battleTimerBar.sprite.width / 2;
+		this.battleTimerBar.sprite.x = WarriorSprite.WIDTH / 2 - this.battleTimerBar.sprite.width / 2;
 	}
 
 	setPercentage(value)

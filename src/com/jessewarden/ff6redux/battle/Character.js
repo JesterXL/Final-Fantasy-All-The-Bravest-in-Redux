@@ -1,7 +1,7 @@
 import Row from "../enums/Row";
 import _ from "lodash";
 import {Subject} from "rx";
-import BattleTimer from './BattleTimer';
+import {battleTimer} from './BattleTimer';
 import BattleState from '../enums/BattleState';
 import Relic from '../items/Relic';
 import AtlasArmlet from '../items/AtlasArmlet';
@@ -17,7 +17,7 @@ var notNil = _.negate(_.isNil);
 
 export function Character(entity)
 {
-	var vm = this;
+	var vm = {};
 	vm.entity = entity;
 	vm.percentage = 0;
 	vm.name = '';
@@ -46,6 +46,7 @@ export function Character(entity)
 	vm.subject = new Subject();
 	vm.generator = makeBattleTimer(vm);
 	vm.type = 'player';
+	return vm;
 }
 
 export function makePlayer()
@@ -70,7 +71,7 @@ export function getRandomMonsterVigor()
 
 export function makeBattleTimer(chr)
 {
-	return BattleTimer.battleTimer(0, 0, chr.speed);
+	return battleTimer(0, 0, chr.speed);
 }
 
 // TODO: figure out reflection/mirrors

@@ -2,23 +2,37 @@ import { createStore, applyMiddleware, combineReducers} from 'redux'
 import { takeEvery, takeLatest, delay } from 'redux-saga'
 import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import createSagaMiddleware from 'redux-saga'
+import createLogger from 'redux-logger';
 import rootReducer from './com/jessewarden/ff6redux/reducers/';
 import { timer } from './com/jessewarden/ff6redux/sagas/timer';
 import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
-import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT } from './com/jessewarden/ff6redux/core/actions';
+import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT, REMOVE_ENTITY} from './com/jessewarden/ff6redux/core/actions';
 
 import {BattleTimerComponent} from './com/jessewarden/ff6redux/components/BattleTimerComponent';
 import {Character} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
+
+import { SpriteSystem } from './com/jessewarden/ff6redux/systems/SpriteSystem';
 
 
 var sagaMiddleware;
 var store;
 var unsubscribe;
 
+export function delayed(mil)
+{
+	return new Promise((success)=>
+	{
+		setTimeout(()=>
+		{
+			success();
+		}, mil);
+	});
+}
 
 export function setupRedux()
 {
+	const logger = createLogger();
 	sagaMiddleware = createSagaMiddleware();
 	store = createStore(
 			rootReducer,
@@ -30,18 +44,21 @@ export function setupRedux()
 	unsubscribe = store.subscribe(()=>
 	{
 		var state = store.getState()
-
+		
 	});
 
-	var firstWarrior  = addEntity(Warrior, store, ADD_ENTITY);
-	var secondWarrior = addEntity(Warrior, store, ADD_ENTITY);
-	var thirdWarrior  = addEntity(Warrior, store, ADD_ENTITY);
-	
-	var firstGoblin   = addEntity(Goblin, store, ADD_ENTITY);
-	var secondGoblin  = addEntity(Goblin, store, ADD_ENTITY);
-	var thirdGoblin   = addEntity(Goblin, store, ADD_ENTITY);
-	
-	addComponent(()   => BattleTimerComponent(firstWarrior), store, ADD_COMPONENT);
+	addWarrior(Warrior, store);
+	addWarrior(Warrior, store);
+	addWarrior(Warrior, store);
+
+	var spriteSystem = SpriteSystem(store);
+
+	delayed(2 * 1000)
+	.then(()=>
+	{
+		console.log("GOOOO");
+		store.dispatch({type: REMOVE_ENTITY, entity: store.getState().entities[0]});
+	});
 }
 
 export function addEntity(entityCreator, store, action)
@@ -66,24 +83,45 @@ export function stopTimer(store)
 	return store.dispatch( { type: STOP_TIMER });
 }
 
-export function *addWarrior(warriorCreator, store)
+export function addWarriorEntity(entityCreator, store)
 {
-	var addEntityAction = yield addEntity(warriorCreator, store, ADD_ENTITY);
-	yield addComponent(
-		()=>{return BattleTimerComponent(addEntityAction.entity);},
+	return addEntity(entityCreator, store, ADD_ENTITY);
+}
+export function addBattleTimerComponent(battleTimerComponent, store)
+{
+	return addComponent(
+		()=>{return battleTimerComponent;},
 		store,
 		ADD_COMPONENT
 	);
-	yield addComponent(
-		()=>{return Character(addEntityAction.entity);},
+}
+export function addCharacterComponent(character, store)
+{
+	return addComponent(
+		()=>{return character;},
 		store,
 		ADD_COMPONENT
 	);
-	yield addComponent(
-		()=>{return WarriorSprite(addEntityAction.entity);},
+}
+
+export function addWarriorSprite(warriorSprite, store)
+{
+	return addComponent(
+		()=>{return warriorSprite;},
 		store,
 		ADD_COMPONENT
 	);
+}
+
+export function addWarrior(entityCreator, store)
+{
+	var addEntityAction = addWarriorEntity(entityCreator, store);
+	var battleTimer = BattleTimerComponent(addEntityAction.entity);
+	var character = Character(addEntityAction.entity);
+	var warriorSprite = new WarriorSprite(addEntityAction.entity);
+	addBattleTimerComponent(battleTimer, store);
+	addCharacterComponent(character, store);
+	addWarriorSprite(warriorSprite, store);
 }
 
 function *rootSaga()
@@ -109,10 +147,3 @@ function *rootSaga()
 // 	}
 // }
 
-export function getMonstersToRemove(monsterSpriteMap, monsters)
-{
-	return _.differenceWith(
-		monsterSpriteMap,
-		monsters,
-		(psObject, monster)=> psObject.monsterID === monster.id);
-}

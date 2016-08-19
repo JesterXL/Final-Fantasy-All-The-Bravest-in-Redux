@@ -13,7 +13,7 @@ module.exports = function karmaConfig (config) {
 		logLevel: config.LOG_INFO,  /** Log our errors */
 
 		client: {
-			captureConsole: false
+			captureConsole: true
 		},
 
 		frameworks: [

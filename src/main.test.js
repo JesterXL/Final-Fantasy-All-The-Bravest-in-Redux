@@ -1,15 +1,21 @@
 import {expect, assert, should } from 'chai';
-
+should();
 
 import { 
 	addEntity, 
 	addComponent,
 	startTimer,
 	stopTimer,
-	addWarrior } from './main';
+	addWarrior,
+	addWarriorEntity,
+	addBattleTimerComponent,
+	addCharacterComponent,
+	addWarriorSprite } from './main';
+
 import { createStore, applyMiddleware, combineReducers} from 'redux'
 import { 
 	ADD_ENTITY, 
+	REMOVE_ENTITY,
 	ADD_COMPONENT,
 	START_TIMER,
 	STOP_TIMER } from './com/jessewarden/ff6redux/core/actions';
@@ -28,7 +34,7 @@ describe('#main', function()
 	{
 		expect(true).to.equal(true);
 	});
-	describe('#addEntity', (t)=>
+	describe('#addEntity', ()=>
 	{
 		var store, mockEntity;
 
@@ -55,47 +61,112 @@ describe('#main', function()
 			expect(_.includes(store.getState().entities, mockEntity)).to.equal(true);
 		});
 	});
-	// test('#main::addComponent', (t)=>
-	// {
-	// 	t.plan(1);
-	// 	var store = createStore(rootReducer);
-	// 	var mockEntity = 'testentity';
-	// 	var mockComponentMaker = ()=>{return {entity: mockEntity}};
-	// 	t.deepEqual(
-	// 		addComponent(mockComponentMaker, store, ADD_COMPONENT), 
-	// 		{type: ADD_COMPONENT, component: mockComponentMaker(mockEntity)}
-	// 	);
-	// });
-	// test("#main::startTimer", (t)=>
-	// {
-	// 	var store = createStore(rootReducer);
-	// 	t.plan(1);
-	// 	t.deepEqual(
-	// 		startTimer(store), 
-	// 		{type: START_TIMER}
-	// 	);
-	// });
-	// test("#main::stopTimer", (t)=>
-	// {
-	// 	var store = createStore(rootReducer);
-	// 	t.plan(1);
-	// 	t.deepEqual(
-	// 		stopTimer(store), 
-	// 		{type: ADD_ENTITY}
-	// 	);
-	// });
+	describe('#addComponent', function()
+	{
+		var store, mockEntity;
+		before(()=>
+		{
+			store = createStore(rootReducer);
+			mockEntity = 'testentity';
+		});
+		after(()=>
+		{
+			store = undefined;
+			mockEntity = undefined;
+		});
+		it('can add mock component', ()=>
+		{
+			var mockComponentMaker = ()=>{return {entity: mockEntity}};
+			addComponent(mockComponentMaker, store, ADD_COMPONENT).should.deep.equal( 
+				{type: ADD_COMPONENT, component: mockComponentMaker(mockEntity)}
+			);
+		});
+	});
+	describe('#timer', function()
+	{
+		it("#startTimer", ()=>
+		{
+			var store = createStore(rootReducer);
+			startTimer(store).should.deep.equal(
+				{type: START_TIMER}
+			);
+		});
+		it("#stopTimer", ()=>
+		{
+			var store = createStore(rootReducer);
+			stopTimer(store).should.deep.equal( 
+				{type: STOP_TIMER}
+			);
+		});
+	});
+	describe('#addWarrior', function()
+	{
+		var store, mockEntity, mockEntityCreator, gen;
+		before(()=>
+		{
+			store = createStore(rootReducer);
+			mockEntity = {};
+			mockEntityCreator = ()=> { return mockEntity; };
+		});
+		after(()=>
+		{
+			store = undefined;
+			mockEntity = undefined;
+			mockEntityCreator = undefined;
+		});
+		it('#addWarriorEntity', ()=>
+		{
+			addWarriorEntity(mockEntityCreator, store).should.deep.equal({
+				type: ADD_ENTITY,
+				entity: mockEntity
+			});
+		});
+		it('#Character', ()=>
+		{
+			Character('cow').should.exist;
+		});
+		it('#addBattleTimerComponent', ()=>
+		{
+			var battleTimer = BattleTimerComponent(mockEntity);
+			addBattleTimerComponent(battleTimer, store).should.deep.equal({
+				type: ADD_COMPONENT,
+				component: battleTimer
+			});
+		});
+		it("can add a default warrior entity", ()=>
+		{
+			addWarrior(mockEntityCreator, store);
+			var state = store.getState();
+			_.includes(state.entities, mockEntity).should.be.true;
+		});
+	});
+	describe('#remove entity', function()
+	{
+		it('can add and then remove', function()
+		{
+			var warrior = Warrior();
+			var store = createStore(rootReducer);
+			store.dispatch({type: ADD_ENTITY, entity: warrior});
+			_.includes(store.getState().entities, warrior).should.be.true;
+			store.dispatch({type: REMOVE_ENTITY, entity: warrior});
+			_.includes(store.getState().entities, warrior).should.be.false;
+		});
+	});
+
+	// yield addComponent(
+	// 	()=>{return BattleTimerComponent(addEntityAction.entity);},
+	// 	store,
+	// 	ADD_COMPONENT
+	// );
+	// yield addComponent(
+	// 	()=>{return Character(addEntityAction.entity);},
+	// 	store,
+	// 	ADD_COMPONENT
+	// );
+	// yield addComponent(
+	// 	()=>{return WarriorSprite(addEntityAction.entity);},
+	// 	store,
+	// 	ADD_COMPONENT
+	// );
+	
 });
-
-
-
-// test("#main::*addWarrior", (t)=>
-// {
-// 	var store = createStore(rootReducer);
-// 	t.plan(1);
-// 	var mockEntity = Warrior();
-// 	var gen = addWarrior(Warrior, store);
-// 	t.deepEqual(
-// 		gen.next().value, 
-// 		{type: ADD_ENTITY, entity: mockEntity}
-// 	);
-// });
