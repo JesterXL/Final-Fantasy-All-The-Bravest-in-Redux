@@ -8,7 +8,6 @@ import { timer } from './com/jessewarden/ff6redux/sagas/timer';
 import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
 import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT, REMOVE_ENTITY} from './com/jessewarden/ff6redux/core/actions';
 
-import {BattleTimerComponent} from './com/jessewarden/ff6redux/components/BattleTimerComponent';
 import {Character} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 
@@ -88,14 +87,7 @@ export function addWarriorEntity(entityCreator, store)
 {
 	return addEntity(entityCreator, store, ADD_ENTITY);
 }
-export function addBattleTimerComponent(battleTimerComponent, store)
-{
-	return addComponent(
-		()=>{return battleTimerComponent;},
-		store,
-		ADD_COMPONENT
-	);
-}
+
 export function addCharacterComponent(character, store)
 {
 	return addComponent(
@@ -117,10 +109,8 @@ export function addWarriorSprite(warriorSprite, store)
 export function addWarrior(entityCreator, store)
 {
 	var addEntityAction = addWarriorEntity(entityCreator, store);
-	var battleTimer = BattleTimerComponent(addEntityAction.entity);
 	var character = Character(addEntityAction.entity);
 	var warriorSprite = new WarriorSprite(addEntityAction.entity);
-	addBattleTimerComponent(battleTimer, store);
 	addCharacterComponent(character, store);
 	addWarriorSprite(warriorSprite, store);
 }

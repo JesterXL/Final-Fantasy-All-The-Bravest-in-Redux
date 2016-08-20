@@ -45,14 +45,15 @@ export function Character(entity)
 	vm.id = _INCREMENT++;
 	vm.subject = new Subject();
 	vm.generator = makeBattleTimer(vm);
-	vm.type = 'player';
+	vm.type = 'Character';
+	vm.characterType = 'player';
 	return vm;
 }
 
 export function makePlayer()
 {
 	var chr = new Character();
-	chr.type = 'player';
+	chr.characterType = 'player';
 	chr.battlePower = 50;
 	return chr;
 }
@@ -60,7 +61,7 @@ export function makePlayer()
 export function makeMonster()
 {
 	var chr = new Character();
-	chr.type = 'monster';
+	chr.characterType = 'monster';
 	return chr;
 }
 

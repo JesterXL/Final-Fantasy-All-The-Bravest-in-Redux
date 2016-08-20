@@ -71,7 +71,6 @@ export function addRemoveSprites(store,
 	// spriteComponentsToRemove = _.filter(spriteComponentsToRemove, c => c.sprite && c.sprite.parent !== null);
 	if(spriteComponentsToRemove.length > 0)
 	{	
-		console.log("spriteComponentsToRemove:", spriteComponentsToRemove);
 		removePlayerSprites(spriteComponentsToRemove);
 		removeMonsterSprites(spriteComponentsToRemove);
 		startSpriteY -= (startSpriteY * spriteComponentsToRemove.length);
@@ -125,7 +124,7 @@ export function entitiesToCreateComponentsFor(components, entities)
 
 export function getSpriteComponentsFromComponents(components)
 {
-	return _.filter(components, c => c.type && c.type === 'componentSprite');
+	return _.filter(components, c => c.type && c.type === 'ComponentSprite');
 }
 
 export function removeComponentsSpritesFromParent(components)
@@ -194,22 +193,13 @@ export function removeMonsterSprites(components, monsterSprites)
 
 export function updatePercentageComponents(components, entities)
 {
-	// console.log("*** updatePercentageComponents ***");
-	// console.log("comp:", components)
-	var percentageSprites = _.filter(components, (comp)=>
+	var characters = _.filter(components, c => c.type === 'Character');
+	_.forEach(characters, (chr)=>
 	{
-		_.isNil(comp.setPercentage) === false;
-	});
-	// console.log("percentageSprites:", percentageSprites);
-	if(percentageSprites.length > 0)
-	{
-		var battleTimers = _.filter(components, c => c.type === 'BattleTimerComponent');
-		// console.log("battleTimers:", battleTimers);
-		return _.forEach(components, (c) => 
+		var spriteComp = _.find(components, c => c.type === 'ComponentSprite' && c.entity === chr.entity);
+		if(spriteComp)
 		{
-			var matchingBattleTimer = _.find(battleTimers, b => b.entity === c.entity);
-			// console.log("matchingBattleTimer.percentage:", matchingBattleTimer.percentage);
-			c.setPercentage(matchingBattleTimer.percentage);
-		});
-	}
+			spriteComp.setPercentage(chr.percentage);
+		}
+	});
 }

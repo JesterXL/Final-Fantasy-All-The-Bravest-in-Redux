@@ -1,32 +1,32 @@
 import { ADD_COMPONENT, REMOVE_COMPONENT, TICK } from '../core/actions';
 
-function processBattleTimers(state, action)
+function processCharacterBattleTimers(state, action)
 {
-	return _.map(state, (btc)=>
+	return _.map(state, (character)=>
 	{
-		if(btc.type !== 'BattleTimerComponent')
+		if(character.type !== 'Character')
 		{
-			return btc;
+			return character;
 		}
 		
-		var timerResult = btc.generator.next(action.difference);
+		var timerResult = character.generator.next(action.difference);
 		if(timerResult.done)
 		{
-			return btc;
+			return character;
 		}
 
 		if(timerResult.value === undefined)
 		{
-			timerResult = btc.generator.next(action.difference);
+			timerResult = character.generator.next(action.difference);
 		}
 		if(timerResult.value.percentage === 1)
 		{
-			return Object.assign({}, btc,
+			return Object.assign({}, character,
 			{
 				percentage: 1
 			});
 		}
-		return Object.assign({}, btc,
+		return Object.assign({}, character,
 		{
 			percentage: timerResult.value.percentage
 		});
@@ -52,7 +52,7 @@ export default function entities(state=[], action)
 					...state.slice(index + 1)];
 
 		case TICK:
-			return processBattleTimers(state, action);
+			return processCharacterBattleTimers(state, action);
 
 
 		default:

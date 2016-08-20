@@ -18,7 +18,7 @@ export default class WarriorSprite
 	constructor(entity)
 	{
 		this.entity = entity;
-		this.type = 'componentSprite';
+		this.type = 'ComponentSprite';
 		this.player = true;
 		this._container = new PIXI.Container();
 
