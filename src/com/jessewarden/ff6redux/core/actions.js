@@ -5,6 +5,7 @@ export const STOP_TIMER                = 'STOP_TIMER';
 export const ADD_ENTITY                = 'ADD_ENTITY';
 export const REMOVE_ENTITY 				= 'REMOVE_ENTITY';
 export const ADD_COMPONENT				= 'ADD_COMPONENT';
+export const REMOVE_COMPONENT			= 'REMOVE_COMPONENT';
 
 export const ADD_MONSTER               = 'ADD_MONSTER';
 export const PLAYER_HITPOINTS_CHANGED  = 'PLAYER_HITPOINTS_CHANGED';

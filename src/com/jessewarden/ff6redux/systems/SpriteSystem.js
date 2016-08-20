@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import PIXI from 'pixi.js';
+import {REMOVE_COMPONENT} from '../core/actions';
 
 export function SpriteSystem(store)
 {
@@ -31,7 +32,7 @@ export function SpriteSystem(store)
 	function mapStateToThis()
 	{
 		var state = store.getState();
-		addRemoveSprites(
+		addRemoveSprites(store,
 			state.components, 
 			state.entities, 
 			monsterSprites, 
@@ -53,7 +54,8 @@ function animate(renderer, stage)
 	renderer.render(stage);
 }
 
-export function addRemoveSprites(components, 
+export function addRemoveSprites(store,
+	components, 
 	entities, 
 	monsterSprites,
 	playerSprites,
@@ -66,41 +68,43 @@ export function addRemoveSprites(components,
 			entities
 		)
 	);
-	// console.log("spriteComponentsToRemove:", spriteComponentsToRemove);
-	// console.log("entities:", entities);
-	removePlayerSprites(spriteComponentsToRemove);
-	removeMonsterSprites(spriteComponentsToRemove);
-	startSpriteY -= (startSpriteY * spriteComponentsToRemove.length);
+	// spriteComponentsToRemove = _.filter(spriteComponentsToRemove, c => c.sprite && c.sprite.parent !== null);
+	if(spriteComponentsToRemove.length > 0)
+	{	
+		console.log("spriteComponentsToRemove:", spriteComponentsToRemove);
+		removePlayerSprites(spriteComponentsToRemove);
+		removeMonsterSprites(spriteComponentsToRemove);
+		startSpriteY -= (startSpriteY * spriteComponentsToRemove.length);
+		_.forEach(spriteComponentsToRemove, (component)=>
+		{
+			store.dispatch({type: REMOVE_COMPONENT, component});
+		});
+	}
 
-	// TODO: we actually already have created the componnets, we just
-	// need to apply them in this system. For now, we'll use the parent == null
-	// as a mutable state way of knowing if they need to be applied or not.
-	// Not sure I want systems being responsible for actually creating components.
-	// var spriteComponentsToAdd = getSpriteComponentsFromComponents(
-	// 	entitiesToCreateComponentsFor(
-	// 		components, 
-	// 		entities
-	// 	)
-	// );
 	var spriteComponentsToAdd = _.filter(components, (comp)=>
 	{
 		return comp.sprite &&
-		 _.isNil(comp.sprite.parent) &&
+		 comp.sprite.parent === null &&
 		 _.includes(spriteComponentsToRemove, comp) === false;
 	});
-	showAndPositionPlayerComponents(spriteComponentsToAdd,
-		playerSprites,
-		startSpriteX,
-		startSpriteY,
-		60);
+	if(spriteComponentsToAdd.length > 0)
+	{
+		showAndPositionPlayerComponents(spriteComponentsToAdd,
+			playerSprites,
+			startSpriteX,
+			startSpriteY,
+			60);
 
-	// TODO: monsters need different layout algo
-	showAndPositionMonsterComponents(spriteComponentsToAdd,
-		monsterSprites,
-		startSpriteX,
-		startSpriteY,
-		60);
-	startSpriteY += (startSpriteY * spriteComponentsToAdd.length);
+		// TODO: monsters need different layout algo
+		showAndPositionMonsterComponents(spriteComponentsToAdd,
+			monsterSprites,
+			startSpriteX,
+			startSpriteY,
+			60);
+		startSpriteY += (startSpriteY * spriteComponentsToAdd.length);
+	}
+	
+	updatePercentageComponents(components, entities);
 }
 
 export function componentsToRemove(components, entities)
@@ -126,9 +130,11 @@ export function getSpriteComponentsFromComponents(components)
 
 export function removeComponentsSpritesFromParent(components)
 {
+	// console.log("components:", components);
 	return _.forEach(components, (component)=>
 	{
 		component.sprite.parent.removeChild(component.sprite);
+		// console.log("component.sprite.parent:", component.sprite.parent);
 	});
 }
 
@@ -184,4 +190,26 @@ export function removePlayerSprites(components, playerSprites)
 export function removeMonsterSprites(components, monsterSprites)
 {
 	return removeComponentsSpritesFromParent(filterMonsterComponents(components));
+}
+
+export function updatePercentageComponents(components, entities)
+{
+	// console.log("*** updatePercentageComponents ***");
+	// console.log("comp:", components)
+	var percentageSprites = _.filter(components, (comp)=>
+	{
+		_.isNil(comp.setPercentage) === false;
+	});
+	// console.log("percentageSprites:", percentageSprites);
+	if(percentageSprites.length > 0)
+	{
+		var battleTimers = _.filter(components, c => c.type === 'BattleTimerComponent');
+		// console.log("battleTimers:", battleTimers);
+		return _.forEach(components, (c) => 
+		{
+			var matchingBattleTimer = _.find(battleTimers, b => b.entity === c.entity);
+			// console.log("matchingBattleTimer.percentage:", matchingBattleTimer.percentage);
+			c.setPercentage(matchingBattleTimer.percentage);
+		});
+	}
 }

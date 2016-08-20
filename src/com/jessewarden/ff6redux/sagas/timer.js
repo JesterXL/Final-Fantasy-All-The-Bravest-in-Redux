@@ -1,7 +1,7 @@
 import {START_TIMER, STOP_TIMER, TICK} from '../core/actions';
 import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga'
-import { performance } from '../core/perfnow';
+// import { performance } from '../core/perfnow';
 
 export function *ticker(action)
 {

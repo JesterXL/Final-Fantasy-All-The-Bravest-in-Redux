@@ -56,9 +56,10 @@ export function setupRedux()
 	delayed(2 * 1000)
 	.then(()=>
 	{
-		console.log("GOOOO");
 		store.dispatch({type: REMOVE_ENTITY, entity: store.getState().entities[0]});
 	});
+
+	startTimer(store);
 }
 
 export function addEntity(entityCreator, store, action)
