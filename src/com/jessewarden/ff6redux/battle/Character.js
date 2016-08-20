@@ -50,7 +50,7 @@ export function Character(entity)
 	return vm;
 }
 
-export function makePlayer()
+export function makePlayer(entity)
 {
 	var chr = new Character();
 	chr.characterType = 'player';
@@ -58,7 +58,7 @@ export function makePlayer()
 	return chr;
 }
 
-export function makeMonster()
+export function makeMonster(entity)
 {
 	var chr = new Character();
 	chr.characterType = 'monster';

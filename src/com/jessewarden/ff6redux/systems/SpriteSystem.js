@@ -21,6 +21,8 @@ export function SpriteSystem(store)
 
 	var startSpriteX = 400;
 	var startSpriteY = 20;
+	var startMonsterSpriteX = 20;
+	var startMonsterSpriteY = 20;
 
 	animate(renderer, stage);
 
@@ -38,7 +40,9 @@ export function SpriteSystem(store)
 			monsterSprites, 
 			playerSprites, 
 			startSpriteX, 
-			startSpriteY
+			startSpriteY,
+			startMonsterSpriteX,
+			startMonsterSpriteY
 		);
 	}
 
@@ -60,7 +64,9 @@ export function addRemoveSprites(store,
 	monsterSprites,
 	playerSprites,
 	startSpriteX, 
-	startSpriteY)
+	startSpriteY,
+	startMonsterSpriteX,
+	startMonsterSpriteY)
 {
 	var spriteComponentsToRemove = getSpriteComponentsFromComponents(
 		componentsToRemove(
@@ -97,8 +103,8 @@ export function addRemoveSprites(store,
 		// TODO: monsters need different layout algo
 		showAndPositionMonsterComponents(spriteComponentsToAdd,
 			monsterSprites,
-			startSpriteX,
-			startSpriteY,
+			startMonsterSpriteX,
+			startMonsterSpriteY,
 			60);
 		startSpriteY += (startSpriteY * spriteComponentsToAdd.length);
 	}

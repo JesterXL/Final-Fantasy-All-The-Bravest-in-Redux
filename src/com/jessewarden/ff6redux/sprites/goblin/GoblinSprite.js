@@ -3,7 +3,7 @@ import _ from "lodash";
 import "gsap";
 import "howler";
 
-class Goblin
+export default class GoblinSprite
 {
 	static get WIDTH(){ return 90};
 	static get HEIGHT(){ return 96};
@@ -37,5 +37,3 @@ class Goblin
 		});
 	}
 }
-
-export default Goblin

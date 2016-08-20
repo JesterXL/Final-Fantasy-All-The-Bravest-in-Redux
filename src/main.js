@@ -8,8 +8,9 @@ import { timer } from './com/jessewarden/ff6redux/sagas/timer';
 import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
 import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT, REMOVE_ENTITY} from './com/jessewarden/ff6redux/core/actions';
 
-import {Character} from './com/jessewarden/ff6redux/battle/Character';
+import {Character, makePlayer, makeMonster} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
+import GoblinSprite from './com/jessewarden/ff6redux/sprites/goblin/GoblinSprite';
 
 import { SpriteSystem } from './com/jessewarden/ff6redux/systems/SpriteSystem';
 
@@ -50,6 +51,8 @@ export function setupRedux()
 	addWarrior(Warrior, store);
 	addWarrior(Warrior, store);
 
+	addGoblin(Goblin, store);
+
 	var spriteSystem = SpriteSystem(store);
 
 	delayed(2 * 1000)
@@ -83,11 +86,6 @@ export function stopTimer(store)
 	return store.dispatch( { type: STOP_TIMER });
 }
 
-export function addWarriorEntity(entityCreator, store)
-{
-	return addEntity(entityCreator, store, ADD_ENTITY);
-}
-
 export function addCharacterComponent(character, store)
 {
 	return addComponent(
@@ -108,11 +106,29 @@ export function addWarriorSprite(warriorSprite, store)
 
 export function addWarrior(entityCreator, store)
 {
-	var addEntityAction = addWarriorEntity(entityCreator, store);
-	var character = Character(addEntityAction.entity);
+	var addEntityAction = addEntity(entityCreator, store, ADD_ENTITY);
+	var character = makePlayer(addEntityAction.entity);
 	var warriorSprite = new WarriorSprite(addEntityAction.entity);
 	addCharacterComponent(character, store);
 	addWarriorSprite(warriorSprite, store);
+}
+
+export function addGoblin(entityCreator, store)
+{
+	var addEntityAction = addEntity(entityCreator, store, ADD_ENTITY)
+	var character = makeMonster(addEntityAction.entity);
+	var goblinSprite = new GoblinSprite(addEntityAction.entity);
+	addCharacterComponent(character, store);
+	addGoblinSprite(goblinSprite, store);
+}
+
+export function addGoblinSprite(goblinSprite, store)
+{
+	return addComponent(
+		()=>{return goblinSprite;},
+		store,
+		ADD_COMPONENT
+	);
 }
 
 function *rootSaga()
@@ -123,18 +139,3 @@ function *rootSaga()
 		// watchPlayerAttack()
 	];
 }
-
-// export function updateMonsterSprites(monsters)
-// {
-// 	var monstersToRemove = getMonstersToRemove(monsterSpriteMap, monsters);
-// 	if(monstersToRemove.length > 0)
-// 	{
-// 		startMonsterSpriteY = removeMonsterSprites(monstersToRemove, monsterSpriteMap, startMonsterSpriteY);
-// 	}
-// 	var monstersToAdd = getMonsterSpritesToAdd(monsterSpriteMap, monsters);
-// 	if(monstersToAdd.length > 0)
-// 	{
-// 		startMonsterSpriteY = addMonsterSprites(monstersToAdd, monsterSprites, monsterSpriteMap, startMonsterSpriteX, startMonsterSpriteY);
-// 	}
-// }
-
