@@ -5,14 +5,26 @@ import createSagaMiddleware from 'redux-saga'
 import createLogger from 'redux-logger';
 import rootReducer from './com/jessewarden/ff6redux/reducers/';
 import { timer } from './com/jessewarden/ff6redux/sagas/timer';
-import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
-import { ADD_ENTITY, START_TIMER, STOP_TIMER, ADD_COMPONENT, REMOVE_ENTITY} from './com/jessewarden/ff6redux/core/actions';
+import { Warrior, Goblin, genericEntity } from './com/jessewarden/ff6redux/enums/entities';
+import { 
+	ADD_ENTITY, 
+	START_TIMER, 
+	STOP_TIMER, 
+	ADD_COMPONENT,
+	REMOVE_COMPONENT, 
+	REMOVE_ENTITY} 
+	from './com/jessewarden/ff6redux/core/actions';
 
 import {Character, makePlayer, makeMonster} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 import GoblinSprite from './com/jessewarden/ff6redux/sprites/goblin/GoblinSprite';
 
+import { StageComponent } from './com/jessewarden/ff6redux/components/StageComponent';
+
 import { SpriteSystem } from './com/jessewarden/ff6redux/systems/SpriteSystem';
+
+import {watchPlayerAttack} from './com/jessewarden/ff6redux/sagas/playerAttack';
+import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTurnItIs';
 
 
 var sagaMiddleware;
@@ -47,21 +59,41 @@ export function setupRedux()
 		
 	});
 
+	addStage(genericEntity, store);
+
 	addWarrior(Warrior, store);
 	addWarrior(Warrior, store);
 	addWarrior(Warrior, store);
 
 	addGoblin(Goblin, store);
+	addGoblin(Goblin, store);
+	addGoblin(Goblin, store);
 
 	var spriteSystem = SpriteSystem(store);
+
+	startTimer(store);
+
+	// delayed(2 * 1000)
+	// .then(()=>
+	// {
+	// 	store.dispatch({type: REMOVE_ENTITY, entity: store.getState().entities[0]});
+	// });
 
 	delayed(2 * 1000)
 	.then(()=>
 	{
-		store.dispatch({type: REMOVE_ENTITY, entity: store.getState().entities[0]});
+		removeComponent(_.find(store.getState().components, c => c.type === 'StageComponent'), 
+			store, 
+			REMOVE_COMPONENT);
 	});
 
-	startTimer(store);
+	delayed(4 * 1000)
+	.then(()=>
+	{
+		addStage(genericEntity, store);
+	});
+
+	
 }
 
 export function addEntity(entityCreator, store, action)
@@ -73,7 +105,12 @@ export function addEntity(entityCreator, store, action)
 export function addComponent(componentCreator, store, action)
 {
 	var component = componentCreator();
-	return store.dispatch({type: action, component: component});
+	return store.dispatch({type: action, component});
+}
+
+export function removeComponent(component, store, action)
+{
+	return store.dispatch({type: action, component});
 }
 
 export function startTimer(store)
@@ -83,7 +120,7 @@ export function startTimer(store)
 
 export function stopTimer(store)
 {
-	return store.dispatch( { type: STOP_TIMER });
+	return store.dispatch( { type: STOP_TIMER } );
 }
 
 export function addCharacterComponent(character, store)
@@ -131,11 +168,22 @@ export function addGoblinSprite(goblinSprite, store)
 	);
 }
 
+export function addStage(entityCreator, store)
+{
+	var addEntityAction = addEntity(entityCreator, store, ADD_ENTITY);
+	var stageComponent = StageComponent(addEntityAction.entity);
+	return addComponent(
+		()=>{return stageComponent;},
+		store,
+		ADD_COMPONENT
+	);
+}
+
 function *rootSaga()
 {
 	yield [
-		timer()
-		// watchPlayerTurn(),
-		// watchPlayerAttack()
+		timer(),
+		watchPlayerTurn(),
+		watchPlayerAttack()
 	];
 }

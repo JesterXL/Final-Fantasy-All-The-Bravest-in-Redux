@@ -4,12 +4,12 @@ import {
 	MONSTER_HITPOINTS_CHANGED,
 	PLAYER_TURN_OVER,
 	STOP_TIMER,
-	MONSTER_DEAD
+	CHARACTER_DEAD
 	 } 
 	from '../core/actions';
 import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga';
-import TextDropper from '../components/TextDropper';
+import TextDropper from '../views/TextDropper';
 import BattleUtils from '../battle/BattleUtils';
 import _ from 'lodash';
 import {equippedWithGauntlet} from '../battle/Character';
@@ -80,7 +80,7 @@ export function *playerAttack(action)
 				{
 					yield put({type: STOP_TIMER});
 					yield call(animateMonsterDeath, targetEntity, _.find(action.monsterSpriteMap, ms => ms.monsterID === targetEntity.id).sprite);
-					yield put({type: MONSTER_DEAD, monster: targetEntity});
+					yield put({type: CHARACTER_DEAD, monster: targetEntity});
 				}
 			}
 			else

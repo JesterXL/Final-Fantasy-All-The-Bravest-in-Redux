@@ -1,4 +1,9 @@
-import { ADD_COMPONENT, REMOVE_COMPONENT, TICK } from '../core/actions';
+import { 
+	ADD_COMPONENT, 
+	REMOVE_COMPONENT, 
+	TICK,
+	CHARACTER_HITPOINTS_CHANGED
+} from '../core/actions';
 
 function processCharacterBattleTimers(state, action)
 {
@@ -33,7 +38,7 @@ function processCharacterBattleTimers(state, action)
 	});
 }
 
-export default function entities(state=[], action)
+export default function components(state=[], action)
 {
 	switch(action.type)
 	{
@@ -54,6 +59,15 @@ export default function entities(state=[], action)
 		case TICK:
 			return processCharacterBattleTimers(state, action);
 
+		case CHARACTER_HITPOINTS_CHANGED:
+			var updated = Object.assign({}, action.component, {
+				hitPoints: action.hitPoints
+			});
+			var index = _.findIndex(state, i => i === action.component);
+			return state
+				.slice(0, index)
+				.concat([updated])
+				.concat(state.slice(index + 1));
 
 		default:
 			return state;
