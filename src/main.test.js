@@ -8,7 +8,6 @@ import {
 	stopTimer,
 	addWarrior,
 	addWarriorEntity,
-	addBattleTimerComponent,
 	addCharacterComponent,
 	addWarriorSprite } from './main';
 
@@ -24,7 +23,6 @@ import _ from 'lodash';
 
 import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
 
-import {BattleTimerComponent} from './com/jessewarden/ff6redux/components/BattleTimerComponent';
 import {Character} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 
@@ -124,14 +122,6 @@ describe('#main', function()
 		it('#Character', ()=>
 		{
 			Character('cow').should.exist;
-		});
-		it('#addBattleTimerComponent', ()=>
-		{
-			var battleTimer = BattleTimerComponent(mockEntity);
-			addBattleTimerComponent(battleTimer, store).should.deep.equal({
-				type: ADD_COMPONENT,
-				component: battleTimer
-			});
 		});
 		it("can add a default warrior entity", ()=>
 		{

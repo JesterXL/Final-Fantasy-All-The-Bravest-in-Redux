@@ -59,7 +59,7 @@ export function setupRedux()
 		
 	});
 
-	addStage(genericEntity, store);
+	addStageComponent(genericEntity, store);
 
 	addWarrior(Warrior, store);
 	addWarrior(Warrior, store);
@@ -79,19 +79,19 @@ export function setupRedux()
 	// 	store.dispatch({type: REMOVE_ENTITY, entity: store.getState().entities[0]});
 	// });
 
-	delayed(2 * 1000)
-	.then(()=>
-	{
-		removeComponent(_.find(store.getState().components, c => c.type === 'StageComponent'), 
-			store, 
-			REMOVE_COMPONENT);
-	});
+	// delayed(2 * 1000)
+	// .then(()=>
+	// {
+	// 	removeComponent(_.find(store.getState().components, c => c.type === 'StageComponent'), 
+	// 		store, 
+	// 		REMOVE_COMPONENT);
+	// });
 
-	delayed(4 * 1000)
-	.then(()=>
-	{
-		addStage(genericEntity, store);
-	});
+	// delayed(4 * 1000)
+	// .then(()=>
+	// {
+	// 	addStage(genericEntity, store);
+	// });
 
 	
 }
@@ -168,7 +168,7 @@ export function addGoblinSprite(goblinSprite, store)
 	);
 }
 
-export function addStage(entityCreator, store)
+export function addStageComponent(entityCreator, store)
 {
 	var addEntityAction = addEntity(entityCreator, store, ADD_ENTITY);
 	var stageComponent = StageComponent(addEntityAction.entity);

@@ -32,7 +32,7 @@ export function unsubscribe()
 
 function mapStateToThis(store)
 {
-	// NOTE: Treating the StageComponnt as a Singleton. Not sure the ramifications of this.
+	// NOTE: Treating the StageComponent as a Singleton. Not sure the ramifications of this.
 	var state = store.getState();
 	const stageComponent = _.find(state.components, c => c.type === 'StageComponent');
 	const haveAStage = _.isNil(stageComponent) === false;
@@ -182,7 +182,6 @@ export function addRemoveSprites(store,
 	});
 	if(spriteComponentsToAdd.length > 0)
 	{
-		console.log("spriteComponentsToAdd:", spriteComponentsToAdd);
 		showAndPositionPlayerComponents(spriteComponentsToAdd,
 			playerSprites,
 			startSpriteX,
@@ -286,12 +285,23 @@ export function removeMonsterSprites(components, monsterSprites)
 	return removeComponentsSpritesFromParent(filterMonsterComponents(components));
 }
 
+export function filterCharacterComponents(components)
+{
+	return _.filter(components, c => c.type === 'Character');
+}
+
+export function filterComponentSprites(components)
+{
+	return _.filter(components, c => c.type === 'ComponentSprite');
+}
+
 export function updatePercentageComponents(components, entities)
 {
-	var characters = _.filter(components, c => c.type === 'Character');
-	_.forEach(characters, (chr)=>
+	var characters = filterCharacterComponents(components);
+	var componentSprites = filterComponentSprites(components);
+	return _.forEach(characters, (chr)=>
 	{
-		var spriteComp = _.find(components, c => c.type === 'ComponentSprite' && c.entity === chr.entity);
+		var spriteComp = _.find(componentSprites, c => c.entity === chr.entity);
 		if(spriteComp)
 		{
 			spriteComp.setPercentage(chr.percentage);

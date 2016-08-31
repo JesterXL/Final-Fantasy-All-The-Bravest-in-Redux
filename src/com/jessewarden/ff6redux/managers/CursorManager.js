@@ -6,18 +6,15 @@ import {Subject} from 'rx';
 
 export default class CursorManager
 {
-	constructor(stage, keyboardManager)
+	constructor()
 	{
 		var vm = this;
-		vm.stage = stage;
-		vm.keyboardManager = keyboardManager;
 		vm._changes = new Subject();
 
 		var prefix = 'src/com/jessewarden/ff6redux/managers/';
 		var cursorPath = prefix + "cursor.png";
 		vm.cursorTexture  = new PIXI.Texture.fromImage(cursorPath);
 		vm.sprite = new PIXI.Sprite(vm.cursorTexture);
-		stage.addChild(vm.sprite);
 
 		vm.targets = [];
 		vm._selectedIndex = -1;
@@ -27,6 +24,15 @@ export default class CursorManager
 		  urls: ['src/audio/menu-beep.mp3']
 		});
 		this.beepSound.volume(0.2);
+	}
+
+	setup(stage, keyboardManager)
+	{
+		var vm = this;
+
+		vm.stage = stage;
+		vm.keyboardManager = keyboardManager;
+		stage.addChild(vm.sprite);
 
 		vm.keyboardManager.changes
 		.filter(e => event.type === 'keydown')
@@ -79,6 +85,14 @@ export default class CursorManager
 				event.preventDefault();
 			}
 		});
+	}
+
+	tearDown()
+	{
+		var vm = this;
+		stage.removeChild(vm.sprite);
+		stage = undefined;
+		
 	}
 	
 	hackToTop()

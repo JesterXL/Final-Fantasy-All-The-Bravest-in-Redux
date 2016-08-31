@@ -55,6 +55,7 @@ export function makePlayer(entity)
 	var chr = new Character();
 	chr.characterType = 'player';
 	chr.battlePower = 50;
+	chr.entity = entity;
 	return chr;
 }
 
@@ -62,6 +63,7 @@ export function makeMonster(entity)
 {
 	var chr = new Character();
 	chr.characterType = 'monster';
+	chr.entity = entity;
 	return chr;
 }
 

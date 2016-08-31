@@ -11,9 +11,20 @@ export default class KeyboardManager
 	{
 		var vm = this;
 		vm._changes = new Subject();
-		window.addEventListener("keydown", e => vm._changes.onNext(e), false);
+		vm._eventListener = this.changePropagatorAlligator.bind(this);
+		window.addEventListener("keydown", vm._eventListener, false);
 		// window.addEventListener("focus", e => vm._changes.onNext(e), false);
 		// window.addEventListener("blur", e => vm._changes.onNext(e), false);
-		
+
+	}
+
+	changePropagatorAlligator(e)
+	{
+		this.changes.onNext(e);
+	}
+
+	destroy()
+	{
+		window.removeEventListener("keydown", this._eventListener);
 	}
 }
