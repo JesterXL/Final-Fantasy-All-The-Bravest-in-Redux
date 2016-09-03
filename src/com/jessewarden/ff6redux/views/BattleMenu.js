@@ -12,12 +12,10 @@ export default class BattleMenu
 
 	get changes(){return this._changes;}
 
-	constructor(stage, containerToAddTo)
+	constructor()
 	{
 		var vm = this;
-		vm.stage = stage;
-		vm.containerToAddTo = containerToAddTo;
-
+		
 		vm._changes = new Subject();
 
 		vm.mainMenuItems = []
@@ -42,9 +40,85 @@ export default class BattleMenu
 		vm.rowMenu.container.x = vm.mainMenu.container.x - 30;
 		vm.rowMenu.container.y = vm.mainMenu.container.y;
 
-		vm.keyboardManager = new KeyboardManager();
-		vm.cursorManager = new CursorManager(stage, vm.keyboardManager);
-		vm.cursorManager.changes
+		vm.fsm = new StateMachine();
+		// vm.fsm.changes.subscribe((event)=>
+		// {
+		// 	// console.log("BattleMenu::fsm::event", event);
+		// });
+
+		vm.fsm.addState('hide',
+		['*'],
+		()=>
+		{
+			vm.mainMenu.container.visible = false;
+			vm.defendMenu.container.visible = false;
+			vm.rowMenu.container.visible = false;
+			if(vm.cursorManager)
+			{
+				vm.cursorManager.clearAllTargets();
+			}
+		});
+
+		vm.fsm.addState("main",
+		['*'],
+		()=>
+		{
+			vm.mainMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
+		});
+
+		vm.fsm.addState("defense", 
+		["main"],
+		()=>
+		{
+			vm.defendMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.defendMenu.container, vm.defendMenu.targets);
+		},
+		()=>
+		{
+			vm.defendMenu.container.visible = false;
+		});
+		
+		vm.fsm.addState("row", 
+		["main"],
+		()=>
+		{
+			vm.rowMenu.container.visible = true;
+			vm.cursorManager.setTargets(vm.rowMenu.container, vm.rowMenu.targets);
+		},
+		()=>
+		{
+			vm.rowMenu.container.visible = false;
+		});
+
+		vm.fsm.addState("attack",
+		['*'],
+		()=>
+		{
+			vm.mainMenu.container.visible = false;
+			vm.defendMenu.container.visible = false;
+			vm.rowMenu.container.visible = false;
+			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
+		});
+
+		vm.fsm.initialState = 'hide';
+
+	}
+
+	setup(stage, containerToAddTo, keyboardManager, cursorManager)
+	{
+		var vm = this;
+		vm.stage = stage;
+		vm.containerToAddTo = containerToAddTo;
+
+		vm.containerToAddTo.addChild(vm.mainMenu.container);
+		vm.containerToAddTo.addChild(vm.defendMenu.container);
+		vm.containerToAddTo.addChild(vm.rowMenu.container);
+
+		vm.keyboardManager = keyboardManager;
+		vm.cursorManager = cursorManager;
+		vm.cursorManager.setup(stage, keyboardManager);
+		vm.cursorManagerChanges = vm.cursorManager.changes
 		.subscribe((event)=>
 		{
 			// console.log("BattleMenu::cursorManager::subscribe, event:", event);
@@ -95,71 +169,23 @@ export default class BattleMenu
 					break;
 			}
 		});
+	}
 
-		vm.containerToAddTo.addChild(vm.mainMenu.container);
-		vm.containerToAddTo.addChild(vm.defendMenu.container);
-		vm.containerToAddTo.addChild(vm.rowMenu.container);
+	tearDown()
+	{
+		var vm = this;
+		vm.stage = undefined;
+		vm.containerToAddTo = undefined;
 
-		vm.fsm = new StateMachine();
-		// vm.fsm.changes.subscribe((event)=>
-		// {
-		// 	// console.log("BattleMenu::fsm::event", event);
-		// });
+		vm.mainMenu.container.parent.removeChild(vm.mainMenu.container);
+		vm.defendMenu.container.parent.removeChild(vm.defendMenu.container);
+		vm.rowMenu.container.parent.removeChild(vm.rowMenu.container);
 
-		vm.fsm.addState('hide',
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = false;
-			vm.defendMenu.container.visible = false;
-			vm.rowMenu.container.visible = false;
-			vm.cursorManager.clearAllTargets();
-		});
-
-		vm.fsm.addState("main",
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
-		});
-
-		vm.fsm.addState("defense", 
-		["main"],
-		()=>
-		{
-			vm.defendMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.defendMenu.container, vm.defendMenu.targets);
-		},
-		()=>
-		{
-			vm.defendMenu.container.visible = false;
-		});
-		
-		vm.fsm.addState("row", 
-		["main"],
-		()=>
-		{
-			vm.rowMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.rowMenu.container, vm.rowMenu.targets);
-		},
-		()=>
-		{
-			vm.rowMenu.container.visible = false;
-		});
-
-		vm.fsm.addState("attack",
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = false;
-			vm.defendMenu.container.visible = false;
-			vm.rowMenu.container.visible = false;
-			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
-		});
-
-		vm.fsm.initialState = 'hide';
-
+		vm.cursorManagerChanges.dispose();
+		vm.cursorManagerChanges = undefined;
+		vm.cursorManager.tearDown();
+		vm.cursorManager = undefined;
+		vm.keyboardManager = undefined;
 	}
 
 	show()

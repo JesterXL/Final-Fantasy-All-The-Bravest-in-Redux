@@ -3,12 +3,6 @@ import PIXI from 'pixi.js';
 import {REMOVE_COMPONENT} from '../core/actions';
 
 let _unsubscribe;
-let renderer;
-let battleTimerBars;
-let monsterSprites;
-let playerSprites;
-let textDrops;
-let battleMenus;
 var startSpriteX = 400;
 var startSpriteY = 20;
 var startMonsterSpriteX = 20;
@@ -34,93 +28,135 @@ function mapStateToThis(store)
 {
 	// NOTE: Treating the StageComponent as a Singleton. Not sure the ramifications of this.
 	var state = store.getState();
-	const stageComponent = _.find(state.components, c => c.type === 'StageComponent');
-	const haveAStage = _.isNil(stageComponent) === false;
-	if(haveAStage && _animating === false)
+	addOrRemoveStage(state);
+	addOrRemovePIXIRenderer(state);
+	addOrRemovePIXIComponents(state);
+	if(hasStageComponent(state.components) && hasPIXIRendererComponent(state.components))
 	{
-		setup(stageComponent.stage);
 		addRemoveSprites(store,
-			state.components, 
-			state.entities, 
-			monsterSprites, 
-			playerSprites, 
 			startSpriteX, 
 			startSpriteY,
 			startMonsterSpriteX,
-			startMonsterSpriteY
-		);
-	}
-	else if(haveAStage)
-	{
-		addRemoveSprites(store,
-			state.components, 
-			state.entities, 
-			monsterSprites, 
-			playerSprites, 
-			startSpriteX, 
-			startSpriteY,
-			startMonsterSpriteX,
-			startMonsterSpriteY
-		);
-	}
-	else if(haveAStage === false && _animating)
-	{
-		tearDown();
+			startMonsterSpriteY);
 	}
 }
 
-function setup(stage)
+export function addOrRemovePIXIRenderer(state)
 {
-	renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
-	document.body.appendChild(renderer.view);
-	battleTimerBars = new PIXI.Container();
-	stage.addChild(battleTimerBars);
-	monsterSprites = new PIXI.Container();
-	stage.addChild(monsterSprites);
-	playerSprites = new PIXI.Container();
-	stage.addChild(playerSprites);
-	textDrops = new PIXI.Container();
-	stage.addChild(textDrops);
-	battleMenus = new PIXI.Container();
-	stage.addChild(battleMenus);
+	var pixiRendererComponent = getPIXIRendererComponent(state.components);
+	if(pixiRendererComponent && hasPIXIRendererInDOM() === false)
+	{
+		addPIXIRendererToDOM(pixiRendererComponent.renderer.view);
+	}
+	else if(_.isNil(pixiRendererComponent) && hasPIXIRendererInDOM())
+	{
+		removePIXIRendererFromDOM();
+	}
+}
 
-	startSpriteX = 400;
-	startSpriteY = 20;
-	startMonsterSpriteX = 20;
-	startMonsterSpriteY = 20;
+export function addPIXIRendererToDOM(node)
+{
+	// console.log("b document.body.childNodes:", document.body.childNodes);1
+	node.dataset.pixirenderer = 'true';
+	var result = document.body.appendChild(node);
+	// console.log("a document.body.childNodes:", document.body.childNodes);
+	return result;
+}
 
+export function hasPIXIRendererInDOM()
+{
+	return _.findIndex(document.body.childNodes, node => node.dataset.pixirenderer === 'true') > -1;
+}
+
+export function getPIXIRendererInDOM()
+{
+	return _.find(document.body.childNodes, node => node.dataset.pixirenderer === 'true');
+} 
+
+export function removePIXIRendererFromDOM()
+{
+	return document.body.removeChild(getPIXIRendererInDOM());
+}
+
+export function addOrRemoveStage(state)
+{
+	const hasAStage = hasStageComponent(state.components);
+	const hasRenderer = hasPIXIRendererComponent(state.components);
+	if(hasAStage && hasRenderer && _animating === false)
+	{
+		setupStage(
+			getStageComponent(state.components).stage, 
+			getPIXIRendererComponent(state.components).renderer
+		);
+	}
+	else if( (hasAStage === false || hasRenderer === false) && _animating)
+	{
+		tearDownStage();
+	}
+}
+
+export function setupStage(stage, renderer)
+{
 	_animating = true;
-
 	animate(renderer, stage);
 }
 
-function tearDown()
+export function tearDownStage()
 {
 	_animating = false;
+}
 
-	removeAllChildren(battleMenus);
-	removeFromParent(battleMenus);
+export function addOrRemovePIXIComponents(state)
+{
+	const hasAStage = hasStageComponent(state.components);
+	const hasSomePixiComponents = hasPIXIComponents(state.components);
+	if(hasAStage && hasSomePixiComponents)
+	{
+		const stage = getStageComponent(state.components);
+		const unattachedPixiComponents = _.filter(state.components, c => {
+			return c.type === 'PIXIContainer' && c.container.parent === null;
+		});
+		_.forEach(unattachedPixiComponents, c => addToStage(stage.stage, c.container));
+		// TODO: keep original children order
+		// sortStageChildren(stage);
+	}
+	else if(hasAStage === false && hasSomePixiComponents)
+	{
+		const attachedPixiComponents = _.filter(state.components, c => {
+			return c.type === 'PIXIContainer' && c.container.parent !== null;
+		});
+		_.forEach(attachedPixiComponents, c => removeFromParent(c.container));
+	}
+}
 
-	removeAllChildren(textDrops);
-	removeFromParent(textDrops);
+export function addToStage(stage, child)
+{
+	stage.addChild(child);
+}
 
-	removeAllChildren(playerSprites);
-	removeFromParent(playerSprites);
+export function hasStageComponent(components)
+{
+	return _.findIndex(components, c => c.type === 'StageComponent') > -1;
+}
 
-	removeAllChildren(monsterSprites);
-	removeFromParent(monsterSprites);
+export function getStageComponent(components)
+{
+	return _.find(components, c => c.type === 'StageComponent');
+}
 
-	removeAllChildren(battleTimerBars);
-	removeFromParent(battleTimerBars);
+export function hasPIXIComponents(components)
+{
+	return _.findIndex(components, c => c.type === 'PIXIContainer') > -1;
+}
 
-	battleMenus = undefined;
-	textDrops = undefined;
-	playerSprites = undefined;
-	monsterSprites = undefined;
-	battleTimerBars = undefined;
+export function hasPIXIRendererComponent(components)
+{
+	return _.findIndex(components, c => c.type === 'PIXIRenderer') > -1;
+}
 
-	document.body.removeChild(renderer.view);
-	renderer = undefined;
+export function getPIXIRendererComponent(components)
+{
+	return _.find(components, c => c.type === 'PIXIRenderer');
 }
 
 function removeAllChildren(container)
@@ -147,50 +183,64 @@ function animate(renderer, stage)
 }
 
 export function addRemoveSprites(store,
-	components, 
-	entities, 
-	monsterSprites,
-	playerSprites,
 	startSpriteX, 
 	startSpriteY,
 	startMonsterSpriteX,
 	startMonsterSpriteY)
 {
-	var spriteComponentsToRemove = getSpriteComponentsFromComponents(
-		componentsToRemove(
-			components, 
-			entities
-		)
+	const state = store.getState();
+	const entities = state.entities;
+	const components = state.components;
+
+	var spriteComponents = getSpriteComponentsFromComponents(components);
+	var spriteComponentsToRemove = componentsToRemove(
+		spriteComponents, 
+		entities
 	);
-	// spriteComponentsToRemove = _.filter(spriteComponentsToRemove, c => c.sprite && c.sprite.parent !== null);
 	if(spriteComponentsToRemove.length > 0)
 	{	
 		removePlayerSprites(spriteComponentsToRemove);
 		removeMonsterSprites(spriteComponentsToRemove);
 		startSpriteY -= (startSpriteY * spriteComponentsToRemove.length);
-		_.forEach(spriteComponentsToRemove, (component)=>
-		{
-			store.dispatch({type: REMOVE_COMPONENT, component});
-		});
+		// _.forEach(spriteComponentsToRemove, (component)=>
+		// {
+		// 	store.dispatch({type: REMOVE_COMPONENT, component});
+		// });
 	}
 
-	var spriteComponentsToAdd = _.filter(components, (comp)=>
+	var spriteComponentsToAdd = _.chain(components)
+	.filter(getSpriteComponentsFromComponents)
+	.filter((comp)=>
 	{
 		return comp.sprite &&
 		 comp.sprite.parent === null &&
 		 _.includes(spriteComponentsToRemove, comp) === false;
-	});
+	})
+	.value();
+
 	if(spriteComponentsToAdd.length > 0)
 	{
+		var playerSpritesContainer = _.chain(components)
+		.filter(c => c.type === 'PIXIContainer')
+		.filter(c => c.name === 'playerSprites')
+		.head()
+		.value()
+		.container;
 		showAndPositionPlayerComponents(spriteComponentsToAdd,
-			playerSprites,
+			playerSpritesContainer,
 			startSpriteX,
 			startSpriteY,
 			60);
 
 		// TODO: monsters need different layout algo
+		var monsterSpritesContainer = _.chain(components)
+		.filter(c => c.type === 'PIXIContainer')
+		.filter(c => c.name === 'monsterSprites')
+		.head()
+		.value()
+		.container;
 		showAndPositionMonsterComponents(spriteComponentsToAdd,
-			monsterSprites,
+			monsterSpritesContainer,
 			startMonsterSpriteX,
 			startMonsterSpriteY,
 			100);

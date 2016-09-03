@@ -8,7 +8,7 @@ export default function playerWhoseTurnItIs(state, action)
 	switch(action.type)
 	{
 		case PLAYER_TURN:
-			return action.player.id;
+			return action.player;
 
 		case PLAYER_TURN_OVER:
 			return noPlayer;

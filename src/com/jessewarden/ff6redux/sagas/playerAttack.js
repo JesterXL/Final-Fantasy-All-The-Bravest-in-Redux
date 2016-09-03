@@ -16,7 +16,6 @@ import {equippedWithGauntlet} from '../battle/Character';
 
 export function *playerAttack(action)
 {
-	yield call(hideBattleMenu, action.battleMenu);
 	yield call(setPlayerAttackTargets, action.cursorManager, action.stage, action.spriteTargets);
 	var targetIndex = yield call(waitForSelectTargetOrCancel, action.cursorManager);
 	yield call(clearCursorTargets, action.cursorManager);

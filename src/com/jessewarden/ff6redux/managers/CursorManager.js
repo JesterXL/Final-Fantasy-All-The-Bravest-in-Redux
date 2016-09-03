@@ -34,7 +34,7 @@ export default class CursorManager
 		vm.keyboardManager = keyboardManager;
 		stage.addChild(vm.sprite);
 
-		vm.keyboardManager.changes
+		vm.keyboardManagerChangesSub = vm.keyboardManager.changes
 		.filter(e => event.type === 'keydown')
 		.subscribe((event)=>
 		{
@@ -90,9 +90,11 @@ export default class CursorManager
 	tearDown()
 	{
 		var vm = this;
-		stage.removeChild(vm.sprite);
-		stage = undefined;
-		
+		vm.stage.removeChild(vm.sprite);
+		vm.stage = undefined;
+		vm.keyboardManagerChangesSub.dispose();
+		vm.keyboardManagerChangesSub = undefined;
+		vm.keyboardManager = undefined;
 	}
 	
 	hackToTop()

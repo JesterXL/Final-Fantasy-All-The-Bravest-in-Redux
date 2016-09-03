@@ -15,17 +15,24 @@ import {
 	REMOVE_ENTITY} 
 	from './com/jessewarden/ff6redux/core/actions';
 
+import PIXI from 'pixi.js';
+
 import {Character, makePlayer, makeMonster} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 import GoblinSprite from './com/jessewarden/ff6redux/sprites/goblin/GoblinSprite';
 
 import { StageComponent } from './com/jessewarden/ff6redux/components/StageComponent';
+import { BattleMenuComponent } from './com/jessewarden/ff6redux/components/BattleMenuComponent';
+import { PIXIRenderer } from './com/jessewarden/ff6redux/components/PIXIRenderer';
+import { PIXIContainer } from './com/jessewarden/ff6redux/components/PIXIContainer';
+import { KeyboardManagerComponent } from './com/jessewarden/ff6redux/components/KeyboardManagerComponent';
+import { CursorManagerComponent } from './com/jessewarden/ff6redux/components/CursorManagerComponent';
 
 import { SpriteSystem } from './com/jessewarden/ff6redux/systems/SpriteSystem';
+import { PlayerTurnSystem } from './com/jessewarden/ff6redux/systems/PlayerTurnSystem';
 
 import {watchPlayerAttack} from './com/jessewarden/ff6redux/sagas/playerAttack';
 import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTurnItIs';
-
 
 var sagaMiddleware;
 var store;
@@ -59,7 +66,42 @@ export function setupRedux()
 		
 	});
 
+	// renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
+	// document.body.appendChild(renderer.view);
+	// battleTimerBars = new PIXI.Container();
+	// stage.addChild(battleTimerBars);
+	// monsterSprites = new PIXI.Container();
+	// stage.addChild(monsterSprites);
+	// playerSprites = new PIXI.Container();
+	// stage.addChild(playerSprites);
+	// textDrops = new PIXI.Container();
+	// stage.addChild(textDrops);
+	// battleMenus = new PIXI.Container();
+	// stage.addChild(battleMenus);
+
+	addComponent(
+		() => PIXIRenderer(genericEntity()),
+		store,
+		ADD_COMPONENT);
+
+	addPIXIContainer(genericEntity, store, 'battleTimerBars');
+	addPIXIContainer(genericEntity, store, 'monsterSprites');
+	addPIXIContainer(genericEntity, store, 'playerSprites');
+	addPIXIContainer(genericEntity, store, 'textDrops');
+	addPIXIContainer(genericEntity, store, 'battleMenus');
+
+	addComponent(
+		() => KeyboardManagerComponent(genericEntity()),
+		store,
+		ADD_COMPONENT);
+
+	addComponent(
+		() => CursorManagerComponent(genericEntity()),
+		store,
+		ADD_COMPONENT);
+
 	addStageComponent(genericEntity, store);
+	addBattleMenuComponent(genericEntity, store);
 
 	addWarrior(Warrior, store);
 	addWarrior(Warrior, store);
@@ -70,6 +112,7 @@ export function setupRedux()
 	addGoblin(Goblin, store);
 
 	var spriteSystem = SpriteSystem(store);
+	var playerTurnSystem = PlayerTurnSystem(store);
 
 	startTimer(store);
 
@@ -92,8 +135,6 @@ export function setupRedux()
 	// {
 	// 	addStage(genericEntity, store);
 	// });
-
-	
 }
 
 export function addEntity(entityCreator, store, action)
@@ -177,6 +218,25 @@ export function addStageComponent(entityCreator, store)
 		store,
 		ADD_COMPONENT
 	);
+}
+
+export function addBattleMenuComponent(entityCreator, store)
+{
+	var addEntityAction = addEntity(entityCreator, store, ADD_ENTITY);
+	var battleMenuComponent = BattleMenuComponent(addEntityAction.entity);
+	return addComponent(
+		()=>{return battleMenuComponent;},
+		store,
+		ADD_COMPONENT
+	);
+}
+
+export function addPIXIContainer(entityCreator, store, name)
+{
+	return addComponent(
+		() => PIXIContainer(entityCreator(), name),
+		store,
+		ADD_COMPONENT);
 }
 
 function *rootSaga()
