@@ -5,8 +5,6 @@ export var startState = {
 		now: performance.now(),
 		running: false
 	},
-	players: [],
-	monsters: [],
 	playerWhoseTurnItIs: noPlayer,
 	monsterWhoseTurnItIs: noMonster,
 	entities: [],

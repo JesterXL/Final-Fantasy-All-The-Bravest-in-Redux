@@ -612,7 +612,7 @@ function getHitAndApplyDamage(
 	damage = _.clamp(damage, -9999, 9999);
 
 	// TODO: support attacking mulitple targets
-	console.log("hitResult:", hitResult);
+	// console.log("hitResult:", hitResult);
 	return new TargetHitResult(
 		hitResult.hit,
 		undefined,

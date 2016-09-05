@@ -7,7 +7,6 @@ export const REMOVE_ENTITY               = 'REMOVE_ENTITY';
 export const ADD_COMPONENT               = 'ADD_COMPONENT';
 export const REMOVE_COMPONENT            = 'REMOVE_COMPONENT';
 
-export const ADD_MONSTER                 = 'ADD_MONSTER';
 export const CHARACTER_HITPOINTS_CHANGED = 'CHARACTER_HITPOINTS_CHANGED';
 
 export const PLAYER_TURN                 = 'PLAYER_TURN';

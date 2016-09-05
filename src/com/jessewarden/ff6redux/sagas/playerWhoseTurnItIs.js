@@ -4,22 +4,34 @@ import { takeEvery, takeLatest, delay } from 'redux-saga';
 import _ from 'lodash';
 import {PLAYER_ATTACK} from '../core/actions';
 import BattleMenu from '../views/BattleMenu';
+import {
+	getStage,
+	getBattleMenusContainer,
+	getKeyboardManager,
+	getCursorManager
+} from '../core/locators';
 
 export function *playerTurn(action)
 {
+	const state = action.store.getState();
+	const stage = getStage(state.components);
+	const battleMenusContainer = getBattleMenusContainer(state.components);
+	const keyboardMangager = getKeyboardManager(state.components);
+	const cursorManager = getCursorManager(state.components);
 	const menuResult = yield call(
 		showBattleMenu, 
-		action.stage, 
-		action.battleMenusContainer, 
-		action.keyboardMangager, 
-		action.cursorManager
+		stage, 
+		battleMenusContainer, 
+		keyboardMangager, 
+		cursorManager
 	);
 	switch(menuResult)
 	{
 		case "Attack":
 			yield put({
 				type: PLAYER_ATTACK,
-				player: action.player
+				player: action.player,
+				store: action.store
 			});
 			break;
 	}

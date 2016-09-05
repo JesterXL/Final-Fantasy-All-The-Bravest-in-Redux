@@ -2,8 +2,14 @@ import {
 	ADD_COMPONENT, 
 	REMOVE_COMPONENT, 
 	TICK,
-	CHARACTER_HITPOINTS_CHANGED
+	CHARACTER_HITPOINTS_CHANGED,
+	PLAYER_TURN_OVER
 } from '../core/actions';
+import {
+	getComponentIndexFromCharacter
+} from '../core/locators';
+import BattleState from '../enums/BattleState';
+import {makeBattleTimer} from '../battle/Character';
 
 function processCharacterBattleTimers(state, action)
 {
@@ -60,16 +66,35 @@ export default function components(state=[], action)
 			return processCharacterBattleTimers(state, action);
 
 		case CHARACTER_HITPOINTS_CHANGED:
-			var updated = Object.assign({}, action.component, {
+			var updated = Object.assign({}, action.character, {
 				hitPoints: action.hitPoints
 			});
-			var index = _.findIndex(state, i => i === action.component);
+			console.log("action:", action);
+			var index = getComponentIndexFromCharacter(state, action.character);
 			return state
 				.slice(0, index)
 				.concat([updated])
 				.concat(state.slice(index + 1));
+			
+		case PLAYER_TURN_OVER:
+			console.log("action.character:", action.character);
+			var updatedCharacter = Object.assign({}, action.character, {
+				battleState: BattleState.WAITING,
+				generator: makeBattleTimer(action.character)
+			});
+			return replaceCharacter(state, action.character, updatedCharacter);
 
 		default:
 			return state;
 	}
 }
+
+function replaceCharacter(list, character, updatedCharacter)
+{
+	var index = _.findIndex(list, p => p.entity === character.entity);
+	return list
+		.slice(0, index)
+		.concat([updatedCharacter])
+		.concat(list.slice(index + 1));
+}
+

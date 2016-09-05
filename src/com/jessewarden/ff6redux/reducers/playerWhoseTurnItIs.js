@@ -3,7 +3,7 @@ import {noPlayer} from './startState';
 
 import _ from "lodash";
 
-export default function playerWhoseTurnItIs(state, action)
+export default function playerWhoseTurnItIs(state=noPlayer, action)
 {
 	switch(action.type)
 	{

@@ -1,10 +1,10 @@
 import { 
 	PLAYER_ATTACK, 
-	PLAYER_HITPOINTS_CHANGED,
-	MONSTER_HITPOINTS_CHANGED,
+	CHARACTER_HITPOINTS_CHANGED,
 	PLAYER_TURN_OVER,
 	STOP_TIMER,
-	CHARACTER_DEAD
+	CHARACTER_DEAD,
+	START_TIMER
 	 } 
 	from '../core/actions';
 import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
@@ -13,32 +13,51 @@ import TextDropper from '../views/TextDropper';
 import BattleUtils from '../battle/BattleUtils';
 import _ from 'lodash';
 import {equippedWithGauntlet} from '../battle/Character';
+import { 
+	getFirstReadyCharacter,
+	getStage,
+	getSpriteComponentsFromComponents,
+	reduceSpriteComponentsToSprites,
+	getCursorManager,
+	getKeyboardManager,
+	getComponentSpriteFromEntity,
+	getCharacterFromSprite
+} from '../core/locators';
 
 export function *playerAttack(action)
 {
-	yield call(setPlayerAttackTargets, action.cursorManager, action.stage, action.spriteTargets);
-	var targetIndex = yield call(waitForSelectTargetOrCancel, action.cursorManager);
-	yield call(clearCursorTargets, action.cursorManager);
+	// player: readyCharacter.entity,
+	// stage: getStage(state.components),
+	// battleMenusContainer: getBattleMenusContainer(state.components),
+	// keyboardMangager: getKeyboardManager(state.components),
+	// cursorManager: getCursorManager(state.components)
 
-	var mySprite = action.playerSprite.sprite.sprite;
-	var startWX = mySprite.x;
-	var startWY = mySprite.y;
+	let state = action.store.getState(); 
+	const keyboardMangager = getKeyboardManager(state.components);
+	const cursorManager = getCursorManager(state.components);
+	const stage = getStage(state.components);
+	const spriteTargets = reduceSpriteComponentsToSprites(state.components);
+
+	yield put({type: STOP_TIMER});
+	yield call(setupCursorManager, cursorManager, stage, keyboardMangager);
+	yield call(setPlayerAttackTargets, cursorManager, stage, spriteTargets);
+	var targetIndex = yield call(waitForSelectTargetOrCancel, cursorManager);
+	yield call(clearCursorTargets, cursorManager);
+	yield call(cursorManagerTearDown, cursorManager);
+
 	if(targetIndex === -1)
 	{
 		yield call(showBattleMenu, action.battleMenu);
 	}
 	else
 	{
-		var spriteTargetSelected = action.spriteTargets[targetIndex];
-		var target = _.find(action.monsterSpriteMap, ms => ms.sprite.sprite === spriteTargetSelected);
-		if(_.isNil(target))
-		{
-			target = _.find(action.playerSpriteMap, ps => ps.sprite.sprite === spriteTargetSelected);
-		}
-		if(_.isNil(target))
-		{
-			throw new Error("Couldn't find target in player or monster sprite maps.");
-		}
+		const playerSprite = getComponentSpriteFromEntity(state.components, action.player.entity);
+		var mySprite = playerSprite.sprite;
+		var startWX = mySprite.x;
+		var startWY = mySprite.y;
+		var spriteTargetSelected = spriteTargets[targetIndex];
+		var targetCharacter = getCharacterFromSprite(state.components, spriteTargetSelected);
+		console.log("targetCharacter:", targetCharacter);
 		var targetX = spriteTargetSelected.x;
 		var targetY = spriteTargetSelected.y;
 		// welcome kids to lessons in not paying attention in math class
@@ -51,43 +70,35 @@ export function *playerAttack(action)
 		middleY = -middleY;
 		var middleX = halfX;
 
-		yield call(leapTowardsTarget, action.playerSprite.sprite, spriteTargetSelected);
-		yield call(firstAttack, action.playerSprite.sprite);
-		var targetEntity = _.find(action.monsters, monster => monster.id === target.monsterID);
-		if(_.isNil(targetEntity))
-		{
-			targetEntity = _.find(action.players, player => player.id === target.playerID);
-		}
-		if(_.isNil(targetEntity))
-		{
-			throw new Error("Couldn't find targetEntity in player or monster lists.");
-		}
-		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetEntity.stamina);
-		var textDropper = new TextDropper(action.textDrops);
+		yield call(leapTowardsTarget, playerSprite, spriteTargetSelected);
+		yield call(firstAttack, playerSprite);
+		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetCharacter.stamina);
+		const textDropper = new TextDropper(stage);
 		if(targetHitResult.hit)
 		{
-			if(targetEntity.type === 'monster')
+			if(targetCharacter.player === false)
 			{
+				console.log("targetCharacter:", targetCharacter);
+				console.log("targetCharacter.hitPoints:", targetCharacter.hitPoints);
 				yield put({
-					type: MONSTER_HITPOINTS_CHANGED, 
-					hitPoints: targetEntity.hitPoints - targetHitResult.damage,
-					monster: targetEntity
+					type: CHARACTER_HITPOINTS_CHANGED, 
+					hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
+					character: targetCharacter
 				});
-				console.log("targetEntity:", targetEntity);
-				console.log("targetEntity.hitPoints:", targetEntity.hitPoints);
-				if(targetEntity.hitPoints <= 0)
+				
+				if(targetCharacter.hitPoints <= 0)
 				{
 					yield put({type: STOP_TIMER});
-					yield call(animateMonsterDeath, targetEntity, _.find(action.monsterSpriteMap, ms => ms.monsterID === targetEntity.id).sprite);
-					yield put({type: CHARACTER_DEAD, monster: targetEntity});
+					yield call(animateMonsterDeath, targetCharacter, spriteTargetSelected);
+					yield put({type: CHARACTER_DEAD, character: targetCharacter});
 				}
 			}
 			else
 			{
 				yield put({
-					type: PLAYER_HITPOINTS_CHANGED, 
-					hitPoints: targetEntity.hitPoints - targetHitResult.damage,
-					player: targetEntity
+					type: CHARACTER_HITPOINTS_CHANGED, 
+					hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
+					character: targetCharacter
 				});
 			}
 			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage);
@@ -96,8 +107,9 @@ export function *playerAttack(action)
 		{
 			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
 		}
-		yield call(leapBackToStartingPosition, action.playerSprite.sprite, startWX, startWY, middleX, middleY);
-		yield put({type: PLAYER_TURN_OVER, player: action.player});
+		yield call(leapBackToStartingPosition, playerSprite, startWX, startWY, middleX, middleY);
+		yield put({type: PLAYER_TURN_OVER, character: action.player});
+		yield put({type: START_TIMER});
 	}
 }
 
@@ -116,8 +128,14 @@ export function hideBattleMenu(battleMenu)
 	return battleMenu.hide();
 }
 
+export function setupCursorManager(cursorManager, stage, keyboardMangager)
+{
+	cursorManager.setup(stage, keyboardMangager);
+}
+
 export function setPlayerAttackTargets(cursorManager, stage, spriteTargets)
 {
+	// console.log("spriteTargets:", spriteTargets);
 	return cursorManager.setTargets(stage, spriteTargets);
 }
 
@@ -144,6 +162,11 @@ export function waitForSelectTargetOrCancel(cursorManager)
 export function clearCursorTargets(cursorManager)
 {
 	cursorManager.clearAllTargets();
+}
+
+export function cursorManagerTearDown(cursorManager)
+{
+	cursorManager.tearDown();
 }
 
 export function showBattleMenu(battleMenu)

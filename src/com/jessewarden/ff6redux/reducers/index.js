@@ -1,6 +1,5 @@
 import gameLoop from './gameLoop';
 import monsterWhoseTurnItIs from './monsterWhoseTurnItIs';
-import players from './players';
 import playerWhoseTurnItIs from './playerWhoseTurnItIs';
 import entities from './entities';
 import components from './components';

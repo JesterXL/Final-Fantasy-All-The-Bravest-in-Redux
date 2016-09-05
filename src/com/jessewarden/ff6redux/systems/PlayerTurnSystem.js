@@ -1,6 +1,9 @@
 import _ from 'lodash';
 import { PLAYER_TURN } from '../core/actions';
 import { noPlayer } from '../reducers/startState';
+import { 
+	getFirstReadyCharacter
+} from '../core/locators';
 
 let _unsubscribe;
 let notNil = _.negate(_.isNil);
@@ -25,51 +28,9 @@ export function handleStateChange(store)
 		{
 			store.dispatch({
 				type: PLAYER_TURN,
-				player: readyCharacter.entity,
-				stage: getStage(state.components),
-				battleMenusContainer: getBattleMenusContainer(state.components),
-				keyboardMangager: getKeyboardManager(state.components),
-				cursorManager: getCursorManager(state.components)
+				player: readyCharacter,
+				store
 			});
 		}
 	}
 }
-
-export function getStage(components)
-{
-	return _.find(components, c => c.type === 'StageComponent').stage;
-}
-
-export function getBattleMenusContainer(components)
-{
-	return _.find(components, c => c.type === 'PIXIContainer' && c.name === 'battleMenus').container;
-}
-
-export function getKeyboardManager(components)
-{
-	return _.chain(components)
-	.filter(c => c.type === 'KeyboardManagerComponent')
-	.head()
-	.value()
-	.keyboardManager;
-}
-
-export function getCursorManager(components)
-{
-	return _.chain(components)
-	.filter(c => c.type === 'CursorManagerComponent')
-	.head()
-	.value()
-	.cursorManager;
-}
-
-export function getFirstReadyCharacter(components)
-{
-	return _.chain(components)
-	.filter(c => c.type === 'Character')
-	.filter(c => c.characterType === 'player')
-	.filter(c => c.percentage >= 1)
-	.head()
-	.value();
-}
-

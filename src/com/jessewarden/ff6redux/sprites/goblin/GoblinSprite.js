@@ -13,8 +13,11 @@ export default class GoblinSprite
 		return this._container;
 	}
 
-	constructor()
+	constructor(entity)
 	{
+		this.entity = entity;
+		this.type = 'ComponentSprite';
+		this.player = false;
 		this._container = new PIXI.Container();
 
 		var prefix = 'src/com/jessewarden/ff6redux/sprites/goblin/';

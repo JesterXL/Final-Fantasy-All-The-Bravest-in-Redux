@@ -1,6 +1,14 @@
 import _ from 'lodash';
 import PIXI from 'pixi.js';
 import {REMOVE_COMPONENT} from '../core/actions';
+import {
+	hasStageComponent,
+	getStageComponent,
+	hasPIXIComponents,
+	hasPIXIRendererComponent,
+	getPIXIRendererComponent,
+	getSpriteComponentsFromComponents
+} from '../core/locators';
 
 let _unsubscribe;
 var startSpriteX = 400;
@@ -134,31 +142,6 @@ export function addToStage(stage, child)
 	stage.addChild(child);
 }
 
-export function hasStageComponent(components)
-{
-	return _.findIndex(components, c => c.type === 'StageComponent') > -1;
-}
-
-export function getStageComponent(components)
-{
-	return _.find(components, c => c.type === 'StageComponent');
-}
-
-export function hasPIXIComponents(components)
-{
-	return _.findIndex(components, c => c.type === 'PIXIContainer') > -1;
-}
-
-export function hasPIXIRendererComponent(components)
-{
-	return _.findIndex(components, c => c.type === 'PIXIRenderer') > -1;
-}
-
-export function getPIXIRendererComponent(components)
-{
-	return _.find(components, c => c.type === 'PIXIRenderer');
-}
-
 function removeAllChildren(container)
 {
 	container.removeChildren();
@@ -266,10 +249,7 @@ export function entitiesToCreateComponentsFor(components, entities)
 		(entity, comp)=> entity === comp.entity);
 }
 
-export function getSpriteComponentsFromComponents(components)
-{
-	return _.filter(components, c => c.type && c.type === 'ComponentSprite');
-}
+
 
 export function removeComponentsSpritesFromParent(components)
 {
@@ -352,7 +332,7 @@ export function updatePercentageComponents(components, entities)
 	return _.forEach(characters, (chr)=>
 	{
 		var spriteComp = _.find(componentSprites, c => c.entity === chr.entity);
-		if(spriteComp)
+		if(spriteComp && spriteComp.setPercentage)
 		{
 			spriteComp.setPercentage(chr.percentage);
 		}
