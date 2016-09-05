@@ -4,6 +4,7 @@ let unsubscribe;
 let entitySettings;
 let componentSettings;
 let initiativeOrderSettings;
+let monsterSettings;
 
 export default function debugWindows(store)
 {
@@ -17,6 +18,9 @@ export default function debugWindows(store)
 
 	initiativeOrderSettings = QuickSettings.create(1260, 10, 'Debug Initiative');
 	initiativeOrderSettings.addHTML('Characters', 'Waiting...');
+
+	monsterSettings = QuickSettings.create(810, 340, 'Debug Initiative');
+	monsterSettings.addHTML('Monsters', 'Waiting...');
 
 	unsubscribe = store.subscribe(()=>
 	{
@@ -39,13 +43,27 @@ var initiativeCharactersToHTML = (characters) => {
 		return charHTML;
 	}).join('');
 };
+var monstersToHTML = (monsters) => {
+	return _.map(monsters, (monster)=>
+	{
+		var html = '<p>';
+		html += '<b>Percentage:</b>' + monster.percentage + '<br />';
+		html += '<b>Hitpoints:</b>' + monster.hitPoints + '<br />';
+		return html;
+	}).join('');
+};
 function redraw(store)
 {
 	var state = store.getState();
 	updateOnlyIfChanged(entitySettings, 'Entities', entitiesToHTML(state.entities));
 	updateOnlyIfChanged(componentSettings, 'Components', componentsToHTML(state.components));
+	
 	var characters = _.filter(state.components, c => c.type === 'Character');
 	updateOnlyIfChanged(initiativeOrderSettings, 'Characters', initiativeCharactersToHTML(characters));
+	
+	var monsters = _.filter(state.components, c => c.type === 'Character' && c.characterType === 'monster');
+	updateOnlyIfChanged(monsterSettings, 'Monsters', monstersToHTML(monsters));
+
 }
 
 function updateOnlyIfChanged(setting, title, html)

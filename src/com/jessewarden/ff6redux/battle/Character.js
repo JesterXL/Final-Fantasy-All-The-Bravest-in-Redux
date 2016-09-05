@@ -24,7 +24,7 @@ export function Character(entity)
 	vm.battleState = BattleState.WAITING;
 	vm.hitPoints = 10;
 	vm.vigor = 10;
-	vm.speed = 10;
+	vm.speed = 80;
 	vm.stamina = 10;
 	vm.magicPower = 10;
 	vm.evade = 1;
