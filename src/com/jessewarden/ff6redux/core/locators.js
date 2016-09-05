@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import BattleState from '../enums/BattleState';
 
 export function hasStageComponent(components)
 {
@@ -50,7 +51,7 @@ export function getFirstReadyCharacter(components)
 	return _.chain(components)
 	.filter(c => c.type === 'Character')
 	.filter(c => c.characterType === 'player')
-	.filter(c => c.percentage >= 1)
+	.filter(c => c.battleState === BattleState.READY)
 	.head()
 	.value();
 }

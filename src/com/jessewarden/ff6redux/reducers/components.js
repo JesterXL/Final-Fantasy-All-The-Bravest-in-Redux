@@ -34,7 +34,8 @@ function processCharacterBattleTimers(state, action)
 		{
 			return Object.assign({}, character,
 			{
-				percentage: 1
+				percentage: 1,
+				battleState: BattleState.READY
 			});
 		}
 		return Object.assign({}, character,
