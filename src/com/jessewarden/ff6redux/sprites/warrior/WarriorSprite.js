@@ -287,12 +287,12 @@ export default class WarriorSprite
 
 	leapBackToStartingPosition(startX, startY, middleX, middleY)
 	{
-		console.log("leapBackToStartingPosition, startX: " + startX + ", startY: " + startY + ", middleX: " + middleX + ", middleY: " + middleY);
+		// console.log("leapBackToStartingPosition, startX: " + startX + ", startY: " + startY + ", middleX: " + middleX + ", middleY: " + middleY);
 		var me = this;
 		return new Promise((resolve)=>
 		{
 			var mySprite = me.sprite;
-			console.log("mySprite x: " + mySprite.x + ", y:" + mySprite.y);
+			// console.log("mySprite x: " + mySprite.x + ", y:" + mySprite.y);
 			var tl = new TimelineMax();
 			tl.add( TweenMax.to(mySprite, 0.7, {
 				bezier: {

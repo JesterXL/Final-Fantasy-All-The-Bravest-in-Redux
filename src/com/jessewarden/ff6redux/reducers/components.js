@@ -69,7 +69,7 @@ export default function components(state=[], action)
 			var updated = Object.assign({}, action.character, {
 				hitPoints: action.hitPoints
 			});
-			console.log("action:", action);
+			// console.log("action:", action);
 			var index = getComponentIndexFromCharacter(state, action.character);
 			return state
 				.slice(0, index)

@@ -453,7 +453,7 @@ export class Application
 
 			function reducer(state=defaultState, action)
 			{
-				console.log("reducer action:", action);
+				// console.log("reducer action:", action);
 				switch(action.type)
 				{
 					case 'TICK':

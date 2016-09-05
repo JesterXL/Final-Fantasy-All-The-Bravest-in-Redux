@@ -33,6 +33,7 @@ import { PlayerTurnSystem } from './com/jessewarden/ff6redux/systems/PlayerTurnS
 
 import {watchPlayerAttack} from './com/jessewarden/ff6redux/sagas/playerAttack';
 import { watchPlayerTurn } from './com/jessewarden/ff6redux/sagas/playerWhoseTurnItIs';
+import debugWindows from './com/jessewarden/ff6redux/views/debugWindows';
 
 var sagaMiddleware;
 var store;
@@ -63,21 +64,9 @@ export function setupRedux()
 	unsubscribe = store.subscribe(()=>
 	{
 		var state = store.getState()
-		
 	});
 
-	// renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
-	// document.body.appendChild(renderer.view);
-	// battleTimerBars = new PIXI.Container();
-	// stage.addChild(battleTimerBars);
-	// monsterSprites = new PIXI.Container();
-	// stage.addChild(monsterSprites);
-	// playerSprites = new PIXI.Container();
-	// stage.addChild(playerSprites);
-	// textDrops = new PIXI.Container();
-	// stage.addChild(textDrops);
-	// battleMenus = new PIXI.Container();
-	// stage.addChild(battleMenus);
+	debugWindows(store);	
 
 	addComponent(
 		() => PIXIRenderer(genericEntity()),

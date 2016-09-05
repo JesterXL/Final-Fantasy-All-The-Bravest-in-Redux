@@ -57,7 +57,7 @@ export function *playerAttack(action)
 		var startWY = mySprite.y;
 		var spriteTargetSelected = spriteTargets[targetIndex];
 		var targetCharacter = getCharacterFromSprite(state.components, spriteTargetSelected);
-		console.log("targetCharacter:", targetCharacter);
+		// console.log("targetCharacter:", targetCharacter);
 		var targetX = spriteTargetSelected.x;
 		var targetY = spriteTargetSelected.y;
 		// welcome kids to lessons in not paying attention in math class
@@ -78,8 +78,8 @@ export function *playerAttack(action)
 		{
 			if(targetCharacter.player === false)
 			{
-				console.log("targetCharacter:", targetCharacter);
-				console.log("targetCharacter.hitPoints:", targetCharacter.hitPoints);
+				// console.log("targetCharacter:", targetCharacter);
+				// console.log("targetCharacter.hitPoints:", targetCharacter.hitPoints);
 				yield put({
 					type: CHARACTER_HITPOINTS_CHANGED, 
 					hitPoints: targetCharacter.hitPoints - targetHitResult.damage,

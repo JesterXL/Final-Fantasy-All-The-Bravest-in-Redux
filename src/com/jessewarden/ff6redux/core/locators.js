@@ -108,7 +108,7 @@ export function getCharacterFromSprite(components, sprite)
 	.filter(c => c.sprite === sprite)
 	.head()
 	.value();
-	console.log("componentSprite:", componentSprite);
+	// console.log("componentSprite:", componentSprite);
 
 	return _.chain(components)
 	.filter(c => c.type === 'Character')
