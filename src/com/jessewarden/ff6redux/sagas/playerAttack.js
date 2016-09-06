@@ -21,7 +21,8 @@ import {
 	getCursorManager,
 	getKeyboardManager,
 	getComponentSpriteFromEntity,
-	getCharacterFromSprite
+	getCharacterFromSprite,
+	getComponentSpriteFromSprite
 } from '../core/locators';
 
 export function *playerAttack(action)
@@ -32,84 +33,95 @@ export function *playerAttack(action)
 	// keyboardMangager: getKeyboardManager(state.components),
 	// cursorManager: getCursorManager(state.components)
 
-	let state = action.store.getState(); 
-	const keyboardMangager = getKeyboardManager(state.components);
-	const cursorManager = getCursorManager(state.components);
-	const stage = getStage(state.components);
-	const spriteTargets = reduceSpriteComponentsToSprites(state.components);
-
-	yield put({type: STOP_TIMER});
-	yield call(setupCursorManager, cursorManager, stage, keyboardMangager);
-	yield call(setPlayerAttackTargets, cursorManager, stage, spriteTargets);
-	var targetIndex = yield call(waitForSelectTargetOrCancel, cursorManager);
-	yield call(clearCursorTargets, cursorManager);
-	yield call(cursorManagerTearDown, cursorManager);
-
-	if(targetIndex === -1)
+	try
 	{
-		yield call(showBattleMenu, action.battleMenu);
-	}
-	else
-	{
-		const playerSprite = getComponentSpriteFromEntity(state.components, action.player.entity);
-		var mySprite = playerSprite.sprite;
-		var startWX = mySprite.x;
-		var startWY = mySprite.y;
-		var spriteTargetSelected = spriteTargets[targetIndex];
-		var targetCharacter = getCharacterFromSprite(state.components, spriteTargetSelected);
-		// console.log("targetCharacter:", targetCharacter);
-		var targetX = spriteTargetSelected.x;
-		var targetY = spriteTargetSelected.y;
-		// welcome kids to lessons in not paying attention in math class
-		var dist = Math.sqrt(Math.pow(targetX - startWX, 2) + Math.pow(targetY - startWY, 2));
-		var half = dist / 2;
-		var halfX = Math.abs(targetX - startWX);
-		var halfY = Math.abs(targetY - startWY);
-		var middleY = Math.min(startWY, targetY);
-		middleY /= 2;
-		middleY = -middleY;
-		var middleX = halfX;
+		let state = action.store.getState(); 
+		const keyboardMangager = getKeyboardManager(state.components);
+		const cursorManager = getCursorManager(state.components);
+		const stage = getStage(state.components);
+		const spriteTargets = reduceSpriteComponentsToSprites(state.components);
 
-		yield call(leapTowardsTarget, playerSprite, spriteTargetSelected);
-		yield call(firstAttack, playerSprite);
-		var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetCharacter.stamina);
-		const textDropper = new TextDropper(stage);
-		if(targetHitResult.hit)
+		// yield put({type: STOP_TIMER});
+		yield call(setupCursorManager, cursorManager, stage, keyboardMangager);
+		yield call(setPlayerAttackTargets, cursorManager, stage, spriteTargets);
+		var targetIndex = yield call(waitForSelectTargetOrCancel, cursorManager);
+		yield call(clearCursorTargets, cursorManager);
+		yield call(cursorManagerTearDown, cursorManager);
+
+		if(targetIndex === -1)
 		{
-			if(targetCharacter.player === false)
-			{
-				// console.log("targetCharacter:", targetCharacter);
-				// console.log("targetCharacter.hitPoints:", targetCharacter.hitPoints);
-				yield put({
-					type: CHARACTER_HITPOINTS_CHANGED, 
-					hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
-					character: targetCharacter
-				});
-				
-				if(targetCharacter.hitPoints <= 0)
-				{
-					yield put({type: STOP_TIMER});
-					yield call(animateMonsterDeath, targetCharacter, spriteTargetSelected);
-					yield put({type: CHARACTER_DEAD, character: targetCharacter});
-				}
-			}
-			else
-			{
-				yield put({
-					type: CHARACTER_HITPOINTS_CHANGED, 
-					hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
-					character: targetCharacter
-				});
-			}
-			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage);
+			yield call(showBattleMenu, action.battleMenu);
 		}
 		else
 		{
-			yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
+			const playerSprite = getComponentSpriteFromEntity(state.components, action.player.entity);
+			var mySprite = playerSprite.sprite;
+			var startWX = mySprite.x;
+			var startWY = mySprite.y;
+			var spriteTargetSelected = spriteTargets[targetIndex];
+			var targetCharacter = getCharacterFromSprite(state.components, spriteTargetSelected);
+			// console.log("targetCharacter:", targetCharacter);
+			var targetX = spriteTargetSelected.x;
+			var targetY = spriteTargetSelected.y;
+			// welcome kids to lessons in not paying attention in math class
+			var dist = Math.sqrt(Math.pow(targetX - startWX, 2) + Math.pow(targetY - startWY, 2));
+			var half = dist / 2;
+			var halfX = Math.abs(targetX - startWX);
+			var halfY = Math.abs(targetY - startWY);
+			var middleY = Math.min(startWY, targetY);
+			middleY /= 2;
+			middleY = -middleY;
+			var middleX = halfX;
+
+			yield call(leapTowardsTarget, playerSprite, spriteTargetSelected);
+			yield call(firstAttack, playerSprite);
+			var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetCharacter.stamina);
+			const textDropper = new TextDropper(stage);
+			console.log("targetHitResult.hit:", targetHitResult.hit);
+			if(targetHitResult.hit === true)
+			{
+				if(targetCharacter.characterType === 'monster')
+				{
+					console.log("targetCharacter:", targetCharacter);
+					console.log("before targetCharacter.hitPoints:", targetCharacter.hitPoints);
+					yield put({
+						type: CHARACTER_HITPOINTS_CHANGED, 
+						hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
+						character: targetCharacter
+					});
+
+					console.log("after targetCharacter.hitPoints:", targetCharacter.hitPoints);
+					// SIIIIDDDEEEE EFFECTSS!!!!
+					if(targetCharacter.hitPoints <= 0)
+					{
+						yield put({type: STOP_TIMER});
+						yield call(animateMonsterDeath, getComponentSpriteFromSprite(spriteTargetSelected));
+						yield put({type: CHARACTER_DEAD, character: targetCharacter});
+					}
+				}
+				else
+				{
+					yield put({
+						type: CHARACTER_HITPOINTS_CHANGED, 
+						hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
+						character: targetCharacter
+					});
+				}
+				yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage);
+			}
+			else
+			{
+				yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
+			}
+			yield call(leapBackToStartingPosition, playerSprite, startWX, startWY, middleX, middleY);
+			yield put({type: PLAYER_TURN_OVER, character: action.player});
+			// yield put({type: START_TIMER});
 		}
-		yield call(leapBackToStartingPosition, playerSprite, startWX, startWY, middleX, middleY);
-		yield put({type: PLAYER_TURN_OVER, character: action.player});
-		yield put({type: START_TIMER});
+
+	}
+	catch(err)
+	{
+		console.log("playerAttack saga error:", err);
 	}
 }
 
@@ -189,8 +201,10 @@ export function leapBackToStartingPosition(playerSprite, targetX, targetY, middl
 	return playerSprite.leapBackToStartingPosition(targetX, targetY, middleX, middleY);
 }
 
-export function animateMonsterDeath(entity, sprite)
+export function animateMonsterDeath(sprite)
 {
+	console.log("sprite:", sprite);
+	console.log("sprite.animateDeath:", sprite.animateDeath);
 	return sprite.animateDeath();
 }
 

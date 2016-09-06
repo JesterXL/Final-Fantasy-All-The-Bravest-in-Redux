@@ -93,6 +93,13 @@ export function getComponentSpriteFromEntity(components, entity)
 	.value();
 }
 
+export function getComponentSpriteFromSprite(components, sprite)
+{
+	return _.chain(getSpriteComponentsFromComponents(components))
+	.find(c => c.sprite === sprite)
+	.value();
+}
+
 export function reduceSpriteComponentsToSprites(components)
 {
 	return _.chain(getSpriteComponentsFromComponents(components))

@@ -49,32 +49,6 @@ export function showBattleMenu(stage, battleMenusContainer, keyboardMangager, cu
 			battleMenu.tearDown();
 			battleMenu = undefined;
 			success(event.item);
-			// switch(event.item)
-			// {
-				// case "Attack":
-					// console.log("playerSprites.children:", playerSprites.children);
-					// console.log("monsterSprites.children:", monsterSprites.children);
-					// var state = store.getState();
-					// store.dispatch({
-					// 	type: PLAYER_ATTACK,
-					// 	stage,
-					// 	textDrops,
-					// 	players: state.players,
-					// 	monsters: state.monsters,
-					// 	playerSpriteMap,
-					// 	monsterSpriteMap,
-					// 	cursorManager,
-					// 	battleMenu,
-					// 	player: _.find(state.players, p => p.id === state.playerWhoseTurnItIs),
-					// 	playerSprite: _.find(playerSpriteMap, psm => psm.playerID === state.playerWhoseTurnItIs),
-					// 	spriteTargets: playerSprites.children.concat(monsterSprites.children),
-					// });
-					
-					// store.dispatch({
-					// 	type: PLAYER_ATTACK
-					// });
-					// break;
-			// }
 		});
 		battleMenu.show();
 	});
