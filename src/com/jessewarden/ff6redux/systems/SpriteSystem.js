@@ -180,6 +180,7 @@ export function addRemoveSprites(store,
 		spriteComponents, 
 		entities
 	);
+	// console.log("spriteComponentsToRemove:", spriteComponentsToRemove);
 	if(spriteComponentsToRemove.length > 0)
 	{	
 		removePlayerSprites(spriteComponentsToRemove);

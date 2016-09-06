@@ -1,4 +1,4 @@
-import { ADD_ENTITY, REMOVE_ENTITY } from '../core/actions';
+import { ADD_ENTITY, REMOVE_ENTITY, CHARACTER_DEAD} from '../core/actions';
 
 export default function entities(state=[], action)
 {
@@ -15,9 +15,19 @@ export default function entities(state=[], action)
 				console.log("vs. entity:", action.entity);
 				throw new Error('Failed to find entity in list.');
 			}
-			return [...state.slice(0, index), 
-					...state.slice(index + 1)];
+			return removeEntityAt(state, index);
+
+		case CHARACTER_DEAD:
+			var index = _.findIndex(state, i => i === action.character.entity);
+			return removeEntityAt(state, index);
+
 		default:
 			return state;
 	}
+}
+
+function removeEntityAt(state, index)
+{
+	return [...state.slice(0, index), 
+			...state.slice(index + 1)];
 }

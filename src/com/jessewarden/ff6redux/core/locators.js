@@ -124,3 +124,8 @@ export function getCharacterFromSprite(components, sprite)
 	.head()
 	.value();
 }
+
+export function getAllComponentsForEntity(components, entity)
+{
+	return _.filter(components, c => c.entity === entity);
+}

@@ -3,10 +3,12 @@ import {
 	REMOVE_COMPONENT, 
 	TICK,
 	CHARACTER_HITPOINTS_CHANGED,
-	PLAYER_TURN_OVER
+	PLAYER_TURN_OVER,
+	CHARACTER_DEAD
 } from '../core/actions';
 import {
-	getComponentIndexFromCharacter
+	getComponentIndexFromCharacter,
+	getAllComponentsForEntity
 } from '../core/locators';
 import BattleState from '../enums/BattleState';
 import {makeBattleTimer} from '../battle/Character';
@@ -60,8 +62,7 @@ export default function components(state=[], action)
 				console.log("vs. component:", action.component);
 				throw new Error('Failed to find component in list.');
 			}
-			return [...state.slice(0, index), 
-					...state.slice(index + 1)];
+			return removeComponentAt(state, index);
 
 		case TICK:
 			return processCharacterBattleTimers(state, action);
@@ -91,9 +92,26 @@ export default function components(state=[], action)
 			});
 			return replaceCharacter(state, action.character, updatedCharacter);
 
+		case CHARACTER_DEAD:
+			var componentsToRemove = getAllComponentsForEntity(action.character.entity);
+			return _.reduce(state, (newState, component)=>
+			{
+				if(_.includes(componentsToRemove, component) === false)
+				{
+					newState.push(component);
+					return newState;
+				}
+			}, []);
+
 		default:
 			return state;
 	}
+}
+
+function removeComponentAt(state, index)
+{
+	return [...state.slice(0, index), 
+			...state.slice(index + 1)];
 }
 
 function replaceCharacter(list, character, updatedCharacter)

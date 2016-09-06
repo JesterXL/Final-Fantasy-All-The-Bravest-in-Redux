@@ -77,13 +77,13 @@ export function *playerAttack(action)
 			yield call(firstAttack, playerSprite);
 			var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetCharacter.stamina);
 			const textDropper = new TextDropper(stage);
-			console.log("targetHitResult.hit:", targetHitResult.hit);
+			// console.log("targetHitResult.hit:", targetHitResult.hit);
 			if(targetHitResult.hit === true)
 			{
 				if(targetCharacter.characterType === 'monster')
 				{
-					console.log("targetCharacter:", targetCharacter);
-					console.log("before targetCharacter.hitPoints:", targetCharacter.hitPoints);
+					// console.log("targetCharacter:", targetCharacter);
+					// console.log("before targetCharacter.hitPoints:", targetCharacter.hitPoints);
 					yield put({
 						type: CHARACTER_HITPOINTS_CHANGED, 
 						hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
@@ -95,7 +95,9 @@ export function *playerAttack(action)
 					if(targetCharacter.hitPoints <= 0)
 					{
 						yield put({type: STOP_TIMER});
-						yield call(animateMonsterDeath, getComponentSpriteFromSprite(spriteTargetSelected));
+						console.log("spriteTargetSelected:", spriteTargetSelected);
+						yield call(animateMonsterDeath, getComponentSpriteFromSprite(state.components, spriteTargetSelected));
+						console.log("CHARACTER_DEAD, character:", targetCharacter);
 						yield put({type: CHARACTER_DEAD, character: targetCharacter});
 					}
 				}
@@ -203,8 +205,8 @@ export function leapBackToStartingPosition(playerSprite, targetX, targetY, middl
 
 export function animateMonsterDeath(sprite)
 {
-	console.log("sprite:", sprite);
-	console.log("sprite.animateDeath:", sprite.animateDeath);
+	// console.log("sprite:", sprite);
+	// console.log("sprite.animateDeath:", sprite.animateDeath);
 	return sprite.animateDeath();
 }
 
