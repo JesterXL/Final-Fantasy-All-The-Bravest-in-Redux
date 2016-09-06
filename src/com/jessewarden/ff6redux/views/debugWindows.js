@@ -49,6 +49,7 @@ var monstersToHTML = (monsters) => {
 		var html = '<p>';
 		html += '<b>Percentage:</b>' + monster.percentage + '<br />';
 		html += '<b>Hitpoints:</b>' + monster.hitPoints + '<br />';
+		html += '<b>Battle State:</b>' + monster.battleState + '<br />';
 		return html;
 	}).join('');
 };
@@ -63,6 +64,7 @@ function redraw(store)
 	
 	var monsters = _.filter(state.components, c => c.type === 'Character' && c.characterType === 'monster');
 	updateOnlyIfChanged(monsterSettings, 'Monsters', monstersToHTML(monsters));
+
 
 }
 

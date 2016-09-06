@@ -67,8 +67,14 @@ export default function components(state=[], action)
 			return processCharacterBattleTimers(state, action);
 
 		case CHARACTER_HITPOINTS_CHANGED:
+			var battleState = action.character.battleState;
+			if(action.hitPoints <= 1)
+			{
+				battleState = BattleState.DEAD;
+			}
 			var updated = Object.assign({}, action.character, {
-				hitPoints: action.hitPoints
+				hitPoints: action.hitPoints,
+				battleState: battleState
 			});
 			// console.log("action:", action);
 			var index = getComponentIndexFromCharacter(state, action.character);
