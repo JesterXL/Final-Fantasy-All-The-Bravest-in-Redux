@@ -1,6 +1,6 @@
 import { ADD_ENTITY, REMOVE_ENTITY, CHARACTER_DEAD} from '../core/actions';
 
-export default function entities(state=[], action)
+export function entities(state=[], action)
 {
 	switch(action.type)
 	{
@@ -19,6 +19,10 @@ export default function entities(state=[], action)
 
 		case CHARACTER_DEAD:
 			var index = _.findIndex(state, i => i === action.character.entity);
+			if(index < 0)
+			{
+				console.error("Can't find character's entity:", character.entity);
+			}
 			return removeEntityAt(state, index);
 
 		default:
@@ -26,7 +30,7 @@ export default function entities(state=[], action)
 	}
 }
 
-function removeEntityAt(state, index)
+export function removeEntityAt(state, index)
 {
 	return [...state.slice(0, index), 
 			...state.slice(index + 1)];

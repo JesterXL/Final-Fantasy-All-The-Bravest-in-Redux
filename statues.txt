@@ -1,0 +1,24 @@
+Dark
+Zombie
+Poison
+M-Tek
+Clear
+Imp
+Petrify
+Wound
+Condemned
+Near Fatal
+Image
+Mute
+Berserk
+Muddle
+Seizure
+Sleep
+Dance
+Regen
+Slow
+Haste
+Stop
+Shell
+Safe
+Reflect

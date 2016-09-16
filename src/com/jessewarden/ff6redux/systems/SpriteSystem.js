@@ -34,9 +34,12 @@ export function unsubscribe()
 
 function mapStateToThis(store)
 {
+	// console.log("SpriteSystem::mapStateToThis");
 	// NOTE: Treating the StageComponent as a Singleton. Not sure the ramifications of this.
-	var state = store.getState();
-	addOrRemoveStage(state);
+	const state = store.getState();
+	console.log("state:", state);
+	var result = addOrRemoveStage(state);
+	// console.log("result:", result);
 	addOrRemovePIXIRenderer(state);
 	addOrRemovePIXIComponents(state);
 	if(hasStageComponent(state.components) && hasPIXIRendererComponent(state.components))
@@ -90,16 +93,22 @@ export function addOrRemoveStage(state)
 {
 	const hasAStage = hasStageComponent(state.components);
 	const hasRenderer = hasPIXIRendererComponent(state.components);
+	// console.log("*******");
+	// console.log("hasAStage:", hasAStage);
+	// console.log("hasRenderer:", hasRenderer);
+	// console.log("_animating:", _animating);
 	if(hasAStage && hasRenderer && _animating === false)
 	{
 		setupStage(
 			getStageComponent(state.components).stage, 
 			getPIXIRendererComponent(state.components).renderer
 		);
+		return true;
 	}
 	else if( (hasAStage === false || hasRenderer === false) && _animating)
 	{
 		tearDownStage();
+		return false; 
 	}
 }
 
@@ -201,6 +210,8 @@ export function addRemoveSprites(store,
 		 _.includes(spriteComponentsToRemove, comp) === false;
 	})
 	.value();
+
+	console.log("spriteComponentsToAdd:", spriteComponentsToAdd);
 
 	if(spriteComponentsToAdd.length > 0)
 	{

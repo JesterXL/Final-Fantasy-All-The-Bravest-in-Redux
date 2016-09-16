@@ -6,7 +6,7 @@ import { takeEvery, takeLatest, delay } from 'redux-saga';
 
 import { playerAttack } from './playerAttack';
 import { Character, makePlayer, makeMonster } from '../battle/Character';
-import { genericEntity } from '../core/entities';
+import { genericEntity } from '../enums/entities';
 
 describe('#playerAttack', ()=>
 {

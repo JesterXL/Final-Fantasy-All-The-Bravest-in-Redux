@@ -4,6 +4,7 @@ import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import createSagaMiddleware from 'redux-saga'
 import createLogger from 'redux-logger';
 import rootReducer from './com/jessewarden/ff6redux/reducers/';
+import { startState } from './com/jessewarden/ff6redux/reducers/startState';
 import { timer } from './com/jessewarden/ff6redux/sagas/timer';
 import { Warrior, Goblin, genericEntity } from './com/jessewarden/ff6redux/enums/entities';
 import { 
@@ -56,6 +57,7 @@ export function setupRedux()
 	sagaMiddleware = createSagaMiddleware();
 	store = createStore(
 			rootReducer,
+			startState,
 			applyMiddleware(sagaMiddleware)
 	);
 
@@ -65,6 +67,8 @@ export function setupRedux()
 	{
 		var state = store.getState()
 	});
+
+	console.log("state:", store.getState());
 
 	debugWindows(store);	
 
@@ -104,7 +108,7 @@ export function setupRedux()
 	var playerTurnSystem = PlayerTurnSystem(store);
 
 	startTimer(store);
-
+	
 	// delayed(2 * 1000)
 	// .then(()=>
 	// {

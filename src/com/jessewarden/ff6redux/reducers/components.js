@@ -13,41 +13,7 @@ import {
 import BattleState from '../enums/BattleState';
 import {makeBattleTimer} from '../battle/Character';
 
-function processCharacterBattleTimers(state, action)
-{
-	return _.map(state, (character)=>
-	{
-		if(character.type !== 'Character')
-		{
-			return character;
-		}
-		
-		var timerResult = character.generator.next(action.difference);
-		if(timerResult.done)
-		{
-			return character;
-		}
-
-		if(timerResult.value === undefined)
-		{
-			timerResult = character.generator.next(action.difference);
-		}
-		if(timerResult.value.percentage === 1)
-		{
-			return Object.assign({}, character,
-			{
-				percentage: 1,
-				battleState: BattleState.READY
-			});
-		}
-		return Object.assign({}, character,
-		{
-			percentage: timerResult.value.percentage
-		});
-	});
-}
-
-export default function components(state=[], action)
+export function components(state=[], action)
 {
 	switch(action.type)
 	{
@@ -85,7 +51,7 @@ export default function components(state=[], action)
 				.concat(state.slice(index + 1));
 			
 		case PLAYER_TURN_OVER:
-			console.log("action.character:", action.character);
+			// console.log("action.character:", action.character);
 			var updatedCharacter = Object.assign({}, action.character, {
 				battleState: BattleState.WAITING,
 				generator: makeBattleTimer(action.character)
@@ -93,28 +59,68 @@ export default function components(state=[], action)
 			return replaceCharacter(state, action.character, updatedCharacter);
 
 		case CHARACTER_DEAD:
-			var componentsToRemove = getAllComponentsForEntity(action.character.entity);
-			return _.reduce(state, (newState, component)=>
+			var componentsToRemove = getAllComponentsForEntity(state, action.character.entity);
+			// console.log("componentsToRemove:", componentsToRemove);
+			var reducedList =  _.reduce(state, (newState, component)=>
 			{
+				// console.log("newState:", newState);
+				// console.log("components:", components);
 				if(_.includes(componentsToRemove, component) === false)
 				{
 					newState.push(component);
 					return newState;
 				}
+				return newState;
 			}, []);
+			console.log("reducedList:", reducedList);
+			return reducedList;
 
 		default:
 			return state;
 	}
 }
 
-function removeComponentAt(state, index)
+export function processCharacterBattleTimers(state, action)
+{
+	return _.map(state, (character)=>
+	{
+		if(_.isNil(character.type) || character.type !== 'Character')
+		{
+			return character;
+		}
+		
+		var timerResult = character.generator.next(action.difference);
+		if(timerResult.done)
+		{
+			return character;
+		}
+
+		if(timerResult.value === undefined)
+		{
+			timerResult = character.generator.next(action.difference);
+		}
+		if(timerResult.value.percentage === 1)
+		{
+			return Object.assign({}, character,
+			{
+				percentage: 1,
+				battleState: BattleState.READY
+			});
+		}
+		return Object.assign({}, character,
+		{
+			percentage: timerResult.value.percentage
+		});
+	});
+}
+
+export function removeComponentAt(state, index)
 {
 	return [...state.slice(0, index), 
 			...state.slice(index + 1)];
 }
 
-function replaceCharacter(list, character, updatedCharacter)
+export function replaceCharacter(list, character, updatedCharacter)
 {
 	var index = _.findIndex(list, p => p.entity === character.entity);
 	return list
