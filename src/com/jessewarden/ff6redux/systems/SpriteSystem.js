@@ -37,7 +37,7 @@ function mapStateToThis(store)
 	// console.log("SpriteSystem::mapStateToThis");
 	// NOTE: Treating the StageComponent as a Singleton. Not sure the ramifications of this.
 	const state = store.getState();
-	console.log("state:", state);
+	// console.log("state:", state);
 	var result = addOrRemoveStage(state);
 	// console.log("result:", result);
 	addOrRemovePIXIRenderer(state);
@@ -210,8 +210,6 @@ export function addRemoveSprites(store,
 		 _.includes(spriteComponentsToRemove, comp) === false;
 	})
 	.value();
-
-	console.log("spriteComponentsToAdd:", spriteComponentsToAdd);
 
 	if(spriteComponentsToAdd.length > 0)
 	{

@@ -5,7 +5,7 @@ import KeyboardManager from './KeyboardManager';
 
 import { createStore, applyMiddleware, combineReducers} from 'redux'
 
-describe.only('#KeyboardManager', ()=>
+describe('#KeyboardManager', ()=>
 {
 	it('works with emulated event', (done)=>
 	{

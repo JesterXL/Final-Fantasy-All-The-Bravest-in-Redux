@@ -20,11 +20,12 @@ function divide(a, b)
 	return Math.floor(a / b);
 }
 
-function getRandomNumberFromRange(start, end)
+export function getRandomNumberFromRange(start, end)
 {
 	var range = end - start;
 	var result = Math.random() * range;
-	return Math.round(result) + 1;
+	result += start;
+	return Math.round(result);
 }
 
 // level is an int
@@ -90,7 +91,7 @@ function getDamageStep1(
 	return damage;
 }
 
-function getRandomMonsterVigor()
+export function getRandomMonsterVigor()
 {
 	return getRandomNumberFromRange(56, 63);
 }
@@ -466,7 +467,7 @@ function isStandardFightAttack(isPhysicalAttack, isMagicalAttack)
 	int magicBlock =  0,
 	int targetStamina =  null,
 */
-function getHitAndApplyDamage(
+export function getHitAndApplyDamage(
 	attacker, // Character
 	targetStamina =  null,
 	isPhysicalAttack =  true,
@@ -630,9 +631,4 @@ function getHitAndApplyDamage(
 //				target: target
 //			)
 //		);
-}
-
-export default {
-	getHitAndApplyDamage: getHitAndApplyDamage,
-	getRandomMonsterVigor: getRandomMonsterVigor
 }

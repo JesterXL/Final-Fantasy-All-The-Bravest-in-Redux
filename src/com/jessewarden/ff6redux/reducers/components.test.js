@@ -16,7 +16,7 @@ import {
 } from './components';
 import { Character, makeBattleTimer } from '../battle/Character';
 
-describe.only('#components', ()=>
+describe('#components', ()=>
 {
 	it('basic test', ()=>
 	{
