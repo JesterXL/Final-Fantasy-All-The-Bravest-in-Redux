@@ -7,42 +7,36 @@ import {
 	START_TIMER
 	 } 
 	from '../core/actions';
-import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
+import { take, put, call, fork, cancel, cancelled, select } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga';
 import TextDropper from '../views/TextDropper';
-import BattleUtils from '../battle/BattleUtils';
+import { getHitAndApplyDamage } from '../battle/BattleUtils';
 import _ from 'lodash';
 import {equippedWithGauntlet} from '../battle/Character';
 import { 
 	getFirstReadyCharacter,
-	getStage,
 	getSpriteComponentsFromComponents,
 	reduceSpriteComponentsToSprites,
-	getCursorManager,
-	getKeyboardManager,
 	getComponentSpriteFromEntity,
 	getCharacterFromSprite,
-	getComponentSpriteFromSprite
-} from '../core/locators';
+	getComponentSpriteFromSprite,
+	getCursorManager,
+	getKeyboardManager,
+	getStage,
+	getStageComponent
+} from '../core/selectors';
 
 export function *playerAttack(action)
 {
-	// player: readyCharacter.entity,
-	// stage: getStage(state.components),
-	// battleMenusContainer: getBattleMenusContainer(state.components),
-	// keyboardMangager: getKeyboardManager(state.components),
-	// cursorManager: getCursorManager(state.components)
-
 	try
 	{
-		let state = action.store.getState(); 
-		const keyboardMangager = getKeyboardManager(state.components);
-		const cursorManager = getCursorManager(state.components);
-		const stage = getStage(state.components);
-		const spriteTargets = reduceSpriteComponentsToSprites(state.components);
-
+		const spriteTargets = yield select(reduceSpriteComponentsToSprites);
+		console.log("spriteTargets:", spriteTargets);
 		// yield put({type: STOP_TIMER});
-		yield call(setupCursorManager, cursorManager, stage, keyboardMangager);
+		const cursorManager   = yield select(getCursorManager);
+		const stage           = yield select(getStage);
+		const keyboardManager = yield select(getKeyboardManager);
+		yield call(setupCursorManager, cursorManager, stage, keyboardManager);
 		yield call(setPlayerAttackTargets, cursorManager, stage, spriteTargets);
 		var targetIndex = yield call(waitForSelectTargetOrCancel, cursorManager);
 		yield call(clearCursorTargets, cursorManager);
@@ -54,12 +48,12 @@ export function *playerAttack(action)
 		}
 		else
 		{
-			const playerSprite = getComponentSpriteFromEntity(state.components, action.player.entity);
+			const playerSprite = select(getComponentSpriteFromEntity, action.player.entity);
 			var mySprite = playerSprite.sprite;
 			var startWX = mySprite.x;
 			var startWY = mySprite.y;
 			var spriteTargetSelected = spriteTargets[targetIndex];
-			var targetCharacter = getCharacterFromSprite(state.components, spriteTargetSelected);
+			var targetCharacter = select(getCharacterFromSprite, spriteTargetSelected);
 			// console.log("targetCharacter:", targetCharacter);
 			var targetX = spriteTargetSelected.x;
 			var targetY = spriteTargetSelected.y;
@@ -132,24 +126,21 @@ export function dropText(textDropper, target, damage)
 	return textDropper.addTextDrop(target, damage);
 }
 
-export function getHitAndApplyDamage(player, stamina)
-{
-	return BattleUtils.getHitAndApplyDamage(player, stamina);
-}
-
 export function hideBattleMenu(battleMenu)
 {
 	return battleMenu.hide();
 }
 
-export function setupCursorManager(cursorManager, stage, keyboardMangager)
+export function setupCursorManager(cursorManager, stage, keyboardManager)
 {
-	cursorManager.setup(stage, keyboardMangager);
+	cursorManager.setup(stage, keyboardManager);
 }
 
 export function setPlayerAttackTargets(cursorManager, stage, spriteTargets)
 {
-	// console.log("spriteTargets:", spriteTargets);
+	console.log("cursorManager:", cursorManager);
+	console.log("stage:", stage);
+	console.log("spriteTargets:", spriteTargets);
 	return cursorManager.setTargets(stage, spriteTargets);
 }
 
@@ -157,6 +148,7 @@ export function waitForSelectTargetOrCancel(cursorManager)
 {
 	return new Promise((success)=>
 	{
+		console.log("cursorManager:", cursorManager);
 		var targetSelectSub = cursorManager.changes.subscribe((event)=>
 		{
 			switch(event.type)

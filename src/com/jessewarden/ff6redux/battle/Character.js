@@ -67,6 +67,13 @@ export function makeMonster(entity)
 	return chr;
 }
 
+export function makeReadyCharacter(entity)
+{
+	var chr = new Character(entity);
+	chr.battleState = BattleState.READY;
+	return chr;
+}
+
 export function getRandomMonsterVigor()
 {
 	return BattleUtils.getRandomMonsterVigor();

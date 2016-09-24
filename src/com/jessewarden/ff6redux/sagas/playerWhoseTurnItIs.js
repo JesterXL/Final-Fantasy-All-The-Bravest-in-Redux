@@ -9,15 +9,15 @@ import {
 	getBattleMenusContainer,
 	getKeyboardManager,
 	getCursorManager
-} from '../core/locators';
+} from '../core/selectors';
 
 export function *playerTurn(action)
 {
 	const state = action.store.getState();
-	const stage = getStage(state.components);
-	const battleMenusContainer = getBattleMenusContainer(state.components);
-	const keyboardMangager = getKeyboardManager(state.components);
-	const cursorManager = getCursorManager(state.components);
+	const stage = getStage(state);
+	const battleMenusContainer = getBattleMenusContainer(state);
+	const keyboardMangager = getKeyboardManager(state);
+	const cursorManager = getCursorManager(state);
 	const menuResult = yield call(
 		showBattleMenu, 
 		stage, 

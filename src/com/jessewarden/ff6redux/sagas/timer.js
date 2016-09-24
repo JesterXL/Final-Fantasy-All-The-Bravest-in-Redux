@@ -8,7 +8,7 @@ export function *ticker(action)
 	var lastTick = performance.now();
 	while(true)
 	{
-		yield call(delay, 1000);
+		yield call(delay, 300);
 		var now = performance.now();
 		var difference = now - lastTick;
 		lastTick = now;

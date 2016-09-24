@@ -81,37 +81,6 @@ describe('#SpriteSystem', ()=>
 			)[0].should.equal('c');
 		});
 	});
-	describe('#getSpriteComponentsFromComponents', ()=>
-	{
-		it('empty with no matches', ()=>
-		{
-			getSpriteComponentsFromComponents([
-				{name: 'moo'},
-				{yo: 'man'}
-			]).should.be.empty;
-		});
-		it('empty empty', ()=>
-		{
-			getSpriteComponentsFromComponents([]).should.be.empty;
-		});
-		it('1 with 1 match', ()=>
-		{
-			getSpriteComponentsFromComponents([
-				{type: 'moo'},
-				{type: 'componentSprite', name: 'cheese'}
-			])[0].should.deep.equal({type: 'componentSprite', name: 'cheese'});
-		});
-		it('2 with 4 items and 2 matches', ()=>
-		{
-			getSpriteComponentsFromComponents([
-				{type: 'moo'},
-				{type: 'moo'},
-				{type: 'uno', name: 'cheese'},
-				{type: 'componentSprite', name: 'cheese'},
-				{type: 'componentSprite', name: 'cheese'}
-			]).should.have.lengthOf(2);
-		});
-	});
 	describe('#removeComponentsSpritesFromParent', ()=>
 	{
 		it('can pass nothing', ()=>

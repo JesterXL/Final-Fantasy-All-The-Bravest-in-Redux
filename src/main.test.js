@@ -112,13 +112,6 @@ describe('#main', function()
 			mockEntity = undefined;
 			mockEntityCreator = undefined;
 		});
-		it('#addWarriorEntity', ()=>
-		{
-			addWarriorEntity(mockEntityCreator, store).should.deep.equal({
-				type: ADD_ENTITY,
-				entity: mockEntity
-			});
-		});
 		it('#Character', ()=>
 		{
 			Character('cow').should.exist;

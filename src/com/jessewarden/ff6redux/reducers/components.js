@@ -9,7 +9,7 @@ import {
 import {
 	getComponentIndexFromCharacter,
 	getAllComponentsForEntity
-} from '../core/locators';
+} from '../core/selectors';
 import BattleState from '../enums/BattleState';
 import {makeBattleTimer} from '../battle/Character';
 

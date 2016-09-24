@@ -7,7 +7,7 @@ import {
 	getPoisonDamageFromMaxDamage,
 	getPoisonMaxDamage } from './StatusEffectHandlers';
 
-describe.only('#StatusEffectHandlers', ()=>
+describe('#StatusEffectHandlers', ()=>
 {
 	describe('#poisonDamage', ()=>
 	{

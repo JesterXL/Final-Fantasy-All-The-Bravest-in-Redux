@@ -8,7 +8,7 @@ import {
 	hasPIXIRendererComponent,
 	getPIXIRendererComponent,
 	getSpriteComponentsFromComponents
-} from '../core/locators';
+} from '../core/selectors';
 
 let _unsubscribe;
 var startSpriteX = 400;
@@ -42,7 +42,7 @@ function mapStateToThis(store)
 	// console.log("result:", result);
 	addOrRemovePIXIRenderer(state);
 	addOrRemovePIXIComponents(state);
-	if(hasStageComponent(state.components) && hasPIXIRendererComponent(state.components))
+	if(hasStageComponent(state) && hasPIXIRendererComponent(state))
 	{
 		addRemoveSprites(store,
 			startSpriteX, 
@@ -54,7 +54,7 @@ function mapStateToThis(store)
 
 export function addOrRemovePIXIRenderer(state)
 {
-	var pixiRendererComponent = getPIXIRendererComponent(state.components);
+	var pixiRendererComponent = getPIXIRendererComponent(state);
 	if(pixiRendererComponent && hasPIXIRendererInDOM() === false)
 	{
 		addPIXIRendererToDOM(pixiRendererComponent.renderer.view);
@@ -91,8 +91,8 @@ export function removePIXIRendererFromDOM()
 
 export function addOrRemoveStage(state)
 {
-	const hasAStage = hasStageComponent(state.components);
-	const hasRenderer = hasPIXIRendererComponent(state.components);
+	const hasAStage = hasStageComponent(state);
+	const hasRenderer = hasPIXIRendererComponent(state);
 	// console.log("*******");
 	// console.log("hasAStage:", hasAStage);
 	// console.log("hasRenderer:", hasRenderer);
@@ -100,8 +100,8 @@ export function addOrRemoveStage(state)
 	if(hasAStage && hasRenderer && _animating === false)
 	{
 		setupStage(
-			getStageComponent(state.components).stage, 
-			getPIXIRendererComponent(state.components).renderer
+			getStageComponent(state).stage, 
+			getPIXIRendererComponent(state).renderer
 		);
 		return true;
 	}
@@ -125,11 +125,11 @@ export function tearDownStage()
 
 export function addOrRemovePIXIComponents(state)
 {
-	const hasAStage = hasStageComponent(state.components);
-	const hasSomePixiComponents = hasPIXIComponents(state.components);
+	const hasAStage = hasStageComponent(state);
+	const hasSomePixiComponents = hasPIXIComponents(state);
 	if(hasAStage && hasSomePixiComponents)
 	{
-		const stage = getStageComponent(state.components);
+		const stage = getStageComponent(state);
 		const unattachedPixiComponents = _.filter(state.components, c => {
 			return c.type === 'PIXIContainer' && c.container.parent === null;
 		});
@@ -184,7 +184,7 @@ export function addRemoveSprites(store,
 	const entities = state.entities;
 	const components = state.components;
 
-	var spriteComponents = getSpriteComponentsFromComponents(components);
+	var spriteComponents = getSpriteComponentsFromComponents(state);
 	var spriteComponentsToRemove = componentsToRemove(
 		spriteComponents, 
 		entities

@@ -3,7 +3,7 @@ import { PLAYER_TURN } from '../core/actions';
 import { noPlayer } from '../reducers/startState';
 import { 
 	getFirstReadyCharacter
-} from '../core/locators';
+} from '../core/selectors';
 
 let _unsubscribe;
 let notNil = _.negate(_.isNil);
@@ -23,7 +23,7 @@ export function handleStateChange(store)
 	var state = store.getState();
 	if(state.playerWhoseTurnItIs === noPlayer)
 	{
-		var readyCharacter = getFirstReadyCharacter(state.components);
+		var readyCharacter = getFirstReadyCharacter(state);
 		if(notNil(readyCharacter))
 		{
 			store.dispatch({
