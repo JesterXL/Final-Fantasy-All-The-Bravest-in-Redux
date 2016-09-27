@@ -82,6 +82,16 @@ export function reduceSpriteComponentsToSprites(state)
 	.value();
 }
 
+export function getAliveSpriteTargets(state)
+{
+	return _.chain(reduceSpriteComponentsToSprites(state))
+	.filter(sprite => {
+		const character = getCharacterFromSprite(state, sprite);
+		return character.battleState !== BattleState.DEAD;
+	})
+	.value();
+}
+
 export function getCharacterFromSprite(state, sprite)
 {
 	var componentSprite = _.chain(getSpriteComponentsFromComponents(state.components))
@@ -132,4 +142,9 @@ export function getStage(state)
 export function getStageComponent(state)
 {
 	return _.find(state.components, c => c.type === 'StageComponent');
+}
+
+export function getCharacterFromEntity(state, entity)
+{
+	return _.find(state.components, c => c.type === 'Character' && c.entity === entity);
 }

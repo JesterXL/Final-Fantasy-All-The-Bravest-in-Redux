@@ -14,6 +14,7 @@ export const PLAYER_TURN_READY           = 'PLAYER_TURN_READY';
 export const PLAYER_TURN_OVER            = 'PLAYER_TURN_OVER';
 
 export const MONSTER_TURN                = 'MONSTER_TURN';
+export const MONSTER_TURN_OVER			 = 'MONSTER_TURN_OVER';
 export const CHARACTER_DEAD                = 'CHARACTER_DEAD';
 
 export const PLAYER_ATTACK               = 'PLAYER_ATTACK';

@@ -11,5 +11,5 @@ export var startState = {
 	components: []
 };
 
-export const noPlayer = "-1";
-export const noMonster = {};
+export const noPlayer = "NO PLAYER";
+export const noMonster = "NO MONSTER";

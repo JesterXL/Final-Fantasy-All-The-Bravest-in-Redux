@@ -23,15 +23,17 @@ import {
 	getCursorManager,
 	getKeyboardManager,
 	getStage,
-	getStageComponent
+	getStageComponent,
+	getAliveSpriteTargets,
+	getCharacterFromEntity
 } from '../core/selectors';
 
 export function *playerAttack(action)
 {
 	try
 	{
-		const spriteTargets = yield select(reduceSpriteComponentsToSprites);
-		console.log("spriteTargets:", spriteTargets);
+		const spriteTargets = yield select(getAliveSpriteTargets);
+		// console.log("spriteTargets:", spriteTargets);
 		// yield put({type: STOP_TIMER});
 		const cursorManager   = yield select(getCursorManager);
 		const stage           = yield select(getStage);
@@ -48,12 +50,12 @@ export function *playerAttack(action)
 		}
 		else
 		{
-			const playerSprite = select(getComponentSpriteFromEntity, action.player.entity);
+			const playerSprite = yield select(getComponentSpriteFromEntity, action.player.entity);
 			var mySprite = playerSprite.sprite;
 			var startWX = mySprite.x;
 			var startWY = mySprite.y;
 			var spriteTargetSelected = spriteTargets[targetIndex];
-			var targetCharacter = select(getCharacterFromSprite, spriteTargetSelected);
+			var targetCharacter = yield select(getCharacterFromSprite, spriteTargetSelected);
 			// console.log("targetCharacter:", targetCharacter);
 			var targetX = spriteTargetSelected.x;
 			var targetY = spriteTargetSelected.y;
@@ -68,47 +70,58 @@ export function *playerAttack(action)
 			var middleX = halfX;
 
 			yield call(leapTowardsTarget, playerSprite, spriteTargetSelected);
+			console.log("calling firstAttack");
 			yield call(firstAttack, playerSprite);
+			console.log("calling getHitAndApplyDamage");
 			var targetHitResult = yield call(getHitAndApplyDamage, action.player, targetCharacter.stamina);
+			console.log("targetHitResult:", targetHitResult);
 			const textDropper = new TextDropper(stage);
+			console.log("textDropper:", textDropper);
 			// console.log("targetHitResult.hit:", targetHitResult.hit);
 			if(targetHitResult.hit === true)
 			{
+				console.log("if on targetCharacter.characterType:", targetCharacter);
 				if(targetCharacter.characterType === 'monster')
 				{
-					// console.log("targetCharacter:", targetCharacter);
-					// console.log("before targetCharacter.hitPoints:", targetCharacter.hitPoints);
+					console.log("putting character hitPoints changed for monster");
+					console.log("after targetCharacter.hitPoints:", targetCharacter.hitPoints);
 					yield put({
 						type: CHARACTER_HITPOINTS_CHANGED, 
 						hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
 						character: targetCharacter
 					});
+					console.log("targetCharacter.entity:", targetCharacter.entity);
 
-					console.log("after targetCharacter.hitPoints:", targetCharacter.hitPoints);
-					// SIIIIDDDEEEE EFFECTSS!!!!
-					if(targetCharacter.hitPoints <= 0)
+					const updatedTargetCharacter = yield select(getCharacterFromEntity, targetCharacter.entity);
+					console.log("updatedTargetCharacter.hitPoints:", updatedTargetCharacter.hitPoints);
+					if(updatedTargetCharacter.hitPoints <= 0)
 					{
-						yield put({type: STOP_TIMER});
+						// yield put({type: STOP_TIMER});
 						console.log("spriteTargetSelected:", spriteTargetSelected);
-						yield call(animateMonsterDeath, getComponentSpriteFromSprite(state.components, spriteTargetSelected));
-						console.log("CHARACTER_DEAD, character:", targetCharacter);
-						yield put({type: CHARACTER_DEAD, character: targetCharacter});
+						const monsterComponentSprite = yield select(getComponentSpriteFromSprite, spriteTargetSelected);
+						yield call(animateMonsterDeath, monsterComponentSprite);
+						console.log("CHARACTER_DEAD, updatedTargetCharacter:", updatedTargetCharacter);
+						yield put({type: CHARACTER_DEAD, character: updatedTargetCharacter});
 					}
 				}
 				else
 				{
+					console.log("putting character hitPoints changed for player");
 					yield put({
 						type: CHARACTER_HITPOINTS_CHANGED, 
 						hitPoints: targetCharacter.hitPoints - targetHitResult.damage,
 						character: targetCharacter
 					});
 				}
+				console.log("calling dropText for hit");
 				yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage);
 			}
 			else
 			{
+				console.log("calling dropText for miss");
 				yield call(dropText, textDropper, spriteTargetSelected, targetHitResult.damage, 0xFFFFFF, true);
 			}
+			console.log("calling leapBackToStartingPosition");
 			yield call(leapBackToStartingPosition, playerSprite, startWX, startWY, middleX, middleY);
 			yield put({type: PLAYER_TURN_OVER, character: action.player});
 			// yield put({type: START_TIMER});
@@ -197,9 +210,8 @@ export function leapBackToStartingPosition(playerSprite, targetX, targetY, middl
 
 export function animateMonsterDeath(sprite)
 {
-	// console.log("sprite:", sprite);
-	// console.log("sprite.animateDeath:", sprite.animateDeath);
-	return sprite.animateDeath();
+	// return sprite.animateDeath();
+	sprite.animateDeath();
 }
 
 export function *watchPlayerAttack()

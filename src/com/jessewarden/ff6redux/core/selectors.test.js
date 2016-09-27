@@ -8,7 +8,7 @@ import { Character, makeReadyCharacter } from '../battle/Character';
 import WarriorSprite from '../sprites/warrior/WarriorSprite';
 import CursorManager from '../managers/CursorManager';
 import KeyboardManager from '../managers/KeyboardManager';
-import { StageComponent } from '../components/StageComponent';
+import BattleState from '../enums/BattleState';
 
 import {
 	hasStageComponent,
@@ -24,7 +24,10 @@ import {
 	reduceSpriteComponentsToSprites,
 	getCharacterFromSprite,
 	getAllComponentsForEntity,
-	getCursorManager
+	getCursorManager,
+	getKeyboardManager,
+	getStageComponent,
+	getAliveSpriteTargets
 } from './selectors';
 
 describe('#selectors', ()=>
@@ -221,6 +224,61 @@ describe('#selectors', ()=>
 				childsPose]}), spriteLike).should.be.true;
 		});
 	});
+	describe.only('#getAliveSpriteTargets', ()=>
+	{
+		const entity1     = guid();
+		const entity2     = guid();
+		const entity3     = guid();
+		const entity4	  = guid();
+		const character1  = Character(entity1);
+		const character2  = Character(entity2);
+		const character3  = Character(entity3);
+		const character4  = Character(entity4);
+		character4.battleState = BattleState.DEAD;
+		const warrior1   = new WarriorSprite(entity1);
+		const warrior2   = new WarriorSprite(entity2);
+		const warrior3   = new WarriorSprite(entity3);
+		const deadWarrior4 = new WarriorSprite(entity4);
+		it('gets alive sprites', ()=>
+		{
+			const aliveSpriteTargets = getAliveSpriteTargets({components: [
+				entity1,
+				entity2,
+				entity3,
+				character1,
+				character2,
+				character3,
+				warrior1,
+				warrior2,
+				warrior3
+			]});
+			_.includes(aliveSpriteTargets, warrior1.sprite).should.be.true;
+		});
+		it('if 1 is dead, only has 1', ()=>
+		{
+			const aliveSpriteTargets = getAliveSpriteTargets({components: [
+				entity1,
+				entity4,
+				character1,
+				character4,
+				warrior1,
+				deadWarrior4
+			]});
+			_.includes(aliveSpriteTargets, warrior1.sprite).should.be.true;
+		});
+		it('if 1 is dead, its not in the list', ()=>
+		{
+			const aliveSpriteTargets = getAliveSpriteTargets({components: [
+				entity1,
+				entity4,
+				character1,
+				character4,
+				warrior1,
+				deadWarrior4
+			]});
+			_.includes(aliveSpriteTargets, deadWarrior4.sprite).should.be.false;
+		});
+	});
 	describe('#getCharacterFromSprite', ()=>
 	{
 		const entity     = guid();
@@ -305,7 +363,7 @@ describe('#selectors', ()=>
 		});
 		it('works with blank', ()=>
 		{
-			expect(getKeyboardManager({components: []}).to.equal(undefined);
+			expect(getKeyboardManager({components: []})).to.equal(undefined);
 		});
 	});
 	describe('#getStageComponent', ()=>

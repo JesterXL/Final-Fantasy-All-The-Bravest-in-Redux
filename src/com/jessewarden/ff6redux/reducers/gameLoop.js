@@ -16,7 +16,6 @@ export default function gameLoop(state=defaultValue, action)
 		
 		case START_TIMER:
 			return Object.assign({}, state, {running: true});
-			return state;
 
 		case STOP_TIMER:
 			return Object.assign({}, state, {running: false});
