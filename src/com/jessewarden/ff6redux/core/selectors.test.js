@@ -224,7 +224,7 @@ describe('#selectors', ()=>
 				childsPose]}), spriteLike).should.be.true;
 		});
 	});
-	describe.only('#getAliveSpriteTargets', ()=>
+	describe('#getAliveSpriteTargets', ()=>
 	{
 		const entity1     = guid();
 		const entity2     = guid();
