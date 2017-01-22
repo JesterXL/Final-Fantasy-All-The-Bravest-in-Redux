@@ -1,5 +1,5 @@
+const log = console.log;
 import _ from "lodash";
-import HitResult from './HitResult';
 import TargetHitResult from './TargetHitResult';
 import {
 	equippedWithGauntlet,
@@ -15,21 +15,21 @@ import {
 
 const PERFECT_HIT_RATE = 255;
 
-function divide(a, b)
+export const divide = (a, b)=>
 {
 	return Math.floor(a / b);
-}
+};
 
-export function getRandomNumberFromRange(start, end)
+export const getRandomNumberFromRange = (start, end)=>
 {
 	var range = end - start;
 	var result = Math.random() * range;
 	result += start;
 	return Math.round(result);
-}
+};
 
 // level is an int
-function getDamageStep1(
+export const getDamageStep1 = (
 	vigor = 1,
 	battlePower = 1,
 	spellPower = 1,
@@ -43,7 +43,7 @@ function getDamageStep1(
 	isPlayerAndNotMonster =  true,
 	genjiGloveEquipped =  false,
 	oneOrZeroWeapons = true
-)
+)=>
 {
 
 	var damage = 0;
@@ -89,14 +89,14 @@ function getDamageStep1(
 	}
 
 	return damage;
-}
+};
 
-export function getRandomMonsterVigor()
+export const getRandomMonsterVigor = ()=>
 {
 	return getRandomNumberFromRange(56, 63);
-}
+};
 
-function getDamageStep2(
+export const getDamageStep2 = (
 	damage = 0,
 	isPhysicalAttack =  true,
 	isMagicalAttack =  false,
@@ -105,30 +105,27 @@ function getDamageStep2(
 	equippedWith2HeroRings =  false,
 	equippedWith1Earring =  false,
 	equippedWith2Earrings = false
-)
+)=>
 {
 	if(isPhysicalAttack && (equippedWithAtlasArmlet || equippedWith1HeroRing))
 	{
 		damage *= 5/4;
 	}
-
 	if(isMagicalAttack && (equippedWith1Earring || equippedWith2HeroRings))
 	{
 		damage *= 5/4;
 	}
-
 	if(isMagicalAttack && (equippedWith2Earrings || equippedWith2HeroRings))
 	{
 		damage += (damage / 4) + (damage / 4);
 	}
-
 	return damage;
-}
+};
 
-function getDamageStep3(
+export const getDamageStep3 = (
 	damage = 0,
 	isMagicalAttack = false,
-	attackingMultipleTargets = false)
+	attackingMultipleTargets = false)=>
 {
 	if(isMagicalAttack === true && attackingMultipleTargets === true)
 	{
@@ -138,10 +135,10 @@ function getDamageStep3(
 	{
 		return damage;
 	}
-}
+};
 
 // TODO: figure out 'if fight command'
-function getDamageStep4(damage = 0, attackerIsInBackRow = false)
+export const getDamageStep4 = (damage = 0, attackerIsInBackRow = false) =>
 {
 	if(attackerIsInBackRow === true)
 	{
@@ -151,45 +148,39 @@ function getDamageStep4(damage = 0, attackerIsInBackRow = false)
 	{
 		return damage;
 	}
-}
+};
 
-function getCriticalHit()
-{
-	return getRandomNumberFromRange(1, 32) === 32;
-}
+export const getCriticalHit = ()=> getRandomNumberFromRange(1, 32) === 32;
 
-function getDamageStep5(damage = 0,
+export const getDamageStep5 = (damage = 0,
 	hasMorphStatus = false,
 	hasBerserkStatusAndPhysicalAttack = false,
-	isCriticalHit = false)
+	isCriticalHit = false) =>
 {
 	var multiplier = 0;
 
 	if(hasMorphStatus)
 	{
-		multiplier += 2;
+		multiplier += 3;
 	}
 
 	if(hasBerserkStatusAndPhysicalAttack)
 	{
-		multiplier += 1;
+		multiplier += 2;
 	}
 
 	if(isCriticalHit)
 	{
-		multiplier += 2;
+		multiplier += 3;
 	}
 
 	damage += ((damage / 2) * multiplier);
 	return damage;
 }
 
-function getDamageModificationsVariance()
-{
-	return getRandomNumberFromRange(224, 255);
-}
+export const getDamageModificationsVariance = ()=> getRandomNumberFromRange(224, 255);
 
-function getDamageStep6(damage = 0,
+export const getDamageStep6 = (damage = 0,
 	defense = 0,
 	magicalDefense = 0,
 	variance =  224,
@@ -203,7 +194,7 @@ function getDamageStep6(damage = 0,
 	targetHasMorphStatus =  false,
 	targetIsSelf =  false,
 	targetIsCharacter =  false,
-	attackerIsCharacter =  true)
+	attackerIsCharacter =  true) =>
 {
 
 	damage = (damage * variance / 256) + 1;
@@ -252,11 +243,11 @@ function getDamageStep6(damage = 0,
 	}
 
 	return damage;
-}
+};
 
-function getDamageStep7(damage = 0,
-                                    hittingTargetsBack = false,
-                                    isPhysicalAttack = true)
+export const getDamageStep7 = (damage = 0,
+						hittingTargetsBack = false,
+						isPhysicalAttack = true) =>
 {
 	var multiplier = 0;
 	if(isPhysicalAttack && hittingTargetsBack)
@@ -266,25 +257,25 @@ function getDamageStep7(damage = 0,
 
 	damage += ((damage / 2) * multiplier);
 	return damage;
-}
+};
 
-function getDamageStep8(damage = 0, targetHasPetrifyStatus = false)
+export const getDamageStep8 = (damage = 0, targetHasPetrifyStatus = false)=>
 {
 	if(targetHasPetrifyStatus)
 	{
 		damage = 0;
 	}
 	return damage;
-}
+};
 
-function getDamageStep9(
+export const getDamageStep9 = (
 	damage = 0,
 	elementHasBeenNullified =  false,
 	targetAbsorbsElement =  false,
 	targetIsImmuneToElement =  false,
 	targetIsResistantToElement =  false,
 	targetIsWeakToElement = false
-)
+) =>
 {
 	if(elementHasBeenNullified)
 	{
@@ -314,7 +305,7 @@ function getDamageStep9(
 	}
 
 	return damage;
-}
+};
 
 function getRandomHitOrMissValue()
 {
@@ -336,6 +327,14 @@ function getRemoveImageStatus()
 	return getRandomNumberFromRange(1, 4) === 4;
 }
 
+export const getHitResult = (hit, removeImageStatus=false) =>
+{
+	return {
+		hit,
+		removeImageStatus
+	};
+};
+
 // returns HitResult
 /*
 	These are ints, not numbers:
@@ -348,7 +347,7 @@ function getRemoveImageStatus()
 	int targetStamina =  null,
 	specialAttackType:AttackType
 */
-function getHit(
+export const getHit = (
 	randomHitOrMissValue =  0,
 	randomStaminaHitOrMissValue =  0,
 	isPhysicalAttack =  true,
@@ -367,43 +366,43 @@ function getHit(
 	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
 	magicBlock =  0,
 	targetStamina =  null,
-	specialAttackType = null)
+	specialAttackType = null) =>
 {
 	if(isPhysicalAttack && targetHasClearStatus)
 	{
-		return new HitResult(false);
+		return getHitResult(false);
 	}
 
 	if(isMagicalAttack && targetHasClearStatus)
 	{
-		return new HitResult(true);
+		return getHitResult(true);
 	}
 
 	if(protectedFromWound && attackMissesDeathProtectedTargets)
 	{
-		return new HitResult(false);
+		return getHitResult(false);
 	}
 
 	if(isMagicalAttack && spellUnblockable)
 	{
-		return new HitResult(true);
+		return getHitResult(true);
 	}
 
 	if(_.isNil(specialAttackType))
 	{
 		if(targetHasSleepStatus || targetHasPetrifyStatus || targetHasFreezeStatus || targetHasStopStatus)
 		{
-			return new HitResult(true);
+			return getHitResult(true);
 		}
 
 		if(isPhysicalAttack && backOfTarget)
 		{
-			return new HitResult(true);
+			return getHitResult(true);
 		}
 
 		if(hitRate === PERFECT_HIT_RATE)
 		{
-			return new HitResult(true);
+			return getHitResult(true);
 		}
 
 		if(isPhysicalAttack && targetHasImageStatus)
@@ -412,11 +411,11 @@ function getHit(
 			if(removeImageStatus)
 			{
 				// this'll remove Image status
-				return new HitResult(false, true);
+				return getHitResult(false, true);
 			}
 			else
 			{
-				return new HitResult(false);
+				return getHitResult(false);
 			}
 		}
 
@@ -428,11 +427,11 @@ function getHit(
 
 		if((hitRate * blockValue / 256) > randomHitOrMissValue)
 		{
-			return new HitResult(true);
+			return getHitResult(true);
 		}
 		else
 		{
-			return new HitResult(false);
+			return getHitResult(false);
 		}
 	}
 
@@ -443,23 +442,20 @@ function getHit(
 	{
 		if(targetStamina >= randomStaminaHitOrMissValue)
 		{
-			return new HitResult(false);
+			return getHitResult(false);
 		}
 		else
 		{
-			return new HitResult(true);
+			return getHitResult(true);
 		}
 	}
 	else
 	{
-		return new HitResult(false);
+		return getHitResult(false);
 	}
-}
+};
 
-function isStandardFightAttack(isPhysicalAttack, isMagicalAttack)
-{
-	return isPhysicalAttack && isMagicalAttack === false;
-}
+const isStandardFightAttack = (isPhysicalAttack, isMagicalAttack) => isPhysicalAttack && isMagicalAttack === false;
 
 // returns TargetHitResult 
 /*
@@ -467,7 +463,7 @@ function isStandardFightAttack(isPhysicalAttack, isMagicalAttack)
 	int magicBlock =  0,
 	int targetStamina =  null,
 */
-export function getHitAndApplyDamage(
+export const getHitAndApplyDamage = (
 	attacker, // Character
 	targetStamina =  null,
 	isPhysicalAttack =  true,
@@ -502,7 +498,7 @@ export function getHitAndApplyDamage(
 	targetAbsorbsElement =  false,
 	targetIsImmuneToElement =  false,
 	targetIsResistantToElement =  false,
-	targetIsWeakToElement = false)
+	targetIsWeakToElement = false) =>
 {
 	var hitResult = getHit(
 		getRandomHitOrMissValue(),
@@ -530,7 +526,7 @@ export function getHitAndApplyDamage(
 	var criticalHit = getCriticalHit();
 	var damageModificationVariance = getDamageModificationsVariance();
 	var standardFightAttack = isStandardFightAttack(isPhysicalAttack, isMagicalAttack);
-	if(hitResult.hit)
+	if(hitResult.hit === true)
 	{
 		damage = getDamageStep1(
 			attacker.vigor,

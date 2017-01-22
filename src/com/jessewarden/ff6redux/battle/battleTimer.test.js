@@ -3,7 +3,7 @@ should();
 
 import { battleTimer, characterTick } from './battleTimer';
 
-describe.only('#battleTimer', ()=>
+describe('#battleTimer', ()=>
 {
 	it('basic test', ()=>
 	{

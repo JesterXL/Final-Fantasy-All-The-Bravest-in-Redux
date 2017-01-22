@@ -5,6 +5,7 @@ module.exports = function karmaConfig (config) {
 			require('karma-webpack'),
 			require('karma-sourcemap-loader'),
 			require('karma-mocha'),
+			require('karma-mocha-reporter'),
 			require('karma-nyan-reporter'),
 			require('karma-threshold-reporter'),
 			require('karma-coverage'),
@@ -40,7 +41,7 @@ module.exports = function karmaConfig (config) {
 		//   'coverage'
 		// ],
 
-		reporters: [ 'nyan', 'coverage', 'threshold' ],
+		reporters: [ 'mocha' ],
 
 		files: [
 		/** Grab all files in the app folder that contain .spec. */
