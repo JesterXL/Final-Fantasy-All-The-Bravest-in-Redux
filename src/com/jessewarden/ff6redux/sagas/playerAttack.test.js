@@ -5,7 +5,7 @@ import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
 import { takeEvery, takeLatest, delay } from 'redux-saga';
 
 import { playerAttack } from './playerAttack';
-import { Character, makePlayer, makeMonster } from '../battle/Character';
+import { getCharacter, makePlayer, makeMonster } from '../battle/Character';
 import { genericEntity } from '../enums/entities';
 
 describe('#playerAttack', ()=>

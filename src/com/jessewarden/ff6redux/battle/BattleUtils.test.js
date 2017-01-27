@@ -15,11 +15,12 @@ import {
 	getDamageStep7,
 	getDamageStep8,
 	getDamageStep9,
-	getHit
+	getHit,
+	getHitAndApplyDamage
 } from './BattleUtils';
 const log = console.log;
 
-describe.only('#BattleUtils', ()=>
+describe('#BattleUtils', ()=>
 {
 	// it('divide', ()=>
 	// {
@@ -172,10 +173,26 @@ describe.only('#BattleUtils', ()=>
 		{
 			getHit(99, 127).hit.should.be.true;
 		});
-		it('should miss if 0 roll and stamnia roll 0', ()=>
+		it('should hit if 0 roll and stamnia roll 0', ()=>
 		{
 			getHit(0, 0).hit.should.be.true;
 		});
+		it('should hit if high block value (magic block bug)', ()=>
+		{
+			const result = getHit(0, 0);
+			log("result:", result);
+			result.hit.should.be.false;
+		});
 	});
-	
+	describe('#getHitAndApplyDamage', ()=>
+	{
+		it("doesn't blow up", ()=>
+		{
+			const mockAttacker = {
+				vigor: 1
+			};
+			const callback = ()=> getHitAndApplyDamage(mockAttacker);
+			callback.should.not.throw(Error);
+		});
+	});
 });

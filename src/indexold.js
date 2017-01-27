@@ -11,7 +11,7 @@ import {Subject} from 'rx';
 import _ from "lodash";
 import Row from "./com/jessewarden/ff6redux/enums/Row";
 import Relic from "./com/jessewarden/ff6redux/items/Relic";
-import {Character, makeMonster, makePlayer } from './com/jessewarden/ff6redux/battle/Character';
+import {getCharacter, makeMonster, makePlayer } from './com/jessewarden/ff6redux/battle/Character';
 import BattleState from './com/jessewarden/ff6redux/enums/BattleState';
 import Warrior from './com/jessewarden/ff6redux/sprites/warrior/Warrior';
 import Goblin from './com/jessewarden/ff6redux/sprites/goblin/Goblin';

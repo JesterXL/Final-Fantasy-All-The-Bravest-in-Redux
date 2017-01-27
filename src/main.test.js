@@ -23,7 +23,7 @@ import _ from 'lodash';
 
 import { Warrior, Goblin } from './com/jessewarden/ff6redux/enums/entities';
 
-import {Character} from './com/jessewarden/ff6redux/battle/Character';
+import {getCharacter} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 
 describe('#main', function()
@@ -114,7 +114,7 @@ describe('#main', function()
 		});
 		it('#Character', ()=>
 		{
-			Character('cow').should.exist;
+			getCharacter('cow').should.exist;
 		});
 		it("can add a default warrior entity", ()=>
 		{

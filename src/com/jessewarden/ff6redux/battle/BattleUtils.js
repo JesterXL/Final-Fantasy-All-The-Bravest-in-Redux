@@ -1,6 +1,6 @@
 const log = console.log;
 import _ from "lodash";
-import TargetHitResult from './TargetHitResult';
+
 import {
 	equippedWithGauntlet,
 	equippedWithOffering,
@@ -364,6 +364,7 @@ export const getHit = (
 	backOfTarget =  false,
 	targetHasImageStatus =  false,
 	hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	defense = 0,
 	magicBlock =  0,
 	targetStamina =  null,
 	specialAttackType = null) =>
@@ -419,18 +420,65 @@ export const getHit = (
 			}
 		}
 
-		var blockValue = (255 - (magicBlock * 2));
-		blockValue = Math.floor(blockValue);
-		blockValue++;
-		blockValue = _.clamp(blockValue, 1, 255);
-//			num blockValue = ((255 - magicBlock * 2).floor() + 1).clamp(1, 255);
 
-		if((hitRate * blockValue / 256) > randomHitOrMissValue)
+    // Step 4e. Chance to hit
+
+    //   1. BlockValue = (255 - MBlock * 2) + 1
+ 
+    //   2. If BlockValue > 255 then BlockValue = 255
+    //      If BlockValue < 1 then BlockValue = 1
+
+    //   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
+    //      you miss.
+
+
+	// NOTE: [jwarden 1.23.2017] After re-reading this bug for umpteenth time,
+	// I'm thinking of attempting a fix, and allowing this to be toggled on
+	// at a later date. (tl;dr; Originally, magicBlock was used causing all kinds
+	// of havoc).
+	// http://everything2.com/title/Final+Fantasy+VI+Evade+Bug
+
+		let blockValue;
+		hitRate = 1;
+		if(isMagicalAttack)
 		{
+			log("magicBlock:", magicBlock);
+			log("hitRate:", hitRate);
+			blockValue = (255 - (magicBlock * 2));
+			blockValue = Math.floor(blockValue);
+			blockValue++;
+			blockValue = _.clamp(blockValue, 1, 255);
+		}
+		else if(isPhysicalAttack)
+		{
+			log("defenese:", defense);
+			log("hitRate:", hitRate);
+			blockValue = (255 - (defense * 2));
+			blockValue = Math.floor(blockValue);
+			blockValue++;
+			blockValue = _.clamp(blockValue, 1, 255); 
+		}
+		else
+		{
+			throw new Error('wat, how you attack?');
+		}
+		
+		log("blockValue:", blockValue);
+		log("randomHitOrMissValue:", randomHitOrMissValue);
+		log("hitRate:", hitRate);
+		const hitRateVSBlockValue = hitRate * blockValue;
+		const dividedBy256 = hitRateVSBlockValue / 256;
+		log("hitRate * blockValue:", hitRateVSBlockValue);
+		log("divide by 256:", dividedBy256);
+
+		if(dividedBy256 > randomHitOrMissValue)
+		{
+			log("hit!");
 			return getHitResult(true);
 		}
 		else
 		{
+			log("miss...");
 			return getHitResult(false);
 		}
 	}
@@ -456,6 +504,17 @@ export const getHit = (
 };
 
 const isStandardFightAttack = (isPhysicalAttack, isMagicalAttack) => isPhysicalAttack && isMagicalAttack === false;
+
+export const getTargetHitResult = (hit, target, damage, criticalHit, removeImageStatus)=>
+{
+	return {
+		hit,
+		target,
+		damage,
+		criticalHit,
+		removeImageStatus
+	};
+};
 
 // returns TargetHitResult 
 /*
@@ -609,15 +668,9 @@ export const getHitAndApplyDamage = (
 	damage = _.clamp(damage, -9999, 9999);
 
 	// TODO: support attacking mulitple targets
-	// console.log("hitResult:", hitResult);
-	return new TargetHitResult(
-		hitResult.hit,
-		undefined,
-		damage,
-		criticalHit,
-		hitResult.removeImageStatus
-	);
+	return getTargetHitResult(hitResult.hit, undefined, damage, criticalHit, hitResult.removeImageStatus);
 
+// should probably return an array of these...
 //		targetHitResults.add(
 //			new TargetHitResult(
 //				criticalHit: criticalHit,

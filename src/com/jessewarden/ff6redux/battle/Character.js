@@ -3,19 +3,13 @@ import _ from "lodash";
 import {Subject} from "rx";
 import {battleTimer} from './BattleTimer';
 import BattleState from '../enums/BattleState';
-import Relic from '../items/Relic';
-import AtlasArmlet from '../items/AtlasArmlet';
-import Earring from '../items/Earring';
-import Gauntlet from '../items/Gauntlet';
-import GenjiGlove from '../items/GenjiGlove';
-import HeroRing from '../items/HeroRing';
-import Offering from '../items/Offering';
+import '../relics';
 
-var _INCREMENT = 0;
+let _INCREMENT = 0;
 
-var notNil = _.negate(_.isNil);
+const notNil = _.negate(_.isNil);
 
-export function Character(entity)
+export const getCharacter = (entity)=>
 {
 	var vm = {};
 	vm.entity = entity;
@@ -48,11 +42,11 @@ export function Character(entity)
 	vm.type = 'Character';
 	vm.characterType = 'player';
 	return vm;
-}
+};
 
 export function makePlayer(entity)
 {
-	var chr = new Character();
+	var chr = getCharacter(entity);
 	chr.characterType = 'player';
 	chr.battlePower = 50;
 	chr.entity = entity;
@@ -61,7 +55,7 @@ export function makePlayer(entity)
 
 export function makeMonster(entity)
 {
-	var chr = new Character();
+	var chr = getCharacter(entity);
 	chr.characterType = 'monster';
 	chr.entity = entity;
 	return chr;
@@ -69,7 +63,7 @@ export function makeMonster(entity)
 
 export function makeReadyCharacter(entity)
 {
-	var chr = new Character(entity);
+	var chr = getCharacter(entity);
 	chr.battleState = BattleState.READY;
 	return chr;
 }

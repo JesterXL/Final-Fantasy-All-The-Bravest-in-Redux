@@ -4,7 +4,7 @@ import guid from '../core/guid';
 import { StageComponent } from '../components/StageComponent';
 import { PIXIContainer } from '../components/PIXIContainer';
 import { PIXIRenderer } from '../components/PIXIRenderer';
-import { Character, makeReadyCharacter } from '../battle/Character';
+import { getCharacter, makeReadyCharacter } from '../battle/Character';
 import WarriorSprite from '../sprites/warrior/WarriorSprite';
 import CursorManager from '../managers/CursorManager';
 import KeyboardManager from '../managers/KeyboardManager';
@@ -92,15 +92,15 @@ describe('#selectors', ()=>
 	describe('#getFirstReadyCharacter', ()=>
 	{
 		const noneReady = [
-			new Character(guid()),
-			new Character(guid()),
-			new Character(guid())
+			getCharacter(guid()),
+			getCharacter(guid()),
+			getCharacter(guid())
 		];
 		const theOneReady = makeReadyCharacter(guid());
 		const oneReady = [
-			new Character(guid()),
+			getCharacter(guid()),
 			theOneReady,
-			new Character(guid())
+			getCharacter(guid())
 		];
 		const firstReady = makeReadyCharacter(guid());
 		const allReady = [
@@ -131,27 +131,27 @@ describe('#selectors', ()=>
 		it('works with 1', ()=>
 		{
 			const entity    = guid();
-			const character = Character(entity);
+			const character = getCharacter(entity);
 			const sprite    = new WarriorSprite(entity);
 			getComponentIndexFromCharacter({components: [sprite, character]}, character).should.be.equal(0);
 		});
 		it.skip('works with 3', ()=>
 		{
 			const entity    = guid();
-			const character = Character(entity);
+			const character = getCharacter(entity);
 			const sprite    = new WarriorSprite(entity);
 			getComponentIndexFromCharacter({components: [character, Character(guid()), sprite]}, character).should.be.equal(2);
 		});
 		it('works with nuffing', ()=>
 		{
-			const character = Character(guid());
+			const character = getCharacter(guid());
 			expect(getComponentIndexFromCharacter({components: []}, character)).to.equal(-1);
 		});
 	});
 	describe('#getSpriteComponentsFromComponents', ()=>
 	{
 		const entity    = guid();
-		const character = Character(entity);
+		const character = getCharacter(entity);
 		const sprite    = new WarriorSprite(entity);
 		it('gets components in mixed', ()=>
 		{
@@ -169,7 +169,7 @@ describe('#selectors', ()=>
 	describe('#getComponentSpriteFromEntity', ()=>
 	{
 		const entity    = guid();
-		const character = Character(entity);
+		const character = getCharacter(entity);
 		const sprite    = new WarriorSprite(entity);
 		it('works with mixed', ()=>
 		{
@@ -183,7 +183,7 @@ describe('#selectors', ()=>
 	describe('#getComponentSpriteFromSprite', ()=>
 	{
 		const entity    = guid();
-		const character = Character(entity);
+		const character = getCharacter(entity);
 		const sprite    = new WarriorSprite(entity);
 		it('finds a sprite', ()=>
 		{
@@ -197,7 +197,7 @@ describe('#selectors', ()=>
 	describe('#reduceSpriteComponentsToSprites', ()=>
 	{
 		const entity     = guid();
-		const character  = Character(entity);
+		const character  = getCharacter(entity);
 		const warrior1   = new WarriorSprite(entity);
 		const warrior2   = new WarriorSprite(entity);
 		const warrior3   = new WarriorSprite(entity);
@@ -230,10 +230,10 @@ describe('#selectors', ()=>
 		const entity2     = guid();
 		const entity3     = guid();
 		const entity4	  = guid();
-		const character1  = Character(entity1);
-		const character2  = Character(entity2);
-		const character3  = Character(entity3);
-		const character4  = Character(entity4);
+		const character1  = getCharacter(entity1);
+		const character2  = getCharacter(entity2);
+		const character3  = getCharacter(entity3);
+		const character4  = getCharacter(entity4);
 		character4.battleState = BattleState.DEAD;
 		const warrior1   = new WarriorSprite(entity1);
 		const warrior2   = new WarriorSprite(entity2);
@@ -282,7 +282,7 @@ describe('#selectors', ()=>
 	describe('#getCharacterFromSprite', ()=>
 	{
 		const entity     = guid();
-		const character  = Character(entity);
+		const character  = getCharacter(entity);
 		const warrior    = new WarriorSprite(entity);
 		it('works with character', ()=>
 		{
@@ -300,7 +300,7 @@ describe('#selectors', ()=>
 	describe('#getAllComponentsForEntity', ()=>
 	{
 		const entity     = guid();
-		const character  = Character(entity);
+		const character  = getCharacter(entity);
 		const warrior    = new WarriorSprite(entity);
 		it('works with character', ()=>
 		{
@@ -318,7 +318,7 @@ describe('#selectors', ()=>
 	describe('#getAllComponentsForEntity', ()=>
 	{
 		const entity     = guid();
-		const character  = Character(entity);
+		const character  = getCharacter(entity);
 		const warrior    = new WarriorSprite(entity);
 		it('works1', ()=>
 		{

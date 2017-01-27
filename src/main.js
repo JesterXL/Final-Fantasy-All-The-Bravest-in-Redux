@@ -18,7 +18,7 @@ import {
 
 import PIXI from 'pixi.js';
 
-import {Character, makePlayer, makeMonster} from './com/jessewarden/ff6redux/battle/Character';
+import {getCharacter, makePlayer, makeMonster} from './com/jessewarden/ff6redux/battle/Character';
 import WarriorSprite from './com/jessewarden/ff6redux/sprites/warrior/WarriorSprite';
 import GoblinSprite from './com/jessewarden/ff6redux/sprites/goblin/GoblinSprite';
 

@@ -18,7 +18,7 @@ import {
 	characterHitPointsChanged,
 	characterDead
 } from './components';
-import { Character, makeBattleTimer } from '../battle/Character';
+import { getCharacter, makeBattleTimer } from '../battle/Character';
 
 describe('#components', ()=>
 {
@@ -70,7 +70,7 @@ describe('#components', ()=>
 		describe('#CHARACTER_HITPOINTS_CHANGED', ()=>
 		{
 			const entity = genericEntity();
-			const character = Character(entity);
+			const character = getCharacter(entity);
 			const changeCharacterHitPoints = (character, value) => {
 				return {
 					type: CHARACTER_HITPOINTS_CHANGED,
@@ -102,12 +102,12 @@ describe('#components', ()=>
 			const entity = genericEntity();
 			it('starts in waiting', ()=>
 			{
-				const character = Character(entity); 
+				const character = getCharacter(entity); 
 				character.battleState.should.equal(BattleState.WAITING);
 			});
 			it('ends in death', ()=>
 			{
-				const character = Character(entity); 
+				const character = getCharacter(entity); 
 				characterDead([character], {character, type: CHARACTER_DEAD})[0].battleState.should.equal(BattleState.DEAD);
 			});
 		});
