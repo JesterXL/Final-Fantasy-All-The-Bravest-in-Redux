@@ -84,29 +84,18 @@ export function equippedWithNoRelics(chr)
 	return _.isNil(chr.relic1) && _.isNil(chr.relic2);
 }
 
-export function equippedWithGauntlet(chr)
-{
-	return chr.relic1 instanceof Gauntlet || chr.relic2 instanceof Gauntlet;
-}
-
-export function equippedWithOffering(chr)
-{
-	return chr.relic1 instanceof Offering || chr.relic2 instanceof Offering;
-}
-
-export function genjiGloveEquipped(chr)
-{
-	return chr.relic1 instanceof GenjiGlove || chr.relic2 instanceof GenjiGlove;
-}
-
-export function equippedWithAtlasArmlet(chr)
-{
-	return chr.relic1 instanceof AtlasArmlet || chr.relic2 instanceof AtlasArmlet;
-}
-
-export function equippedWithHeroRing(chr)
-{
-	return chr.relic1 instanceof HeroRing || chr.relic2 instanceof HeroRing;
+export const characterRelics = (character) => [character.relic1, character.relic2];
+export const equippedWith = (character, isRelicType) => _.some(characterRelics(character), isRelicType);
+export const equippedWithGauntlet = _.partialRight(equippedWith, isGauntlet);
+export const equippedWithOffering = _.partialRight(equippedWith, isOffering);
+export const equippedWithGenjiGlove = _.partialRight(equippedWith, isGenjiGlove);
+export const equippedWithAtlasArmlet = _.partialRight(equippedWith, isAtlasArmlet);
+export const equippedWithHeroRing = _.partialRight(equippedWith, isHeroRing);
+export const none = _.negate(_.every);
+export const equippedWith2HeroRings = (character) => _.all(characterRelics(character), isHeroRing);
+export const notEquippedWith2HeroRings
+export const equippedWith1HeroRing = (character) => {
+	
 }
 
 export function equippedWith1HeroRing(chr)
