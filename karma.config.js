@@ -9,7 +9,7 @@ module.exports = function karmaConfig (config) {
 			require('karma-nyan-reporter'),
 			require('karma-threshold-reporter'),
 			require('karma-coverage'),
-			require('karma-phantomjs2-launcher')
+			require('karma-phantomjs-launcher')
 		],
 		logLevel: config.LOG_DEBUG,  /** Log our errors */
 
@@ -59,9 +59,7 @@ module.exports = function karmaConfig (config) {
 			 './src/tests.webpack.js': ['webpack', 'sourcemap']
 		 },
 
-		 browsers: [
-		 'PhantomJS2'
-		 ],
+		 browsers: ['PhantomJS'],
 
 		 singleRun: false,
 
