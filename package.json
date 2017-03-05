@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.config.js",
+    "test2": "mocha ./src/**/*.test.js",
     "build": "babel src -d lib",
     "build2": "webpack --watch",
     "server": "webpack-dev-server --progress --colors"

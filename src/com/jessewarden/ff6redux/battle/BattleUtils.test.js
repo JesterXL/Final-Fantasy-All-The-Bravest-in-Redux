@@ -16,7 +16,11 @@ import {
 	getDamageStep8,
 	getDamageStep9,
 	getHit,
-	getHitAndApplyDamage
+	getHitAndApplyDamage,
+	step4e,
+	getHitDefaultGetHitOptions,
+	getDefaultDamageOptions,
+	getDamage
 } from './BattleUtils';
 const log = console.log;
 
@@ -33,11 +37,36 @@ describe('#BattleUtils', ()=>
 		const result = getRandomNumberFromRange(1, 10);
 		_.inRange(result, 1, 10).should.be.true;
 	});
-	it('getDamageStep1', ()=>
+	describe("#getDamageStep1", ()=>
 	{
-		const result = getDamageStep1();
-		// log("result:", result);
-		result.should.be.at.least(1);
+		it('default is 0', ()=>
+		{
+			getDamageStep1().should.equal(0);
+		});
+		it('255 vigor is 0', ()=>
+		{
+			getDamageStep1(255).should.equal(0);
+		});
+		it('99 level is 0', ()=>
+		{
+			getDamageStep1(0, 0, 0, 0, 99).should.equal(0);
+		});
+		it('minimum of 1 for vigor, level, and battlepower to get any damage', ()=>
+		{
+			getDamageStep1(1, 1, 0, 0, 1).should.be.at.least(1);
+		});
+		it('high vigor helps', ()=>
+		{
+			getDamageStep1(255, 1, 0, 0, 1).should.be.at.least(2);
+		});
+		it('high level helps more', ()=>
+		{
+			getDamageStep1(1, 1, 0, 0, 99).should.be.at.least(173);
+		});
+		it('battle power helps the most', ()=>
+		{
+			getDamageStep1(1, 255, 0, 0, 1).should.be.at.least(256);
+		});
 	});
 	it('getRandomMonsterVigor', ()=>
 	{
@@ -53,12 +82,12 @@ describe('#BattleUtils', ()=>
 	{
 		it('by default leaves damage intact', ()=>
 		{
-			const result = getDamageStep3(2);
+			const result = getDamageStep3(2)
 			result.should.equal(2);
 		});
 		it('if you are using magic and attacking multiple targets, it halves damage', ()=>
 		{
-			const result = getDamageStep3(2, true, true);
+			const result = getDamageStep3(2, false, true);
 			result.should.equal(1);
 		});
 		it('using magic leaves damage intact', ()=>
@@ -167,32 +196,134 @@ describe('#BattleUtils', ()=>
 			result.should.equal(0);
 		});
 	});
-	describe('#getHit', ()=>
+	describe("#step4e", ()=>
 	{
-		it('should hit if 99 roll and stamnia roll 127', ()=>
+		it('0 magic block results in 255', ()=>
 		{
-			getHit(99, 127).hit.should.be.true;
+			step4e(0).should.equal(255);
 		});
-		it('should hit if 0 roll and stamnia roll 0', ()=>
+		it('255 magic block results in 0', ()=>
 		{
-			getHit(0, 0).hit.should.be.true;
-		});
-		it('should hit if high block value (magic block bug)', ()=>
-		{
-			const result = getHit(0, 0);
-			log("result:", result);
-			result.hit.should.be.false;
+			step4e(255).should.equal(1);
 		});
 	});
-	describe('#getHitAndApplyDamage', ()=>
+	describe('#getHit', ()=>
 	{
+		let options;
+		beforeEach(()=>
+		{
+			options = getHitDefaultGetHitOptions();
+		});
+		it('1 hitRate always misses', ()=>
+		{
+			options.randomHitOrMissValue = 99;
+			options.hitRate = 1;
+			getHit(options).hit.should.be.false;
+		});
+		it('hit rate of 254 still hits everytime with default values', ()=>
+		{
+			options.randomHitOrMissValue = 99;
+			options.hitRate = 254;
+			getHit(options).hit.should.be.true;
+		});
+		it('perfect hit rate of 255 always hits', ()=>
+		{
+			options.randomHitOrMissValue = 255;
+			options.hitRate = 255;
+			getHit(options).hit.should.be.true;
+		});
+		it('hitting clear status always fails', ()=>
+		{
+			options.targetHasClearStatus = true;
+			getHit(options).hit.should.be.false;
+		});
+		it('magic against clear status always succeeds', ()=>
+		{
+			options.targetHasClearStatus = true;
+			options.isPhysicalAttack = false;
+			getHit(options).hit.should.be.true;
+		});
+		it('wound protected targets are missed by death protected attacks', ()=>
+		{
+			options.protectedFromWound = true;
+			options.attackMissesDeathProtectedTargets = true;
+			getHit(options).hit.should.be.false;
+		});
+		it('unblockable spells always hit', ()=>
+		{
+			options.isPhysicalAttack = false;
+			options.spellUnblockable = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets asleep always get hit', ()=>
+		{
+			options.targetHasSleepStatus = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets petrified always get hit', ()=>
+		{
+			options.targetHasPetrifyStatus = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets frozen always get hit', ()=>
+		{
+			options.targetHasFreezeStatus = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets stopped always get hit', ()=>
+		{
+			options.targetHasStopStatus = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets with back turned always get hit', ()=>
+		{
+			options.backOfTarget = true;
+			getHit(options).hit.should.be.true;
+		});
+		it('targets with image status always are missed', ()=>
+		{
+			options.targetHasImageStatus = true;
+			getHit(options).hit.should.be.false;
+		});
+		it('high stamina blocks Break if a regular hit', ()=>
+		{
+			options.randomStaminaHitOrMissValue = 127;
+			options.specialAttackType = 'Break';
+			options.randomHitOrMissValue = 0;
+			options.hitRate = 254;
+			options.targetStamina = 255;
+			getHit(options).hit.should.be.false;
+		});
+	});
+	describe('#getDamage', ()=>
+	{
+		let options;
+		let attacker;
+		let getDefaultDamage;
+		beforeEach(()=>
+		{
+			attacker = {
+				vigor: 1,
+				level: 1,
+				battlePower: 1
+			};
+			const getCriticalHitFunction = ()=> false;
+			const getDamageModificationsVarianceFunction = ()=> 224;
+			options = getDefaultDamageOptions(attacker, getCriticalHitFunction, getDamageModificationsVarianceFunction);
+			getDefaultDamage = _.partial(getDamage, options);
+		});
 		it("doesn't blow up", ()=>
 		{
-			const mockAttacker = {
-				vigor: 1
-			};
-			const callback = ()=> getHitAndApplyDamage(mockAttacker);
+			const callback = ()=> getDamage(options);
 			callback.should.not.throw(Error);
+		});
+		it('gives object results back', ()=>
+		{
+			_.isObject(getDefaultDamage()).should.be.true;
+		});
+		it('results in 3 by default', ()=>
+		{
+			getDefaultDamage().damage.should.equal(3);
 		});
 	});
 });

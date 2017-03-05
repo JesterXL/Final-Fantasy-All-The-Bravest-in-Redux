@@ -11,7 +11,7 @@ module.exports = function karmaConfig (config) {
 			require('karma-coverage'),
 			require('karma-phantomjs2-launcher')
 		],
-		logLevel: config.LOG_INFO,  /** Log our errors */
+		logLevel: config.LOG_DEBUG,  /** Log our errors */
 
 		client: {
 			captureConsole: true

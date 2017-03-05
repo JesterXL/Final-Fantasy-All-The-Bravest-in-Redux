@@ -5,12 +5,14 @@ import { takeEvery, takeLatest, delay } from 'redux-saga'
 
 export function *ticker(action)
 {
-	var lastTick = performance.now();
+	let lastTick = performance.now();
+	yield put({type: TICK, now: lastTick, difference: 0});
+	const thirtyTimesASecond = 1000 / 30;
 	while(true)
 	{
-		yield call(delay, 300);
-		var now = performance.now();
-		var difference = now - lastTick;
+		yield call(delay, thirtyTimesASecond);
+		let now = performance.now();
+		let difference = now - lastTick;
 		lastTick = now;
 		yield put({type: TICK, now: now, difference: difference});
 	}

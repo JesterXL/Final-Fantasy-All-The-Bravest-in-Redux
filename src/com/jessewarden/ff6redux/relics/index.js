@@ -22,7 +22,7 @@ export const getHeroRingRelic    = () => getRelic(HeroRing);
 export const getOfferingRelic    = () => getRelic(Offering);
 
 export const isRelic       = (o) => _.get(o, 'type') === 'relic';
-export const isRelicType   = (type, relic) => get(relic, 'relicType') === type;
+export const isRelicType   = (type, relic) => _.get(relic, 'relicType') === type;
 
 export const isAtlasArmlet = _.partial(isRelicType, AtlasArmlet);
 export const isEarring     = _.partial(isRelicType, Earring);
