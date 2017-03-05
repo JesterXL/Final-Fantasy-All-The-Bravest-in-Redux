@@ -51,7 +51,7 @@
     "redux-devtools": "^3.3.1",
     "tape": "^4.6.0",
     "transform-loader": "^0.2.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.14.0"
   },
   "dependencies": {
     "gsap": "^1.18.5",
