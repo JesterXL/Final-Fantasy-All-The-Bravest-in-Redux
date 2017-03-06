@@ -3,70 +3,146 @@ should();
 const log = console.log;
 
 import {
-	battleTimer,
+	getPercentage,
+	MAX_GAUGE,
 	characterTick,
-	tickerBrowser,
-	timer
+	EFFECT_NORMAL,
+	Timer,
+	BattleTimer,
+	MODE_PLAYER
+	
 } from './battleTimer';
+
+const wait = (milliseconds)=>
+{
+	return new Promise((success)=>
+	{
+		setTimeout(()=>
+		{
+			success();
+		}, milliseconds);
+	});
+}; 
 
 describe('#battleTimer', ()=>
 {
-	it('basic test', ()=>
+	describe("#getPercentage", ()=>
 	{
-		expect(battleTimer).to.exist;
-	});
-	it('invoking works', ()=>
-	{
-		battleTimer().should.exist;
-	});
-	it('invoking gives you a generator', ()=>
-	{
-		battleTimer().next.should.exist;
-	});
-	it('calling the generator gives you a value', ()=>
-	{
-		battleTimer().next().should.exist;
-	});
-	it('calling the generator gives you a percentage', (done)=>
-	{
-		// var result = battleTimer();
-		// console.log("result1:", result.next(10));
-		// console.log("result2:", result.next());
-		// console.log("result3:", result.next(30));
-		// battleTimer().next().percentage.should.exist;
-	
-		// const gen = tickerBrowser();
-		// log("result1:", gen.next().value);
-		// log("result2:", gen.next().value);
-		// setTimeout(()=>
-		// {
-		// 	log("result3:", gen.next().value);
-		// 	done();
-		// }, 1000);
-
-		done();
-	});
-	it('calling the generator gives you a gauge', ()=>
-	{
-		battleTimer().next().gauge.should.exist;
-	});
-	// it('percentage has a value by default', function(done)
-	// {
-	// 	this.timeout(20 * 1000);
-	// 	const gen = battleTimer();
-	// });
-});
-describe('#timer', ()=>
-{
-	it('works', (done)=>
-	{
-		const result = timer();
-		log("result1:", result.next());
-		log("result2:", result.next());
-		setTimeout(()=>
+		it('gives 50 for 100', ()=>
 		{
-			log("result1:", result.next());
-			done();
-		}, 1000);
+			const half = MAX_GAUGE / 2;
+			getPercentage(half).should.equal(0.5);
+		});
+	});
+	describe("#characterTick", ()=>
+	{
+		it('by default gives you 120', ()=>
+		{
+			characterTick(EFFECT_NORMAL, 0, 0).should.equal(120);
+		});
+		it('twice gives you 240', ()=>
+		{
+			let result = characterTick(EFFECT_NORMAL, 0, 0);
+			result += characterTick(EFFECT_NORMAL, 0, 0);
+			result.should.equal(240);
+		});
+	});
+	// describe("#timerBrowserNotNode", ()=>
+	// {
+	// 	let gen;
+	// 	beforeEach(()=>
+	// 	{
+	// 		gen = timerBrowserNotNode();
+	// 	});
+	// 	it('should give time', ()=>
+	// 	{
+	// 		gen.next().value.time.should.exist;
+	// 	});
+	// 	it('should give difference', ()=>
+	// 	{
+	// 		gen.next().value.difference.should.exist;
+	// 	});
+	// 	it('should give 100 milliseconds if you wait 100 milliseconds for 2nd call',  async ()=>
+	// 	{
+	// 		const result1 = gen.next();
+	// 		await wait(100);
+	// 		const result2 = gen.next();
+	// 		result2.value.difference.should.be.within(50, 150);
+	// 	});
+	// 	it('time passed between 100 milliseconds should be around 100 milliseconds', async ()=>
+	// 	{
+	// 		const result1 = gen.next();
+	// 		await wait(100);
+	// 		const result2 = gen.next();
+	// 		(result2.value.time - result1.value.time).should.be.within(50, 150);
+	// 	});
+	// });
+	describe("#Timer", ()=>
+	{
+		let timer;
+		beforeEach(()=>
+		{
+			timer = new Timer();
+		});
+		afterEach(()=>
+		{
+			timer.stopTimer();
+		});
+		it('not running by default', ()=>
+		{
+			timer.running.should.equal(false);
+		});
+		it('running when you start it', ()=>
+		{
+			timer.startTimer(window);
+			timer.running.should.equal(true);
+		});
+		it('running is false when you start and stop it', ()=>
+		{
+			timer.startTimer(window);
+			timer.stopTimer();
+			timer.running.should.equal(false);
+		});
+		it("should work for 100 milliseconds", (done)=>
+		{
+			let total = 0;
+			timer.startTimer(window, (time, difference, now, previousTick)=>
+			{
+				// log("**********");
+				// log("time:", time);
+				// log("difference:", difference);
+				// log("now:", now);
+				// log("previousTick:", previousTick);
+				total += difference;
+				if(total >= 100)
+				{
+					timer.stopTimer();
+					done();
+				}
+			});
+		});
+	});
+	describe("#BattleTimer", function()
+	{
+		this.timeout(20 * 1000);
+
+		let battleTimer;
+		beforeEach(()=>
+		{
+			battleTimer = new BattleTimer();
+		});
+		afterEach(()=>
+		{
+			battleTimer.stopTimer();
+		});
+		it('should give you a progress', (done)=>
+		{
+			battleTimer.startTimer(window, ()=>{}, ()=> done());
+		});
+		it('goes to 100 percent eventually', (done)=>
+		{
+			const fastTimer = new BattleTimer(0, 0, EFFECT_NORMAL, MODE_PLAYER, 255);
+			fastTimer.startTimer(window, ()=> done());
+		});
 	});
 });

@@ -1,7 +1,7 @@
 import Row from "../enums/Row";
 import _ from "lodash";
 import {Subject} from "rx";
-import {battleTimer} from './BattleTimer';
+import {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} from './battleTimer';
 import BattleState from '../enums/BattleState';
 import {
 	isGauntlet,
@@ -16,8 +16,6 @@ export const none = _.negate(_.every);
 export const notNil = _.negate(_.isNil);
 
 let _INCREMENT = 0;
-
-
 
 export const getCharacter = (entity)=>
 {
@@ -85,7 +83,7 @@ export function getRandomMonsterVigor()
 
 export function makeBattleTimer(chr)
 {
-	return battleTimer(0, 0, chr.speed);
+	return new BattleTimer(0, 0, EFFECT_NORMAL, MODE_PLAYER, chr.speed);
 }
 
 // TODO: figure out reflection/mirrors
@@ -94,28 +92,29 @@ export function equippedWithNoRelics(chr)
 	return _.isNil(_.get(chr, 'relic1')) && _.isNil(_.get(chr, 'relic2'));
 }
 
-export const characterRelics = (chr) => [_.get(chr, 'relic1'), _.get(chr, 'relic2')];
-export const equippedWith = (chr, isRelicType) => _.some(characterRelics(chr), isRelicType);
-export const equippedWithGauntlet = _.partialRight(equippedWith, isGauntlet);
-export const equippedWithOffering = _.partialRight(equippedWith, isOffering);
-export const equippedWithGenjiGlove = _.partialRight(equippedWith, isGenjiGlove);
-export const equippedWithAtlasArmlet = _.partialRight(equippedWith, isAtlasArmlet);
-export const equippedWithHeroRing = _.partialRight(equippedWith, isHeroRing);
-export const equippedWith2HeroRings = (chr) => _.every(characterRelics(chr), isHeroRing);
+export const characterRelics           = (chr) => [_.get(chr, 'relic1'), _.get(chr, 'relic2')];
+export const equippedWith              = (chr, isRelicType) => _.some(characterRelics(chr), isRelicType);
+export const equippedWithGauntlet      = _.partialRight(equippedWith, isGauntlet);
+export const equippedWithOffering      = _.partialRight(equippedWith, isOffering);
+export const equippedWithGenjiGlove    = _.partialRight(equippedWith, isGenjiGlove);
+export const equippedWithAtlasArmlet   = _.partialRight(equippedWith, isAtlasArmlet);
+export const equippedWithHeroRing      = _.partialRight(equippedWith, isHeroRing);
+export const equippedWith2HeroRings    = (chr) => _.every(characterRelics(chr), isHeroRing);
 export const notEquippedWith2HeroRings = _.negate(equippedWith2HeroRings);
-export const equippedWith1HeroRing = (chr) => _.every([equippedWithHeroRing, notEquippedWith2HeroRings], f => f(chr));
-export const equippedWithEarring = _.partialRight(equippedWith, isEarring);
-export const equippedWith2Earrings = (chr) => _.every(characterRelics(chr), isEarring);
-export const notEquippedWith2Earrings = _.negate(equippedWith2Earrings);
-export const equippedWith1Earring = (chr) => _.every([equippedWithEarring, notEquippedWith2Earrings], f => f(chr));
+export const equippedWith1HeroRing     = (chr) => _.every([equippedWithHeroRing, notEquippedWith2HeroRings], f => f(chr));
+export const equippedWithEarring       = _.partialRight(equippedWith, isEarring);
+export const equippedWith2Earrings     = (chr) => _.every(characterRelics(chr), isEarring);
+export const notEquippedWith2Earrings  = _.negate(equippedWith2Earrings);
+export const equippedWith1Earring      = (chr) => _.every([equippedWithEarring, notEquippedWith2Earrings], f => f(chr));
 
-export const rightHandHasWeapon = (chr) => notNil(_.get(chr, 'rightHand'));
-export const leftHandHasWeapon= (chr) => notNil(_.get(chr, 'leftHand'));
-export const rightHandHasNoWeapon = _.negate(rightHandHasWeapon);
-export const leftHandHasNoWeapon = _.negate(leftHandHasWeapon);
-export const hasZeroWeapons = (chr) => _.every([rightHandHasNoWeapon, leftHandHasNoWeapon], f => f(chr));
-export const has2Weapons = (chr) => _.every([rightHandHasWeapon, leftHandHasWeapon], f => f(chr));
-export const doesNotHave2Weapons = _.negate(has2Weapons);
+export const rightHandHasWeapon        = (chr) => notNil(_.get(chr, 'rightHand'));
+export const leftHandHasWeapon         = (chr) => notNil(_.get(chr, 'leftHand'));
+export const rightHandHasNoWeapon      = _.negate(rightHandHasWeapon);
+export const leftHandHasNoWeapon       = _.negate(leftHandHasWeapon);
+export const hasZeroWeapons            = (chr) => _.every([rightHandHasNoWeapon, leftHandHasNoWeapon], f => f(chr));
+export const has2Weapons               = (chr) => _.every([rightHandHasWeapon, leftHandHasWeapon], f => f(chr));
+export const doesNotHave2Weapons       = _.negate(has2Weapons);
+
 export const oneOrZeroWeapons = (chr) =>
 {
 	if(rightHandHasWeapon(chr) && leftHandHasNoWeapon(chr))
