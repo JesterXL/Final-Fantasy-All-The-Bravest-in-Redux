@@ -1,47 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
-
 module.exports = {
-	entry: ['babel-polyfill', "./src/index.js"],
-	output: {
-		path: __dirname,
-		filename: "bundle.js",
-		sourceMapFilename: 'bundleCow.map'
-	},
-	module: {
-		loaders: [
-			{
-				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
-				loader: 'babel', // 'babel-loader' is also a legal name to reference
-				query: {
-					presets: ['es2015']
-				}
-			},
-			{
-				test: /\.json$/,
-				loader: 'json'
-			},
-			{
-				test: /\.png/,
-				loader: "url-loader?limit=10000&mimetype=image/png"
-			},
-			{
-				test: /\.mp3/,
-				loader: "url-loader?limit=10000&mimetype=audio/mpeg"
-			}
-		],
-		postLoaders: [
-			{
-				include: path.resolve(__dirname, 'node_modules/pixi.js'),
-				loader: 'transform/cacheable?brfs'
-			}
-		]
-	},
-	devtool: 'source-map'
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js'
+  }
 };
-
-
-//transform?brfs
-//transform/cacheable?brfs
-//transform/cacheable?browserify-versionify

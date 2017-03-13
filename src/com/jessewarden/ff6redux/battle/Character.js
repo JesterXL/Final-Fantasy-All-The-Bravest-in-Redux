@@ -1,16 +1,16 @@
-import Row from "../enums/Row";
-import _ from "lodash";
-import {Subject} from "rx";
-import {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} from './battleTimer';
-import BattleState from '../enums/BattleState';
-import {
+const Row = require("../enums/Row");
+const _ = require("lodash");
+const {Subject} = require("rx");
+const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = require('./battleTimer');
+const BattleState = require('../enums/BattleState');
+const {
 	isGauntlet,
 	isAtlasArmlet,
 	isEarring,
 	isGenjiGlove,
 	isHeroRing,
 	isOffering
-} from '../relics';
+} = require('../relics');
 
 export const none = _.negate(_.every);
 export const notNil = _.negate(_.isNil);

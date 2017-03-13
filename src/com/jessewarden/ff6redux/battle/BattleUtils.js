@@ -1,7 +1,7 @@
 const log = console.log;
-import _ from "lodash";
+const _ = require("lodash");
 
-import {
+const {
 	equippedWithGauntlet,
 	equippedWithOffering,
 	equippedWithGenjiGlove,
@@ -11,7 +11,7 @@ import {
 	equippedWith2HeroRings,
 	equippedWith1Earring,
 	equippedWith2Earrings
-} from './Character';
+} = require('./Character');
 
 const PERFECT_HIT_RATE = 255;
 

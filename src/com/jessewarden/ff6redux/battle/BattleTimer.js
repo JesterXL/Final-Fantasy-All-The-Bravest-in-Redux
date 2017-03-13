@@ -1,6 +1,6 @@
 const log = console.log;
 
-import _ from 'lodash';
+const _ = require('lodash');
 
 export const MODE_PLAYER   = 'player';
 export const MODE_MONSTER  = 'monster';
