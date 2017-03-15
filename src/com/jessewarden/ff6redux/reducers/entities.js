@@ -1,4 +1,5 @@
-import { ADD_ENTITY, REMOVE_ENTITY, CHARACTER_DEAD} from '../core/actions';
+export const ADD_ENTITY    = 'ADD_ENTITY';
+export const REMOVE_ENTITY = 'REMOVE_ENTITY';
 
 export function entities(state=[], action)
 {
