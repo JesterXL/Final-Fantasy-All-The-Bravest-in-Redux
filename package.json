@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "browser-sync start --server --files 'bundle.js'",
-    "test": "mocha-webpack '*.test.js'"
+    "test": "mocha-webpack 'src/**/*.test.js'"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "final-fantasy-6-algorithms": "^1.0.1",
     "lodash": "^4.17.4",
+    "pixi.js": "^4.4.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2"
   }

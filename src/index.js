@@ -10,6 +10,7 @@
 // Application();
 
 const log = console.log;
+import PIXI from 'pixi.js';
 // import * as ff6 from 'final-fantasy-6-algorithms';
 // const {
 //     BattleTimer,

@@ -49,9 +49,10 @@ export const characterTick = (effect, speed, gauge)=>
 
 export class Timer
 {
-	constructor()
+	constructor(entity)
 	{
 		const me = this;
+		me.entity = entity;
 		me.running = false;
 		me.tickBound = me.tick.bind(me);
 	}
