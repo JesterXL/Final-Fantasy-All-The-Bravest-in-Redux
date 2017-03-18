@@ -94,10 +94,11 @@ export class Timer
 // TODO: make monster mode work, I don't get the algo man
 export class BattleTimer
 {
-	constructor(counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
+	constructor(entity, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
 	{
 		const me = this;
-		me.timer = new Timer();
+		me.entity = entity;
+		me.timer = new Timer(entity);
 		me.counter = counter;
 		me.gauge = gauge;
 		me.effect = effect;
@@ -123,16 +124,18 @@ export class BattleTimer
 				me.thirtyMillisecondCounter = 0;
 				me.counter++;
 				me.gauge = characterTick(me.effect, me.speed, me.gauge);
-				if(me.progressCallback)
-				{
-					me.progressCallback(getPercentage(me.gauge), me.gauge);
-				}
 				if(me.gauge >= MAX_GAUGE)
 				{
 					me.gauge = MAX_GAUGE;
 					me.stopTimer();
 					me.doneCallback(1, me.gauge);
+					return;
 				}
+				if(me.progressCallback)
+				{
+					me.progressCallback(getPercentage(me.gauge), me.gauge);
+				}
+				
 			}
 		});
 	}

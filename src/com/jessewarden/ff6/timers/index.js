@@ -20,6 +20,8 @@ export const findTimer = (state, action) =>
 export const destroyTimer = (state, action) =>
 {
     const index = findTimerIndex(state, action);
+    const timer = state[index];
+    timer.stop();
     return [
         ...state.slice(0, index), 
 	    ...state.slice(index + 1)

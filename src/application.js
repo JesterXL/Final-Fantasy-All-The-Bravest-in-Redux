@@ -4,6 +4,11 @@ import createLogger from 'redux-logger';
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/entities';
 import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/timers';
 import { characters, CREATE_CHARACTER, DESTROY_CHARACTER } from './com/jessewarden/ff6/characters';
+import {
+	battleTimers,
+	CREATE_BATTLE_TIMER,
+	START_BATTLE_TIMER
+} from './com/jessewarden/ff6/battletimers';
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
@@ -15,10 +20,11 @@ export const setupRedux = ()=>
 	const allReducers = combineReducers({
 		entities,
 		timers,
-		characters
+		characters,
+		battleTimers
 	});
-	// store = createStore(allReducers, applyMiddleware(createLogger()));
-	store = createStore(allReducers);
+	store = createStore(allReducers, applyMiddleware(createLogger()));
+	// store = createStore(allReducers);
 	setupPixi();
 	//setupAndStartGameTimer();
 	const newPlayerID = addPlayer();
@@ -27,6 +33,8 @@ export const setupRedux = ()=>
 	// {
 	// 	removePlayer(newPlayerID);
 	// }, 2000);
+
+	addBattleTimers();
 };
 
 export const setupAndStartGameTimer = ()=>
@@ -57,11 +65,11 @@ export const startTimer = (entity, window, callback) =>
 {
 	return store.dispatch({type: START_TIMER, entity, window, callback});
 };
+
 export const stopTimer = entity =>
 {
 	return store.dispatch({type: STOP_TIMER, entity});
 };
-
 
 export const addPlayer = ()=>
 {
@@ -91,14 +99,14 @@ export const setupPixi = ()=>
 	{
 		const state = store.getState();
 		const spritesToRemove = getSpritesToRemove(app.stage.children, state.characters);
-		log("spritesToRemove:", spritesToRemove);
+		// log("spritesToRemove:", spritesToRemove);
 		if(spritesToRemove.length > 0)
 		{
 			removeSprites(spritesToRemove);
 		}
 
 		const charactersToAdd = getCharactersToAdd(state.characters, app.stage.children);
-		log("charactersToAdd:", charactersToAdd);
+		// log("charactersToAdd:", charactersToAdd);
 		if(charactersToAdd.length > 0)
 		{
 			addCharacters(charactersToAdd, app.stage);
@@ -165,4 +173,39 @@ export const addCharacters = (characters, parent) =>
 export const removeSprites = sprites =>
 {
 	return _.forEach(sprites, sprite => sprite.parent.removeChild(sprite));
+};
+
+
+export const addBattleTimers = ()=>
+{
+	const addedID = addBattleTimer();
+	startBattleTimer(addedID, window, (percentage, gauge)=>
+	{
+		const p = Math.round(percentage * 100);
+		log(p + "%, gauge: " + gauge);
+		log("Done.");
+	},
+	(percentage, gauge)=>
+	{
+		const p = Math.round(percentage * 100);
+		log(p + "%, gauge: " + gauge);
+	});
+};
+
+export const addBattleTimer = ()=>
+{
+	const id = guid();
+	store.dispatch({type: CREATE_BATTLE_TIMER, entity: id, speed: 255});
+	return id;
+};
+
+export const startBattleTimer = (entity, window, doneCallback, progressCallback) =>
+{
+	return store.dispatch({
+		type: START_BATTLE_TIMER,
+		entity,
+		window,
+		doneCallback,
+		progressCallback
+	});
 };

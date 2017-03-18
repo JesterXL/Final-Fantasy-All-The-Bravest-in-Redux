@@ -48351,10 +48351,11 @@ class Timer
 // TODO: make monster mode work, I don't get the algo man
 class BattleTimer
 {
-	constructor(counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
+	constructor(entity, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
 	{
 		const me = this;
-		me.timer = new Timer();
+		me.entity = entity;
+		me.timer = new Timer(entity);
 		me.counter = counter;
 		me.gauge = gauge;
 		me.effect = effect;
@@ -48380,16 +48381,18 @@ class BattleTimer
 				me.thirtyMillisecondCounter = 0;
 				me.counter++;
 				me.gauge = characterTick(me.effect, me.speed, me.gauge);
-				if(me.progressCallback)
-				{
-					me.progressCallback(getPercentage(me.gauge), me.gauge);
-				}
 				if(me.gauge >= MAX_GAUGE)
 				{
 					me.gauge = MAX_GAUGE;
 					me.stopTimer();
 					me.doneCallback(1, me.gauge);
+					return;
 				}
+				if(me.progressCallback)
+				{
+					me.progressCallback(getPercentage(me.gauge), me.gauge);
+				}
+				
 			}
 		});
 	}
@@ -48535,10 +48538,11 @@ global.PIXI = exports; // eslint-disable-line
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__ = __webpack_require__(219);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_final_fantasy_6_algorithms__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_final_fantasy_6_algorithms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_final_fantasy_6_algorithms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
 const log = console.log;
 
 
@@ -48546,7 +48550,8 @@ const log = console.log;
 
 
 
-const {guid} = __WEBPACK_IMPORTED_MODULE_5_final_fantasy_6_algorithms__["core"];
+
+const {guid} = __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__["core"];
 
 
 
@@ -48556,10 +48561,11 @@ const setupRedux = ()=>
 	const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
 		entities: __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__["a" /* entities */],
 		timers: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["a" /* timers */],
-		characters: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["a" /* characters */]
+		characters: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["a" /* characters */],
+		battleTimers: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["a" /* battleTimers */]
 	});
-	// store = createStore(allReducers, applyMiddleware(createLogger()));
-	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers);
+	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_logger___default()()));
+	// store = createStore(allReducers);
 	setupPixi();
 	//setupAndStartGameTimer();
 	const newPlayerID = addPlayer();
@@ -48568,6 +48574,8 @@ const setupRedux = ()=>
 	// {
 	// 	removePlayer(newPlayerID);
 	// }, 2000);
+
+	addBattleTimers();
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = setupRedux;
 
@@ -48606,12 +48614,12 @@ const startTimer = (entity, window, callback) =>
 };
 /* unused harmony export startTimer */
 
+
 const stopTimer = entity =>
 {
 	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["d" /* STOP_TIMER */], entity});
 };
 /* unused harmony export stopTimer */
-
 
 
 const addPlayer = ()=>
@@ -48648,14 +48656,14 @@ const setupPixi = ()=>
 	{
 		const state = store.getState();
 		const spritesToRemove = getSpritesToRemove(app.stage.children, state.characters);
-		log("spritesToRemove:", spritesToRemove);
+		// log("spritesToRemove:", spritesToRemove);
 		if(spritesToRemove.length > 0)
 		{
 			removeSprites(spritesToRemove);
 		}
 
 		const charactersToAdd = getCharactersToAdd(state.characters, app.stage.children);
-		log("charactersToAdd:", charactersToAdd);
+		// log("charactersToAdd:", charactersToAdd);
 		if(charactersToAdd.length > 0)
 		{
 			addCharacters(charactersToAdd, app.stage);
@@ -48667,7 +48675,7 @@ const setupPixi = ()=>
 
 const getCharactersToAdd = (characters, children) =>
 {
-	return __WEBPACK_IMPORTED_MODULE_6_lodash__["differenceWith"](characters, children, (character, sprite) =>
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](characters, children, (character, sprite) =>
 	{
 		return character.entity === sprite.entity;
 	});
@@ -48677,7 +48685,7 @@ const getCharactersToAdd = (characters, children) =>
 
 const getSpritesToRemove = (children, characters)=>
 {
-	return __WEBPACK_IMPORTED_MODULE_6_lodash__["differenceWith"](children, characters, (sprite, character) =>
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](children, characters, (sprite, character) =>
 	{
 		return sprite.entity === character.entity;
 	});
@@ -48721,7 +48729,7 @@ const getSpriteFromCharacter = character =>
 
 const addCharacters = (characters, parent) =>
 {
-	return __WEBPACK_IMPORTED_MODULE_6_lodash__["chain"](characters)
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["chain"](characters)
 	.map(getSpriteFromCharacter)
 	.forEach(sprite => parent.addChild(sprite))
 	.value();
@@ -48731,9 +48739,50 @@ const addCharacters = (characters, parent) =>
 
 const removeSprites = sprites =>
 {
-	return __WEBPACK_IMPORTED_MODULE_6_lodash__["forEach"](sprites, sprite => sprite.parent.removeChild(sprite));
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["forEach"](sprites, sprite => sprite.parent.removeChild(sprite));
 };
 /* unused harmony export removeSprites */
+
+
+
+const addBattleTimers = ()=>
+{
+	const addedID = addBattleTimer();
+	startBattleTimer(addedID, window, (percentage, gauge)=>
+	{
+		const p = Math.round(percentage * 100);
+		log(p + "%, gauge: " + gauge);
+		log("Done.");
+	},
+	(percentage, gauge)=>
+	{
+		const p = Math.round(percentage * 100);
+		log(p + "%, gauge: " + gauge);
+	});
+};
+/* unused harmony export addBattleTimers */
+
+
+const addBattleTimer = ()=>
+{
+	const id = guid();
+	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* CREATE_BATTLE_TIMER */], entity: id, speed: 255});
+	return id;
+};
+/* unused harmony export addBattleTimer */
+
+
+const startBattleTimer = (entity, window, doneCallback, progressCallback) =>
+{
+	return store.dispatch({
+		type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["c" /* START_BATTLE_TIMER */],
+		entity,
+		window,
+		doneCallback,
+		progressCallback
+	});
+};
+/* unused harmony export startBattleTimer */
 
 
 /***/ }),
@@ -70270,7 +70319,7 @@ module.exports = exports['default'];
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(92);
-/* unused harmony export default */
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -70528,7 +70577,7 @@ function combineReducers(reducers) {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* unused harmony reexport bindActionCreators */
-/* unused harmony reexport applyMiddleware */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
 /* unused harmony reexport compose */
 
 
@@ -72581,6 +72630,8 @@ const findTimer = (state, action) =>
 const destroyTimer = (state, action) =>
 {
     const index = findTimerIndex(state, action);
+    const timer = state[index];
+    timer.stop();
     return [
         ...state.slice(0, index), 
 	    ...state.slice(index + 1)
@@ -72675,6 +72726,101 @@ const log = console.log;
 
 
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__application__["a" /* setupRedux */])();
+
+/***/ }),
+/* 225 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(98);
+const CREATE_BATTLE_TIMER  = 'CREATE_BATTLE_TIMER';
+/* harmony export (immutable) */ __webpack_exports__["b"] = CREATE_BATTLE_TIMER;
+
+const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
+/* unused harmony export DESTROY_BATTLE_TIMER */
+
+const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
+/* harmony export (immutable) */ __webpack_exports__["c"] = START_BATTLE_TIMER;
+
+const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
+/* unused harmony export STOP_BATTLE_TIMER */
+
+
+ 
+
+const createBattleTimer = (state, action)=>
+{
+    const battleTimer = new __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__["BattleTimer"](
+        action.entity,
+        _.get(action, 'counter', 0),
+        _.get(action, 'gauge', 0),
+        _.get(action, 'effect', __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__["EFFECT_NORMAL"]),
+        _.get(action, 'mode', __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__["MODE_PLAYER"]),
+        _.get(action, 'speed', 1)
+    );
+    return [...state, battleTimer];
+};
+/* unused harmony export createBattleTimer */
+
+
+const findBattleTimerIndex = (state, action) =>
+{
+    return _.findIndex(state, item => item.entity === action.entity);
+};
+/* unused harmony export findBattleTimerIndex */
+
+
+const findBattleTimer = (state, action)=>
+{
+    return _.find(state, item => item.entity === action.entity);
+};
+/* unused harmony export findBattleTimer */
+
+
+const destroyBattleTimer = (state, action)=>
+{
+    const index = findBattleTimerIndex(state, action);
+    const battleTimer = state[index];
+    battleTimer.stop();
+    return [
+        ...state.slice(0, index), 
+	    ...state.slice(index + 1)
+    ];
+};
+/* unused harmony export destroyBattleTimer */
+
+
+const startBattleTimer = (state, action)=>
+{
+    const battleTimer = findBattleTimer(state, action);
+    battleTimer.startTimer(action.window, action.doneCallback, action.progressCallback);
+    return state;
+};
+/* unused harmony export startBattleTimer */
+
+
+const stopBattleTimer = (state, action)=>
+{
+    const battleTimer = findBattleTimer(state, action);
+    battleTimer.stopTimer();
+    return state;
+};
+/* unused harmony export stopBattleTimer */
+
+
+const battleTimers = (state=[], action) =>
+{
+	switch(action.type)
+	{
+		case CREATE_BATTLE_TIMER: return createBattleTimer(state, action);
+        case DESTROY_BATTLE_TIMER: return destroyBattleTimer(state, action);
+        case START_BATTLE_TIMER: return startBattleTimer(state, action);
+        case STOP_BATTLE_TIMER: return stopBattleTimer(state, action);
+        default: return state;
+	}
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = battleTimers;
+
 
 /***/ })
 /******/ ]);
