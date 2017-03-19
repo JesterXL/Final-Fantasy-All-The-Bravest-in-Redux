@@ -42,7 +42,7 @@ export default class PlayerList extends PIXI.Container
 		else
 		{
 			const style = new PIXI.TextStyle({
-			    fontFamily: '36px Final Fantasy VI SNESa',
+			    fontFamily: 'Final Fantasy VI SNESa',
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
@@ -55,6 +55,8 @@ export default class PlayerList extends PIXI.Container
 			const textField = new PIXI.Text('???');
             textField.style = style;
 			return textField;
+
+			// const bitmapText = new PIXI.extras.BitmapText("???", {font: "36px Final Fantasy VI SNESa"});
 		}
 	}
 

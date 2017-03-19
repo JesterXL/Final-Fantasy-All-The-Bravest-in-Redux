@@ -1,26 +1,23 @@
-import PIXI from "pixi.js";
-import Point from "../core/Point";
-import "gsap";
-
-class TextDropper
+class TextDropper extends PIXI.Container
 {
-
-	constructor(stage)
+	constructor()
 	{
-		this._stage = stage;
-		this._pool = [];
+        super();
+        const me = this;
+		me._pool = [];
 	}
 
 	addTextDrop(target, value, color = 0xFFFFFF, miss = false)
 	{
-		var field = this.getField();
-		this._stage.addChild(field);
-		var point = new Point(target.x, target.y);
+        const me = this;
+		const field = me.getField();
+		me.addChild(field);
+		const point = {x: target.x, y: target.y};
 //		point = target.localToGlobal(point);
 		field.x = point.x + (target.width / 2) - (field.width / 2);
 		field.y = point.y + target.height - field.height;
 		// console.log("x: " + field.x + ", y: " + field.y);
-		if(miss == false)
+		if(miss === false)
 		{
 			field.text = Math.abs(value);
 		}
@@ -31,8 +28,7 @@ class TextDropper
 		// field.defaultTextFormat.color = color;
 		field.tint = color;
 
-		var me = this;
-		var timeline = new TimelineLite();
+		const timeline = new TimelineLite();
 		timeline.to(field, 0.25, {
 			y: field.y - 40,
 			ease: Expo.easeOut
@@ -46,22 +42,22 @@ class TextDropper
 		{
 			me.cleanUp(field);
 		}});
-
 	}
 
 	getField()
 	{
-		if(this._pool.length > 0)
+		const me = this;
+		if(me._pool.length > 0)
 		{
-			return this._pool.pop();
+			return me._pool.pop();
 		}
 		else
 		{
 			// font : '36px Final Fantasy VI SNESa',
 
-			var style = {
+			const style = {
 			    
-			    font: '24px Arial',
+			    fontFamily: '36px Final Fantasy VI SNESa',
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
@@ -83,14 +79,17 @@ class TextDropper
 			//     wordWrap : true,
 			//     wordWrapWidth : 440
 			// };
-			return new PIXI.Text('???', style);
+			const field = new PIXI.Text('???');
+            field.style = style;
+            return field;
 		}
 	}
 
 	cleanUp(field)
 	{
-		this._stage.removeChild(field);
-		this._pool.push(field);
+        const me = this;
+		field.parent.removeChild(field);
+		me._pool.push(field);
 	}
 }
 

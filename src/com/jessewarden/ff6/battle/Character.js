@@ -52,40 +52,6 @@ export const getCharacter = (entity)=>
 	return vm;
 };
 
-export function makePlayer(entity)
-{
-	var chr = getCharacter(entity);
-	chr.characterType = 'player';
-	chr.battlePower = 50;
-	chr.entity = entity;
-	return chr;
-}
-
-export function makeMonster(entity)
-{
-	var chr = getCharacter(entity);
-	chr.characterType = 'monster';
-	chr.entity = entity;
-	return chr;
-}
-
-export function makeReadyCharacter(entity)
-{
-	var chr = getCharacter(entity);
-	chr.battleState = BattleState.READY;
-	return chr;
-}
-
-export function getRandomMonsterVigor()
-{
-	return BattleUtils.getRandomMonsterVigor();
-}
-
-export function makeBattleTimer(chr)
-{
-	return new BattleTimer(0, 0, EFFECT_NORMAL, MODE_PLAYER, chr.speed);
-}
-
 // TODO: figure out reflection/mirrors
 export function equippedWithNoRelics(chr)
 {
@@ -134,26 +100,6 @@ export const oneOrZeroWeapons = (chr) =>
 		return false;
 	}
 };
-
-export function getRow(chr)
-{
-	return chr._row;
-}
-export function setRow(chr, newRow)
-{
-	if(newRow === chr._row)
-	{
-		return;
-	}
-	var oldRow = chr._row;
-	chr._row = newRow;
-	chr.subject.onNext({
-		type: "rowChanged",
-		target: chr,
-		oldRow: oldRow,
-		newRow: newRow
-	});
-}
 
 export function toggleRow(chr)
 {

@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createLogger from 'redux-logger';
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/entities';
 import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/timers';
-import { characters, CREATE_CHARACTER, DESTROY_CHARACTER } from './com/jessewarden/ff6/characters';
+import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED } from './com/jessewarden/ff6/characters';
 import {
 	battleTimers,
 	CREATE_BATTLE_TIMER,
@@ -15,6 +15,8 @@ const {guid} = ff6.core;
 import * as _ from 'lodash';
 import BattleTimerBar from './com/jessewarden/ff6/views/BattleTimerBar';
 import PlayerList from './com/jessewarden/ff6/views/PlayerList';
+import "gsap";
+import TextDropper from './com/jessewarden/ff6/views/TextDropper';
 
 
 let store, unsubscribe, pixiApp, charactersContainer;
@@ -40,7 +42,7 @@ export const setupRedux = ()=>
 	// addBattleTimers();
 
 	addPlayerAndBattleTimer();
-	addPlayerAndBattleTimer();
+	const secondPlayerAction = addPlayerAndBattleTimer();
 
 	const playerList = new PlayerList(store);
 	pixiApp.stage.addChild(playerList);
@@ -63,6 +65,8 @@ export const setupRedux = ()=>
 		});
 	})
 	.value();
+
+	showHitPointsLowered(secondPlayerAction.playerEntity);
 };
 
 export const setupAndStartGameTimer = ()=>
@@ -130,6 +134,7 @@ export const addMonster = ()=>
 	return id;
 };
 
+let textDropper;
 export const setupPixi = ()=>
 {
 	const app = new PIXI.Application();
@@ -137,6 +142,9 @@ export const setupPixi = ()=>
 
 	charactersContainer = new PIXI.Container();
 	app.stage.addChild(charactersContainer);
+
+	textDropper = new TextDropper();
+	app.stage.addChild(textDropper);
 
 	const unsubscribe = store.subscribe(()=>
 	{
@@ -259,5 +267,21 @@ export const startBattleTimer = (entity, window, doneCallback, progressCallback)
 		window,
 		doneCallback,
 		progressCallback
+	});
+};
+
+export const delay = milliseconds =>
+{
+	return new Promise( success => setTimeout(success, milliseconds) );
+};
+
+export const showHitPointsLowered = (playerEntity)=>
+{
+	return delay(3 * 1000)
+	.then(()=>
+	{
+		const characterSprite = _.find(charactersContainer.children, sprite => sprite.entity === playerEntity);
+		textDropper.addTextDrop(characterSprite, 2);
+		return Promise.resolve(store.dispatch({type: CHARACTER_HIT_POINTS_CHANGED, newHitPoints: 8, entity: playerEntity}));
 	});
 };

@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "final-fantasy-6-algorithms": "^1.0.1",
+    "gsap": "^1.19.1",
     "lodash": "^4.17.4",
     "pixi.js": "^4.4.2",
     "redux": "^3.6.0",
