@@ -9,6 +9,7 @@ export const createCharacter = (state, action)=>
 {
     const character = getCharacter(action.entity);
     character.characterType = action.characterType;
+    character.name = action.name;
     return [...state, character];
 };
 

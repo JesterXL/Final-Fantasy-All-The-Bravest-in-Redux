@@ -56309,8 +56309,6 @@ const BattleState = {
 class BattleTimerBar extends PIXI.Container
 {
 	static get ROUND(){ return 1};
-	static get WIDTH(){ return 30};
-	static get HEIGHT(){ return 6};
 
 	get percentage()
 	{
@@ -56342,12 +56340,13 @@ class BattleTimerBar extends PIXI.Container
 		}
 	}
 
-	constructor()
+	constructor(width=30, height=6)
 	{
         super();
 
         const me = this;
-
+		me._width = width;
+		me._height = height;
 		me._percentage = 1;
 		me.percentageDirty = false;
 		me.flashDirty = false;
@@ -56385,24 +56384,24 @@ class BattleTimerBar extends PIXI.Container
 		me.graphics.beginFill(0xFFFFFF);
 		me.graphics.drawRect(0, 
 							0, 
-							BattleTimerBar.WIDTH, 
-							BattleTimerBar.HEIGHT);
+							me._width, 
+							me._height);
 
 		me.graphics.beginFill(0x000080);
 		me.graphics.drawRect(1, 
 									1, 
-									BattleTimerBar.WIDTH - 2, 
-									BattleTimerBar.HEIGHT - 2, 
+									me._width - 2, 
+									me._height - 2, 
 									BattleTimerBar.ROUND);
 		
 		
-		let percentageWidth = BattleTimerBar.WIDTH * me._percentage - OFFSET * 2;
-		percentageWidth = _.clamp(percentageWidth, 0, BattleTimerBar.WIDTH);
+		let percentageWidth = me._width * me._percentage - OFFSET * 2;
+		percentageWidth = _.clamp(percentageWidth, 0, me._width);
 		me.graphics.beginFill(0xffd700);
 		me.graphics.drawRect(OFFSET, 
 			OFFSET,
 			percentageWidth, 
-			BattleTimerBar.HEIGHT - OFFSET * 2);
+			me._height - OFFSET * 2);
 	}
 
 	render()
@@ -56582,7 +56581,7 @@ const {guid} = __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__["core"];
 
 
 
-let store, unsubscribe, pixiApp, charactersContainer;
+let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 const setupRedux = ()=>
 {
 	const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
@@ -56591,37 +56590,10 @@ const setupRedux = ()=>
 		characters: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["a" /* characters */],
 		battleTimers: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["a" /* battleTimers */]
 	});
-	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_logger___default()()));
-	// store = createStore(allReducers);
+	// store = createStore(allReducers, applyMiddleware(createLogger()));
+	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers);
 	pixiApp = setupPixi();
-
-
-	// addPlayerAndBattleTimer();
-	// const secondPlayerAction = addPlayerAndBattleTimer();
-
-	// const playerList = new PlayerList(store);
-	// pixiApp.stage.addChild(playerList);
-	// playerList.x = pixiApp.screen.width - playerList.width;
-	// playerList.y = 200; 
-
-	// const state = store.getState();
-	// _.chain(state.battleTimers)
-	// .map(battleTimer => battleTimer.entity)
-	// .forEach(battleTimerEntity =>
-	// {
-	// 	startBattleTimer(battleTimerEntity, window, 
-	// 	doneEvent =>
-	// 	{
-	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-	// 	},
-	// 	progressEvent =>
-	// 	{
-	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
-	// 	});
-	// })
-	// .value();
-
-	// showHitPointsLowered(secondPlayerAction.playerEntity);
+	
 
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
@@ -56629,30 +56601,38 @@ const setupRedux = ()=>
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
 	PIXI.loader.load((loader, resources) =>
 	{
-	// 	log("resources:", resources);
-	// 	// PIXI.loaders.parseBitmapFontData(loader, resources);
-		const menuItems = [
-			{name: "Uno"},
-			{name: "Dos"},
-			{name: "Tres"}
-		];
-		const test = new __WEBPACK_IMPORTED_MODULE_12__com_jessewarden_ff6_views_Menu__["a" /* default */](menuItems);
-		pixiApp.stage.addChild(test);
-		test.changes.subscribe(event =>
-		{
-			log("event:", event);
-			test.setMenuItems([
-				{name: "Yes"}
-			]);
-		});
+		addPlayerAndBattleTimer('Cow');
+		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
 
-		// setTimeout(()=>
-		// {
-		// 	test.setMenuItems([
-		// 		{name: "What"},
-		// 		{name: "The"}
-		// 	]);
-		// }, 3000);
+		const playerList = new __WEBPACK_IMPORTED_MODULE_9__com_jessewarden_ff6_views_PlayerList__["a" /* default */](store);
+		pixiApp.stage.addChild(playerList);
+		log("pixiApp.screen:", pixiApp.screen);
+		playerList.x = pixiApp.screen.width - playerList.width;
+		playerList.y = pixiApp.screen.height - playerList.height; 
+
+		blankMenu = new __WEBPACK_IMPORTED_MODULE_12__com_jessewarden_ff6_views_Menu__["a" /* default */](undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
+		pixiApp.stage.addChild(blankMenu);
+		blankMenu.y = pixiApp.screen.height - blankMenu.height;
+
+		const state = store.getState();
+		__WEBPACK_IMPORTED_MODULE_7_lodash__["chain"](state.battleTimers)
+		.map(battleTimer => battleTimer.entity)
+		.forEach(battleTimerEntity =>
+		{
+			startBattleTimer(battleTimerEntity, window, 
+			doneEvent =>
+			{
+				store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* UPDATE_BATTLE_TIMER */], entity: doneEvent.entity, event: doneEvent});
+			},
+			progressEvent =>
+			{
+				store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* UPDATE_BATTLE_TIMER */], entity: progressEvent.entity, event: progressEvent});
+			});
+		})
+		.value();
+
+		// showHitPointsLowered(secondPlayerAction.playerEntity);
+
 	});
 
 	
@@ -56702,9 +56682,14 @@ const stopTimer = entity =>
 /* unused harmony export stopTimer */
 
 
-const addPlayer = (id)=>
+const addPlayer = (id, name)=>
 {
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'player'});
+	return store.dispatch({
+		type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], 
+		entity: id, 
+		characterType: 'player',
+		name
+	});
 };
 /* unused harmony export addPlayer */
 
@@ -56716,10 +56701,10 @@ const removePlayer = (id)=>
 /* unused harmony export removePlayer */
 
 
-const addPlayerAndBattleTimer = ()=>
+const addPlayerAndBattleTimer = (name)=>
 {
 	const playerID = guid();
-	const playerEvent = addPlayer(playerID);
+	const playerEvent = addPlayer(playerID, name);
 	const battleTimerID = guid();
 	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
 	return {
@@ -56744,7 +56729,12 @@ const addMonster = ()=>
 let textDropper;
 const setupPixi = ()=>
 {
-	const app = new PIXI.Application();
+	// const app = new PIXI.Application(768,  762);
+	// const app = new PIXI.Application(512, 448);
+	const app = new PIXI.Application(256, 224, {
+		antialias: true,
+		resolution: 2
+	});
 	document.body.appendChild(app.view);
 
 	charactersContainer = new PIXI.Container();
@@ -56795,17 +56785,17 @@ const getSpritesToRemove = (children, characters)=>
 /* unused harmony export getSpritesToRemove */
 
 
-let playerStartX = 400;
-let playerStartY = 20;
-let monsterStartX = 20;
-let monsterStartY = 20;
 const getSpriteFromCharacter = character =>
 {
+	let playerStartX = pixiApp.screen.width / 2;
+	let playerStartY = 20;
+	let monsterStartX = 20;
+	let monsterStartY = 20;
 	let sprite;
 	const basePath = './src/com/jessewarden/ff6/characters';
 	if(character.characterType === 'player')
 	{
-		sprite = new PIXI.Sprite.fromImage(basePath + '/warrior_stand.png');
+		sprite = new PIXI.Sprite.fromImage('./src/images/locke.png');
 		sprite.x = playerStartX;
 		sprite.y = playerStartY;
 		playerStartX += 20;
@@ -56848,7 +56838,7 @@ const removeSprites = sprites =>
 
 const addBattleTimer = (id, characterID)=>
 {
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* CREATE_BATTLE_TIMER */], entity: id, characterEntity: characterID, speed: 255});
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["c" /* CREATE_BATTLE_TIMER */], entity: id, characterEntity: characterID, speed: 255});
 };
 /* unused harmony export addBattleTimer */
 
@@ -56856,7 +56846,7 @@ const addBattleTimer = (id, characterID)=>
 const startBattleTimer = (entity, window, doneCallback, progressCallback) =>
 {
 	return store.dispatch({
-		type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["c" /* START_BATTLE_TIMER */],
+		type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["d" /* START_BATTLE_TIMER */],
 		entity,
 		window,
 		doneCallback,
@@ -78420,7 +78410,7 @@ module.exports = exports['default'];
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(95);
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
+/* unused harmony export default */
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -78678,7 +78668,7 @@ function combineReducers(reducers) {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* unused harmony reexport bindActionCreators */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* unused harmony reexport applyMiddleware */
 /* unused harmony reexport compose */
 
 
@@ -80438,19 +80428,19 @@ function toggleRow(chr)
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(41);
 const CREATE_BATTLE_TIMER  = 'CREATE_BATTLE_TIMER';
-/* harmony export (immutable) */ __webpack_exports__["b"] = CREATE_BATTLE_TIMER;
+/* harmony export (immutable) */ __webpack_exports__["c"] = CREATE_BATTLE_TIMER;
 
 const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
 /* unused harmony export DESTROY_BATTLE_TIMER */
 
 const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
-/* harmony export (immutable) */ __webpack_exports__["c"] = START_BATTLE_TIMER;
+/* harmony export (immutable) */ __webpack_exports__["d"] = START_BATTLE_TIMER;
 
 const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
 /* unused harmony export STOP_BATTLE_TIMER */
 
 const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
-/* unused harmony export UPDATE_BATTLE_TIMER */
+/* harmony export (immutable) */ __webpack_exports__["b"] = UPDATE_BATTLE_TIMER;
 
 
  
@@ -80555,6 +80545,7 @@ const createCharacter = (state, action)=>
 {
     const character = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__battle_Character__["a" /* getCharacter */])(action.entity);
     character.characterType = action.characterType;
+    character.name = action.name;
     return [...state, character];
 };
 /* unused harmony export createCharacter */
@@ -80872,8 +80863,8 @@ class Menu extends PIXI.Container
 	{
         super();
         const me = this;
-		me._width = 320;
-		me._height = 160;
+		me._width = width;
+		me._height = height;
 		me._menuItems = menuItems;
 
 		me.createChildren();
@@ -80885,7 +80876,7 @@ class Menu extends PIXI.Container
 
 		me._border = new PIXI.Graphics();
 		me._border.beginFill(0x0000FF);
-		me._border.lineStyle(4, 0xFFFFFF, 1);
+		me._border.lineStyle(2, 0xFFFFFF, 1);
 		me._border.drawRoundedRect(0, 0, me._width, me._height, 6);
 		me.addChild(me._border);
 
@@ -80996,7 +80987,6 @@ class Menu extends PIXI.Container
         .map(item => me.getTextFieldFromMenuItem(item))
         .forEach(field =>
         {
-            log("field.width:", field.width);
             field.x = startX;
             field.y = startY;
             startY += 24;
@@ -81018,12 +81008,12 @@ class Menu extends PIXI.Container
 
 class PlayerList extends PIXI.Container
 {
-	constructor(store, width=320, height=160)
+	constructor(store, width=140, height=80)
 	{
 		super();
         const me = this;
-		me._width = 320;
-		me._height = 160;
+		me._width = width;
+		me._height = height;
 		me.store = store;
         me.unsubscribe = me.store.subscribe(()=> me.onStoreChange());
 		me.createChildren();
@@ -81036,7 +81026,7 @@ class PlayerList extends PIXI.Container
 
 		me._border = new PIXI.Graphics();
 		me._border.beginFill(0x0000FF);
-		me._border.lineStyle(4, 0xFFFFFF, 1);
+		me._border.lineStyle(2, 0xFFFFFF, 1);
 		me._border.drawRoundedRect(0, 0, me._width, me._height, 6);
 		me.addChild(me._border);
 
@@ -81062,11 +81052,12 @@ class PlayerList extends PIXI.Container
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
-			    dropShadow : true,
+			    dropShadow : false,
 			    dropShadowColor : '#000000',
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
-			    wordWrap : false
+			    wordWrap : false,
+				fontSize: 18
 			});
 			const textField = new PIXI.Text('???');
             textField.style = style;
@@ -81098,7 +81089,7 @@ class PlayerList extends PIXI.Container
 		}
 		else
 		{
-			return new __WEBPACK_IMPORTED_MODULE_0__BattleTimerBar__["a" /* default */]();
+			return new __WEBPACK_IMPORTED_MODULE_0__BattleTimerBar__["a" /* default */](me._width / 4, 8);
 		}
     }
 
@@ -81139,7 +81130,7 @@ class PlayerList extends PIXI.Container
     {
         const me = this;
         let startX = 4;
-        let startY = 4;
+        let startY = 2;
         return _.chain(characters)
         .map(character =>
         {
@@ -81153,11 +81144,15 @@ class PlayerList extends PIXI.Container
             parent.addChild(holder);
             holder.x = startX;
             holder.y = startY;
-            hitPointsField.x = 100;
-            battleTimerBar.x = 200;
+
+			
+            hitPointsField.x = me._width / 2 - 8;
+            battleTimerBar.x = hitPointsField.x + hitPointsField.width + 12;
+			battleTimerBar.y = 4;
             holder.updateCharacter = character =>
             {
-                nameField.text = character.entity.substring(0, 5);
+                // nameField.text = character.entity.substring(0, 5);
+				nameField.text = character.name;
                 hitPointsField.text = character.hitPoints;
             };
             holder.updateBar = percentage =>
@@ -81165,7 +81160,7 @@ class PlayerList extends PIXI.Container
                 battleTimerBar.percentage = percentage;
                 battleTimerBar.render();
             };
-            startY += 40;
+            startY += battleTimerBar.height + 6;
             return holder;
         })
         .value();
@@ -81184,7 +81179,7 @@ class PlayerList extends PIXI.Container
         });
 	}
 }
-/* unused harmony export default */
+/* harmony export (immutable) */ __webpack_exports__["a"] = PlayerList;
 
 
 /***/ }),

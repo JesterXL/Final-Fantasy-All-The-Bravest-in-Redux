@@ -10,8 +10,8 @@ export default class Menu extends PIXI.Container
 	{
         super();
         const me = this;
-		me._width = 320;
-		me._height = 160;
+		me._width = width;
+		me._height = height;
 		me._menuItems = menuItems;
 
 		me.createChildren();
@@ -23,7 +23,7 @@ export default class Menu extends PIXI.Container
 
 		me._border = new PIXI.Graphics();
 		me._border.beginFill(0x0000FF);
-		me._border.lineStyle(4, 0xFFFFFF, 1);
+		me._border.lineStyle(2, 0xFFFFFF, 1);
 		me._border.drawRoundedRect(0, 0, me._width, me._height, 6);
 		me.addChild(me._border);
 
@@ -134,7 +134,6 @@ export default class Menu extends PIXI.Container
         .map(item => me.getTextFieldFromMenuItem(item))
         .forEach(field =>
         {
-            log("field.width:", field.width);
             field.x = startX;
             field.y = startY;
             startY += 24;

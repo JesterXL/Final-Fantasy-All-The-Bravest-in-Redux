@@ -20,7 +20,7 @@ import TextDropper from './com/jessewarden/ff6/views/TextDropper';
 import Menu from './com/jessewarden/ff6/views/Menu';
 
 
-let store, unsubscribe, pixiApp, charactersContainer;
+let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 export const setupRedux = ()=>
 {
 	const allReducers = combineReducers({
@@ -29,37 +29,10 @@ export const setupRedux = ()=>
 		characters,
 		battleTimers
 	});
-	store = createStore(allReducers, applyMiddleware(createLogger()));
-	// store = createStore(allReducers);
+	// store = createStore(allReducers, applyMiddleware(createLogger()));
+	store = createStore(allReducers);
 	pixiApp = setupPixi();
-
-
-	// addPlayerAndBattleTimer();
-	// const secondPlayerAction = addPlayerAndBattleTimer();
-
-	// const playerList = new PlayerList(store);
-	// pixiApp.stage.addChild(playerList);
-	// playerList.x = pixiApp.screen.width - playerList.width;
-	// playerList.y = 200; 
-
-	// const state = store.getState();
-	// _.chain(state.battleTimers)
-	// .map(battleTimer => battleTimer.entity)
-	// .forEach(battleTimerEntity =>
-	// {
-	// 	startBattleTimer(battleTimerEntity, window, 
-	// 	doneEvent =>
-	// 	{
-	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-	// 	},
-	// 	progressEvent =>
-	// 	{
-	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
-	// 	});
-	// })
-	// .value();
-
-	// showHitPointsLowered(secondPlayerAction.playerEntity);
+	
 
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
@@ -67,30 +40,38 @@ export const setupRedux = ()=>
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
 	PIXI.loader.load((loader, resources) =>
 	{
-	// 	log("resources:", resources);
-	// 	// PIXI.loaders.parseBitmapFontData(loader, resources);
-		const menuItems = [
-			{name: "Uno"},
-			{name: "Dos"},
-			{name: "Tres"}
-		];
-		const test = new Menu(menuItems);
-		pixiApp.stage.addChild(test);
-		test.changes.subscribe(event =>
-		{
-			log("event:", event);
-			test.setMenuItems([
-				{name: "Yes"}
-			]);
-		});
+		addPlayerAndBattleTimer('Cow');
+		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
 
-		// setTimeout(()=>
-		// {
-		// 	test.setMenuItems([
-		// 		{name: "What"},
-		// 		{name: "The"}
-		// 	]);
-		// }, 3000);
+		const playerList = new PlayerList(store);
+		pixiApp.stage.addChild(playerList);
+		log("pixiApp.screen:", pixiApp.screen);
+		playerList.x = pixiApp.screen.width - playerList.width;
+		playerList.y = pixiApp.screen.height - playerList.height; 
+
+		blankMenu = new Menu(undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
+		pixiApp.stage.addChild(blankMenu);
+		blankMenu.y = pixiApp.screen.height - blankMenu.height;
+
+		const state = store.getState();
+		_.chain(state.battleTimers)
+		.map(battleTimer => battleTimer.entity)
+		.forEach(battleTimerEntity =>
+		{
+			startBattleTimer(battleTimerEntity, window, 
+			doneEvent =>
+			{
+				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+			},
+			progressEvent =>
+			{
+				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
+			});
+		})
+		.value();
+
+		// showHitPointsLowered(secondPlayerAction.playerEntity);
+
 	});
 
 	
@@ -130,9 +111,14 @@ export const stopTimer = entity =>
 	return store.dispatch({type: STOP_TIMER, entity});
 };
 
-export const addPlayer = (id)=>
+export const addPlayer = (id, name)=>
 {
-	return store.dispatch({type: CREATE_CHARACTER, entity: id, characterType: 'player'});
+	return store.dispatch({
+		type: CREATE_CHARACTER, 
+		entity: id, 
+		characterType: 'player',
+		name
+	});
 };
 
 export const removePlayer = (id)=>
@@ -140,10 +126,10 @@ export const removePlayer = (id)=>
 	return store.dispatch({type: DESTROY_CHARACTER, entity: id});
 };
 
-export const addPlayerAndBattleTimer = ()=>
+export const addPlayerAndBattleTimer = (name)=>
 {
 	const playerID = guid();
-	const playerEvent = addPlayer(playerID);
+	const playerEvent = addPlayer(playerID, name);
 	const battleTimerID = guid();
 	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
 	return {
@@ -164,7 +150,12 @@ export const addMonster = ()=>
 let textDropper;
 export const setupPixi = ()=>
 {
-	const app = new PIXI.Application();
+	// const app = new PIXI.Application(768,  762);
+	// const app = new PIXI.Application(512, 448);
+	const app = new PIXI.Application(256, 224, {
+		antialias: true,
+		resolution: 2
+	});
 	document.body.appendChild(app.view);
 
 	charactersContainer = new PIXI.Container();
@@ -209,17 +200,17 @@ export const getSpritesToRemove = (children, characters)=>
 	});
 };
 
-let playerStartX = 400;
-let playerStartY = 20;
-let monsterStartX = 20;
-let monsterStartY = 20;
 export const getSpriteFromCharacter = character =>
 {
+	let playerStartX = pixiApp.screen.width / 2;
+	let playerStartY = 20;
+	let monsterStartX = 20;
+	let monsterStartY = 20;
 	let sprite;
 	const basePath = './src/com/jessewarden/ff6/characters';
 	if(character.characterType === 'player')
 	{
-		sprite = new PIXI.Sprite.fromImage(basePath + '/warrior_stand.png');
+		sprite = new PIXI.Sprite.fromImage('./src/images/locke.png');
 		sprite.x = playerStartX;
 		sprite.y = playerStartY;
 		playerStartX += 20;

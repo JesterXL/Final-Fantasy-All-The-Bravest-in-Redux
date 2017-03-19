@@ -2,12 +2,12 @@ import BattleTimerBar from './BattleTimerBar';
 
 export default class PlayerList extends PIXI.Container
 {
-	constructor(store, width=320, height=160)
+	constructor(store, width=140, height=80)
 	{
 		super();
         const me = this;
-		me._width = 320;
-		me._height = 160;
+		me._width = width;
+		me._height = height;
 		me.store = store;
         me.unsubscribe = me.store.subscribe(()=> me.onStoreChange());
 		me.createChildren();
@@ -20,7 +20,7 @@ export default class PlayerList extends PIXI.Container
 
 		me._border = new PIXI.Graphics();
 		me._border.beginFill(0x0000FF);
-		me._border.lineStyle(4, 0xFFFFFF, 1);
+		me._border.lineStyle(2, 0xFFFFFF, 1);
 		me._border.drawRoundedRect(0, 0, me._width, me._height, 6);
 		me.addChild(me._border);
 
@@ -46,11 +46,12 @@ export default class PlayerList extends PIXI.Container
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
-			    dropShadow : true,
+			    dropShadow : false,
 			    dropShadowColor : '#000000',
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
-			    wordWrap : false
+			    wordWrap : false,
+				fontSize: 18
 			});
 			const textField = new PIXI.Text('???');
             textField.style = style;
@@ -82,7 +83,7 @@ export default class PlayerList extends PIXI.Container
 		}
 		else
 		{
-			return new BattleTimerBar();
+			return new BattleTimerBar(me._width / 4, 8);
 		}
     }
 
@@ -123,7 +124,7 @@ export default class PlayerList extends PIXI.Container
     {
         const me = this;
         let startX = 4;
-        let startY = 4;
+        let startY = 2;
         return _.chain(characters)
         .map(character =>
         {
@@ -137,11 +138,15 @@ export default class PlayerList extends PIXI.Container
             parent.addChild(holder);
             holder.x = startX;
             holder.y = startY;
-            hitPointsField.x = 100;
-            battleTimerBar.x = 200;
+
+			
+            hitPointsField.x = me._width / 2 - 8;
+            battleTimerBar.x = hitPointsField.x + hitPointsField.width + 12;
+			battleTimerBar.y = 4;
             holder.updateCharacter = character =>
             {
-                nameField.text = character.entity.substring(0, 5);
+                // nameField.text = character.entity.substring(0, 5);
+				nameField.text = character.name;
                 hitPointsField.text = character.hitPoints;
             };
             holder.updateBar = percentage =>
@@ -149,7 +154,7 @@ export default class PlayerList extends PIXI.Container
                 battleTimerBar.percentage = percentage;
                 battleTimerBar.render();
             };
-            startY += 40;
+            startY += battleTimerBar.height + 6;
             return holder;
         })
         .value();

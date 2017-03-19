@@ -1,8 +1,6 @@
 class BattleTimerBar extends PIXI.Container
 {
 	static get ROUND(){ return 1};
-	static get WIDTH(){ return 30};
-	static get HEIGHT(){ return 6};
 
 	get percentage()
 	{
@@ -34,12 +32,13 @@ class BattleTimerBar extends PIXI.Container
 		}
 	}
 
-	constructor()
+	constructor(width=30, height=6)
 	{
         super();
 
         const me = this;
-
+		me._width = width;
+		me._height = height;
 		me._percentage = 1;
 		me.percentageDirty = false;
 		me.flashDirty = false;
@@ -77,24 +76,24 @@ class BattleTimerBar extends PIXI.Container
 		me.graphics.beginFill(0xFFFFFF);
 		me.graphics.drawRect(0, 
 							0, 
-							BattleTimerBar.WIDTH, 
-							BattleTimerBar.HEIGHT);
+							me._width, 
+							me._height);
 
 		me.graphics.beginFill(0x000080);
 		me.graphics.drawRect(1, 
 									1, 
-									BattleTimerBar.WIDTH - 2, 
-									BattleTimerBar.HEIGHT - 2, 
+									me._width - 2, 
+									me._height - 2, 
 									BattleTimerBar.ROUND);
 		
 		
-		let percentageWidth = BattleTimerBar.WIDTH * me._percentage - OFFSET * 2;
-		percentageWidth = _.clamp(percentageWidth, 0, BattleTimerBar.WIDTH);
+		let percentageWidth = me._width * me._percentage - OFFSET * 2;
+		percentageWidth = _.clamp(percentageWidth, 0, me._width);
 		me.graphics.beginFill(0xffd700);
 		me.graphics.drawRect(OFFSET, 
 			OFFSET,
 			percentageWidth, 
-			BattleTimerBar.HEIGHT - OFFSET * 2);
+			me._height - OFFSET * 2);
 	}
 
 	render()
