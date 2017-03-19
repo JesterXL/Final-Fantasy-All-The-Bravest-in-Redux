@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 230);
+/******/ 	return __webpack_require__(__webpack_require__.s = 231);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -118,7 +118,7 @@ Object.defineProperty(exports, 'Bounds', {
   }
 });
 
-var _DisplayObject = __webpack_require__(57);
+var _DisplayObject = __webpack_require__(59);
 
 Object.defineProperty(exports, 'DisplayObject', {
   enumerable: true,
@@ -136,7 +136,7 @@ Object.defineProperty(exports, 'Container', {
   }
 });
 
-var _Transform = __webpack_require__(58);
+var _Transform = __webpack_require__(60);
 
 Object.defineProperty(exports, 'Transform', {
   enumerable: true,
@@ -145,7 +145,7 @@ Object.defineProperty(exports, 'Transform', {
   }
 });
 
-var _TransformStatic = __webpack_require__(59);
+var _TransformStatic = __webpack_require__(61);
 
 Object.defineProperty(exports, 'TransformStatic', {
   enumerable: true,
@@ -208,7 +208,7 @@ Object.defineProperty(exports, 'Text', {
   }
 });
 
-var _TextStyle = __webpack_require__(69);
+var _TextStyle = __webpack_require__(71);
 
 Object.defineProperty(exports, 'TextStyle', {
   enumerable: true,
@@ -226,7 +226,7 @@ Object.defineProperty(exports, 'Graphics', {
   }
 });
 
-var _GraphicsData = __webpack_require__(60);
+var _GraphicsData = __webpack_require__(62);
 
 Object.defineProperty(exports, 'GraphicsData', {
   enumerable: true,
@@ -289,7 +289,7 @@ Object.defineProperty(exports, 'RenderTexture', {
   }
 });
 
-var _BaseRenderTexture = __webpack_require__(70);
+var _BaseRenderTexture = __webpack_require__(72);
 
 Object.defineProperty(exports, 'BaseRenderTexture', {
   enumerable: true,
@@ -298,7 +298,7 @@ Object.defineProperty(exports, 'BaseRenderTexture', {
   }
 });
 
-var _VideoBaseTexture = __webpack_require__(72);
+var _VideoBaseTexture = __webpack_require__(74);
 
 Object.defineProperty(exports, 'VideoBaseTexture', {
   enumerable: true,
@@ -307,7 +307,7 @@ Object.defineProperty(exports, 'VideoBaseTexture', {
   }
 });
 
-var _TextureUvs = __webpack_require__(71);
+var _TextureUvs = __webpack_require__(73);
 
 Object.defineProperty(exports, 'TextureUvs', {
   enumerable: true,
@@ -316,7 +316,7 @@ Object.defineProperty(exports, 'TextureUvs', {
   }
 });
 
-var _CanvasRenderTarget = __webpack_require__(64);
+var _CanvasRenderTarget = __webpack_require__(66);
 
 Object.defineProperty(exports, 'CanvasRenderTarget', {
   enumerable: true,
@@ -361,7 +361,7 @@ Object.defineProperty(exports, 'RenderTarget', {
   }
 });
 
-var _Quad = __webpack_require__(68);
+var _Quad = __webpack_require__(70);
 
 Object.defineProperty(exports, 'Quad', {
   enumerable: true,
@@ -370,7 +370,7 @@ Object.defineProperty(exports, 'Quad', {
   }
 });
 
-var _SpriteMaskFilter = __webpack_require__(67);
+var _SpriteMaskFilter = __webpack_require__(69);
 
 Object.defineProperty(exports, 'SpriteMaskFilter', {
   enumerable: true,
@@ -379,7 +379,7 @@ Object.defineProperty(exports, 'SpriteMaskFilter', {
   }
 });
 
-var _Filter = __webpack_require__(66);
+var _Filter = __webpack_require__(68);
 
 Object.defineProperty(exports, 'Filter', {
   enumerable: true,
@@ -397,7 +397,7 @@ Object.defineProperty(exports, 'Application', {
   }
 });
 
-var _autoDetectRenderer = __webpack_require__(56);
+var _autoDetectRenderer = __webpack_require__(58);
 
 Object.defineProperty(exports, 'autoDetectRenderer', {
   enumerable: true,
@@ -1162,7 +1162,7 @@ Object.defineProperty(exports, 'Point', {
   }
 });
 
-var _ObservablePoint = __webpack_require__(62);
+var _ObservablePoint = __webpack_require__(64);
 
 Object.defineProperty(exports, 'ObservablePoint', {
   enumerable: true,
@@ -1180,7 +1180,7 @@ Object.defineProperty(exports, 'Matrix', {
   }
 });
 
-var _GroupD = __webpack_require__(61);
+var _GroupD = __webpack_require__(63);
 
 Object.defineProperty(exports, 'GroupD8', {
   enumerable: true,
@@ -1468,11 +1468,11 @@ exports.default = {
 
 var gl = {
     createContext:          __webpack_require__(119),
-    setVertexAttribArrays:  __webpack_require__(47),
+    setVertexAttribArrays:  __webpack_require__(49),
     GLBuffer:               __webpack_require__(115),
     GLFramebuffer:          __webpack_require__(116),
     GLShader:               __webpack_require__(117),
-    GLTexture:              __webpack_require__(46),
+    GLTexture:              __webpack_require__(48),
     VertexArrayObject:      __webpack_require__(118),
     shader:                 __webpack_require__(120)
 };
@@ -2084,11 +2084,11 @@ var _BaseTexture = __webpack_require__(15);
 
 var _BaseTexture2 = _interopRequireDefault(_BaseTexture);
 
-var _VideoBaseTexture = __webpack_require__(72);
+var _VideoBaseTexture = __webpack_require__(74);
 
 var _VideoBaseTexture2 = _interopRequireDefault(_VideoBaseTexture);
 
-var _TextureUvs = __webpack_require__(71);
+var _TextureUvs = __webpack_require__(73);
 
 var _TextureUvs2 = _interopRequireDefault(_TextureUvs);
 
@@ -19872,7 +19872,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _utils = __webpack_require__(2);
 
-var _DisplayObject2 = __webpack_require__(57);
+var _DisplayObject2 = __webpack_require__(59);
 
 var _DisplayObject3 = _interopRequireDefault(_DisplayObject2);
 
@@ -20491,7 +20491,7 @@ Container.prototype.containerUpdateTransform = Container.prototype.updateTransfo
 
 exports.__esModule = true;
 
-var _SystemRenderer2 = __webpack_require__(63);
+var _SystemRenderer2 = __webpack_require__(65);
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
@@ -20499,7 +20499,7 @@ var _CanvasMaskManager = __webpack_require__(138);
 
 var _CanvasMaskManager2 = _interopRequireDefault(_CanvasMaskManager);
 
-var _CanvasRenderTarget = __webpack_require__(64);
+var _CanvasRenderTarget = __webpack_require__(66);
 
 var _CanvasRenderTarget2 = _interopRequireDefault(_CanvasRenderTarget);
 
@@ -21944,11 +21944,11 @@ var _Resource = __webpack_require__(39);
 
 var _Resource2 = _interopRequireDefault(_Resource);
 
-var _async = __webpack_require__(96);
+var _async = __webpack_require__(98);
 
 var async = _interopRequireWildcard(_async);
 
-var _b = __webpack_require__(97);
+var _b = __webpack_require__(99);
 
 var b64 = _interopRequireWildcard(_b);
 
@@ -22248,7 +22248,7 @@ function buildNativeLine(graphicsData, webGLData) {
 
 exports.__esModule = true;
 
-var _SystemRenderer2 = __webpack_require__(63);
+var _SystemRenderer2 = __webpack_require__(65);
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
@@ -26018,7 +26018,7 @@ exports.__esModule = true;
 
 var _utils = __webpack_require__(2);
 
-var _canUseNewCanvasBlendModes = __webpack_require__(65);
+var _canUseNewCanvasBlendModes = __webpack_require__(67);
 
 var _canUseNewCanvasBlendModes2 = _interopRequireDefault(_canUseNewCanvasBlendModes);
 
@@ -26258,7 +26258,7 @@ exports.default = CanvasTinter;
 
 exports.__esModule = true;
 
-var _BaseRenderTexture = __webpack_require__(70);
+var _BaseRenderTexture = __webpack_require__(72);
 
 var _BaseRenderTexture2 = _interopRequireDefault(_BaseRenderTexture);
 
@@ -26523,7 +26523,7 @@ function createIndicesForQuads(size) {
 exports.__esModule = true;
 exports.BitmapText = exports.TilingSpriteRenderer = exports.TilingSprite = exports.AnimatedSprite = exports.TextureTransform = undefined;
 
-var _TextureTransform = __webpack_require__(73);
+var _TextureTransform = __webpack_require__(75);
 
 Object.defineProperty(exports, 'TextureTransform', {
   enumerable: true,
@@ -26592,7 +26592,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _CountLimiter = __webpack_require__(91);
+var _CountLimiter = __webpack_require__(93);
 
 var _CountLimiter2 = _interopRequireDefault(_CountLimiter);
 
@@ -26983,11 +26983,11 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _parseUri = __webpack_require__(45);
+var _parseUri = __webpack_require__(47);
 
 var _parseUri2 = _interopRequireDefault(_parseUri);
 
-var _miniSignals = __webpack_require__(44);
+var _miniSignals = __webpack_require__(46);
 
 var _miniSignals2 = _interopRequireDefault(_miniSignals);
 
@@ -28129,7903 +28129,6 @@ function reqType(xhr) {
 
 /***/ }),
 /* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-const log = console.log;
-
-const _ = __webpack_require__(10);
-
-const MODE_PLAYER   = 'player';
-/* harmony export (immutable) */ __webpack_exports__["MODE_PLAYER"] = MODE_PLAYER;
-
-const MODE_MONSTER  = 'monster';
-/* harmony export (immutable) */ __webpack_exports__["MODE_MONSTER"] = MODE_MONSTER;
-
-
-const EFFECT_NORMAL = 96;
-/* harmony export (immutable) */ __webpack_exports__["EFFECT_NORMAL"] = EFFECT_NORMAL;
-
-const EFFECT_HASTE  = 126;
-/* harmony export (immutable) */ __webpack_exports__["EFFECT_HASTE"] = EFFECT_HASTE;
-
-const EFFECT_SLOW   = 48;
-/* harmony export (immutable) */ __webpack_exports__["EFFECT_SLOW"] = EFFECT_SLOW;
-
-
-const MAX_GAUGE     = 65536;
-/* harmony export (immutable) */ __webpack_exports__["MAX_GAUGE"] = MAX_GAUGE;
-
-const TIME_SLICE    = 33;
-
-const getPercentage = (gauge) =>
-{
-	return gauge / MAX_GAUGE;
-};
-/* harmony export (immutable) */ __webpack_exports__["getPercentage"] = getPercentage;
-
-
-const characterTick = (effect, speed, gauge)=>
-{
-	const result = (((effect * (speed + 20)) / 16));
-	gauge += Math.round(result);
-    return gauge;
-};
-/* harmony export (immutable) */ __webpack_exports__["characterTick"] = characterTick;
-
-// Normal speed:
-
-// ((96 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
-
-// If Hasted:
-
-// ((126 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
-
-// If Slowed:
-
-// ((48 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
-
-// export function *timerBrowserNotNode()
-// {
-// 	let time = performance.now();
-// 	let lastTick = time;
-// 	yield {time, difference: 0};
-// 	while(true)
-// 	{
-// 		time = performance.now();
-// 		yield {time, difference: time - lastTick};
-// 	}
-// }
-
-class Timer
-{
-	constructor(entity)
-	{
-		const me = this;
-		me.entity = entity;
-		me.running = false;
-		me.tickBound = me.tick.bind(me);
-	}
-
-	tick(time)
-	{
-		const me = this;
-		const now = performance.now();
-		const previousTick = me.lastTick;
-		me.difference = now - me.lastTick;
-		me.lastTick = now;
-		if(me.running === true)
-		{
-			window.requestAnimationFrame(me.tickBound);
-			if(me.tickCallback)
-			{
-				me.tickCallback(time, me.difference, now, previousTick);
-			}
-		}
-	}
-
-	startTimer(window, callback)
-	{
-		const me = this;
-		me.running = true;
-		me.tickCallback = callback;
-		me.lastTick = performance.now();
-		window.requestAnimationFrame(me.tickBound);
-	}
-
-	stopTimer()
-	{
-		const me = this;
-		me.running = false;
-		delete me.tickCallback;
-	}
-}
-/* harmony export (immutable) */ __webpack_exports__["Timer"] = Timer;
-
-
-// TODO: make monster mode work, I don't get the algo man
-class BattleTimer
-{
-	constructor(entity, characterEntity, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
-	{
-		const me = this;
-		me.entity = entity;
-		me.timer = new Timer(entity);
-		me.characterEntity = characterEntity;
-		me.counter = counter;
-		me.gauge = gauge;
-		me.effect = effect;
-		me.mode = mode;
-		me.speed = speed;
-	}
-
-	startTimer(window, doneCallback, progressCallback)
-	{
-		const me = this;
-		me.doneCallback = doneCallback;
-		me.progressCallback = progressCallback;
-		const THIRTY_TIMES_A_SECOND = 1000 / 30;
-		if(_.isNil(me.thirtyMillisecondCounter))
-		{
-			me.thirtyMillisecondCounter = 0;
-		}
-		me.timer.startTimer(window, (time, difference, now, previousTick)=>
-		{
-			me.thirtyMillisecondCounter += difference;
-			if(me.thirtyMillisecondCounter >= THIRTY_TIMES_A_SECOND)
-			{
-				me.thirtyMillisecondCounter = 0;
-				me.counter++;
-				me.gauge = characterTick(me.effect, me.speed, me.gauge);
-				if(me.gauge >= MAX_GAUGE)
-				{
-					me.gauge = MAX_GAUGE;
-					me.percentage = 1;
-					me.stopTimer();
-					me.doneCallback({
-						entity: me.entity,
-						characterEntity: me.characterEntity,
-						percentage: 1, 
-						gauge: me.gauge
-					});
-					return;
-				}
-				if(me.progressCallback)
-				{
-					me.percentage = getPercentage(me.gauge);
-					me.progressCallback({
-						entity: me.entity,
-						characterEntity: me.characterEntity,
-						percentage: me.percentage, 
-						gauge: me.gauge
-					});
-				}
-				
-			}
-		});
-	}
-
-	stopTimer()
-	{
-		const me = this;
-		me.timer.stopTimer();
-	}
-}
-/* harmony export (immutable) */ __webpack_exports__["BattleTimer"] = BattleTimer;
-
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = earcut;
-
-function earcut(data, holeIndices, dim) {
-
-    dim = dim || 2;
-
-    var hasHoles = holeIndices && holeIndices.length,
-        outerLen = hasHoles ? holeIndices[0] * dim : data.length,
-        outerNode = linkedList(data, 0, outerLen, dim, true),
-        triangles = [];
-
-    if (!outerNode) return triangles;
-
-    var minX, minY, maxX, maxY, x, y, size;
-
-    if (hasHoles) outerNode = eliminateHoles(data, holeIndices, outerNode, dim);
-
-    // if the shape is not too simple, we'll use z-order curve hash later; calculate polygon bbox
-    if (data.length > 80 * dim) {
-        minX = maxX = data[0];
-        minY = maxY = data[1];
-
-        for (var i = dim; i < outerLen; i += dim) {
-            x = data[i];
-            y = data[i + 1];
-            if (x < minX) minX = x;
-            if (y < minY) minY = y;
-            if (x > maxX) maxX = x;
-            if (y > maxY) maxY = y;
-        }
-
-        // minX, minY and size are later used to transform coords into integers for z-order calculation
-        size = Math.max(maxX - minX, maxY - minY);
-    }
-
-    earcutLinked(outerNode, triangles, dim, minX, minY, size);
-
-    return triangles;
-}
-
-// create a circular doubly linked list from polygon points in the specified winding order
-function linkedList(data, start, end, dim, clockwise) {
-    var i, last;
-
-    if (clockwise === (signedArea(data, start, end, dim) > 0)) {
-        for (i = start; i < end; i += dim) last = insertNode(i, data[i], data[i + 1], last);
-    } else {
-        for (i = end - dim; i >= start; i -= dim) last = insertNode(i, data[i], data[i + 1], last);
-    }
-
-    if (last && equals(last, last.next)) {
-        removeNode(last);
-        last = last.next;
-    }
-
-    return last;
-}
-
-// eliminate colinear or duplicate points
-function filterPoints(start, end) {
-    if (!start) return start;
-    if (!end) end = start;
-
-    var p = start,
-        again;
-    do {
-        again = false;
-
-        if (!p.steiner && (equals(p, p.next) || area(p.prev, p, p.next) === 0)) {
-            removeNode(p);
-            p = end = p.prev;
-            if (p === p.next) return null;
-            again = true;
-
-        } else {
-            p = p.next;
-        }
-    } while (again || p !== end);
-
-    return end;
-}
-
-// main ear slicing loop which triangulates a polygon (given as a linked list)
-function earcutLinked(ear, triangles, dim, minX, minY, size, pass) {
-    if (!ear) return;
-
-    // interlink polygon nodes in z-order
-    if (!pass && size) indexCurve(ear, minX, minY, size);
-
-    var stop = ear,
-        prev, next;
-
-    // iterate through ears, slicing them one by one
-    while (ear.prev !== ear.next) {
-        prev = ear.prev;
-        next = ear.next;
-
-        if (size ? isEarHashed(ear, minX, minY, size) : isEar(ear)) {
-            // cut off the triangle
-            triangles.push(prev.i / dim);
-            triangles.push(ear.i / dim);
-            triangles.push(next.i / dim);
-
-            removeNode(ear);
-
-            // skipping the next vertice leads to less sliver triangles
-            ear = next.next;
-            stop = next.next;
-
-            continue;
-        }
-
-        ear = next;
-
-        // if we looped through the whole remaining polygon and can't find any more ears
-        if (ear === stop) {
-            // try filtering points and slicing again
-            if (!pass) {
-                earcutLinked(filterPoints(ear), triangles, dim, minX, minY, size, 1);
-
-            // if this didn't work, try curing all small self-intersections locally
-            } else if (pass === 1) {
-                ear = cureLocalIntersections(ear, triangles, dim);
-                earcutLinked(ear, triangles, dim, minX, minY, size, 2);
-
-            // as a last resort, try splitting the remaining polygon into two
-            } else if (pass === 2) {
-                splitEarcut(ear, triangles, dim, minX, minY, size);
-            }
-
-            break;
-        }
-    }
-}
-
-// check whether a polygon node forms a valid ear with adjacent nodes
-function isEar(ear) {
-    var a = ear.prev,
-        b = ear,
-        c = ear.next;
-
-    if (area(a, b, c) >= 0) return false; // reflex, can't be an ear
-
-    // now make sure we don't have other points inside the potential ear
-    var p = ear.next.next;
-
-    while (p !== ear.prev) {
-        if (pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
-            area(p.prev, p, p.next) >= 0) return false;
-        p = p.next;
-    }
-
-    return true;
-}
-
-function isEarHashed(ear, minX, minY, size) {
-    var a = ear.prev,
-        b = ear,
-        c = ear.next;
-
-    if (area(a, b, c) >= 0) return false; // reflex, can't be an ear
-
-    // triangle bbox; min & max are calculated like this for speed
-    var minTX = a.x < b.x ? (a.x < c.x ? a.x : c.x) : (b.x < c.x ? b.x : c.x),
-        minTY = a.y < b.y ? (a.y < c.y ? a.y : c.y) : (b.y < c.y ? b.y : c.y),
-        maxTX = a.x > b.x ? (a.x > c.x ? a.x : c.x) : (b.x > c.x ? b.x : c.x),
-        maxTY = a.y > b.y ? (a.y > c.y ? a.y : c.y) : (b.y > c.y ? b.y : c.y);
-
-    // z-order range for the current triangle bbox;
-    var minZ = zOrder(minTX, minTY, minX, minY, size),
-        maxZ = zOrder(maxTX, maxTY, minX, minY, size);
-
-    // first look for points inside the triangle in increasing z-order
-    var p = ear.nextZ;
-
-    while (p && p.z <= maxZ) {
-        if (p !== ear.prev && p !== ear.next &&
-            pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
-            area(p.prev, p, p.next) >= 0) return false;
-        p = p.nextZ;
-    }
-
-    // then look for points in decreasing z-order
-    p = ear.prevZ;
-
-    while (p && p.z >= minZ) {
-        if (p !== ear.prev && p !== ear.next &&
-            pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
-            area(p.prev, p, p.next) >= 0) return false;
-        p = p.prevZ;
-    }
-
-    return true;
-}
-
-// go through all polygon nodes and cure small local self-intersections
-function cureLocalIntersections(start, triangles, dim) {
-    var p = start;
-    do {
-        var a = p.prev,
-            b = p.next.next;
-
-        if (!equals(a, b) && intersects(a, p, p.next, b) && locallyInside(a, b) && locallyInside(b, a)) {
-
-            triangles.push(a.i / dim);
-            triangles.push(p.i / dim);
-            triangles.push(b.i / dim);
-
-            // remove two nodes involved
-            removeNode(p);
-            removeNode(p.next);
-
-            p = start = b;
-        }
-        p = p.next;
-    } while (p !== start);
-
-    return p;
-}
-
-// try splitting polygon into two and triangulate them independently
-function splitEarcut(start, triangles, dim, minX, minY, size) {
-    // look for a valid diagonal that divides the polygon into two
-    var a = start;
-    do {
-        var b = a.next.next;
-        while (b !== a.prev) {
-            if (a.i !== b.i && isValidDiagonal(a, b)) {
-                // split the polygon in two by the diagonal
-                var c = splitPolygon(a, b);
-
-                // filter colinear points around the cuts
-                a = filterPoints(a, a.next);
-                c = filterPoints(c, c.next);
-
-                // run earcut on each half
-                earcutLinked(a, triangles, dim, minX, minY, size);
-                earcutLinked(c, triangles, dim, minX, minY, size);
-                return;
-            }
-            b = b.next;
-        }
-        a = a.next;
-    } while (a !== start);
-}
-
-// link every hole into the outer loop, producing a single-ring polygon without holes
-function eliminateHoles(data, holeIndices, outerNode, dim) {
-    var queue = [],
-        i, len, start, end, list;
-
-    for (i = 0, len = holeIndices.length; i < len; i++) {
-        start = holeIndices[i] * dim;
-        end = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
-        list = linkedList(data, start, end, dim, false);
-        if (list === list.next) list.steiner = true;
-        queue.push(getLeftmost(list));
-    }
-
-    queue.sort(compareX);
-
-    // process holes from left to right
-    for (i = 0; i < queue.length; i++) {
-        eliminateHole(queue[i], outerNode);
-        outerNode = filterPoints(outerNode, outerNode.next);
-    }
-
-    return outerNode;
-}
-
-function compareX(a, b) {
-    return a.x - b.x;
-}
-
-// find a bridge between vertices that connects hole with an outer ring and and link it
-function eliminateHole(hole, outerNode) {
-    outerNode = findHoleBridge(hole, outerNode);
-    if (outerNode) {
-        var b = splitPolygon(outerNode, hole);
-        filterPoints(b, b.next);
-    }
-}
-
-// David Eberly's algorithm for finding a bridge between hole and outer polygon
-function findHoleBridge(hole, outerNode) {
-    var p = outerNode,
-        hx = hole.x,
-        hy = hole.y,
-        qx = -Infinity,
-        m;
-
-    // find a segment intersected by a ray from the hole's leftmost point to the left;
-    // segment's endpoint with lesser x will be potential connection point
-    do {
-        if (hy <= p.y && hy >= p.next.y) {
-            var x = p.x + (hy - p.y) * (p.next.x - p.x) / (p.next.y - p.y);
-            if (x <= hx && x > qx) {
-                qx = x;
-                if (x === hx) {
-                    if (hy === p.y) return p;
-                    if (hy === p.next.y) return p.next;
-                }
-                m = p.x < p.next.x ? p : p.next;
-            }
-        }
-        p = p.next;
-    } while (p !== outerNode);
-
-    if (!m) return null;
-
-    if (hx === qx) return m.prev; // hole touches outer segment; pick lower endpoint
-
-    // look for points inside the triangle of hole point, segment intersection and endpoint;
-    // if there are no points found, we have a valid connection;
-    // otherwise choose the point of the minimum angle with the ray as connection point
-
-    var stop = m,
-        mx = m.x,
-        my = m.y,
-        tanMin = Infinity,
-        tan;
-
-    p = m.next;
-
-    while (p !== stop) {
-        if (hx >= p.x && p.x >= mx &&
-                pointInTriangle(hy < my ? hx : qx, hy, mx, my, hy < my ? qx : hx, hy, p.x, p.y)) {
-
-            tan = Math.abs(hy - p.y) / (hx - p.x); // tangential
-
-            if ((tan < tanMin || (tan === tanMin && p.x > m.x)) && locallyInside(p, hole)) {
-                m = p;
-                tanMin = tan;
-            }
-        }
-
-        p = p.next;
-    }
-
-    return m;
-}
-
-// interlink polygon nodes in z-order
-function indexCurve(start, minX, minY, size) {
-    var p = start;
-    do {
-        if (p.z === null) p.z = zOrder(p.x, p.y, minX, minY, size);
-        p.prevZ = p.prev;
-        p.nextZ = p.next;
-        p = p.next;
-    } while (p !== start);
-
-    p.prevZ.nextZ = null;
-    p.prevZ = null;
-
-    sortLinked(p);
-}
-
-// Simon Tatham's linked list merge sort algorithm
-// http://www.chiark.greenend.org.uk/~sgtatham/algorithms/listsort.html
-function sortLinked(list) {
-    var i, p, q, e, tail, numMerges, pSize, qSize,
-        inSize = 1;
-
-    do {
-        p = list;
-        list = null;
-        tail = null;
-        numMerges = 0;
-
-        while (p) {
-            numMerges++;
-            q = p;
-            pSize = 0;
-            for (i = 0; i < inSize; i++) {
-                pSize++;
-                q = q.nextZ;
-                if (!q) break;
-            }
-
-            qSize = inSize;
-
-            while (pSize > 0 || (qSize > 0 && q)) {
-
-                if (pSize === 0) {
-                    e = q;
-                    q = q.nextZ;
-                    qSize--;
-                } else if (qSize === 0 || !q) {
-                    e = p;
-                    p = p.nextZ;
-                    pSize--;
-                } else if (p.z <= q.z) {
-                    e = p;
-                    p = p.nextZ;
-                    pSize--;
-                } else {
-                    e = q;
-                    q = q.nextZ;
-                    qSize--;
-                }
-
-                if (tail) tail.nextZ = e;
-                else list = e;
-
-                e.prevZ = tail;
-                tail = e;
-            }
-
-            p = q;
-        }
-
-        tail.nextZ = null;
-        inSize *= 2;
-
-    } while (numMerges > 1);
-
-    return list;
-}
-
-// z-order of a point given coords and size of the data bounding box
-function zOrder(x, y, minX, minY, size) {
-    // coords are transformed into non-negative 15-bit integer range
-    x = 32767 * (x - minX) / size;
-    y = 32767 * (y - minY) / size;
-
-    x = (x | (x << 8)) & 0x00FF00FF;
-    x = (x | (x << 4)) & 0x0F0F0F0F;
-    x = (x | (x << 2)) & 0x33333333;
-    x = (x | (x << 1)) & 0x55555555;
-
-    y = (y | (y << 8)) & 0x00FF00FF;
-    y = (y | (y << 4)) & 0x0F0F0F0F;
-    y = (y | (y << 2)) & 0x33333333;
-    y = (y | (y << 1)) & 0x55555555;
-
-    return x | (y << 1);
-}
-
-// find the leftmost node of a polygon ring
-function getLeftmost(start) {
-    var p = start,
-        leftmost = start;
-    do {
-        if (p.x < leftmost.x) leftmost = p;
-        p = p.next;
-    } while (p !== start);
-
-    return leftmost;
-}
-
-// check if a point lies within a convex triangle
-function pointInTriangle(ax, ay, bx, by, cx, cy, px, py) {
-    return (cx - px) * (ay - py) - (ax - px) * (cy - py) >= 0 &&
-           (ax - px) * (by - py) - (bx - px) * (ay - py) >= 0 &&
-           (bx - px) * (cy - py) - (cx - px) * (by - py) >= 0;
-}
-
-// check if a diagonal between two polygon nodes is valid (lies in polygon interior)
-function isValidDiagonal(a, b) {
-    return a.next.i !== b.i && a.prev.i !== b.i && !intersectsPolygon(a, b) &&
-           locallyInside(a, b) && locallyInside(b, a) && middleInside(a, b);
-}
-
-// signed area of a triangle
-function area(p, q, r) {
-    return (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
-}
-
-// check if two points are equal
-function equals(p1, p2) {
-    return p1.x === p2.x && p1.y === p2.y;
-}
-
-// check if two segments intersect
-function intersects(p1, q1, p2, q2) {
-    if ((equals(p1, q1) && equals(p2, q2)) ||
-        (equals(p1, q2) && equals(p2, q1))) return true;
-    return area(p1, q1, p2) > 0 !== area(p1, q1, q2) > 0 &&
-           area(p2, q2, p1) > 0 !== area(p2, q2, q1) > 0;
-}
-
-// check if a polygon diagonal intersects any polygon segments
-function intersectsPolygon(a, b) {
-    var p = a;
-    do {
-        if (p.i !== a.i && p.next.i !== a.i && p.i !== b.i && p.next.i !== b.i &&
-                intersects(p, p.next, a, b)) return true;
-        p = p.next;
-    } while (p !== a);
-
-    return false;
-}
-
-// check if a polygon diagonal is locally inside the polygon
-function locallyInside(a, b) {
-    return area(a.prev, a, a.next) < 0 ?
-        area(a, b, a.next) >= 0 && area(a, a.prev, b) >= 0 :
-        area(a, b, a.prev) < 0 || area(a, a.next, b) < 0;
-}
-
-// check if the middle point of a polygon diagonal is inside the polygon
-function middleInside(a, b) {
-    var p = a,
-        inside = false,
-        px = (a.x + b.x) / 2,
-        py = (a.y + b.y) / 2;
-    do {
-        if (((p.y > py) !== (p.next.y > py)) && (px < (p.next.x - p.x) * (py - p.y) / (p.next.y - p.y) + p.x))
-            inside = !inside;
-        p = p.next;
-    } while (p !== a);
-
-    return inside;
-}
-
-// link two polygon vertices with a bridge; if the vertices belong to the same ring, it splits polygon into two;
-// if one belongs to the outer ring and another to a hole, it merges it into a single ring
-function splitPolygon(a, b) {
-    var a2 = new Node(a.i, a.x, a.y),
-        b2 = new Node(b.i, b.x, b.y),
-        an = a.next,
-        bp = b.prev;
-
-    a.next = b;
-    b.prev = a;
-
-    a2.next = an;
-    an.prev = a2;
-
-    b2.next = a2;
-    a2.prev = b2;
-
-    bp.next = b2;
-    b2.prev = bp;
-
-    return b2;
-}
-
-// create a node and optionally link it with previous one (in a circular doubly linked list)
-function insertNode(i, x, y, last) {
-    var p = new Node(i, x, y);
-
-    if (!last) {
-        p.prev = p;
-        p.next = p;
-
-    } else {
-        p.next = last.next;
-        p.prev = last;
-        last.next.prev = p;
-        last.next = p;
-    }
-    return p;
-}
-
-function removeNode(p) {
-    p.next.prev = p.prev;
-    p.prev.next = p.next;
-
-    if (p.prevZ) p.prevZ.nextZ = p.nextZ;
-    if (p.nextZ) p.nextZ.prevZ = p.prevZ;
-}
-
-function Node(i, x, y) {
-    // vertice index in coordinates array
-    this.i = i;
-
-    // vertex coordinates
-    this.x = x;
-    this.y = y;
-
-    // previous and next vertice nodes in a polygon ring
-    this.prev = null;
-    this.next = null;
-
-    // z-order curve value
-    this.z = null;
-
-    // previous and next nodes in z-order
-    this.prevZ = null;
-    this.nextZ = null;
-
-    // indicates whether this is a steiner point
-    this.steiner = false;
-}
-
-// return a percentage difference between the polygon area and its triangulation area;
-// used to verify correctness of triangulation
-earcut.deviation = function (data, holeIndices, dim, triangles) {
-    var hasHoles = holeIndices && holeIndices.length;
-    var outerLen = hasHoles ? holeIndices[0] * dim : data.length;
-
-    var polygonArea = Math.abs(signedArea(data, 0, outerLen, dim));
-    if (hasHoles) {
-        for (var i = 0, len = holeIndices.length; i < len; i++) {
-            var start = holeIndices[i] * dim;
-            var end = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
-            polygonArea -= Math.abs(signedArea(data, start, end, dim));
-        }
-    }
-
-    var trianglesArea = 0;
-    for (i = 0; i < triangles.length; i += 3) {
-        var a = triangles[i] * dim;
-        var b = triangles[i + 1] * dim;
-        var c = triangles[i + 2] * dim;
-        trianglesArea += Math.abs(
-            (data[a] - data[c]) * (data[b + 1] - data[a + 1]) -
-            (data[a] - data[b]) * (data[c + 1] - data[a + 1]));
-    }
-
-    return polygonArea === 0 && trianglesArea === 0 ? 0 :
-        Math.abs((trianglesArea - polygonArea) / polygonArea);
-};
-
-function signedArea(data, start, end, dim) {
-    var sum = 0;
-    for (var i = start, j = end - dim; i < end; i += dim) {
-        sum += (data[j] - data[i]) * (data[i + 1] + data[j + 1]);
-        j = i;
-    }
-    return sum;
-}
-
-// turn a polygon in a multi-dimensional array form (e.g. as in GeoJSON) into a form Earcut accepts
-earcut.flatten = function (data) {
-    var dim = data[0][0].length,
-        result = {vertices: [], holes: [], dimensions: dim},
-        holeIndex = 0;
-
-    for (var i = 0; i < data.length; i++) {
-        for (var j = 0; j < data[i].length; j++) {
-            for (var d = 0; d < dim; d++) result.vertices.push(data[i][j][d]);
-        }
-        if (i > 0) {
-            holeIndex += data[i - 1].length;
-            result.holes.push(holeIndex);
-        }
-    }
-    return result;
-};
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(112);
-
-
-/** Built-in value references. */
-var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
-
-/* harmony default export */ __webpack_exports__["a"] = Symbol;
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(113);
-
-
-
-
-/** `Object#toString` result references. */
-var objectTag = '[object Object]';
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype,
-    objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to infer the `Object` constructor. */
-var objectCtorString = funcToString.call(Object);
-
-/**
- * Checks if `value` is a plain object, that is, an object created by the
- * `Object` constructor or one with a `[[Prototype]]` of `null`.
- *
- * @static
- * @memberOf _
- * @since 0.8.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- * }
- *
- * _.isPlainObject(new Foo);
- * // => false
- *
- * _.isPlainObject([1, 2, 3]);
- * // => false
- *
- * _.isPlainObject({ 'x': 0, 'y': 0 });
- * // => true
- *
- * _.isPlainObject(Object.create(null));
- * // => true
- */
-function isPlainObject(value) {
-  if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__["a" /* default */])(value) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__["a" /* default */])(value) != objectTag) {
-    return false;
-  }
-  var proto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__getPrototype_js__["a" /* default */])(value);
-  if (proto === null) {
-    return true;
-  }
-  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
-    funcToString.call(Ctor) == objectCtorString;
-}
-
-/* harmony default export */ __webpack_exports__["a"] = isPlainObject;
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-var MiniSignalBinding = (function () {
-  function MiniSignalBinding(fn, once, thisArg) {
-    if (once === undefined) once = false;
-
-    _classCallCheck(this, MiniSignalBinding);
-
-    this._fn = fn;
-    this._once = once;
-    this._thisArg = thisArg;
-    this._next = this._prev = this._owner = null;
-  }
-
-  _createClass(MiniSignalBinding, [{
-    key: 'detach',
-    value: function detach() {
-      if (this._owner === null) return false;
-      this._owner.detach(this);
-      return true;
-    }
-  }]);
-
-  return MiniSignalBinding;
-})();
-
-function _addMiniSignalBinding(self, node) {
-  if (!self._head) {
-    self._head = node;
-    self._tail = node;
-  } else {
-    self._tail._next = node;
-    node._prev = self._tail;
-    self._tail = node;
-  }
-
-  node._owner = self;
-
-  return node;
-}
-
-var MiniSignal = (function () {
-  function MiniSignal() {
-    _classCallCheck(this, MiniSignal);
-
-    this._head = this._tail = undefined;
-  }
-
-  _createClass(MiniSignal, [{
-    key: 'handlers',
-    value: function handlers() {
-      var exists = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
-
-      var node = this._head;
-
-      if (exists) return !!node;
-
-      var ee = [];
-
-      while (node) {
-        ee.push(node);
-        node = node._next;
-      }
-
-      return ee;
-    }
-  }, {
-    key: 'has',
-    value: function has(node) {
-      if (!(node instanceof MiniSignalBinding)) {
-        throw new Error('MiniSignal#has(): First arg must be a MiniSignalBinding object.');
-      }
-
-      return node._owner === this;
-    }
-  }, {
-    key: 'dispatch',
-    value: function dispatch() {
-      var node = this._head;
-
-      if (!node) return false;
-
-      while (node) {
-        if (node._once) this.detach(node);
-        node._fn.apply(node._thisArg, arguments);
-        node = node._next;
-      }
-
-      return true;
-    }
-  }, {
-    key: 'add',
-    value: function add(fn) {
-      var thisArg = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-      if (typeof fn !== 'function') {
-        throw new Error('MiniSignal#add(): First arg must be a Function.');
-      }
-      return _addMiniSignalBinding(this, new MiniSignalBinding(fn, false, thisArg));
-    }
-  }, {
-    key: 'once',
-    value: function once(fn) {
-      var thisArg = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-      if (typeof fn !== 'function') {
-        throw new Error('MiniSignal#once(): First arg must be a Function.');
-      }
-      return _addMiniSignalBinding(this, new MiniSignalBinding(fn, true, thisArg));
-    }
-  }, {
-    key: 'detach',
-    value: function detach(node) {
-      if (!(node instanceof MiniSignalBinding)) {
-        throw new Error('MiniSignal#detach(): First arg must be a MiniSignalBinding object.');
-      }
-      if (node._owner !== this) return this;
-
-      if (node._prev) node._prev._next = node._next;
-      if (node._next) node._next._prev = node._prev;
-
-      if (node === this._head) {
-        this._head = node._next;
-        if (node._next === null) {
-          this._tail = null;
-        }
-      } else if (node === this._tail) {
-        this._tail = node._prev;
-        this._tail._next = null;
-      }
-
-      node._owner = null;
-      return this;
-    }
-  }, {
-    key: 'detachAll',
-    value: function detachAll() {
-      var node = this._head;
-      if (!node) return this;
-
-      this._head = this._tail = null;
-
-      while (node) {
-        node._owner = null;
-        node = node._next;
-      }
-      return this;
-    }
-  }]);
-
-  return MiniSignal;
-})();
-
-MiniSignal.MiniSignalBinding = MiniSignalBinding;
-
-exports['default'] = MiniSignal;
-module.exports = exports['default'];
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function parseURI (str, opts) {
-  opts = opts || {}
-
-  var o = {
-    key: ['source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'],
-    q: {
-      name: 'queryKey',
-      parser: /(?:^|&)([^&=]*)=?([^&]*)/g
-    },
-    parser: {
-      strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
-      loose: /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
-    }
-  }
-
-  var m = o.parser[opts.strictMode ? 'strict' : 'loose'].exec(str)
-  var uri = {}
-  var i = 14
-
-  while (i--) uri[o.key[i]] = m[i] || ''
-
-  uri[o.q.name] = {}
-  uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
-    if ($1) uri[o.q.name][$1] = $2
-  })
-
-  return uri
-}
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-
-/**
- * Helper class to create a WebGL Texture
- *
- * @class
- * @memberof PIXI.glCore
- * @param gl {WebGLRenderingContext} The current WebGL context
- * @param width {number} the width of the texture
- * @param height {number} the height of the texture
- * @param format {number} the pixel format of the texture. defaults to gl.RGBA
- * @param type {number} the gl type of the texture. defaults to gl.UNSIGNED_BYTE
- */
-var Texture = function(gl, width, height, format, type)
-{
-	/**
-	 * The current WebGL rendering context
-	 *
-	 * @member {WebGLRenderingContext}
-	 */
-	this.gl = gl;
-
-
-	/**
-	 * The WebGL texture
-	 *
-	 * @member {WebGLTexture}
-	 */
-	this.texture = gl.createTexture();
-
-	/**
-	 * If mipmapping was used for this texture, enable and disable with enableMipmap()
-	 *
-	 * @member {Boolean}
-	 */
-	// some settings..
-	this.mipmap = false;
-
-
-	/**
-	 * Set to true to enable pre-multiplied alpha
-	 *
-	 * @member {Boolean}
-	 */
-	this.premultiplyAlpha = false;
-
-	/**
-	 * The width of texture
-	 *
-	 * @member {Number}
-	 */
-	this.width = width || -1;
-	/**
-	 * The height of texture
-	 *
-	 * @member {Number}
-	 */
-	this.height = height || -1;
-
-	/**
-	 * The pixel format of the texture. defaults to gl.RGBA
-	 *
-	 * @member {Number}
-	 */
-	this.format = format || gl.RGBA;
-
-	/**
-	 * The gl type of the texture. defaults to gl.UNSIGNED_BYTE
-	 *
-	 * @member {Number}
-	 */
-	this.type = type || gl.UNSIGNED_BYTE;
-
-
-};
-
-/**
- * Uploads this texture to the GPU
- * @param source {HTMLImageElement|ImageData|HTMLVideoElement} the source image of the texture
- */
-Texture.prototype.upload = function(source)
-{
-	this.bind();
-
-	var gl = this.gl;
-
-
-	gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.premultiplyAlpha);
-
-	var newWidth = source.videoWidth || source.width;
-	var newHeight = source.videoHeight || source.height;
-
-	if(newHeight !== this.height || newWidth !== this.width)
-	{
-		gl.texImage2D(gl.TEXTURE_2D, 0, this.format, this.format, this.type, source);
-	}
-	else
-	{
-    	gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, this.format, this.type, source);
-	}
-
-	// if the source is a video, we need to use the videoWidth / videoHeight properties as width / height will be incorrect.
-	this.width = newWidth;
-	this.height = newHeight;
-
-};
-
-var FLOATING_POINT_AVAILABLE = false;
-
-/**
- * Use a data source and uploads this texture to the GPU
- * @param data {TypedArray} the data to upload to the texture
- * @param width {number} the new width of the texture
- * @param height {number} the new height of the texture
- */
-Texture.prototype.uploadData = function(data, width, height)
-{
-	this.bind();
-
-	var gl = this.gl;
-
-
-	if(data instanceof Float32Array)
-	{
-		if(!FLOATING_POINT_AVAILABLE)
-		{
-			var ext = gl.getExtension("OES_texture_float");
-
-			if(ext)
-			{
-				FLOATING_POINT_AVAILABLE = true;
-			}
-			else
-			{
-				throw new Error('floating point textures not available');
-			}
-		}
-
-		this.type = gl.FLOAT;
-	}
-	else
-	{
-		// TODO support for other types
-		this.type = this.type || gl.UNSIGNED_BYTE;
-	}
-
-	// what type of data?
-	gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.premultiplyAlpha);
-
-
-	if(width !== this.width || height !== this.height)
-	{
-		gl.texImage2D(gl.TEXTURE_2D, 0, this.format,  width, height, 0, this.format, this.type, data || null);
-	}
-	else
-	{
-		gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, width, height, this.format, this.type, data || null);
-	}
-
-	this.width = width;
-	this.height = height;
-
-
-//	texSubImage2D
-};
-
-/**
- * Binds the texture
- * @param  location
- */
-Texture.prototype.bind = function(location)
-{
-	var gl = this.gl;
-
-	if(location !== undefined)
-	{
-		gl.activeTexture(gl.TEXTURE0 + location);
-	}
-
-	gl.bindTexture(gl.TEXTURE_2D, this.texture);
-};
-
-/**
- * Unbinds the texture
- */
-Texture.prototype.unbind = function()
-{
-	var gl = this.gl;
-	gl.bindTexture(gl.TEXTURE_2D, null);
-};
-
-/**
- * @param linear {Boolean} if we want to use linear filtering or nearest neighbour interpolation
- */
-Texture.prototype.minFilter = function( linear )
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	if(this.mipmap)
-	{
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, linear ? gl.LINEAR_MIPMAP_LINEAR : gl.NEAREST_MIPMAP_NEAREST);
-	}
-	else
-	{
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, linear ? gl.LINEAR : gl.NEAREST);
-	}
-};
-
-/**
- * @param linear {Boolean} if we want to use linear filtering or nearest neighbour interpolation
- */
-Texture.prototype.magFilter = function( linear )
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, linear ? gl.LINEAR : gl.NEAREST);
-};
-
-/**
- * Enables mipmapping
- */
-Texture.prototype.enableMipmap = function()
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	this.mipmap = true;
-
-	gl.generateMipmap(gl.TEXTURE_2D);
-};
-
-/**
- * Enables linear filtering
- */
-Texture.prototype.enableLinearScaling = function()
-{
-	this.minFilter(true);
-	this.magFilter(true);
-};
-
-/**
- * Enables nearest neighbour interpolation
- */
-Texture.prototype.enableNearestScaling = function()
-{
-	this.minFilter(false);
-	this.magFilter(false);
-};
-
-/**
- * Enables clamping on the texture so WebGL will not repeat it
- */
-Texture.prototype.enableWrapClamp = function()
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-};
-
-/**
- * Enable tiling on the texture
- */
-Texture.prototype.enableWrapRepeat = function()
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
-};
-
-Texture.prototype.enableWrapMirrorRepeat = function()
-{
-	var gl = this.gl;
-
-	this.bind();
-
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.MIRRORED_REPEAT);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.MIRRORED_REPEAT);
-};
-
-
-/**
- * Destroys this texture
- */
-Texture.prototype.destroy = function()
-{
-	var gl = this.gl;
-	//TODO
-	gl.deleteTexture(this.texture);
-};
-
-/**
- * @static
- * @param gl {WebGLRenderingContext} The current WebGL context
- * @param source {HTMLImageElement|ImageData} the source image of the texture
- * @param premultiplyAlpha {Boolean} If we want to use pre-multiplied alpha
- */
-Texture.fromSource = function(gl, source, premultiplyAlpha)
-{
-	var texture = new Texture(gl);
-	texture.premultiplyAlpha = premultiplyAlpha || false;
-	texture.upload(source);
-
-	return texture;
-};
-
-/**
- * @static
- * @param gl {WebGLRenderingContext} The current WebGL context
- * @param data {TypedArray} the data to upload to the texture
- * @param width {number} the new width of the texture
- * @param height {number} the new height of the texture
- */
-Texture.fromData = function(gl, data, width, height)
-{
-	//console.log(data, width, height);
-	var texture = new Texture(gl);
-	texture.uploadData(data, width, height);
-
-	return texture;
-};
-
-
-module.exports = Texture;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-// var GL_MAP = {};
-
-/**
- * @param gl {WebGLRenderingContext} The current WebGL context
- * @param attribs {*}
- * @param state {*}
- */
-var setVertexAttribArrays = function (gl, attribs, state)
-{
-    var i;
-    if(state)
-    {
-        var tempAttribState = state.tempAttribState,
-            attribState = state.attribState;
-
-        for (i = 0; i < tempAttribState.length; i++)
-        {
-            tempAttribState[i] = false;
-        }
-
-        // set the new attribs
-        for (i = 0; i < attribs.length; i++)
-        {
-            tempAttribState[attribs[i].attribute.location] = true;
-        }
-
-        for (i = 0; i < attribState.length; i++)
-        {
-            if (attribState[i] !== tempAttribState[i])
-            {
-                attribState[i] = tempAttribState[i];
-
-                if (state.attribState[i])
-                {
-                    gl.enableVertexAttribArray(i);
-                }
-                else
-                {
-                    gl.disableVertexAttribArray(i);
-                }
-            }
-        }
-
-    }
-    else
-    {
-        for (i = 0; i < attribs.length; i++)
-        {
-            var attrib = attribs[i];
-            gl.enableVertexAttribArray(attrib.attribute.location);
-        }
-    }
-};
-
-module.exports = setVertexAttribArrays;
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-
-/**
- * @class
- * @memberof PIXI.glCore.shader
- * @param gl {WebGLRenderingContext} The current WebGL context {WebGLProgram}
- * @param vertexSrc {string|string[]} The vertex shader source as an array of strings.
- * @param fragmentSrc {string|string[]} The fragment shader source as an array of strings.
- * @param attributeLocations {Object} An attribute location map that lets you manually set the attribute locations
- * @return {WebGLProgram} the shader program
- */
-var compileProgram = function(gl, vertexSrc, fragmentSrc, attributeLocations)
-{
-    var glVertShader = compileShader(gl, gl.VERTEX_SHADER, vertexSrc);
-    var glFragShader = compileShader(gl, gl.FRAGMENT_SHADER, fragmentSrc);
-
-    var program = gl.createProgram();
-
-    gl.attachShader(program, glVertShader);
-    gl.attachShader(program, glFragShader);
-
-    // optionally, set the attributes manually for the program rather than letting WebGL decide..
-    if(attributeLocations)
-    {
-        for(var i in attributeLocations)
-        {
-            gl.bindAttribLocation(program, attributeLocations[i], i);
-        }
-    }
-
-
-    gl.linkProgram(program);
-
-    // if linking fails, then log and cleanup
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS))
-    {
-        console.error('Pixi.js Error: Could not initialize shader.');
-        console.error('gl.VALIDATE_STATUS', gl.getProgramParameter(program, gl.VALIDATE_STATUS));
-        console.error('gl.getError()', gl.getError());
-
-        // if there is a program info log, log it
-        if (gl.getProgramInfoLog(program) !== '')
-        {
-            console.warn('Pixi.js Warning: gl.getProgramInfoLog()', gl.getProgramInfoLog(program));
-        }
-
-        gl.deleteProgram(program);
-        program = null;
-    }
-
-    // clean up some shaders
-    gl.deleteShader(glVertShader);
-    gl.deleteShader(glFragShader);
-
-    return program;
-};
-
-/**
- * @private
- * @param gl {WebGLRenderingContext} The current WebGL context {WebGLProgram}
- * @param type {Number} the type, can be either VERTEX_SHADER or FRAGMENT_SHADER
- * @param vertexSrc {string|string[]} The vertex shader source as an array of strings.
- * @return {WebGLShader} the shader
- */
-var compileShader = function (gl, type, src)
-{
-    var shader = gl.createShader(type);
-
-    gl.shaderSource(shader, src);
-    gl.compileShader(shader);
-
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
-    {
-        console.log(gl.getShaderInfoLog(shader));
-        return null;
-    }
-
-    return shader;
-};
-
-module.exports = compileProgram;
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-/**
- * @class
- * @memberof PIXI.glCore.shader
- * @param type {String} Type of value
- * @param size {Number}
- */
-var defaultValue = function(type, size) 
-{
-    switch (type)
-    {
-        case 'float':
-            return 0;
-
-        case 'vec2': 
-            return new Float32Array(2 * size);
-
-        case 'vec3':
-            return new Float32Array(3 * size);
-
-        case 'vec4':     
-            return new Float32Array(4 * size);
-            
-        case 'int':
-        case 'sampler2D':
-            return 0;
-
-        case 'ivec2':   
-            return new Int32Array(2 * size);
-
-        case 'ivec3':
-            return new Int32Array(3 * size);
-
-        case 'ivec4': 
-            return new Int32Array(4 * size);
-
-        case 'bool':     
-            return false;
-
-        case 'bvec2':
-
-            return booleanArray( 2 * size);
-
-        case 'bvec3':
-            return booleanArray(3 * size);
-
-        case 'bvec4':
-            return booleanArray(4 * size);
-
-        case 'mat2':
-            return new Float32Array([1, 0,
-                                     0, 1]);
-
-        case 'mat3': 
-            return new Float32Array([1, 0, 0,
-                                     0, 1, 0,
-                                     0, 0, 1]);
-
-        case 'mat4':
-            return new Float32Array([1, 0, 0, 0,
-                                     0, 1, 0, 0,
-                                     0, 0, 1, 0,
-                                     0, 0, 0, 1]);
-    }
-};
-
-var booleanArray = function(size)
-{
-    var array = new Array(size);
-
-    for (var i = 0; i < array.length; i++) 
-    {
-        array[i] = false;
-    }
-
-    return array;
-};
-
-module.exports = defaultValue;
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var mapType = __webpack_require__(26);
-var mapSize = __webpack_require__(53);
-
-/**
- * Extracts the attributes
- * @class
- * @memberof PIXI.glCore.shader
- * @param gl {WebGLRenderingContext} The current WebGL rendering context
- * @param program {WebGLProgram} The shader program to get the attributes from
- * @return attributes {Object}
- */
-var extractAttributes = function(gl, program)
-{
-    var attributes = {};
-
-    var totalAttributes = gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES);
-
-    for (var i = 0; i < totalAttributes; i++)
-    {
-        var attribData = gl.getActiveAttrib(program, i);
-        var type = mapType(gl, attribData.type);
-
-        attributes[attribData.name] = {
-            type:type,
-            size:mapSize(type),
-            location:gl.getAttribLocation(program, attribData.name),
-            //TODO - make an attribute object
-            pointer: pointer
-        };
-    }
-
-    return attributes;
-};
-
-var pointer = function(type, normalized, stride, start){
-    // console.log(this.location)
-    gl.vertexAttribPointer(this.location,this.size, type || gl.FLOAT, normalized || false, stride || 0, start || 0);
-};
-
-module.exports = extractAttributes;
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var mapType = __webpack_require__(26);
-var defaultValue = __webpack_require__(49);
-
-/**
- * Extracts the uniforms
- * @class
- * @memberof PIXI.glCore.shader
- * @param gl {WebGLRenderingContext} The current WebGL rendering context
- * @param program {WebGLProgram} The shader program to get the uniforms from
- * @return uniforms {Object}
- */
-var extractUniforms = function(gl, program)
-{
-	var uniforms = {};
-
-    var totalUniforms = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
-
-    for (var i = 0; i < totalUniforms; i++)
-    {
-    	var uniformData = gl.getActiveUniform(program, i);
-    	var name = uniformData.name.replace(/\[.*?\]/, "");
-        var type = mapType(gl, uniformData.type );
-
-    	uniforms[name] = {
-    		type:type,
-    		size:uniformData.size,
-    		location:gl.getUniformLocation(program, name),
-    		value:defaultValue(type, uniformData.size)
-    	};
-    }
-
-	return uniforms;
-};
-
-module.exports = extractUniforms;
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-/**
- * Extracts the attributes
- * @class
- * @memberof PIXI.glCore.shader
- * @param gl {WebGLRenderingContext} The current WebGL rendering context
- * @param uniforms {Array} @mat ?
- * @return attributes {Object}
- */
-var generateUniformAccessObject = function(gl, uniformData)
-{
-    // this is the object we will be sending back.
-    // an object hierachy will be created for structs
-    var uniforms = {data:{}};
-
-    uniforms.gl = gl;
-
-    var uniformKeys= Object.keys(uniformData);
-
-    for (var i = 0; i < uniformKeys.length; i++)
-    {
-        var fullName = uniformKeys[i];
-
-        var nameTokens = fullName.split('.');
-        var name = nameTokens[nameTokens.length - 1];
-
-
-        var uniformGroup = getUniformGroup(nameTokens, uniforms);
-
-        var uniform =  uniformData[fullName];
-        uniformGroup.data[name] = uniform;
-
-        uniformGroup.gl = gl;
-
-        Object.defineProperty(uniformGroup, name, {
-            get: generateGetter(name),
-            set: generateSetter(name, uniform)
-        });
-    }
-
-    return uniforms;
-};
-
-var generateGetter = function(name)
-{
-	var template = getterTemplate.replace('%%', name);
-	return new Function(template); // jshint ignore:line
-};
-
-var generateSetter = function(name, uniform)
-{
-    var template = setterTemplate.replace(/%%/g, name);
-    var setTemplate;
-
-    if(uniform.size === 1)
-    {
-        setTemplate = GLSL_TO_SINGLE_SETTERS[uniform.type];
-    }
-    else
-    {
-        setTemplate = GLSL_TO_ARRAY_SETTERS[uniform.type];
-    }
-
-    if(setTemplate)
-    {
-        template += "\nthis.gl." + setTemplate + ";";
-    }
-
-  	return new Function('value', template); // jshint ignore:line
-};
-
-var getUniformGroup = function(nameTokens, uniform)
-{
-    var cur = uniform;
-
-    for (var i = 0; i < nameTokens.length - 1; i++)
-    {
-        var o = cur[nameTokens[i]] || {data:{}};
-        cur[nameTokens[i]] = o;
-        cur = o;
-    }
-
-    return cur;
-};
-
-var getterTemplate = [
-    'return this.data.%%.value;',
-].join('\n');
-
-var setterTemplate = [
-    'this.data.%%.value = value;',
-    'var location = this.data.%%.location;'
-].join('\n');
-
-
-var GLSL_TO_SINGLE_SETTERS = {
-
-    'float':    'uniform1f(location, value)',
-
-    'vec2':     'uniform2f(location, value[0], value[1])',
-    'vec3':     'uniform3f(location, value[0], value[1], value[2])',
-    'vec4':     'uniform4f(location, value[0], value[1], value[2], value[3])',
-
-    'int':      'uniform1i(location, value)',
-    'ivec2':    'uniform2i(location, value[0], value[1])',
-    'ivec3':    'uniform3i(location, value[0], value[1], value[2])',
-    'ivec4':    'uniform4i(location, value[0], value[1], value[2], value[3])',
-
-    'bool':     'uniform1i(location, value)',
-    'bvec2':    'uniform2i(location, value[0], value[1])',
-    'bvec3':    'uniform3i(location, value[0], value[1], value[2])',
-    'bvec4':    'uniform4i(location, value[0], value[1], value[2], value[3])',
-
-    'mat2':     'uniformMatrix2fv(location, false, value)',
-    'mat3':     'uniformMatrix3fv(location, false, value)',
-    'mat4':     'uniformMatrix4fv(location, false, value)',
-
-    'sampler2D':'uniform1i(location, value)'
-};
-
-var GLSL_TO_ARRAY_SETTERS = {
-
-    'float':    'uniform1fv(location, value)',
-
-    'vec2':     'uniform2fv(location, value)',
-    'vec3':     'uniform3fv(location, value)',
-    'vec4':     'uniform4fv(location, value)',
-
-    'int':      'uniform1iv(location, value)',
-    'ivec2':    'uniform2iv(location, value)',
-    'ivec3':    'uniform3iv(location, value)',
-    'ivec4':    'uniform4iv(location, value)',
-
-    'bool':     'uniform1iv(location, value)',
-    'bvec2':    'uniform2iv(location, value)',
-    'bvec3':    'uniform3iv(location, value)',
-    'bvec4':    'uniform4iv(location, value)',
-
-    'sampler2D':'uniform1iv(location, value)'
-};
-
-module.exports = generateUniformAccessObject;
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-/**
- * @class
- * @memberof PIXI.glCore.shader
- * @param type {String}
- * @return {Number}
- */
-var mapSize = function(type) 
-{ 
-    return GLSL_TO_SIZE[type];
-};
-
-
-var GLSL_TO_SIZE = {
-    'float':    1,
-    'vec2':     2,
-    'vec3':     3,
-    'vec4':     4,
-
-    'int':      1,
-    'ivec2':    2,
-    'ivec3':    3,
-    'ivec4':    4,
-
-    'bool':     1,
-    'bvec2':    2,
-    'bvec3':    3,
-    'bvec4':    4,
-
-    'mat2':     4,
-    'mat3':     9,
-    'mat4':     16,
-
-    'sampler2D':  1
-};
-
-module.exports = mapSize;
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-/**
- * Sets the float precision on the shader. If the precision is already present this function will do nothing
- * @param {string} src       the shader source
- * @param {string} precision The float precision of the shader. Options are 'lowp', 'mediump' or 'highp'.
- *
- * @return {string} modified shader source
- */
-var setPrecision = function(src, precision)
-{
-    if(src.substring(0, 9) !== 'precision')
-    {
-        return 'precision ' + precision + ' float;\n' + src;
-    }
-
-    return src;
-};
-
-module.exports = setPrecision;
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-/**
- * Default property values of accessible objects
- * used by {@link PIXI.accessibility.AccessibilityManager}.
- *
- * @function accessibleTarget
- * @memberof PIXI.accessibility
- * @example
- *      function MyObject() {}
- *
- *      Object.assign(
- *          MyObject.prototype,
- *          PIXI.accessibility.accessibleTarget
- *      );
- */
-exports.default = {
-  /**
-   *  Flag for if the object is accessible. If true AccessibilityManager will overlay a
-   *   shadow div with attributes set
-   *
-   * @member {boolean}
-   */
-  accessible: false,
-
-  /**
-   * Sets the title attribute of the shadow div
-   * If accessibleTitle AND accessibleHint has not been this will default to 'displayObject [tabIndex]'
-   *
-   * @member {string}
-   */
-  accessibleTitle: null,
-
-  /**
-   * Sets the aria-label attribute of the shadow div
-   *
-   * @member {string}
-   */
-  accessibleHint: null,
-
-  /**
-   * @todo Needs docs.
-   */
-  tabIndex: 0,
-
-  /**
-   * @todo Needs docs.
-   */
-  _accessibleActive: false,
-
-  /**
-   * @todo Needs docs.
-   */
-  _accessibleDiv: false
-};
-//# sourceMappingURL=accessibleTarget.js.map
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.autoDetectRenderer = autoDetectRenderer;
-
-var _utils = __webpack_require__(2);
-
-var utils = _interopRequireWildcard(_utils);
-
-var _CanvasRenderer = __webpack_require__(13);
-
-var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
-
-var _WebGLRenderer = __webpack_require__(19);
-
-var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-/**
- * This helper function will automatically detect which renderer you should be using.
- * WebGL is the preferred renderer as it is a lot faster. If webGL is not supported by
- * the browser then this function will return a canvas renderer
- *
- * @memberof PIXI
- * @function autoDetectRenderer
- * @param {number} [width=800] - the width of the renderers view
- * @param {number} [height=600] - the height of the renderers view
- * @param {object} [options] - The optional renderer parameters
- * @param {HTMLCanvasElement} [options.view] - the canvas to use as a view, optional
- * @param {boolean} [options.transparent=false] - If the render view is transparent, default false
- * @param {boolean} [options.antialias=false] - sets antialias (only applicable in chrome at the moment)
- * @param {boolean} [options.preserveDrawingBuffer=false] - enables drawing buffer preservation, enable this if you
- *      need to call toDataUrl on the webgl context
- * @param {number} [options.resolution=1] - The resolution / device pixel ratio of the renderer, retina would be 2
- * @param {boolean} [noWebGL=false] - prevents selection of WebGL renderer, even if such is present
- * @return {PIXI.WebGLRenderer|PIXI.CanvasRenderer} Returns WebGL renderer if available, otherwise CanvasRenderer
- */
-function autoDetectRenderer() {
-    var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 800;
-    var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 600;
-    var options = arguments[2];
-    var noWebGL = arguments[3];
-
-    if (!noWebGL && utils.isWebGLSupported()) {
-        return new _WebGLRenderer2.default(width, height, options);
-    }
-
-    return new _CanvasRenderer2.default(width, height, options);
-}
-//# sourceMappingURL=autoDetectRenderer.js.map
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _eventemitter = __webpack_require__(8);
-
-var _eventemitter2 = _interopRequireDefault(_eventemitter);
-
-var _const = __webpack_require__(1);
-
-var _settings = __webpack_require__(4);
-
-var _settings2 = _interopRequireDefault(_settings);
-
-var _TransformStatic = __webpack_require__(59);
-
-var _TransformStatic2 = _interopRequireDefault(_TransformStatic);
-
-var _Transform = __webpack_require__(58);
-
-var _Transform2 = _interopRequireDefault(_Transform);
-
-var _Bounds = __webpack_require__(27);
-
-var _Bounds2 = _interopRequireDefault(_Bounds);
-
-var _math = __webpack_require__(3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// _tempDisplayObjectParent = new DisplayObject();
-
-/**
- * The base class for all objects that are rendered on the screen.
- * This is an abstract class and should not be used on its own rather it should be extended.
- *
- * @class
- * @extends EventEmitter
- * @mixes PIXI.interaction.interactiveTarget
- * @memberof PIXI
- */
-var DisplayObject = function (_EventEmitter) {
-    _inherits(DisplayObject, _EventEmitter);
-
-    /**
-     *
-     */
-    function DisplayObject() {
-        _classCallCheck(this, DisplayObject);
-
-        var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
-
-        var TransformClass = _settings2.default.TRANSFORM_MODE === _const.TRANSFORM_MODE.STATIC ? _TransformStatic2.default : _Transform2.default;
-
-        _this.tempDisplayObjectParent = null;
-
-        // TODO: need to create Transform from factory
-        /**
-         * World transform and local transform of this object.
-         * This will become read-only later, please do not assign anything there unless you know what are you doing
-         *
-         * @member {PIXI.TransformBase}
-         */
-        _this.transform = new TransformClass();
-
-        /**
-         * The opacity of the object.
-         *
-         * @member {number}
-         */
-        _this.alpha = 1;
-
-        /**
-         * The visibility of the object. If false the object will not be drawn, and
-         * the updateTransform function will not be called.
-         *
-         * Only affects recursive calls from parent. You can ask for bounds or call updateTransform manually
-         *
-         * @member {boolean}
-         */
-        _this.visible = true;
-
-        /**
-         * Can this object be rendered, if false the object will not be drawn but the updateTransform
-         * methods will still be called.
-         *
-         * Only affects recursive calls from parent. You can ask for bounds manually
-         *
-         * @member {boolean}
-         */
-        _this.renderable = true;
-
-        /**
-         * The display object container that contains this display object.
-         *
-         * @member {PIXI.Container}
-         * @readonly
-         */
-        _this.parent = null;
-
-        /**
-         * The multiplied alpha of the displayObject
-         *
-         * @member {number}
-         * @readonly
-         */
-        _this.worldAlpha = 1;
-
-        /**
-         * The area the filter is applied to. This is used as more of an optimisation
-         * rather than figuring out the dimensions of the displayObject each frame you can set this rectangle
-         *
-         * Also works as an interaction mask
-         *
-         * @member {PIXI.Rectangle}
-         */
-        _this.filterArea = null;
-
-        _this._filters = null;
-        _this._enabledFilters = null;
-
-        /**
-         * The bounds object, this is used to calculate and store the bounds of the displayObject
-         *
-         * @member {PIXI.Rectangle}
-         * @private
-         */
-        _this._bounds = new _Bounds2.default();
-        _this._boundsID = 0;
-        _this._lastBoundsID = -1;
-        _this._boundsRect = null;
-        _this._localBoundsRect = null;
-
-        /**
-         * The original, cached mask of the object
-         *
-         * @member {PIXI.Graphics|PIXI.Sprite}
-         * @private
-         */
-        _this._mask = null;
-
-        /**
-         * If the object has been destroyed via destroy(). If true, it should not be used.
-         *
-         * @member {boolean}
-         * @private
-         * @readonly
-         */
-        _this._destroyed = false;
-        return _this;
-    }
-
-    /**
-     * @private
-     * @member {PIXI.DisplayObject}
-     */
-
-
-    /**
-     * Updates the object transform for rendering
-     *
-     * TODO - Optimization pass!
-     */
-    DisplayObject.prototype.updateTransform = function updateTransform() {
-        this.transform.updateTransform(this.parent.transform);
-        // multiply the alphas..
-        this.worldAlpha = this.alpha * this.parent.worldAlpha;
-
-        this._bounds.updateID++;
-    };
-
-    /**
-     * recursively updates transform of all objects from the root to this one
-     * internal function for toLocal()
-     */
-
-
-    DisplayObject.prototype._recursivePostUpdateTransform = function _recursivePostUpdateTransform() {
-        if (this.parent) {
-            this.parent._recursivePostUpdateTransform();
-            this.transform.updateTransform(this.parent.transform);
-        } else {
-            this.transform.updateTransform(this._tempDisplayObjectParent.transform);
-        }
-    };
-
-    /**
-     * Retrieves the bounds of the displayObject as a rectangle object.
-     *
-     * @param {boolean} skipUpdate - setting to true will stop the transforms of the scene graph from
-     *  being updated. This means the calculation returned MAY be out of date BUT will give you a
-     *  nice performance boost
-     * @param {PIXI.Rectangle} rect - Optional rectangle to store the result of the bounds calculation
-     * @return {PIXI.Rectangle} the rectangular bounding area
-     */
-
-
-    DisplayObject.prototype.getBounds = function getBounds(skipUpdate, rect) {
-        if (!skipUpdate) {
-            if (!this.parent) {
-                this.parent = this._tempDisplayObjectParent;
-                this.updateTransform();
-                this.parent = null;
-            } else {
-                this._recursivePostUpdateTransform();
-                this.updateTransform();
-            }
-        }
-
-        if (this._boundsID !== this._lastBoundsID) {
-            this.calculateBounds();
-        }
-
-        if (!rect) {
-            if (!this._boundsRect) {
-                this._boundsRect = new _math.Rectangle();
-            }
-
-            rect = this._boundsRect;
-        }
-
-        return this._bounds.getRectangle(rect);
-    };
-
-    /**
-     * Retrieves the local bounds of the displayObject as a rectangle object
-     *
-     * @param {PIXI.Rectangle} [rect] - Optional rectangle to store the result of the bounds calculation
-     * @return {PIXI.Rectangle} the rectangular bounding area
-     */
-
-
-    DisplayObject.prototype.getLocalBounds = function getLocalBounds(rect) {
-        var transformRef = this.transform;
-        var parentRef = this.parent;
-
-        this.parent = null;
-        this.transform = this._tempDisplayObjectParent.transform;
-
-        if (!rect) {
-            if (!this._localBoundsRect) {
-                this._localBoundsRect = new _math.Rectangle();
-            }
-
-            rect = this._localBoundsRect;
-        }
-
-        var bounds = this.getBounds(false, rect);
-
-        this.parent = parentRef;
-        this.transform = transformRef;
-
-        return bounds;
-    };
-
-    /**
-     * Calculates the global position of the display object
-     *
-     * @param {PIXI.Point} position - The world origin to calculate from
-     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
-     *  (otherwise will create a new Point)
-     * @param {boolean} [skipUpdate=false] - Should we skip the update transform.
-     * @return {PIXI.Point} A point object representing the position of this object
-     */
-
-
-    DisplayObject.prototype.toGlobal = function toGlobal(position, point) {
-        var skipUpdate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-        if (!skipUpdate) {
-            this._recursivePostUpdateTransform();
-
-            // this parent check is for just in case the item is a root object.
-            // If it is we need to give it a temporary parent so that displayObjectUpdateTransform works correctly
-            // this is mainly to avoid a parent check in the main loop. Every little helps for performance :)
-            if (!this.parent) {
-                this.parent = this._tempDisplayObjectParent;
-                this.displayObjectUpdateTransform();
-                this.parent = null;
-            } else {
-                this.displayObjectUpdateTransform();
-            }
-        }
-
-        // don't need to update the lot
-        return this.worldTransform.apply(position, point);
-    };
-
-    /**
-     * Calculates the local position of the display object relative to another point
-     *
-     * @param {PIXI.Point} position - The world origin to calculate from
-     * @param {PIXI.DisplayObject} [from] - The DisplayObject to calculate the global position from
-     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
-     *  (otherwise will create a new Point)
-     * @param {boolean} [skipUpdate=false] - Should we skip the update transform
-     * @return {PIXI.Point} A point object representing the position of this object
-     */
-
-
-    DisplayObject.prototype.toLocal = function toLocal(position, from, point, skipUpdate) {
-        if (from) {
-            position = from.toGlobal(position, point, skipUpdate);
-        }
-
-        if (!skipUpdate) {
-            this._recursivePostUpdateTransform();
-
-            // this parent check is for just in case the item is a root object.
-            // If it is we need to give it a temporary parent so that displayObjectUpdateTransform works correctly
-            // this is mainly to avoid a parent check in the main loop. Every little helps for performance :)
-            if (!this.parent) {
-                this.parent = this._tempDisplayObjectParent;
-                this.displayObjectUpdateTransform();
-                this.parent = null;
-            } else {
-                this.displayObjectUpdateTransform();
-            }
-        }
-
-        // simply apply the matrix..
-        return this.worldTransform.applyInverse(position, point);
-    };
-
-    /**
-     * Renders the object using the WebGL renderer
-     *
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
-     */
-
-
-    DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) // eslint-disable-line no-unused-vars
-    {}
-    // OVERWRITE;
-
-
-    /**
-     * Renders the object using the Canvas renderer
-     *
-     * @param {PIXI.CanvasRenderer} renderer - The renderer
-     */
-    ;
-
-    DisplayObject.prototype.renderCanvas = function renderCanvas(renderer) // eslint-disable-line no-unused-vars
-    {}
-    // OVERWRITE;
-
-
-    /**
-     * Set the parent Container of this DisplayObject
-     *
-     * @param {PIXI.Container} container - The Container to add this DisplayObject to
-     * @return {PIXI.Container} The Container that this DisplayObject was added to
-     */
-    ;
-
-    DisplayObject.prototype.setParent = function setParent(container) {
-        if (!container || !container.addChild) {
-            throw new Error('setParent: Argument must be a Container');
-        }
-
-        container.addChild(this);
-
-        return container;
-    };
-
-    /**
-     * Convenience function to set the position, scale, skew and pivot at once.
-     *
-     * @param {number} [x=0] - The X position
-     * @param {number} [y=0] - The Y position
-     * @param {number} [scaleX=1] - The X scale value
-     * @param {number} [scaleY=1] - The Y scale value
-     * @param {number} [rotation=0] - The rotation
-     * @param {number} [skewX=0] - The X skew value
-     * @param {number} [skewY=0] - The Y skew value
-     * @param {number} [pivotX=0] - The X pivot value
-     * @param {number} [pivotY=0] - The Y pivot value
-     * @return {PIXI.DisplayObject} The DisplayObject instance
-     */
-
-
-    DisplayObject.prototype.setTransform = function setTransform() {
-        var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-        var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-        var scaleX = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-        var scaleY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
-        var rotation = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
-        var skewX = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
-        var skewY = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0;
-        var pivotX = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : 0;
-        var pivotY = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : 0;
-
-        this.position.x = x;
-        this.position.y = y;
-        this.scale.x = !scaleX ? 1 : scaleX;
-        this.scale.y = !scaleY ? 1 : scaleY;
-        this.rotation = rotation;
-        this.skew.x = skewX;
-        this.skew.y = skewY;
-        this.pivot.x = pivotX;
-        this.pivot.y = pivotY;
-
-        return this;
-    };
-
-    /**
-     * Base destroy method for generic display objects. This will automatically
-     * remove the display object from its parent Container as well as remove
-     * all current event listeners and internal references. Do not use a DisplayObject
-     * after calling `destroy`.
-     *
-     */
-
-
-    DisplayObject.prototype.destroy = function destroy() {
-        this.removeAllListeners();
-        if (this.parent) {
-            this.parent.removeChild(this);
-        }
-        this.transform = null;
-
-        this.parent = null;
-
-        this._bounds = null;
-        this._currentBounds = null;
-        this._mask = null;
-
-        this.filterArea = null;
-
-        this.interactive = false;
-        this.interactiveChildren = false;
-
-        this._destroyed = true;
-    };
-
-    /**
-     * The position of the displayObject on the x axis relative to the local coordinates of the parent.
-     * An alias to position.x
-     *
-     * @member {number}
-     */
-
-
-    _createClass(DisplayObject, [{
-        key: '_tempDisplayObjectParent',
-        get: function get() {
-            if (this.tempDisplayObjectParent === null) {
-                this.tempDisplayObjectParent = new DisplayObject();
-            }
-
-            return this.tempDisplayObjectParent;
-        }
-    }, {
-        key: 'x',
-        get: function get() {
-            return this.position.x;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.position.x = value;
-        }
-
-        /**
-         * The position of the displayObject on the y axis relative to the local coordinates of the parent.
-         * An alias to position.y
-         *
-         * @member {number}
-         */
-
-    }, {
-        key: 'y',
-        get: function get() {
-            return this.position.y;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.position.y = value;
-        }
-
-        /**
-         * Current transform of the object based on world (parent) factors
-         *
-         * @member {PIXI.Matrix}
-         * @readonly
-         */
-
-    }, {
-        key: 'worldTransform',
-        get: function get() {
-            return this.transform.worldTransform;
-        }
-
-        /**
-         * Current transform of the object based on local factors: position, scale, other stuff
-         *
-         * @member {PIXI.Matrix}
-         * @readonly
-         */
-
-    }, {
-        key: 'localTransform',
-        get: function get() {
-            return this.transform.localTransform;
-        }
-
-        /**
-         * The coordinate of the object relative to the local coordinates of the parent.
-         * Assignment by value since pixi-v4.
-         *
-         * @member {PIXI.Point|PIXI.ObservablePoint}
-         */
-
-    }, {
-        key: 'position',
-        get: function get() {
-            return this.transform.position;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.position.copy(value);
-        }
-
-        /**
-         * The scale factor of the object.
-         * Assignment by value since pixi-v4.
-         *
-         * @member {PIXI.Point|PIXI.ObservablePoint}
-         */
-
-    }, {
-        key: 'scale',
-        get: function get() {
-            return this.transform.scale;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.scale.copy(value);
-        }
-
-        /**
-         * The pivot point of the displayObject that it rotates around
-         * Assignment by value since pixi-v4.
-         *
-         * @member {PIXI.Point|PIXI.ObservablePoint}
-         */
-
-    }, {
-        key: 'pivot',
-        get: function get() {
-            return this.transform.pivot;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.pivot.copy(value);
-        }
-
-        /**
-         * The skew factor for the object in radians.
-         * Assignment by value since pixi-v4.
-         *
-         * @member {PIXI.ObservablePoint}
-         */
-
-    }, {
-        key: 'skew',
-        get: function get() {
-            return this.transform.skew;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.skew.copy(value);
-        }
-
-        /**
-         * The rotation of the object in radians.
-         *
-         * @member {number}
-         */
-
-    }, {
-        key: 'rotation',
-        get: function get() {
-            return this.transform.rotation;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.transform.rotation = value;
-        }
-
-        /**
-         * Indicates if the object is globally visible.
-         *
-         * @member {boolean}
-         * @readonly
-         */
-
-    }, {
-        key: 'worldVisible',
-        get: function get() {
-            var item = this;
-
-            do {
-                if (!item.visible) {
-                    return false;
-                }
-
-                item = item.parent;
-            } while (item);
-
-            return true;
-        }
-
-        /**
-         * Sets a mask for the displayObject. A mask is an object that limits the visibility of an
-         * object to the shape of the mask applied to it. In PIXI a regular mask must be a
-         * PIXI.Graphics or a PIXI.Sprite object. This allows for much faster masking in canvas as it
-         * utilises shape clipping. To remove a mask, set this property to null.
-         *
-         * @todo For the moment, PIXI.CanvasRenderer doesn't support PIXI.Sprite as mask.
-         *
-         * @member {PIXI.Graphics|PIXI.Sprite}
-         */
-
-    }, {
-        key: 'mask',
-        get: function get() {
-            return this._mask;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            if (this._mask) {
-                this._mask.renderable = true;
-            }
-
-            this._mask = value;
-
-            if (this._mask) {
-                this._mask.renderable = false;
-            }
-        }
-
-        /**
-         * Sets the filters for the displayObject.
-         * * IMPORTANT: This is a webGL only feature and will be ignored by the canvas renderer.
-         * To remove filters simply set this property to 'null'
-         *
-         * @member {PIXI.Filter[]}
-         */
-
-    }, {
-        key: 'filters',
-        get: function get() {
-            return this._filters && this._filters.slice();
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this._filters = value && value.slice();
-        }
-    }]);
-
-    return DisplayObject;
-}(_eventemitter2.default);
-
-// performance increase to avoid using call.. (10x faster)
-
-
-exports.default = DisplayObject;
-DisplayObject.prototype.displayObjectUpdateTransform = DisplayObject.prototype.updateTransform;
-//# sourceMappingURL=DisplayObject.js.map
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _math = __webpack_require__(3);
-
-var _TransformBase2 = __webpack_require__(28);
-
-var _TransformBase3 = _interopRequireDefault(_TransformBase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Generic class to deal with traditional 2D matrix transforms
- * local transformation is calculated from position,scale,skew and rotation
- *
- * @class
- * @extends PIXI.TransformBase
- * @memberof PIXI
- */
-var Transform = function (_TransformBase) {
-  _inherits(Transform, _TransformBase);
-
-  /**
-   *
-   */
-  function Transform() {
-    _classCallCheck(this, Transform);
-
-    /**
-    * The coordinate of the object relative to the local coordinates of the parent.
-    *
-    * @member {PIXI.Point}
-    */
-    var _this = _possibleConstructorReturn(this, _TransformBase.call(this));
-
-    _this.position = new _math.Point(0, 0);
-
-    /**
-     * The scale factor of the object.
-     *
-     * @member {PIXI.Point}
-     */
-    _this.scale = new _math.Point(1, 1);
-
-    /**
-     * The skew amount, on the x and y axis.
-     *
-     * @member {PIXI.ObservablePoint}
-     */
-    _this.skew = new _math.ObservablePoint(_this.updateSkew, _this, 0, 0);
-
-    /**
-     * The pivot point of the displayObject that it rotates around
-     *
-     * @member {PIXI.Point}
-     */
-    _this.pivot = new _math.Point(0, 0);
-
-    /**
-     * The rotation value of the object, in radians
-     *
-     * @member {Number}
-     * @private
-     */
-    _this._rotation = 0;
-
-    _this._cx = 1; // cos rotation + skewY;
-    _this._sx = 0; // sin rotation + skewY;
-    _this._cy = 0; // cos rotation + Math.PI/2 - skewX;
-    _this._sy = 1; // sin rotation + Math.PI/2 - skewX;
-    return _this;
-  }
-
-  /**
-   * Updates the skew values when the skew or rotation changes.
-   *
-   * @private
-   */
-
-
-  Transform.prototype.updateSkew = function updateSkew() {
-    this._cx = Math.cos(this._rotation + this.skew._y);
-    this._sx = Math.sin(this._rotation + this.skew._y);
-    this._cy = -Math.sin(this._rotation - this.skew._x); // cos, added PI/2
-    this._sy = Math.cos(this._rotation - this.skew._x); // sin, added PI/2
-  };
-
-  /**
-   * Updates only local matrix
-   */
-
-
-  Transform.prototype.updateLocalTransform = function updateLocalTransform() {
-    var lt = this.localTransform;
-
-    lt.a = this._cx * this.scale.x;
-    lt.b = this._sx * this.scale.x;
-    lt.c = this._cy * this.scale.y;
-    lt.d = this._sy * this.scale.y;
-
-    lt.tx = this.position.x - (this.pivot.x * lt.a + this.pivot.y * lt.c);
-    lt.ty = this.position.y - (this.pivot.x * lt.b + this.pivot.y * lt.d);
-  };
-
-  /**
-   * Updates the values of the object and applies the parent's transform.
-   *
-   * @param {PIXI.Transform} parentTransform - The transform of the parent of this object
-   */
-
-
-  Transform.prototype.updateTransform = function updateTransform(parentTransform) {
-    var lt = this.localTransform;
-
-    lt.a = this._cx * this.scale.x;
-    lt.b = this._sx * this.scale.x;
-    lt.c = this._cy * this.scale.y;
-    lt.d = this._sy * this.scale.y;
-
-    lt.tx = this.position.x - (this.pivot.x * lt.a + this.pivot.y * lt.c);
-    lt.ty = this.position.y - (this.pivot.x * lt.b + this.pivot.y * lt.d);
-
-    // concat the parent matrix with the objects transform.
-    var pt = parentTransform.worldTransform;
-    var wt = this.worldTransform;
-
-    wt.a = lt.a * pt.a + lt.b * pt.c;
-    wt.b = lt.a * pt.b + lt.b * pt.d;
-    wt.c = lt.c * pt.a + lt.d * pt.c;
-    wt.d = lt.c * pt.b + lt.d * pt.d;
-    wt.tx = lt.tx * pt.a + lt.ty * pt.c + pt.tx;
-    wt.ty = lt.tx * pt.b + lt.ty * pt.d + pt.ty;
-
-    this._worldID++;
-  };
-
-  /**
-   * Decomposes a matrix and sets the transforms properties based on it.
-   *
-   * @param {PIXI.Matrix} matrix - The matrix to decompose
-   */
-
-
-  Transform.prototype.setFromMatrix = function setFromMatrix(matrix) {
-    matrix.decompose(this);
-  };
-
-  /**
-   * The rotation of the object in radians.
-   *
-   * @member {number}
-   */
-
-
-  _createClass(Transform, [{
-    key: 'rotation',
-    get: function get() {
-      return this._rotation;
-    },
-    set: function set(value) // eslint-disable-line require-jsdoc
-    {
-      this._rotation = value;
-      this.updateSkew();
-    }
-  }]);
-
-  return Transform;
-}(_TransformBase3.default);
-
-exports.default = Transform;
-//# sourceMappingURL=Transform.js.map
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _math = __webpack_require__(3);
-
-var _TransformBase2 = __webpack_require__(28);
-
-var _TransformBase3 = _interopRequireDefault(_TransformBase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Transform that takes care about its versions
- *
- * @class
- * @extends PIXI.TransformBase
- * @memberof PIXI
- */
-var TransformStatic = function (_TransformBase) {
-    _inherits(TransformStatic, _TransformBase);
-
-    /**
-     *
-     */
-    function TransformStatic() {
-        _classCallCheck(this, TransformStatic);
-
-        /**
-        * The coordinate of the object relative to the local coordinates of the parent.
-        *
-        * @member {PIXI.ObservablePoint}
-        */
-        var _this = _possibleConstructorReturn(this, _TransformBase.call(this));
-
-        _this.position = new _math.ObservablePoint(_this.onChange, _this, 0, 0);
-
-        /**
-         * The scale factor of the object.
-         *
-         * @member {PIXI.ObservablePoint}
-         */
-        _this.scale = new _math.ObservablePoint(_this.onChange, _this, 1, 1);
-
-        /**
-         * The pivot point of the displayObject that it rotates around
-         *
-         * @member {PIXI.ObservablePoint}
-         */
-        _this.pivot = new _math.ObservablePoint(_this.onChange, _this, 0, 0);
-
-        /**
-         * The skew amount, on the x and y axis.
-         *
-         * @member {PIXI.ObservablePoint}
-         */
-        _this.skew = new _math.ObservablePoint(_this.updateSkew, _this, 0, 0);
-
-        _this._rotation = 0;
-
-        _this._cx = 1; // cos rotation + skewY;
-        _this._sx = 0; // sin rotation + skewY;
-        _this._cy = 0; // cos rotation + Math.PI/2 - skewX;
-        _this._sy = 1; // sin rotation + Math.PI/2 - skewX;
-
-        _this._localID = 0;
-        _this._currentLocalID = 0;
-        return _this;
-    }
-
-    /**
-     * Called when a value changes.
-     *
-     * @private
-     */
-
-
-    TransformStatic.prototype.onChange = function onChange() {
-        this._localID++;
-    };
-
-    /**
-     * Called when skew or rotation changes
-     *
-     * @private
-     */
-
-
-    TransformStatic.prototype.updateSkew = function updateSkew() {
-        this._cx = Math.cos(this._rotation + this.skew._y);
-        this._sx = Math.sin(this._rotation + this.skew._y);
-        this._cy = -Math.sin(this._rotation - this.skew._x); // cos, added PI/2
-        this._sy = Math.cos(this._rotation - this.skew._x); // sin, added PI/2
-
-        this._localID++;
-    };
-
-    /**
-     * Updates only local matrix
-     */
-
-
-    TransformStatic.prototype.updateLocalTransform = function updateLocalTransform() {
-        var lt = this.localTransform;
-
-        if (this._localID !== this._currentLocalID) {
-            // get the matrix values of the displayobject based on its transform properties..
-            lt.a = this._cx * this.scale._x;
-            lt.b = this._sx * this.scale._x;
-            lt.c = this._cy * this.scale._y;
-            lt.d = this._sy * this.scale._y;
-
-            lt.tx = this.position._x - (this.pivot._x * lt.a + this.pivot._y * lt.c);
-            lt.ty = this.position._y - (this.pivot._x * lt.b + this.pivot._y * lt.d);
-            this._currentLocalID = this._localID;
-
-            // force an update..
-            this._parentID = -1;
-        }
-    };
-
-    /**
-     * Updates the values of the object and applies the parent's transform.
-     *
-     * @param {PIXI.Transform} parentTransform - The transform of the parent of this object
-     */
-
-
-    TransformStatic.prototype.updateTransform = function updateTransform(parentTransform) {
-        var lt = this.localTransform;
-
-        if (this._localID !== this._currentLocalID) {
-            // get the matrix values of the displayobject based on its transform properties..
-            lt.a = this._cx * this.scale._x;
-            lt.b = this._sx * this.scale._x;
-            lt.c = this._cy * this.scale._y;
-            lt.d = this._sy * this.scale._y;
-
-            lt.tx = this.position._x - (this.pivot._x * lt.a + this.pivot._y * lt.c);
-            lt.ty = this.position._y - (this.pivot._x * lt.b + this.pivot._y * lt.d);
-            this._currentLocalID = this._localID;
-
-            // force an update..
-            this._parentID = -1;
-        }
-
-        if (this._parentID !== parentTransform._worldID) {
-            // concat the parent matrix with the objects transform.
-            var pt = parentTransform.worldTransform;
-            var wt = this.worldTransform;
-
-            wt.a = lt.a * pt.a + lt.b * pt.c;
-            wt.b = lt.a * pt.b + lt.b * pt.d;
-            wt.c = lt.c * pt.a + lt.d * pt.c;
-            wt.d = lt.c * pt.b + lt.d * pt.d;
-            wt.tx = lt.tx * pt.a + lt.ty * pt.c + pt.tx;
-            wt.ty = lt.tx * pt.b + lt.ty * pt.d + pt.ty;
-
-            this._parentID = parentTransform._worldID;
-
-            // update the id of the transform..
-            this._worldID++;
-        }
-    };
-
-    /**
-     * Decomposes a matrix and sets the transforms properties based on it.
-     *
-     * @param {PIXI.Matrix} matrix - The matrix to decompose
-     */
-
-
-    TransformStatic.prototype.setFromMatrix = function setFromMatrix(matrix) {
-        matrix.decompose(this);
-        this._localID++;
-    };
-
-    /**
-     * The rotation of the object in radians.
-     *
-     * @member {number}
-     */
-
-
-    _createClass(TransformStatic, [{
-        key: 'rotation',
-        get: function get() {
-            return this._rotation;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this._rotation = value;
-            this.updateSkew();
-        }
-    }]);
-
-    return TransformStatic;
-}(_TransformBase3.default);
-
-exports.default = TransformStatic;
-//# sourceMappingURL=TransformStatic.js.map
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * A GraphicsData object.
- *
- * @class
- * @memberof PIXI
- */
-var GraphicsData = function () {
-  /**
-   *
-   * @param {number} lineWidth - the width of the line to draw
-   * @param {number} lineColor - the color of the line to draw
-   * @param {number} lineAlpha - the alpha of the line to draw
-   * @param {number} fillColor - the color of the fill
-   * @param {number} fillAlpha - the alpha of the fill
-   * @param {boolean} fill - whether or not the shape is filled with a colour
-   * @param {boolean} nativeLines - the method for drawing lines
-   * @param {PIXI.Circle|PIXI.Rectangle|PIXI.Ellipse|PIXI.Polygon} shape - The shape object to draw.
-   */
-  function GraphicsData(lineWidth, lineColor, lineAlpha, fillColor, fillAlpha, fill, nativeLines, shape) {
-    _classCallCheck(this, GraphicsData);
-
-    /**
-     * @member {number} the width of the line to draw
-     */
-    this.lineWidth = lineWidth;
-    /**
-     * @member {boolean} if true the liens will be draw using LINES instead of TRIANGLE_STRIP
-     */
-    this.nativeLines = nativeLines;
-
-    /**
-     * @member {number} the color of the line to draw
-     */
-    this.lineColor = lineColor;
-
-    /**
-     * @member {number} the alpha of the line to draw
-     */
-    this.lineAlpha = lineAlpha;
-
-    /**
-     * @member {number} cached tint of the line to draw
-     */
-    this._lineTint = lineColor;
-
-    /**
-     * @member {number} the color of the fill
-     */
-    this.fillColor = fillColor;
-
-    /**
-     * @member {number} the alpha of the fill
-     */
-    this.fillAlpha = fillAlpha;
-
-    /**
-     * @member {number} cached tint of the fill
-     */
-    this._fillTint = fillColor;
-
-    /**
-     * @member {boolean} whether or not the shape is filled with a colour
-     */
-    this.fill = fill;
-
-    this.holes = [];
-
-    /**
-     * @member {PIXI.Circle|PIXI.Ellipse|PIXI.Polygon|PIXI.Rectangle|PIXI.RoundedRectangle} The shape object to draw.
-     */
-    this.shape = shape;
-
-    /**
-     * @member {number} The type of the shape, see the Const.Shapes file for all the existing types,
-     */
-    this.type = shape.type;
-  }
-
-  /**
-   * Creates a new GraphicsData object with the same values as this one.
-   *
-   * @return {PIXI.GraphicsData} Cloned GraphicsData object
-   */
-
-
-  GraphicsData.prototype.clone = function clone() {
-    return new GraphicsData(this.lineWidth, this.lineColor, this.lineAlpha, this.fillColor, this.fillAlpha, this.fill, this.nativeLines, this.shape);
-  };
-
-  /**
-   * Adds a hole to the shape.
-   *
-   * @param {PIXI.Rectangle|PIXI.Circle} shape - The shape of the hole.
-   */
-
-
-  GraphicsData.prototype.addHole = function addHole(shape) {
-    this.holes.push(shape);
-  };
-
-  /**
-   * Destroys the Graphics data.
-   */
-
-
-  GraphicsData.prototype.destroy = function destroy() {
-    this.shape = null;
-    this.holes = null;
-  };
-
-  return GraphicsData;
-}();
-
-exports.default = GraphicsData;
-//# sourceMappingURL=GraphicsData.js.map
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _Matrix = __webpack_require__(29);
-
-var _Matrix2 = _interopRequireDefault(_Matrix);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ux = [1, 1, 0, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 0, 1]; // Your friendly neighbour https://en.wikipedia.org/wiki/Dihedral_group of order 16
-
-var uy = [0, 1, 1, 1, 0, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1];
-var vx = [0, -1, -1, -1, 0, 1, 1, 1, 0, 1, 1, 1, 0, -1, -1, -1];
-var vy = [1, 1, 0, -1, -1, -1, 0, 1, -1, -1, 0, 1, 1, 1, 0, -1];
-var tempMatrices = [];
-
-var mul = [];
-
-function signum(x) {
-    if (x < 0) {
-        return -1;
-    }
-    if (x > 0) {
-        return 1;
-    }
-
-    return 0;
-}
-
-function init() {
-    for (var i = 0; i < 16; i++) {
-        var row = [];
-
-        mul.push(row);
-
-        for (var j = 0; j < 16; j++) {
-            var _ux = signum(ux[i] * ux[j] + vx[i] * uy[j]);
-            var _uy = signum(uy[i] * ux[j] + vy[i] * uy[j]);
-            var _vx = signum(ux[i] * vx[j] + vx[i] * vy[j]);
-            var _vy = signum(uy[i] * vx[j] + vy[i] * vy[j]);
-
-            for (var k = 0; k < 16; k++) {
-                if (ux[k] === _ux && uy[k] === _uy && vx[k] === _vx && vy[k] === _vy) {
-                    row.push(k);
-                    break;
-                }
-            }
-        }
-    }
-
-    for (var _i = 0; _i < 16; _i++) {
-        var mat = new _Matrix2.default();
-
-        mat.set(ux[_i], uy[_i], vx[_i], vy[_i], 0, 0);
-        tempMatrices.push(mat);
-    }
-}
-
-init();
-
-/**
- * Implements Dihedral Group D_8, see [group D4]{@link http://mathworld.wolfram.com/DihedralGroupD4.html},
- * D8 is the same but with diagonals. Used for texture rotations.
- *
- * Vector xX(i), xY(i) is U-axis of sprite with rotation i
- * Vector yY(i), yY(i) is V-axis of sprite with rotation i
- * Rotations: 0 grad (0), 90 grad (2), 180 grad (4), 270 grad (6)
- * Mirrors: vertical (8), main diagonal (10), horizontal (12), reverse diagonal (14)
- * This is the small part of gameofbombs.com portal system. It works.
- *
- * @author Ivan @ivanpopelyshev
- * @class
- * @memberof PIXI
- */
-var GroupD8 = {
-    E: 0,
-    SE: 1,
-    S: 2,
-    SW: 3,
-    W: 4,
-    NW: 5,
-    N: 6,
-    NE: 7,
-    MIRROR_VERTICAL: 8,
-    MIRROR_HORIZONTAL: 12,
-    uX: function uX(ind) {
-        return ux[ind];
-    },
-    uY: function uY(ind) {
-        return uy[ind];
-    },
-    vX: function vX(ind) {
-        return vx[ind];
-    },
-    vY: function vY(ind) {
-        return vy[ind];
-    },
-    inv: function inv(rotation) {
-        if (rotation & 8) {
-            return rotation & 15;
-        }
-
-        return -rotation & 7;
-    },
-    add: function add(rotationSecond, rotationFirst) {
-        return mul[rotationSecond][rotationFirst];
-    },
-    sub: function sub(rotationSecond, rotationFirst) {
-        return mul[rotationSecond][GroupD8.inv(rotationFirst)];
-    },
-
-    /**
-     * Adds 180 degrees to rotation. Commutative operation.
-     *
-     * @memberof PIXI.GroupD8
-     * @param {number} rotation - The number to rotate.
-     * @returns {number} rotated number
-     */
-    rotate180: function rotate180(rotation) {
-        return rotation ^ 4;
-    },
-
-    /**
-     * I dont know why sometimes width and heights needs to be swapped. We'll fix it later.
-     *
-     * @memberof PIXI.GroupD8
-     * @param {number} rotation - The number to check.
-     * @returns {boolean} Whether or not the width/height should be swapped.
-     */
-    isSwapWidthHeight: function isSwapWidthHeight(rotation) {
-        return (rotation & 3) === 2;
-    },
-
-    /**
-     * @memberof PIXI.GroupD8
-     * @param {number} dx - TODO
-     * @param {number} dy - TODO
-     *
-     * @return {number} TODO
-     */
-    byDirection: function byDirection(dx, dy) {
-        if (Math.abs(dx) * 2 <= Math.abs(dy)) {
-            if (dy >= 0) {
-                return GroupD8.S;
-            }
-
-            return GroupD8.N;
-        } else if (Math.abs(dy) * 2 <= Math.abs(dx)) {
-            if (dx > 0) {
-                return GroupD8.E;
-            }
-
-            return GroupD8.W;
-        } else if (dy > 0) {
-            if (dx > 0) {
-                return GroupD8.SE;
-            }
-
-            return GroupD8.SW;
-        } else if (dx > 0) {
-            return GroupD8.NE;
-        }
-
-        return GroupD8.NW;
-    },
-
-    /**
-     * Helps sprite to compensate texture packer rotation.
-     *
-     * @memberof PIXI.GroupD8
-     * @param {PIXI.Matrix} matrix - sprite world matrix
-     * @param {number} rotation - The rotation factor to use.
-     * @param {number} tx - sprite anchoring
-     * @param {number} ty - sprite anchoring
-     */
-    matrixAppendRotationInv: function matrixAppendRotationInv(matrix, rotation) {
-        var tx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-        var ty = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-
-        // Packer used "rotation", we use "inv(rotation)"
-        var mat = tempMatrices[GroupD8.inv(rotation)];
-
-        mat.tx = tx;
-        mat.ty = ty;
-        matrix.append(mat);
-    }
-};
-
-exports.default = GroupD8;
-//# sourceMappingURL=GroupD8.js.map
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * The Point object represents a location in a two-dimensional coordinate system, where x represents
- * the horizontal axis and y represents the vertical axis.
- * An observable point is a point that triggers a callback when the point's position is changed.
- *
- * @class
- * @memberof PIXI
- */
-var ObservablePoint = function () {
-    /**
-     * @param {Function} cb - callback when changed
-     * @param {object} scope - owner of callback
-     * @param {number} [x=0] - position of the point on the x axis
-     * @param {number} [y=0] - position of the point on the y axis
-     */
-    function ObservablePoint(cb, scope) {
-        var x = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-        var y = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-
-        _classCallCheck(this, ObservablePoint);
-
-        this._x = x;
-        this._y = y;
-
-        this.cb = cb;
-        this.scope = scope;
-    }
-
-    /**
-     * Sets the point to a new x and y position.
-     * If y is omitted, both x and y will be set to x.
-     *
-     * @param {number} [x=0] - position of the point on the x axis
-     * @param {number} [y=0] - position of the point on the y axis
-     */
-
-
-    ObservablePoint.prototype.set = function set(x, y) {
-        var _x = x || 0;
-        var _y = y || (y !== 0 ? _x : 0);
-
-        if (this._x !== _x || this._y !== _y) {
-            this._x = _x;
-            this._y = _y;
-            this.cb.call(this.scope);
-        }
-    };
-
-    /**
-     * Copies the data from another point
-     *
-     * @param {PIXI.Point|PIXI.ObservablePoint} point - point to copy from
-     */
-
-
-    ObservablePoint.prototype.copy = function copy(point) {
-        if (this._x !== point.x || this._y !== point.y) {
-            this._x = point.x;
-            this._y = point.y;
-            this.cb.call(this.scope);
-        }
-    };
-
-    /**
-     * The position of the displayObject on the x axis relative to the local coordinates of the parent.
-     *
-     * @member {number}
-     */
-
-
-    _createClass(ObservablePoint, [{
-        key: "x",
-        get: function get() {
-            return this._x;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            if (this._x !== value) {
-                this._x = value;
-                this.cb.call(this.scope);
-            }
-        }
-
-        /**
-         * The position of the displayObject on the x axis relative to the local coordinates of the parent.
-         *
-         * @member {number}
-         */
-
-    }, {
-        key: "y",
-        get: function get() {
-            return this._y;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            if (this._y !== value) {
-                this._y = value;
-                this.cb.call(this.scope);
-            }
-        }
-    }]);
-
-    return ObservablePoint;
-}();
-
-exports.default = ObservablePoint;
-//# sourceMappingURL=ObservablePoint.js.map
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _utils = __webpack_require__(2);
-
-var _math = __webpack_require__(3);
-
-var _const = __webpack_require__(1);
-
-var _settings = __webpack_require__(4);
-
-var _settings2 = _interopRequireDefault(_settings);
-
-var _Container = __webpack_require__(12);
-
-var _Container2 = _interopRequireDefault(_Container);
-
-var _RenderTexture = __webpack_require__(34);
-
-var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
-
-var _eventemitter = __webpack_require__(8);
-
-var _eventemitter2 = _interopRequireDefault(_eventemitter);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var tempMatrix = new _math.Matrix();
-
-/**
- * The SystemRenderer is the base for a Pixi Renderer. It is extended by the {@link PIXI.CanvasRenderer}
- * and {@link PIXI.WebGLRenderer} which can be used for rendering a Pixi scene.
- *
- * @abstract
- * @class
- * @extends EventEmitter
- * @memberof PIXI
- */
-
-var SystemRenderer = function (_EventEmitter) {
-  _inherits(SystemRenderer, _EventEmitter);
-
-  /**
-   * @param {string} system - The name of the system this renderer is for.
-   * @param {number} [screenWidth=800] - the width of the screen
-   * @param {number} [screenHeight=600] - the height of the screen
-   * @param {object} [options] - The optional renderer parameters
-   * @param {HTMLCanvasElement} [options.view] - the canvas to use as a view, optional
-   * @param {boolean} [options.transparent=false] - If the render view is transparent, default false
-   * @param {boolean} [options.autoResize=false] - If the render view is automatically resized, default false
-   * @param {boolean} [options.antialias=false] - sets antialias (only applicable in chrome at the moment)
-   * @param {number} [options.resolution=1] - The resolution / device pixel ratio of the renderer. The
-   *  resolution of the renderer retina would be 2.
-   * @param {boolean} [options.clearBeforeRender=true] - This sets if the CanvasRenderer will clear the canvas or
-   *      not before the new render pass.
-   * @param {number} [options.backgroundColor=0x000000] - The background color of the rendered area
-   *  (shown if not transparent).
-   * @param {boolean} [options.roundPixels=false] - If true Pixi will Math.floor() x/y values when rendering,
-   *  stopping pixel interpolation.
-   */
-  function SystemRenderer(system, screenWidth, screenHeight, options) {
-    _classCallCheck(this, SystemRenderer);
-
-    var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
-
-    (0, _utils.sayHello)(system);
-
-    // prepare options
-    if (options) {
-      for (var i in _settings2.default.RENDER_OPTIONS) {
-        if (typeof options[i] === 'undefined') {
-          options[i] = _settings2.default.RENDER_OPTIONS[i];
-        }
-      }
-    } else {
-      options = _settings2.default.RENDER_OPTIONS;
-    }
-
-    /**
-     * The type of the renderer.
-     *
-     * @member {number}
-     * @default PIXI.RENDERER_TYPE.UNKNOWN
-     * @see PIXI.RENDERER_TYPE
-     */
-    _this.type = _const.RENDERER_TYPE.UNKNOWN;
-
-    /**
-     * Measurements of the screen. (0, 0, screenWidth, screenHeight)
-     *
-     * Its safe to use as filterArea or hitArea for whole stage
-     *
-     * @member {PIXI.Rectangle}
-     */
-    _this.screen = new _math.Rectangle(0, 0, screenWidth || 800, screenHeight || 600);
-
-    /**
-     * The canvas element that everything is drawn to
-     *
-     * @member {HTMLCanvasElement}
-     */
-    _this.view = options.view || document.createElement('canvas');
-
-    /**
-     * The resolution / device pixel ratio of the renderer
-     *
-     * @member {number}
-     * @default 1
-     */
-    _this.resolution = options.resolution || _settings2.default.RESOLUTION;
-
-    /**
-     * Whether the render view is transparent
-     *
-     * @member {boolean}
-     */
-    _this.transparent = options.transparent;
-
-    /**
-     * Whether css dimensions of canvas view should be resized to screen dimensions automatically
-     *
-     * @member {boolean}
-     */
-    _this.autoResize = options.autoResize || false;
-
-    /**
-     * Tracks the blend modes useful for this renderer.
-     *
-     * @member {object<string, mixed>}
-     */
-    _this.blendModes = null;
-
-    /**
-     * The value of the preserveDrawingBuffer flag affects whether or not the contents of
-     * the stencil buffer is retained after rendering.
-     *
-     * @member {boolean}
-     */
-    _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
-
-    /**
-     * This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
-     * If the scene is NOT transparent Pixi will use a canvas sized fillRect operation every
-     * frame to set the canvas background color. If the scene is transparent Pixi will use clearRect
-     * to clear the canvas every frame. Disable this by setting this to false. For example if
-     * your game has a canvas filling background image you often don't need this set.
-     *
-     * @member {boolean}
-     * @default
-     */
-    _this.clearBeforeRender = options.clearBeforeRender;
-
-    /**
-     * If true Pixi will Math.floor() x/y values when rendering, stopping pixel interpolation.
-     * Handy for crisp pixel art and speed on legacy devices.
-     *
-     * @member {boolean}
-     */
-    _this.roundPixels = options.roundPixels;
-
-    /**
-     * The background color as a number.
-     *
-     * @member {number}
-     * @private
-     */
-    _this._backgroundColor = 0x000000;
-
-    /**
-     * The background color as an [R, G, B] array.
-     *
-     * @member {number[]}
-     * @private
-     */
-    _this._backgroundColorRgba = [0, 0, 0, 0];
-
-    /**
-     * The background color as a string.
-     *
-     * @member {string}
-     * @private
-     */
-    _this._backgroundColorString = '#000000';
-
-    _this.backgroundColor = options.backgroundColor || _this._backgroundColor; // run bg color setter
-
-    /**
-     * This temporary display object used as the parent of the currently being rendered item
-     *
-     * @member {PIXI.DisplayObject}
-     * @private
-     */
-    _this._tempDisplayObjectParent = new _Container2.default();
-
-    /**
-     * The last root object that the renderer tried to render.
-     *
-     * @member {PIXI.DisplayObject}
-     * @private
-     */
-    _this._lastObjectRendered = _this._tempDisplayObjectParent;
-    return _this;
-  }
-
-  /**
-   * Same as view.width, actual number of pixels in the canvas by horizontal
-   *
-   * @member {number}
-   * @readonly
-   * @default 800
-   */
-
-
-  /**
-   * Resizes the screen and canvas to the specified width and height
-   * Canvas dimensions are multiplied by resolution
-   *
-   * @param {number} screenWidth - the new width of the screen
-   * @param {number} screenHeight - the new height of the screen
-   */
-  SystemRenderer.prototype.resize = function resize(screenWidth, screenHeight) {
-    this.screen.width = screenWidth;
-    this.screen.height = screenHeight;
-
-    this.view.width = screenWidth * this.resolution;
-    this.view.height = screenHeight * this.resolution;
-
-    if (this.autoResize) {
-      this.view.style.width = screenWidth + 'px';
-      this.view.style.height = screenHeight + 'px';
-    }
-  };
-
-  /**
-   * Useful function that returns a texture of the display object that can then be used to create sprites
-   * This can be quite useful if your displayObject is complicated and needs to be reused multiple times.
-   *
-   * @param {PIXI.DisplayObject} displayObject - The displayObject the object will be generated from
-   * @param {number} scaleMode - Should be one of the scaleMode consts
-   * @param {number} resolution - The resolution / device pixel ratio of the texture being generated
-   * @return {PIXI.Texture} a texture of the graphics object
-   */
-
-
-  SystemRenderer.prototype.generateTexture = function generateTexture(displayObject, scaleMode, resolution) {
-    var bounds = displayObject.getLocalBounds();
-
-    var renderTexture = _RenderTexture2.default.create(bounds.width | 0, bounds.height | 0, scaleMode, resolution);
-
-    tempMatrix.tx = -bounds.x;
-    tempMatrix.ty = -bounds.y;
-
-    this.render(displayObject, renderTexture, false, tempMatrix, true);
-
-    return renderTexture;
-  };
-
-  /**
-   * Removes everything from the renderer and optionally removes the Canvas DOM element.
-   *
-   * @param {boolean} [removeView=false] - Removes the Canvas element from the DOM.
-   */
-
-
-  SystemRenderer.prototype.destroy = function destroy(removeView) {
-    if (removeView && this.view.parentNode) {
-      this.view.parentNode.removeChild(this.view);
-    }
-
-    this.type = _const.RENDERER_TYPE.UNKNOWN;
-
-    this.view = null;
-
-    this.screen = null;
-
-    this.resolution = 0;
-
-    this.transparent = false;
-
-    this.autoResize = false;
-
-    this.blendModes = null;
-
-    this.preserveDrawingBuffer = false;
-    this.clearBeforeRender = false;
-
-    this.roundPixels = false;
-
-    this._backgroundColor = 0;
-    this._backgroundColorRgba = null;
-    this._backgroundColorString = null;
-
-    this.backgroundColor = 0;
-    this._tempDisplayObjectParent = null;
-    this._lastObjectRendered = null;
-  };
-
-  /**
-   * The background color to fill if not transparent
-   *
-   * @member {number}
-   */
-
-
-  _createClass(SystemRenderer, [{
-    key: 'width',
-    get: function get() {
-      return this.view.width;
-    }
-
-    /**
-     * Same as view.height, actual number of pixels in the canvas by vertical
-     *
-     * @member {number}
-     * @readonly
-     * @default 600
-     */
-
-  }, {
-    key: 'height',
-    get: function get() {
-      return this.view.height;
-    }
-  }, {
-    key: 'backgroundColor',
-    get: function get() {
-      return this._backgroundColor;
-    },
-    set: function set(value) // eslint-disable-line require-jsdoc
-    {
-      this._backgroundColor = value;
-      this._backgroundColorString = (0, _utils.hex2string)(value);
-      (0, _utils.hex2rgb)(value, this._backgroundColorRgba);
-    }
-  }]);
-
-  return SystemRenderer;
-}(_eventemitter2.default);
-
-exports.default = SystemRenderer;
-//# sourceMappingURL=SystemRenderer.js.map
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _settings = __webpack_require__(4);
-
-var _settings2 = _interopRequireDefault(_settings);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Creates a Canvas element of the given size.
- *
- * @class
- * @memberof PIXI
- */
-var CanvasRenderTarget = function () {
-  /**
-   * @param {number} width - the width for the newly created canvas
-   * @param {number} height - the height for the newly created canvas
-   * @param {number} [resolution=1] - The resolution / device pixel ratio of the canvas
-   */
-  function CanvasRenderTarget(width, height, resolution) {
-    _classCallCheck(this, CanvasRenderTarget);
-
-    /**
-     * The Canvas object that belongs to this CanvasRenderTarget.
-     *
-     * @member {HTMLCanvasElement}
-     */
-    this.canvas = document.createElement('canvas');
-
-    /**
-     * A CanvasRenderingContext2D object representing a two-dimensional rendering context.
-     *
-     * @member {CanvasRenderingContext2D}
-     */
-    this.context = this.canvas.getContext('2d');
-
-    this.resolution = resolution || _settings2.default.RESOLUTION;
-
-    this.resize(width, height);
-  }
-
-  /**
-   * Clears the canvas that was created by the CanvasRenderTarget class.
-   *
-   * @private
-   */
-
-
-  CanvasRenderTarget.prototype.clear = function clear() {
-    this.context.setTransform(1, 0, 0, 1, 0, 0);
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  };
-
-  /**
-   * Resizes the canvas to the specified width and height.
-   *
-   * @param {number} width - the new width of the canvas
-   * @param {number} height - the new height of the canvas
-   */
-
-
-  CanvasRenderTarget.prototype.resize = function resize(width, height) {
-    this.canvas.width = width * this.resolution;
-    this.canvas.height = height * this.resolution;
-  };
-
-  /**
-   * Destroys this canvas.
-   *
-   */
-
-
-  CanvasRenderTarget.prototype.destroy = function destroy() {
-    this.context = null;
-    this.canvas = null;
-  };
-
-  /**
-   * The width of the canvas buffer in pixels.
-   *
-   * @member {number}
-   */
-
-
-  _createClass(CanvasRenderTarget, [{
-    key: 'width',
-    get: function get() {
-      return this.canvas.width;
-    },
-    set: function set(val) // eslint-disable-line require-jsdoc
-    {
-      this.canvas.width = val;
-    }
-
-    /**
-     * The height of the canvas buffer in pixels.
-     *
-     * @member {number}
-     */
-
-  }, {
-    key: 'height',
-    get: function get() {
-      return this.canvas.height;
-    },
-    set: function set(val) // eslint-disable-line require-jsdoc
-    {
-      this.canvas.height = val;
-    }
-  }]);
-
-  return CanvasRenderTarget;
-}();
-
-exports.default = CanvasRenderTarget;
-//# sourceMappingURL=CanvasRenderTarget.js.map
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = canUseNewCanvasBlendModes;
-/**
- * Creates a little colored canvas
- *
- * @ignore
- * @param {string} color - The color to make the canvas
- * @return {canvas} a small canvas element
- */
-function createColoredCanvas(color) {
-    var canvas = document.createElement('canvas');
-
-    canvas.width = 6;
-    canvas.height = 1;
-
-    var context = canvas.getContext('2d');
-
-    context.fillStyle = color;
-    context.fillRect(0, 0, 6, 1);
-
-    return canvas;
-}
-
-/**
- * Checks whether the Canvas BlendModes are supported by the current browser
- *
- * @return {boolean} whether they are supported
- */
-function canUseNewCanvasBlendModes() {
-    if (typeof document === 'undefined') {
-        return false;
-    }
-
-    var magenta = createColoredCanvas('#ff00ff');
-    var yellow = createColoredCanvas('#ffff00');
-
-    var canvas = document.createElement('canvas');
-
-    canvas.width = 6;
-    canvas.height = 1;
-
-    var context = canvas.getContext('2d');
-
-    context.globalCompositeOperation = 'multiply';
-    context.drawImage(magenta, 0, 0);
-    context.drawImage(yellow, 2, 0);
-
-    var imageData = context.getImageData(2, 0, 1, 1);
-
-    if (!imageData) {
-        return false;
-    }
-
-    var data = imageData.data;
-
-    return data[0] === 255 && data[1] === 0 && data[2] === 0;
-}
-//# sourceMappingURL=canUseNewCanvasBlendModes.js.map
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _extractUniformsFromSrc = __webpack_require__(143);
-
-var _extractUniformsFromSrc2 = _interopRequireDefault(_extractUniformsFromSrc);
-
-var _utils = __webpack_require__(2);
-
-var _const = __webpack_require__(1);
-
-var _settings = __webpack_require__(4);
-
-var _settings2 = _interopRequireDefault(_settings);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var SOURCE_KEY_MAP = {};
-
-// let math = require('../../../math');
-/**
- * @class
- * @memberof PIXI
- * @extends PIXI.Shader
- */
-
-var Filter = function () {
-  /**
-   * @param {string} [vertexSrc] - The source of the vertex shader.
-   * @param {string} [fragmentSrc] - The source of the fragment shader.
-   * @param {object} [uniforms] - Custom uniforms to use to augment the built-in ones.
-   */
-  function Filter(vertexSrc, fragmentSrc, uniforms) {
-    _classCallCheck(this, Filter);
-
-    /**
-     * The vertex shader.
-     *
-     * @member {string}
-     */
-    this.vertexSrc = vertexSrc || Filter.defaultVertexSrc;
-
-    /**
-     * The fragment shader.
-     *
-     * @member {string}
-     */
-    this.fragmentSrc = fragmentSrc || Filter.defaultFragmentSrc;
-
-    this.blendMode = _const.BLEND_MODES.NORMAL;
-
-    this.uniformData = uniforms || (0, _extractUniformsFromSrc2.default)(this.vertexSrc, this.fragmentSrc, 'projectionMatrix|uSampler');
-
-    /**
-     * An object containing the current values of custom uniforms.
-     * @example <caption>Updating the value of a custom uniform</caption>
-     * filter.uniforms.time = performance.now();
-     *
-     * @member {object}
-     */
-    this.uniforms = {};
-
-    for (var i in this.uniformData) {
-      this.uniforms[i] = this.uniformData[i].value;
-    }
-
-    // this is where we store shader references..
-    // TODO we could cache this!
-    this.glShaders = {};
-
-    // used for cacheing.. sure there is a better way!
-    if (!SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc]) {
-      SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc] = (0, _utils.uid)();
-    }
-
-    this.glShaderKey = SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc];
-
-    /**
-     * The padding of the filter. Some filters require extra space to breath such as a blur.
-     * Increasing this will add extra width and height to the bounds of the object that the
-     * filter is applied to.
-     *
-     * @member {number}
-     */
-    this.padding = 4;
-
-    /**
-     * The resolution of the filter. Setting this to be lower will lower the quality but
-     * increase the performance of the filter.
-     *
-     * @member {number}
-     */
-    this.resolution = _settings2.default.RESOLUTION;
-
-    /**
-     * If enabled is true the filter is applied, if false it will not.
-     *
-     * @member {boolean}
-     */
-    this.enabled = true;
-  }
-
-  /**
-   * Applies the filter
-   *
-   * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
-   * @param {PIXI.RenderTarget} input - The input render target.
-   * @param {PIXI.RenderTarget} output - The target to output to.
-   * @param {boolean} clear - Should the output be cleared before rendering to it
-   * @param {object} [currentState] - It's current state of filter.
-   *        There are some useful properties in the currentState :
-   *        target, filters, sourceFrame, destinationFrame, renderTarget, resolution
-   */
-
-
-  Filter.prototype.apply = function apply(filterManager, input, output, clear, currentState) // eslint-disable-line no-unused-vars
-  {
-    // --- //
-    //  this.uniforms.filterMatrix = filterManager.calculateSpriteMatrix(tempMatrix, window.panda );
-
-    // do as you please!
-
-    filterManager.applyFilter(this, input, output, clear);
-
-    // or just do a regular render..
-  };
-
-  /**
-   * The default vertex shader source
-   *
-   * @static
-   * @constant
-   */
-
-
-  _createClass(Filter, null, [{
-    key: 'defaultVertexSrc',
-    get: function get() {
-      return ['attribute vec2 aVertexPosition;', 'attribute vec2 aTextureCoord;', 'uniform mat3 projectionMatrix;', 'uniform mat3 filterMatrix;', 'varying vec2 vTextureCoord;', 'varying vec2 vFilterCoord;', 'void main(void){', '   gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);', '   vFilterCoord = ( filterMatrix * vec3( aTextureCoord, 1.0)  ).xy;', '   vTextureCoord = aTextureCoord ;', '}'].join('\n');
-    }
-
-    /**
-     * The default fragment shader source
-     *
-     * @static
-     * @constant
-     */
-
-  }, {
-    key: 'defaultFragmentSrc',
-    get: function get() {
-      return ['varying vec2 vTextureCoord;', 'varying vec2 vFilterCoord;', 'uniform sampler2D uSampler;', 'uniform sampler2D filterSampler;', 'void main(void){', '   vec4 masky = texture2D(filterSampler, vFilterCoord);', '   vec4 sample = texture2D(uSampler, vTextureCoord);', '   vec4 color;', '   if(mod(vFilterCoord.x, 1.0) > 0.5)', '   {', '     color = vec4(1.0, 0.0, 0.0, 1.0);', '   }', '   else', '   {', '     color = vec4(0.0, 1.0, 0.0, 1.0);', '   }',
-      // '   gl_FragColor = vec4(mod(vFilterCoord.x, 1.5), vFilterCoord.y,0.0,1.0);',
-      '   gl_FragColor = mix(sample, masky, 0.5);', '   gl_FragColor *= sample.a;', '}'].join('\n');
-    }
-  }]);
-
-  return Filter;
-}();
-
-exports.default = Filter;
-//# sourceMappingURL=Filter.js.map
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _Filter2 = __webpack_require__(66);
-
-var _Filter3 = _interopRequireDefault(_Filter2);
-
-var _math = __webpack_require__(3);
-
-var _path = __webpack_require__(6);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * The SpriteMaskFilter class
- *
- * @class
- * @extends PIXI.Filter
- * @memberof PIXI
- */
-var SpriteMaskFilter = function (_Filter) {
-    _inherits(SpriteMaskFilter, _Filter);
-
-    /**
-     * @param {PIXI.Sprite} sprite - the target sprite
-     */
-    function SpriteMaskFilter(sprite) {
-        _classCallCheck(this, SpriteMaskFilter);
-
-        var maskMatrix = new _math.Matrix();
-
-        var _this = _possibleConstructorReturn(this, _Filter.call(this, 'attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 otherMatrix;\n\nvarying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = aTextureCoord;\n    vMaskCoord = ( otherMatrix * vec3( aTextureCoord, 1.0)  ).xy;\n}\n', 'varying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform float alpha;\nuniform sampler2D mask;\n\nvoid main(void)\n{\n    // check clip! this will stop the mask bleeding out from the edges\n    vec2 text = abs( vMaskCoord - 0.5 );\n    text = step(0.5, text);\n\n    float clip = 1.0 - max(text.y, text.x);\n    vec4 original = texture2D(uSampler, vTextureCoord);\n    vec4 masky = texture2D(mask, vMaskCoord);\n\n    original *= (masky.r * masky.a * alpha * clip);\n\n    gl_FragColor = original;\n}\n'));
-
-        sprite.renderable = false;
-
-        _this.maskSprite = sprite;
-        _this.maskMatrix = maskMatrix;
-        return _this;
-    }
-
-    /**
-     * Applies the filter
-     *
-     * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
-     * @param {PIXI.RenderTarget} input - The input render target.
-     * @param {PIXI.RenderTarget} output - The target to output to.
-     */
-
-
-    SpriteMaskFilter.prototype.apply = function apply(filterManager, input, output) {
-        var maskSprite = this.maskSprite;
-
-        this.uniforms.mask = maskSprite._texture;
-        this.uniforms.otherMatrix = filterManager.calculateSpriteMatrix(this.maskMatrix, maskSprite);
-        this.uniforms.alpha = maskSprite.worldAlpha;
-
-        filterManager.applyFilter(this, input, output);
-    };
-
-    return SpriteMaskFilter;
-}(_Filter3.default);
-
-exports.default = SpriteMaskFilter;
-//# sourceMappingURL=SpriteMaskFilter.js.map
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _pixiGlCore = __webpack_require__(5);
-
-var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
-
-var _createIndicesForQuads = __webpack_require__(36);
-
-var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Helper class to create a quad
- *
- * @class
- * @memberof PIXI
- */
-var Quad = function () {
-  /**
-   * @param {WebGLRenderingContext} gl - The gl context for this quad to use.
-   * @param {object} state - TODO: Description
-   */
-  function Quad(gl, state) {
-    _classCallCheck(this, Quad);
-
-    /*
-     * the current WebGL drawing context
-     *
-     * @member {WebGLRenderingContext}
-     */
-    this.gl = gl;
-
-    /**
-     * An array of vertices
-     *
-     * @member {Float32Array}
-     */
-    this.vertices = new Float32Array([-1, -1, 1, -1, 1, 1, -1, 1]);
-
-    /**
-     * The Uvs of the quad
-     *
-     * @member {Float32Array}
-     */
-    this.uvs = new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]);
-
-    this.interleaved = new Float32Array(8 * 2);
-
-    for (var i = 0; i < 4; i++) {
-      this.interleaved[i * 4] = this.vertices[i * 2];
-      this.interleaved[i * 4 + 1] = this.vertices[i * 2 + 1];
-      this.interleaved[i * 4 + 2] = this.uvs[i * 2];
-      this.interleaved[i * 4 + 3] = this.uvs[i * 2 + 1];
-    }
-
-    /*
-     * @member {Uint16Array} An array containing the indices of the vertices
-     */
-    this.indices = (0, _createIndicesForQuads2.default)(1);
-
-    /*
-     * @member {glCore.GLBuffer} The vertex buffer
-     */
-    this.vertexBuffer = _pixiGlCore2.default.GLBuffer.createVertexBuffer(gl, this.interleaved, gl.STATIC_DRAW);
-
-    /*
-     * @member {glCore.GLBuffer} The index buffer
-     */
-    this.indexBuffer = _pixiGlCore2.default.GLBuffer.createIndexBuffer(gl, this.indices, gl.STATIC_DRAW);
-
-    /*
-     * @member {glCore.VertexArrayObject} The index buffer
-     */
-    this.vao = new _pixiGlCore2.default.VertexArrayObject(gl, state);
-  }
-
-  /**
-   * Initialises the vaos and uses the shader.
-   *
-   * @param {PIXI.Shader} shader - the shader to use
-   */
-
-
-  Quad.prototype.initVao = function initVao(shader) {
-    this.vao.clear().addIndex(this.indexBuffer).addAttribute(this.vertexBuffer, shader.attributes.aVertexPosition, this.gl.FLOAT, false, 4 * 4, 0).addAttribute(this.vertexBuffer, shader.attributes.aTextureCoord, this.gl.FLOAT, false, 4 * 4, 2 * 4);
-  };
-
-  /**
-   * Maps two Rectangle to the quad.
-   *
-   * @param {PIXI.Rectangle} targetTextureFrame - the first rectangle
-   * @param {PIXI.Rectangle} destinationFrame - the second rectangle
-   * @return {PIXI.Quad} Returns itself.
-   */
-
-
-  Quad.prototype.map = function map(targetTextureFrame, destinationFrame) {
-    var x = 0; // destinationFrame.x / targetTextureFrame.width;
-    var y = 0; // destinationFrame.y / targetTextureFrame.height;
-
-    this.uvs[0] = x;
-    this.uvs[1] = y;
-
-    this.uvs[2] = x + destinationFrame.width / targetTextureFrame.width;
-    this.uvs[3] = y;
-
-    this.uvs[4] = x + destinationFrame.width / targetTextureFrame.width;
-    this.uvs[5] = y + destinationFrame.height / targetTextureFrame.height;
-
-    this.uvs[6] = x;
-    this.uvs[7] = y + destinationFrame.height / targetTextureFrame.height;
-
-    x = destinationFrame.x;
-    y = destinationFrame.y;
-
-    this.vertices[0] = x;
-    this.vertices[1] = y;
-
-    this.vertices[2] = x + destinationFrame.width;
-    this.vertices[3] = y;
-
-    this.vertices[4] = x + destinationFrame.width;
-    this.vertices[5] = y + destinationFrame.height;
-
-    this.vertices[6] = x;
-    this.vertices[7] = y + destinationFrame.height;
-
-    return this;
-  };
-
-  /**
-   * Binds the buffer and uploads the data
-   *
-   * @return {PIXI.Quad} Returns itself.
-   */
-
-
-  Quad.prototype.upload = function upload() {
-    for (var i = 0; i < 4; i++) {
-      this.interleaved[i * 4] = this.vertices[i * 2];
-      this.interleaved[i * 4 + 1] = this.vertices[i * 2 + 1];
-      this.interleaved[i * 4 + 2] = this.uvs[i * 2];
-      this.interleaved[i * 4 + 3] = this.uvs[i * 2 + 1];
-    }
-
-    this.vertexBuffer.upload(this.interleaved);
-
-    return this;
-  };
-
-  /**
-   * Removes this quad from WebGL
-   */
-
-
-  Quad.prototype.destroy = function destroy() {
-    var gl = this.gl;
-
-    gl.deleteBuffer(this.vertexBuffer);
-    gl.deleteBuffer(this.indexBuffer);
-  };
-
-  return Quad;
-}();
-
-exports.default = Quad;
-//# sourceMappingURL=Quad.js.map
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // disabling eslint for now, going to rewrite this in v5
-/* eslint-disable */
-
-var _const = __webpack_require__(1);
-
-var _utils = __webpack_require__(2);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var defaultStyle = {
-    align: 'left',
-    breakWords: false,
-    dropShadow: false,
-    dropShadowAlpha: 1,
-    dropShadowAngle: Math.PI / 6,
-    dropShadowBlur: 0,
-    dropShadowColor: '#000000',
-    dropShadowDistance: 5,
-    fill: 'black',
-    fillGradientType: _const.TEXT_GRADIENT.LINEAR_VERTICAL,
-    fillGradientStops: [],
-    fontFamily: 'Arial',
-    fontSize: 26,
-    fontStyle: 'normal',
-    fontVariant: 'normal',
-    fontWeight: 'normal',
-    letterSpacing: 0,
-    lineHeight: 0,
-    lineJoin: 'miter',
-    miterLimit: 10,
-    padding: 0,
-    stroke: 'black',
-    strokeThickness: 0,
-    textBaseline: 'alphabetic',
-    trim: false,
-    wordWrap: false,
-    wordWrapWidth: 100
-};
-
-/**
- * A TextStyle Object decorates a Text Object. It can be shared between
- * multiple Text objects. Changing the style will update all text objects using it.
- *
- * @class
- * @memberof PIXI
- */
-
-var TextStyle = function () {
-    /**
-     * @param {object} [style] - The style parameters
-     * @param {string} [style.align='left'] - Alignment for multiline text ('left', 'center' or 'right'),
-     *  does not affect single line text
-     * @param {boolean} [style.breakWords=false] - Indicates if lines can be wrapped within words, it
-     *  needs wordWrap to be set to true
-     * @param {boolean} [style.dropShadow=false] - Set a drop shadow for the text
-     * @param {number} [style.dropShadowAlpha=1] - Set alpha for the drop shadow
-     * @param {number} [style.dropShadowAngle=Math.PI/6] - Set a angle of the drop shadow
-     * @param {number} [style.dropShadowBlur=0] - Set a shadow blur radius
-     * @param {string} [style.dropShadowColor='#000000'] - A fill style to be used on the dropshadow e.g 'red', '#00FF00'
-     * @param {number} [style.dropShadowDistance=5] - Set a distance of the drop shadow
-     * @param {string|string[]|number|number[]|CanvasGradient|CanvasPattern} [style.fill='black'] - A canvas
-     *  fillstyle that will be used on the text e.g 'red', '#00FF00'. Can be an array to create a gradient
-     *  eg ['#000000','#FFFFFF']
-     * {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle|MDN}
-     * @param {number} [style.fillGradientType=PIXI.TEXT_GRADIENT.LINEAR_VERTICAL] - If fill is an array of colours
-     *  to create a gradient, this can change the type/direction of the gradient. See {@link PIXI.TEXT_GRADIENT}
-     * @param {number[]} [style.fillGradientStops] - If fill is an array of colours to create a gradient, this array can set
-     * the stop points (numbers between 0 and 1) for the color, overriding the default behaviour of evenly spacing them.
-     * @param {string|string[]} [style.fontFamily='Arial'] - The font family
-     * @param {number|string} [style.fontSize=26] - The font size (as a number it converts to px, but as a string,
-     *  equivalents are '26px','20pt','160%' or '1.6em')
-     * @param {string} [style.fontStyle='normal'] - The font style ('normal', 'italic' or 'oblique')
-     * @param {string} [style.fontVariant='normal'] - The font variant ('normal' or 'small-caps')
-     * @param {string} [style.fontWeight='normal'] - The font weight ('normal', 'bold', 'bolder', 'lighter' and '100',
-     *  '200', '300', '400', '500', '600', '700', 800' or '900')
-     * @param {number} [style.letterSpacing=0] - The amount of spacing between letters, default is 0
-     * @param {number} [style.lineHeight] - The line height, a number that represents the vertical space that a letter uses
-     * @param {string} [style.lineJoin='miter'] - The lineJoin property sets the type of corner created, it can resolve
-     *      spiked text issues. Default is 'miter' (creates a sharp corner).
-     * @param {number} [style.miterLimit=10] - The miter limit to use when using the 'miter' lineJoin mode. This can reduce
-     *      or increase the spikiness of rendered text.
-     * @param {number} [style.padding=0] - Occasionally some fonts are cropped. Adding some padding will prevent this from
-     *     happening by adding padding to all sides of the text.
-     * @param {string|number} [style.stroke='black'] - A canvas fillstyle that will be used on the text stroke
-     *  e.g 'blue', '#FCFF00'
-     * @param {number} [style.strokeThickness=0] - A number that represents the thickness of the stroke.
-     *  Default is 0 (no stroke)
-     * @param {boolean} [style.trim=false] - Trim transparent borders
-     * @param {string} [style.textBaseline='alphabetic'] - The baseline of the text that is rendered.
-     * @param {boolean} [style.wordWrap=false] - Indicates if word wrap should be used
-     * @param {number} [style.wordWrapWidth=100] - The width at which text will wrap, it needs wordWrap to be set to true
-     */
-    function TextStyle(style) {
-        _classCallCheck(this, TextStyle);
-
-        this.styleID = 0;
-
-        Object.assign(this, defaultStyle, style);
-    }
-
-    /**
-     * Creates a new TextStyle object with the same values as this one.
-     * Note that the only the properties of the object are cloned.
-     *
-     * @return {PIXI.TextStyle} New cloned TextStyle object
-     */
-
-
-    TextStyle.prototype.clone = function clone() {
-        var clonedProperties = {};
-
-        for (var key in defaultStyle) {
-            clonedProperties[key] = this[key];
-        }
-
-        return new TextStyle(clonedProperties);
-    };
-
-    /**
-     * Resets all properties to the defaults specified in TextStyle.prototype._default
-     */
-
-
-    TextStyle.prototype.reset = function reset() {
-        Object.assign(this, defaultStyle);
-    };
-
-    _createClass(TextStyle, [{
-        key: 'align',
-        get: function get() {
-            return this._align;
-        },
-        set: function set(align) {
-            if (this._align !== align) {
-                this._align = align;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'breakWords',
-        get: function get() {
-            return this._breakWords;
-        },
-        set: function set(breakWords) {
-            if (this._breakWords !== breakWords) {
-                this._breakWords = breakWords;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadow',
-        get: function get() {
-            return this._dropShadow;
-        },
-        set: function set(dropShadow) {
-            if (this._dropShadow !== dropShadow) {
-                this._dropShadow = dropShadow;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadowAlpha',
-        get: function get() {
-            return this._dropShadowAlpha;
-        },
-        set: function set(dropShadowAlpha) {
-            if (this._dropShadowAlpha !== dropShadowAlpha) {
-                this._dropShadowAlpha = dropShadowAlpha;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadowAngle',
-        get: function get() {
-            return this._dropShadowAngle;
-        },
-        set: function set(dropShadowAngle) {
-            if (this._dropShadowAngle !== dropShadowAngle) {
-                this._dropShadowAngle = dropShadowAngle;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadowBlur',
-        get: function get() {
-            return this._dropShadowBlur;
-        },
-        set: function set(dropShadowBlur) {
-            if (this._dropShadowBlur !== dropShadowBlur) {
-                this._dropShadowBlur = dropShadowBlur;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadowColor',
-        get: function get() {
-            return this._dropShadowColor;
-        },
-        set: function set(dropShadowColor) {
-            var outputColor = getColor(dropShadowColor);
-            if (this._dropShadowColor !== outputColor) {
-                this._dropShadowColor = outputColor;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'dropShadowDistance',
-        get: function get() {
-            return this._dropShadowDistance;
-        },
-        set: function set(dropShadowDistance) {
-            if (this._dropShadowDistance !== dropShadowDistance) {
-                this._dropShadowDistance = dropShadowDistance;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fill',
-        get: function get() {
-            return this._fill;
-        },
-        set: function set(fill) {
-            var outputColor = getColor(fill);
-            if (this._fill !== outputColor) {
-                this._fill = outputColor;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fillGradientType',
-        get: function get() {
-            return this._fillGradientType;
-        },
-        set: function set(fillGradientType) {
-            if (this._fillGradientType !== fillGradientType) {
-                this._fillGradientType = fillGradientType;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fillGradientStops',
-        get: function get() {
-            return this._fillGradientStops;
-        },
-        set: function set(fillGradientStops) {
-            if (!areArraysEqual(this._fillGradientStops, fillGradientStops)) {
-                this._fillGradientStops = fillGradientStops;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fontFamily',
-        get: function get() {
-            return this._fontFamily;
-        },
-        set: function set(fontFamily) {
-            if (this.fontFamily !== fontFamily) {
-                this._fontFamily = fontFamily;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fontSize',
-        get: function get() {
-            return this._fontSize;
-        },
-        set: function set(fontSize) {
-            if (this._fontSize !== fontSize) {
-                this._fontSize = fontSize;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fontStyle',
-        get: function get() {
-            return this._fontStyle;
-        },
-        set: function set(fontStyle) {
-            if (this._fontStyle !== fontStyle) {
-                this._fontStyle = fontStyle;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fontVariant',
-        get: function get() {
-            return this._fontVariant;
-        },
-        set: function set(fontVariant) {
-            if (this._fontVariant !== fontVariant) {
-                this._fontVariant = fontVariant;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'fontWeight',
-        get: function get() {
-            return this._fontWeight;
-        },
-        set: function set(fontWeight) {
-            if (this._fontWeight !== fontWeight) {
-                this._fontWeight = fontWeight;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'letterSpacing',
-        get: function get() {
-            return this._letterSpacing;
-        },
-        set: function set(letterSpacing) {
-            if (this._letterSpacing !== letterSpacing) {
-                this._letterSpacing = letterSpacing;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'lineHeight',
-        get: function get() {
-            return this._lineHeight;
-        },
-        set: function set(lineHeight) {
-            if (this._lineHeight !== lineHeight) {
-                this._lineHeight = lineHeight;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'lineJoin',
-        get: function get() {
-            return this._lineJoin;
-        },
-        set: function set(lineJoin) {
-            if (this._lineJoin !== lineJoin) {
-                this._lineJoin = lineJoin;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'miterLimit',
-        get: function get() {
-            return this._miterLimit;
-        },
-        set: function set(miterLimit) {
-            if (this._miterLimit !== miterLimit) {
-                this._miterLimit = miterLimit;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'padding',
-        get: function get() {
-            return this._padding;
-        },
-        set: function set(padding) {
-            if (this._padding !== padding) {
-                this._padding = padding;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'stroke',
-        get: function get() {
-            return this._stroke;
-        },
-        set: function set(stroke) {
-            var outputColor = getColor(stroke);
-            if (this._stroke !== outputColor) {
-                this._stroke = outputColor;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'strokeThickness',
-        get: function get() {
-            return this._strokeThickness;
-        },
-        set: function set(strokeThickness) {
-            if (this._strokeThickness !== strokeThickness) {
-                this._strokeThickness = strokeThickness;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'textBaseline',
-        get: function get() {
-            return this._textBaseline;
-        },
-        set: function set(textBaseline) {
-            if (this._textBaseline !== textBaseline) {
-                this._textBaseline = textBaseline;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'trim',
-        get: function get() {
-            return this._trim;
-        },
-        set: function set(trim) {
-            if (this._trim !== trim) {
-                this._trim = trim;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'wordWrap',
-        get: function get() {
-            return this._wordWrap;
-        },
-        set: function set(wordWrap) {
-            if (this._wordWrap !== wordWrap) {
-                this._wordWrap = wordWrap;
-                this.styleID++;
-            }
-        }
-    }, {
-        key: 'wordWrapWidth',
-        get: function get() {
-            return this._wordWrapWidth;
-        },
-        set: function set(wordWrapWidth) {
-            if (this._wordWrapWidth !== wordWrapWidth) {
-                this._wordWrapWidth = wordWrapWidth;
-                this.styleID++;
-            }
-        }
-    }]);
-
-    return TextStyle;
-}();
-
-/**
- * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
- *
- * @param {number|number[]} color
- * @return {string} The color as a string.
- */
-
-
-exports.default = TextStyle;
-function getSingleColor(color) {
-    if (typeof color === 'number') {
-        return (0, _utils.hex2string)(color);
-    } else if (typeof color === 'string') {
-        if (color.indexOf('0x') === 0) {
-            color = color.replace('0x', '#');
-        }
-    }
-
-    return color;
-}
-
-/**
- * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
- * This version can also convert array of colors
- *
- * @param {number|number[]} color
- * @return {string} The color as a string.
- */
-function getColor(color) {
-    if (!Array.isArray(color)) {
-        return getSingleColor(color);
-    } else {
-        for (var i = 0; i < color.length; ++i) {
-            color[i] = getSingleColor(color[i]);
-        }
-
-        return color;
-    }
-}
-
-/**
- * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
- * This version can also convert array of colors
- *
- * @param {Array} array1 First array to compare
- * @param {Array} array2 Second array to compare
- * @return {boolean} Do the arrays contain the same values in the same order
- */
-function areArraysEqual(array1, array2) {
-    if (!Array.isArray(array1) || !Array.isArray(array2)) {
-        return false;
-    }
-
-    if (array1.length !== array2.length) {
-        return false;
-    }
-
-    for (var i = 0; i < array1.length; ++i) {
-        if (array1[i] !== array2[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-//# sourceMappingURL=TextStyle.js.map
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _BaseTexture2 = __webpack_require__(15);
-
-var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
-
-var _settings = __webpack_require__(4);
-
-var _settings2 = _interopRequireDefault(_settings);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A BaseRenderTexture is a special texture that allows any Pixi display object to be rendered to it.
- *
- * __Hint__: All DisplayObjects (i.e. Sprites) that render to a BaseRenderTexture should be preloaded
- * otherwise black rectangles will be drawn instead.
- *
- * A BaseRenderTexture takes a snapshot of any Display Object given to its render method. The position
- * and rotation of the given Display Objects is ignored. For example:
- *
- * ```js
- * let renderer = PIXI.autoDetectRenderer(1024, 1024, { view: canvas, ratio: 1 });
- * let baseRenderTexture = new PIXI.BaseRenderTexture(renderer, 800, 600);
- * let sprite = PIXI.Sprite.fromImage("spinObj_01.png");
- *
- * sprite.position.x = 800/2;
- * sprite.position.y = 600/2;
- * sprite.anchor.x = 0.5;
- * sprite.anchor.y = 0.5;
- *
- * baseRenderTexture.render(sprite);
- * ```
- *
- * The Sprite in this case will be rendered using its local transform. To render this sprite at 0,0
- * you can clear the transform
- *
- * ```js
- *
- * sprite.setTransform()
- *
- * let baseRenderTexture = new PIXI.BaseRenderTexture(100, 100);
- * let renderTexture = new PIXI.RenderTexture(baseRenderTexture);
- *
- * renderer.render(sprite, renderTexture);  // Renders to center of RenderTexture
- * ```
- *
- * @class
- * @extends PIXI.BaseTexture
- * @memberof PIXI
- */
-var BaseRenderTexture = function (_BaseTexture) {
-  _inherits(BaseRenderTexture, _BaseTexture);
-
-  /**
-   * @param {number} [width=100] - The width of the base render texture
-   * @param {number} [height=100] - The height of the base render texture
-   * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
-   * @param {number} [resolution=1] - The resolution / device pixel ratio of the texture being generated
-   */
-  function BaseRenderTexture() {
-    var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100;
-    var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-    var scaleMode = arguments[2];
-    var resolution = arguments[3];
-
-    _classCallCheck(this, BaseRenderTexture);
-
-    var _this = _possibleConstructorReturn(this, _BaseTexture.call(this, null, scaleMode));
-
-    _this.resolution = resolution || _settings2.default.RESOLUTION;
-
-    _this.width = width;
-    _this.height = height;
-
-    _this.realWidth = _this.width * _this.resolution;
-    _this.realHeight = _this.height * _this.resolution;
-
-    _this.scaleMode = scaleMode !== undefined ? scaleMode : _settings2.default.SCALE_MODE;
-    _this.hasLoaded = true;
-
-    /**
-     * A map of renderer IDs to webgl renderTargets
-     *
-     * @private
-     * @member {object<number, WebGLTexture>}
-     */
-    _this._glRenderTargets = {};
-
-    /**
-     * A reference to the canvas render target (we only need one as this can be shared across renderers)
-     *
-     * @private
-     * @member {object<number, WebGLTexture>}
-     */
-    _this._canvasRenderTarget = null;
-
-    /**
-     * This will let the renderer know if the texture is valid. If it's not then it cannot be rendered.
-     *
-     * @member {boolean}
-     */
-    _this.valid = false;
-    return _this;
-  }
-
-  /**
-   * Resizes the BaseRenderTexture.
-   *
-   * @param {number} width - The width to resize to.
-   * @param {number} height - The height to resize to.
-   */
-
-
-  BaseRenderTexture.prototype.resize = function resize(width, height) {
-    if (width === this.width && height === this.height) {
-      return;
-    }
-
-    this.valid = width > 0 && height > 0;
-
-    this.width = width;
-    this.height = height;
-
-    this.realWidth = this.width * this.resolution;
-    this.realHeight = this.height * this.resolution;
-
-    if (!this.valid) {
-      return;
-    }
-
-    this.emit('update', this);
-  };
-
-  /**
-   * Destroys this texture
-   *
-   */
-
-
-  BaseRenderTexture.prototype.destroy = function destroy() {
-    _BaseTexture.prototype.destroy.call(this, true);
-    this.renderer = null;
-  };
-
-  return BaseRenderTexture;
-}(_BaseTexture3.default);
-
-exports.default = BaseRenderTexture;
-//# sourceMappingURL=BaseRenderTexture.js.map
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _GroupD = __webpack_require__(61);
-
-var _GroupD2 = _interopRequireDefault(_GroupD);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * A standard object to store the Uvs of a texture
- *
- * @class
- * @private
- * @memberof PIXI
- */
-var TextureUvs = function () {
-    /**
-     *
-     */
-    function TextureUvs() {
-        _classCallCheck(this, TextureUvs);
-
-        this.x0 = 0;
-        this.y0 = 0;
-
-        this.x1 = 1;
-        this.y1 = 0;
-
-        this.x2 = 1;
-        this.y2 = 1;
-
-        this.x3 = 0;
-        this.y3 = 1;
-
-        this.uvsUint32 = new Uint32Array(4);
-    }
-
-    /**
-     * Sets the texture Uvs based on the given frame information.
-     *
-     * @private
-     * @param {PIXI.Rectangle} frame - The frame of the texture
-     * @param {PIXI.Rectangle} baseFrame - The base frame of the texture
-     * @param {number} rotate - Rotation of frame, see {@link PIXI.GroupD8}
-     */
-
-
-    TextureUvs.prototype.set = function set(frame, baseFrame, rotate) {
-        var tw = baseFrame.width;
-        var th = baseFrame.height;
-
-        if (rotate) {
-            // width and height div 2 div baseFrame size
-            var w2 = frame.width / 2 / tw;
-            var h2 = frame.height / 2 / th;
-
-            // coordinates of center
-            var cX = frame.x / tw + w2;
-            var cY = frame.y / th + h2;
-
-            rotate = _GroupD2.default.add(rotate, _GroupD2.default.NW); // NW is top-left corner
-            this.x0 = cX + w2 * _GroupD2.default.uX(rotate);
-            this.y0 = cY + h2 * _GroupD2.default.uY(rotate);
-
-            rotate = _GroupD2.default.add(rotate, 2); // rotate 90 degrees clockwise
-            this.x1 = cX + w2 * _GroupD2.default.uX(rotate);
-            this.y1 = cY + h2 * _GroupD2.default.uY(rotate);
-
-            rotate = _GroupD2.default.add(rotate, 2);
-            this.x2 = cX + w2 * _GroupD2.default.uX(rotate);
-            this.y2 = cY + h2 * _GroupD2.default.uY(rotate);
-
-            rotate = _GroupD2.default.add(rotate, 2);
-            this.x3 = cX + w2 * _GroupD2.default.uX(rotate);
-            this.y3 = cY + h2 * _GroupD2.default.uY(rotate);
-        } else {
-            this.x0 = frame.x / tw;
-            this.y0 = frame.y / th;
-
-            this.x1 = (frame.x + frame.width) / tw;
-            this.y1 = frame.y / th;
-
-            this.x2 = (frame.x + frame.width) / tw;
-            this.y2 = (frame.y + frame.height) / th;
-
-            this.x3 = frame.x / tw;
-            this.y3 = (frame.y + frame.height) / th;
-        }
-
-        this.uvsUint32[0] = (this.y0 * 65535 & 0xFFFF) << 16 | this.x0 * 65535 & 0xFFFF;
-        this.uvsUint32[1] = (this.y1 * 65535 & 0xFFFF) << 16 | this.x1 * 65535 & 0xFFFF;
-        this.uvsUint32[2] = (this.y2 * 65535 & 0xFFFF) << 16 | this.x2 * 65535 & 0xFFFF;
-        this.uvsUint32[3] = (this.y3 * 65535 & 0xFFFF) << 16 | this.x3 * 65535 & 0xFFFF;
-    };
-
-    return TextureUvs;
-}();
-
-exports.default = TextureUvs;
-//# sourceMappingURL=TextureUvs.js.map
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _BaseTexture2 = __webpack_require__(15);
-
-var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
-
-var _utils = __webpack_require__(2);
-
-var _ticker = __webpack_require__(35);
-
-var ticker = _interopRequireWildcard(_ticker);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A texture of a [playing] Video.
- *
- * Video base textures mimic Pixi BaseTexture.from.... method in their creation process.
- *
- * This can be used in several ways, such as:
- *
- * ```js
- * let texture = PIXI.VideoBaseTexture.fromUrl('http://mydomain.com/video.mp4');
- *
- * let texture = PIXI.VideoBaseTexture.fromUrl({ src: 'http://mydomain.com/video.mp4', mime: 'video/mp4' });
- *
- * let texture = PIXI.VideoBaseTexture.fromUrls(['/video.webm', '/video.mp4']);
- *
- * let texture = PIXI.VideoBaseTexture.fromUrls([
- *     { src: '/video.webm', mime: 'video/webm' },
- *     { src: '/video.mp4', mime: 'video/mp4' }
- * ]);
- * ```
- *
- * See the ["deus" demo](http://www.goodboydigital.com/pixijs/examples/deus/).
- *
- * @class
- * @extends PIXI.BaseTexture
- * @memberof PIXI
- */
-var VideoBaseTexture = function (_BaseTexture) {
-    _inherits(VideoBaseTexture, _BaseTexture);
-
-    /**
-     * @param {HTMLVideoElement} source - Video source
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
-     */
-    function VideoBaseTexture(source, scaleMode) {
-        _classCallCheck(this, VideoBaseTexture);
-
-        if (!source) {
-            throw new Error('No video source element specified.');
-        }
-
-        // hook in here to check if video is already available.
-        // BaseTexture looks for a source.complete boolean, plus width & height.
-
-        if ((source.readyState === source.HAVE_ENOUGH_DATA || source.readyState === source.HAVE_FUTURE_DATA) && source.width && source.height) {
-            source.complete = true;
-        }
-
-        var _this = _possibleConstructorReturn(this, _BaseTexture.call(this, source, scaleMode));
-
-        _this.width = source.videoWidth;
-        _this.height = source.videoHeight;
-
-        _this._autoUpdate = true;
-        _this._isAutoUpdating = false;
-
-        /**
-         * When set to true will automatically play videos used by this texture once
-         * they are loaded. If false, it will not modify the playing state.
-         *
-         * @member {boolean}
-         * @default true
-         */
-        _this.autoPlay = true;
-
-        _this.update = _this.update.bind(_this);
-        _this._onCanPlay = _this._onCanPlay.bind(_this);
-
-        source.addEventListener('play', _this._onPlayStart.bind(_this));
-        source.addEventListener('pause', _this._onPlayStop.bind(_this));
-        _this.hasLoaded = false;
-        _this.__loaded = false;
-
-        if (!_this._isSourceReady()) {
-            source.addEventListener('canplay', _this._onCanPlay);
-            source.addEventListener('canplaythrough', _this._onCanPlay);
-        } else {
-            _this._onCanPlay();
-        }
-        return _this;
-    }
-
-    /**
-     * Returns true if the underlying source is playing.
-     *
-     * @private
-     * @return {boolean} True if playing.
-     */
-
-
-    VideoBaseTexture.prototype._isSourcePlaying = function _isSourcePlaying() {
-        var source = this.source;
-
-        return source.currentTime > 0 && source.paused === false && source.ended === false && source.readyState > 2;
-    };
-
-    /**
-     * Returns true if the underlying source is ready for playing.
-     *
-     * @private
-     * @return {boolean} True if ready.
-     */
-
-
-    VideoBaseTexture.prototype._isSourceReady = function _isSourceReady() {
-        return this.source.readyState === 3 || this.source.readyState === 4;
-    };
-
-    /**
-     * Runs the update loop when the video is ready to play
-     *
-     * @private
-     */
-
-
-    VideoBaseTexture.prototype._onPlayStart = function _onPlayStart() {
-        // Just in case the video has not received its can play even yet..
-        if (!this.hasLoaded) {
-            this._onCanPlay();
-        }
-
-        if (!this._isAutoUpdating && this.autoUpdate) {
-            ticker.shared.add(this.update, this);
-            this._isAutoUpdating = true;
-        }
-    };
-
-    /**
-     * Fired when a pause event is triggered, stops the update loop
-     *
-     * @private
-     */
-
-
-    VideoBaseTexture.prototype._onPlayStop = function _onPlayStop() {
-        if (this._isAutoUpdating) {
-            ticker.shared.remove(this.update, this);
-            this._isAutoUpdating = false;
-        }
-    };
-
-    /**
-     * Fired when the video is loaded and ready to play
-     *
-     * @private
-     */
-
-
-    VideoBaseTexture.prototype._onCanPlay = function _onCanPlay() {
-        this.hasLoaded = true;
-
-        if (this.source) {
-            this.source.removeEventListener('canplay', this._onCanPlay);
-            this.source.removeEventListener('canplaythrough', this._onCanPlay);
-
-            this.width = this.source.videoWidth;
-            this.height = this.source.videoHeight;
-
-            // prevent multiple loaded dispatches..
-            if (!this.__loaded) {
-                this.__loaded = true;
-                this.emit('loaded', this);
-            }
-
-            if (this._isSourcePlaying()) {
-                this._onPlayStart();
-            } else if (this.autoPlay) {
-                this.source.play();
-            }
-        }
-    };
-
-    /**
-     * Destroys this texture
-     *
-     */
-
-
-    VideoBaseTexture.prototype.destroy = function destroy() {
-        if (this._isAutoUpdating) {
-            ticker.shared.remove(this.update, this);
-        }
-
-        if (this.source && this.source._pixiId) {
-            delete _utils.BaseTextureCache[this.source._pixiId];
-            delete this.source._pixiId;
-        }
-
-        _BaseTexture.prototype.destroy.call(this);
-    };
-
-    /**
-     * Mimic Pixi BaseTexture.from.... method.
-     *
-     * @static
-     * @param {HTMLVideoElement} video - Video to create texture from
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
-     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
-     */
-
-
-    VideoBaseTexture.fromVideo = function fromVideo(video, scaleMode) {
-        if (!video._pixiId) {
-            video._pixiId = 'video_' + (0, _utils.uid)();
-        }
-
-        var baseTexture = _utils.BaseTextureCache[video._pixiId];
-
-        if (!baseTexture) {
-            baseTexture = new VideoBaseTexture(video, scaleMode);
-            _utils.BaseTextureCache[video._pixiId] = baseTexture;
-        }
-
-        return baseTexture;
-    };
-
-    /**
-     * Helper function that creates a new BaseTexture based on the given video element.
-     * This BaseTexture can then be used to create a texture
-     *
-     * @static
-     * @param {string|object|string[]|object[]} videoSrc - The URL(s) for the video.
-     * @param {string} [videoSrc.src] - One of the source urls for the video
-     * @param {string} [videoSrc.mime] - The mimetype of the video (e.g. 'video/mp4'). If not specified
-     *  the url's extension will be used as the second part of the mime type.
-     * @param {number} scaleMode - See {@link PIXI.SCALE_MODES} for possible values
-     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
-     */
-
-
-    VideoBaseTexture.fromUrl = function fromUrl(videoSrc, scaleMode) {
-        var video = document.createElement('video');
-
-        video.setAttribute('webkit-playsinline', '');
-        video.setAttribute('playsinline', '');
-
-        // array of objects or strings
-        if (Array.isArray(videoSrc)) {
-            for (var i = 0; i < videoSrc.length; ++i) {
-                video.appendChild(createSource(videoSrc[i].src || videoSrc[i], videoSrc[i].mime));
-            }
-        }
-        // single object or string
-        else {
-                video.appendChild(createSource(videoSrc.src || videoSrc, videoSrc.mime));
-            }
-
-        video.load();
-
-        return VideoBaseTexture.fromVideo(video, scaleMode);
-    };
-
-    /**
-     * Should the base texture automatically update itself, set to true by default
-     *
-     * @member {boolean}
-     */
-
-
-    _createClass(VideoBaseTexture, [{
-        key: 'autoUpdate',
-        get: function get() {
-            return this._autoUpdate;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            if (value !== this._autoUpdate) {
-                this._autoUpdate = value;
-
-                if (!this._autoUpdate && this._isAutoUpdating) {
-                    ticker.shared.remove(this.update, this);
-                    this._isAutoUpdating = false;
-                } else if (this._autoUpdate && !this._isAutoUpdating) {
-                    ticker.shared.add(this.update, this);
-                    this._isAutoUpdating = true;
-                }
-            }
-        }
-    }]);
-
-    return VideoBaseTexture;
-}(_BaseTexture3.default);
-
-exports.default = VideoBaseTexture;
-
-
-VideoBaseTexture.fromUrls = VideoBaseTexture.fromUrl;
-
-function createSource(path, type) {
-    if (!type) {
-        type = 'video/' + path.substr(path.lastIndexOf('.') + 1);
-    }
-
-    var source = document.createElement('source');
-
-    source.src = path;
-    source.type = type;
-
-    return source;
-}
-//# sourceMappingURL=VideoBaseTexture.js.map
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _Matrix = __webpack_require__(29);
-
-var _Matrix2 = _interopRequireDefault(_Matrix);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var tempMat = new _Matrix2.default();
-
-/**
- * class controls uv transform and frame clamp for texture
- *
- * @class
- * @memberof PIXI.extras
- */
-
-var TextureTransform = function () {
-    /**
-     *
-     * @param {PIXI.Texture} texture observed texture
-     * @param {number} [clampMargin] Changes frame clamping, 0.5 by default. Use -0.5 for extra border.
-     * @constructor
-     */
-    function TextureTransform(texture, clampMargin) {
-        _classCallCheck(this, TextureTransform);
-
-        this._texture = texture;
-
-        this.mapCoord = new _Matrix2.default();
-
-        this.uClampFrame = new Float32Array(4);
-
-        this.uClampOffset = new Float32Array(2);
-
-        this._lastTextureID = -1;
-
-        /**
-         * Changes frame clamping
-         * Works with TilingSprite and Mesh
-         * Change to 1.5 if you texture has repeated right and bottom lines, that leads to smoother borders
-         *
-         * @default 0
-         * @member {number}
-         */
-        this.clampOffset = 0;
-
-        /**
-         * Changes frame clamping
-         * Works with TilingSprite and Mesh
-         * Change to -0.5 to add a pixel to the edge, recommended for transparent trimmed textures in atlas
-         *
-         * @default 0.5
-         * @member {number}
-         */
-        this.clampMargin = typeof clampMargin === 'undefined' ? 0.5 : clampMargin;
-    }
-
-    /**
-     * texture property
-     * @member {PIXI.Texture}
-     */
-
-
-    /**
-     * updates matrices if texture was changed
-     * @param {boolean} forceUpdate if true, matrices will be updated any case
-     */
-    TextureTransform.prototype.update = function update(forceUpdate) {
-        var tex = this._texture;
-
-        if (!tex || !tex.valid) {
-            return;
-        }
-
-        if (!forceUpdate && this._lastTextureID === tex._updateID) {
-            return;
-        }
-
-        this._lastTextureID = tex._updateID;
-
-        var uvs = tex._uvs;
-
-        this.mapCoord.set(uvs.x1 - uvs.x0, uvs.y1 - uvs.y0, uvs.x3 - uvs.x0, uvs.y3 - uvs.y0, uvs.x0, uvs.y0);
-
-        var orig = tex.orig;
-        var trim = tex.trim;
-
-        if (trim) {
-            tempMat.set(orig.width / trim.width, 0, 0, orig.height / trim.height, -trim.x / trim.width, -trim.y / trim.height);
-            this.mapCoord.append(tempMat);
-        }
-
-        var texBase = tex.baseTexture;
-        var frame = this.uClampFrame;
-        var margin = this.clampMargin / texBase.resolution;
-        var offset = this.clampOffset;
-
-        frame[0] = (tex._frame.x + margin + offset) / texBase.width;
-        frame[1] = (tex._frame.y + margin + offset) / texBase.height;
-        frame[2] = (tex._frame.x + tex._frame.width - margin + offset) / texBase.width;
-        frame[3] = (tex._frame.y + tex._frame.height - margin + offset) / texBase.height;
-        this.uClampOffset[0] = offset / texBase.realWidth;
-        this.uClampOffset[1] = offset / texBase.realHeight;
-    };
-
-    _createClass(TextureTransform, [{
-        key: 'texture',
-        get: function get() {
-            return this._texture;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this._texture = value;
-            this._lastTextureID = -1;
-        }
-    }]);
-
-    return TextureTransform;
-}();
-
-exports.default = TextureTransform;
-//# sourceMappingURL=TextureTransform.js.map
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _core = __webpack_require__(0);
-
-var core = _interopRequireWildcard(_core);
-
-var _generateBlurVertSource = __webpack_require__(77);
-
-var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
-
-var _generateBlurFragSource = __webpack_require__(76);
-
-var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
-
-var _getMaxBlurKernelSize = __webpack_require__(78);
-
-var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * The BlurXFilter applies a horizontal Gaussian blur to an object.
- *
- * @class
- * @extends PIXI.Filter
- * @memberof PIXI.filters
- */
-var BlurXFilter = function (_core$Filter) {
-    _inherits(BlurXFilter, _core$Filter);
-
-    /**
-     * @param {number} strength - The strength of the blur filter.
-     * @param {number} quality - The quality of the blur filter.
-     * @param {number} resolution - The resolution of the blur filter.
-     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
-     */
-    function BlurXFilter(strength, quality, resolution, kernelSize) {
-        _classCallCheck(this, BlurXFilter);
-
-        kernelSize = kernelSize || 5;
-        var vertSrc = (0, _generateBlurVertSource2.default)(kernelSize, true);
-        var fragSrc = (0, _generateBlurFragSource2.default)(kernelSize);
-
-        var _this = _possibleConstructorReturn(this, _core$Filter.call(this,
-        // vertex shader
-        vertSrc,
-        // fragment shader
-        fragSrc));
-
-        _this.resolution = resolution || core.settings.RESOLUTION;
-
-        _this._quality = 0;
-
-        _this.quality = quality || 4;
-        _this.strength = strength || 8;
-
-        _this.firstRun = true;
-        return _this;
-    }
-
-    /**
-     * Applies the filter.
-     *
-     * @param {PIXI.FilterManager} filterManager - The manager.
-     * @param {PIXI.RenderTarget} input - The input target.
-     * @param {PIXI.RenderTarget} output - The output target.
-     * @param {boolean} clear - Should the output be cleared before rendering?
-     */
-
-
-    BlurXFilter.prototype.apply = function apply(filterManager, input, output, clear) {
-        if (this.firstRun) {
-            var gl = filterManager.renderer.gl;
-            var kernelSize = (0, _getMaxBlurKernelSize2.default)(gl);
-
-            this.vertexSrc = (0, _generateBlurVertSource2.default)(kernelSize, true);
-            this.fragmentSrc = (0, _generateBlurFragSource2.default)(kernelSize);
-
-            this.firstRun = false;
-        }
-
-        this.uniforms.strength = 1 / output.size.width * (output.size.width / input.size.width);
-
-        // screen space!
-        this.uniforms.strength *= this.strength;
-        this.uniforms.strength /= this.passes; // / this.passes//Math.pow(1, this.passes);
-
-        if (this.passes === 1) {
-            filterManager.applyFilter(this, input, output, clear);
-        } else {
-            var renderTarget = filterManager.getRenderTarget(true);
-            var flip = input;
-            var flop = renderTarget;
-
-            for (var i = 0; i < this.passes - 1; i++) {
-                filterManager.applyFilter(this, flip, flop, true);
-
-                var temp = flop;
-
-                flop = flip;
-                flip = temp;
-            }
-
-            filterManager.applyFilter(this, flip, output, clear);
-
-            filterManager.returnRenderTarget(renderTarget);
-        }
-    };
-
-    /**
-     * Sets the strength of both the blur.
-     *
-     * @member {number}
-     * @default 16
-     */
-
-
-    _createClass(BlurXFilter, [{
-        key: 'blur',
-        get: function get() {
-            return this.strength;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.padding = Math.abs(value) * 2;
-            this.strength = value;
-        }
-
-        /**
-        * Sets the quality of the blur by modifying the number of passes. More passes means higher
-        * quaility bluring but the lower the performance.
-        *
-        * @member {number}
-        * @default 4
-        */
-
-    }, {
-        key: 'quality',
-        get: function get() {
-            return this._quality;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this._quality = value;
-            this.passes = value;
-        }
-    }]);
-
-    return BlurXFilter;
-}(core.Filter);
-
-exports.default = BlurXFilter;
-//# sourceMappingURL=BlurXFilter.js.map
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _core = __webpack_require__(0);
-
-var core = _interopRequireWildcard(_core);
-
-var _generateBlurVertSource = __webpack_require__(77);
-
-var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
-
-var _generateBlurFragSource = __webpack_require__(76);
-
-var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
-
-var _getMaxBlurKernelSize = __webpack_require__(78);
-
-var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * The BlurYFilter applies a horizontal Gaussian blur to an object.
- *
- * @class
- * @extends PIXI.Filter
- * @memberof PIXI.filters
- */
-var BlurYFilter = function (_core$Filter) {
-    _inherits(BlurYFilter, _core$Filter);
-
-    /**
-     * @param {number} strength - The strength of the blur filter.
-     * @param {number} quality - The quality of the blur filter.
-     * @param {number} resolution - The resolution of the blur filter.
-     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
-     */
-    function BlurYFilter(strength, quality, resolution, kernelSize) {
-        _classCallCheck(this, BlurYFilter);
-
-        kernelSize = kernelSize || 5;
-        var vertSrc = (0, _generateBlurVertSource2.default)(kernelSize, false);
-        var fragSrc = (0, _generateBlurFragSource2.default)(kernelSize);
-
-        var _this = _possibleConstructorReturn(this, _core$Filter.call(this,
-        // vertex shader
-        vertSrc,
-        // fragment shader
-        fragSrc));
-
-        _this.resolution = resolution || core.settings.RESOLUTION;
-
-        _this._quality = 0;
-
-        _this.quality = quality || 4;
-        _this.strength = strength || 8;
-
-        _this.firstRun = true;
-        return _this;
-    }
-
-    /**
-     * Applies the filter.
-     *
-     * @param {PIXI.FilterManager} filterManager - The manager.
-     * @param {PIXI.RenderTarget} input - The input target.
-     * @param {PIXI.RenderTarget} output - The output target.
-     * @param {boolean} clear - Should the output be cleared before rendering?
-     */
-
-
-    BlurYFilter.prototype.apply = function apply(filterManager, input, output, clear) {
-        if (this.firstRun) {
-            var gl = filterManager.renderer.gl;
-            var kernelSize = (0, _getMaxBlurKernelSize2.default)(gl);
-
-            this.vertexSrc = (0, _generateBlurVertSource2.default)(kernelSize, false);
-            this.fragmentSrc = (0, _generateBlurFragSource2.default)(kernelSize);
-
-            this.firstRun = false;
-        }
-
-        this.uniforms.strength = 1 / output.size.height * (output.size.height / input.size.height);
-
-        this.uniforms.strength *= this.strength;
-        this.uniforms.strength /= this.passes;
-
-        if (this.passes === 1) {
-            filterManager.applyFilter(this, input, output, clear);
-        } else {
-            var renderTarget = filterManager.getRenderTarget(true);
-            var flip = input;
-            var flop = renderTarget;
-
-            for (var i = 0; i < this.passes - 1; i++) {
-                filterManager.applyFilter(this, flip, flop, true);
-
-                var temp = flop;
-
-                flop = flip;
-                flip = temp;
-            }
-
-            filterManager.applyFilter(this, flip, output, clear);
-
-            filterManager.returnRenderTarget(renderTarget);
-        }
-    };
-
-    /**
-     * Sets the strength of both the blur.
-     *
-     * @member {number}
-     * @default 2
-     */
-
-
-    _createClass(BlurYFilter, [{
-        key: 'blur',
-        get: function get() {
-            return this.strength;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this.padding = Math.abs(value) * 2;
-            this.strength = value;
-        }
-
-        /**
-         * Sets the quality of the blur by modifying the number of passes. More passes means higher
-         * quaility bluring but the lower the performance.
-         *
-         * @member {number}
-         * @default 4
-         */
-
-    }, {
-        key: 'quality',
-        get: function get() {
-            return this._quality;
-        },
-        set: function set(value) // eslint-disable-line require-jsdoc
-        {
-            this._quality = value;
-            this.passes = value;
-        }
-    }]);
-
-    return BlurYFilter;
-}(core.Filter);
-
-exports.default = BlurYFilter;
-//# sourceMappingURL=BlurYFilter.js.map
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = generateFragBlurSource;
-var GAUSSIAN_VALUES = {
-    5: [0.153388, 0.221461, 0.250301],
-    7: [0.071303, 0.131514, 0.189879, 0.214607],
-    9: [0.028532, 0.067234, 0.124009, 0.179044, 0.20236],
-    11: [0.0093, 0.028002, 0.065984, 0.121703, 0.175713, 0.198596],
-    13: [0.002406, 0.009255, 0.027867, 0.065666, 0.121117, 0.174868, 0.197641],
-    15: [0.000489, 0.002403, 0.009246, 0.02784, 0.065602, 0.120999, 0.174697, 0.197448]
-};
-
-var fragTemplate = ['varying vec2 vBlurTexCoords[%size%];', 'uniform sampler2D uSampler;', 'void main(void)', '{', '    gl_FragColor = vec4(0.0);', '    %blur%', '}'].join('\n');
-
-function generateFragBlurSource(kernelSize) {
-    var kernel = GAUSSIAN_VALUES[kernelSize];
-    var halfLength = kernel.length;
-
-    var fragSource = fragTemplate;
-
-    var blurLoop = '';
-    var template = 'gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;';
-    var value = void 0;
-
-    for (var i = 0; i < kernelSize; i++) {
-        var blur = template.replace('%index%', i);
-
-        value = i;
-
-        if (i >= halfLength) {
-            value = kernelSize - i - 1;
-        }
-
-        blur = blur.replace('%value%', kernel[value]);
-
-        blurLoop += blur;
-        blurLoop += '\n';
-    }
-
-    fragSource = fragSource.replace('%blur%', blurLoop);
-    fragSource = fragSource.replace('%size%', kernelSize);
-
-    return fragSource;
-}
-//# sourceMappingURL=generateBlurFragSource.js.map
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = generateVertBlurSource;
-var vertTemplate = ['attribute vec2 aVertexPosition;', 'attribute vec2 aTextureCoord;', 'uniform float strength;', 'uniform mat3 projectionMatrix;', 'varying vec2 vBlurTexCoords[%size%];', 'void main(void)', '{', 'gl_Position = vec4((projectionMatrix * vec3((aVertexPosition), 1.0)).xy, 0.0, 1.0);', '%blur%', '}'].join('\n');
-
-function generateVertBlurSource(kernelSize, x) {
-    var halfLength = Math.ceil(kernelSize / 2);
-
-    var vertSource = vertTemplate;
-
-    var blurLoop = '';
-    var template = void 0;
-    // let value;
-
-    if (x) {
-        template = 'vBlurTexCoords[%index%] = aTextureCoord + vec2(%sampleIndex% * strength, 0.0);';
-    } else {
-        template = 'vBlurTexCoords[%index%] = aTextureCoord + vec2(0.0, %sampleIndex% * strength);';
-    }
-
-    for (var i = 0; i < kernelSize; i++) {
-        var blur = template.replace('%index%', i);
-
-        // value = i;
-
-        // if(i >= halfLength)
-        // {
-        //     value = kernelSize - i - 1;
-        // }
-
-        blur = blur.replace('%sampleIndex%', i - (halfLength - 1) + '.0');
-
-        blurLoop += blur;
-        blurLoop += '\n';
-    }
-
-    vertSource = vertSource.replace('%blur%', blurLoop);
-    vertSource = vertSource.replace('%size%', kernelSize);
-
-    return vertSource;
-}
-//# sourceMappingURL=generateBlurVertSource.js.map
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = getMaxKernelSize;
-function getMaxKernelSize(gl) {
-    var maxVaryings = gl.getParameter(gl.MAX_VARYING_VECTORS);
-    var kernelSize = 15;
-
-    while (kernelSize > maxVaryings) {
-        kernelSize -= 2;
-    }
-
-    return kernelSize;
-}
-//# sourceMappingURL=getMaxBlurKernelSize.js.map
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _FXAAFilter = __webpack_require__(179);
-
-Object.defineProperty(exports, 'FXAAFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_FXAAFilter).default;
-  }
-});
-
-var _NoiseFilter = __webpack_require__(180);
-
-Object.defineProperty(exports, 'NoiseFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_NoiseFilter).default;
-  }
-});
-
-var _DisplacementFilter = __webpack_require__(178);
-
-Object.defineProperty(exports, 'DisplacementFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_DisplacementFilter).default;
-  }
-});
-
-var _BlurFilter = __webpack_require__(176);
-
-Object.defineProperty(exports, 'BlurFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_BlurFilter).default;
-  }
-});
-
-var _BlurXFilter = __webpack_require__(74);
-
-Object.defineProperty(exports, 'BlurXFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_BlurXFilter).default;
-  }
-});
-
-var _BlurYFilter = __webpack_require__(75);
-
-Object.defineProperty(exports, 'BlurYFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_BlurYFilter).default;
-  }
-});
-
-var _ColorMatrixFilter = __webpack_require__(177);
-
-Object.defineProperty(exports, 'ColorMatrixFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_ColorMatrixFilter).default;
-  }
-});
-
-var _VoidFilter = __webpack_require__(181);
-
-Object.defineProperty(exports, 'VoidFilter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_VoidFilter).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _core = __webpack_require__(0);
-
-var core = _interopRequireWildcard(_core);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Holds all information related to an Interaction event
- *
- * @class
- * @memberof PIXI.interaction
- */
-var InteractionData = function () {
-  /**
-   *
-   */
-  function InteractionData() {
-    _classCallCheck(this, InteractionData);
-
-    /**
-     * This point stores the global coords of where the touch/mouse event happened
-     *
-     * @member {PIXI.Point}
-     */
-    this.global = new core.Point();
-
-    /**
-     * The target DisplayObject that was interacted with
-     *
-     * @member {PIXI.DisplayObject}
-     */
-    this.target = null;
-
-    /**
-     * When passed to an event handler, this will be the original DOM Event that was captured
-     *
-     * @member {Event}
-     */
-    this.originalEvent = null;
-
-    /**
-     * Unique identifier for this interaction
-     *
-     * @member {number}
-     */
-    this.identifier = null;
-  }
-
-  /**
-   * This will return the local coordinates of the specified displayObject for this InteractionData
-   *
-   * @param {PIXI.DisplayObject} displayObject - The DisplayObject that you would like the local
-   *  coords off
-   * @param {PIXI.Point} [point] - A Point object in which to store the value, optional (otherwise
-   *  will create a new point)
-   * @param {PIXI.Point} [globalPos] - A Point object containing your custom global coords, optional
-   *  (otherwise will use the current global coords)
-   * @return {PIXI.Point} A point containing the coordinates of the InteractionData position relative
-   *  to the DisplayObject
-   */
-
-
-  InteractionData.prototype.getLocalPosition = function getLocalPosition(displayObject, point, globalPos) {
-    return displayObject.worldTransform.applyInverse(globalPos || this.global, point);
-  };
-
-  return InteractionData;
-}();
-
-exports.default = InteractionData;
-//# sourceMappingURL=InteractionData.js.map
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _InteractionData = __webpack_require__(80);
-
-Object.defineProperty(exports, 'InteractionData', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_InteractionData).default;
-  }
-});
-
-var _InteractionManager = __webpack_require__(183);
-
-Object.defineProperty(exports, 'InteractionManager', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_InteractionManager).default;
-  }
-});
-
-var _interactiveTarget = __webpack_require__(82);
-
-Object.defineProperty(exports, 'interactiveTarget', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_interactiveTarget).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-/**
- * Default property values of interactive objects
- * Used by {@link PIXI.interaction.InteractionManager} to automatically give all DisplayObjects these properties
- *
- * @mixin
- * @name interactiveTarget
- * @memberof PIXI.interaction
- * @example
- *      function MyObject() {}
- *
- *      Object.assign(
- *          core.DisplayObject.prototype,
- *          PIXI.interaction.interactiveTarget
- *      );
- */
-exports.default = {
-  /**
-   * Determines if the displayObject be clicked/touched
-   *
-   * @inner {boolean}
-   */
-  interactive: false,
-
-  /**
-   * Determines if the children to the displayObject can be clicked/touched
-   * Setting this to false allows pixi to bypass a recursive hitTest function
-   *
-   * @inner {boolean}
-   */
-  interactiveChildren: true,
-
-  /**
-   * Interaction shape. Children will be hit first, then this shape will be checked.
-   * Setting this will cause this shape to be checked in hit tests rather than the displayObject's bounds.
-   *
-   * @inner {PIXI.Rectangle|PIXI.Circle|PIXI.Ellipse|PIXI.Polygon|PIXI.RoundedRectangle}
-   */
-  hitArea: null,
-
-  /**
-   * If enabled, the mouse cursor use the pointer behavior when hovered over the displayObject if it is interactive
-   * Setting this changes the 'cursor' property to `'pointer'`.
-   *
-   * @member {boolean}
-   * @memberof PIXI.interaction.interactiveTarget#
-   */
-  get buttonMode() {
-    return this.cursor === 'pointer';
-  },
-  set buttonMode(value) {
-    if (value) {
-      this.cursor = 'pointer';
-    } else if (this.cursor === 'pointer') {
-      this.cursor = null;
-    }
-  },
-
-  /**
-   * This defines what cursor mode is used when the mouse cursor
-   * is hovered over the displayObject.
-   *
-   * @see https://developer.mozilla.org/en/docs/Web/CSS/cursor
-   *
-   * @inner {string}
-   */
-  cursor: null,
-
-  /**
-   * Internal set of all active pointers, by identifier
-   *
-   * @member {Map<number, InteractionTrackingData>}
-   * @memberof PIXI.interaction.interactiveTarget#
-   * @private
-   */
-  get trackedPointers() {
-    if (this._trackedPointers === undefined) this._trackedPointers = {};
-
-    return this._trackedPointers;
-  },
-
-  /**
-   * Map of all tracked pointers, by identifier. Use trackedPointers to access.
-   *
-   * @private {Map<number, InteractionTrackingData>}
-   */
-  _trackedPointers: undefined
-};
-//# sourceMappingURL=interactiveTarget.js.map
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.parse = parse;
-
-exports.default = function () {
-    return function bitmapFontParser(resource, next) {
-        // skip if no data or not xml data
-        if (!resource.data || resource.type !== _resourceLoader.Resource.TYPE.XML) {
-            next();
-
-            return;
-        }
-
-        // skip if not bitmap font data, using some silly duck-typing
-        if (resource.data.getElementsByTagName('page').length === 0 || resource.data.getElementsByTagName('info').length === 0 || resource.data.getElementsByTagName('info')[0].getAttribute('face') === null) {
-            next();
-
-            return;
-        }
-
-        var xmlUrl = !resource.isDataUrl ? path.dirname(resource.url) : '';
-
-        if (resource.isDataUrl) {
-            if (xmlUrl === '.') {
-                xmlUrl = '';
-            }
-
-            if (this.baseUrl && xmlUrl) {
-                // if baseurl has a trailing slash then add one to xmlUrl so the replace works below
-                if (this.baseUrl.charAt(this.baseUrl.length - 1) === '/') {
-                    xmlUrl += '/';
-                }
-
-                // remove baseUrl from xmlUrl
-                xmlUrl = xmlUrl.replace(this.baseUrl, '');
-            }
-        }
-
-        // if there is an xmlUrl now, it needs a trailing slash. Ensure that it does if the string isn't empty.
-        if (xmlUrl && xmlUrl.charAt(xmlUrl.length - 1) !== '/') {
-            xmlUrl += '/';
-        }
-
-        var textureUrl = xmlUrl + resource.data.getElementsByTagName('page')[0].getAttribute('file');
-
-        if (_core.utils.TextureCache[textureUrl]) {
-            // reuse existing texture
-            parse(resource, _core.utils.TextureCache[textureUrl]);
-            next();
-        } else {
-            var loadOptions = {
-                crossOrigin: resource.crossOrigin,
-                loadType: _resourceLoader.Resource.LOAD_TYPE.IMAGE,
-                metadata: resource.metadata.imageMetadata,
-                parentResource: resource
-            };
-
-            // load the texture for the font
-            this.add(resource.name + '_image', textureUrl, loadOptions, function (res) {
-                parse(resource, res.texture);
-                next();
-            });
-        }
-    };
-};
-
-var _path = __webpack_require__(6);
-
-var path = _interopRequireWildcard(_path);
-
-var _core = __webpack_require__(0);
-
-var _resourceLoader = __webpack_require__(17);
-
-var _extras = __webpack_require__(37);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-/**
- * Register a BitmapText font from loader resource.
- *
- * @function parseBitmapFontData
- * @memberof PIXI.loaders
- * @param {PIXI.loaders.Resource} resource - Loader resource.
- * @param {PIXI.Texture} texture - Reference to texture.
- */
-function parse(resource, texture) {
-    resource.bitmapFont = _extras.BitmapText.registerFont(resource.data, texture);
-}
-//# sourceMappingURL=bitmapFontParser.js.map
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _loader = __webpack_require__(185);
-
-Object.defineProperty(exports, 'Loader', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_loader).default;
-  }
-});
-
-var _bitmapFontParser = __webpack_require__(83);
-
-Object.defineProperty(exports, 'bitmapFontParser', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_bitmapFontParser).default;
-  }
-});
-Object.defineProperty(exports, 'parseBitmapFontData', {
-  enumerable: true,
-  get: function get() {
-    return _bitmapFontParser.parse;
-  }
-});
-
-var _spritesheetParser = __webpack_require__(85);
-
-Object.defineProperty(exports, 'spritesheetParser', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_spritesheetParser).default;
-  }
-});
-
-var _textureParser = __webpack_require__(86);
-
-Object.defineProperty(exports, 'textureParser', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_textureParser).default;
-  }
-});
-
-var _resourceLoader = __webpack_require__(17);
-
-Object.defineProperty(exports, 'Resource', {
-  enumerable: true,
-  get: function get() {
-    return _resourceLoader.Resource;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports.default = function () {
-    return function spritesheetParser(resource, next) {
-        var resourcePath = void 0;
-        var imageResourceName = resource.name + '_image';
-
-        // skip if no data, its not json, it isn't spritesheet data, or the image resource already exists
-        if (!resource.data || resource.type !== _resourceLoader.Resource.TYPE.JSON || !resource.data.frames || this.resources[imageResourceName]) {
-            next();
-
-            return;
-        }
-
-        var loadOptions = {
-            crossOrigin: resource.crossOrigin,
-            loadType: _resourceLoader.Resource.LOAD_TYPE.IMAGE,
-            metadata: resource.metadata.imageMetadata,
-            parentResource: resource
-        };
-
-        // Prepend url path unless the resource image is a data url
-        if (resource.isDataUrl) {
-            resourcePath = resource.data.meta.image;
-        } else {
-            resourcePath = _path2.default.dirname(resource.url.replace(this.baseUrl, '')) + '/' + resource.data.meta.image;
-        }
-
-        // load the image for this sheet
-        this.add(imageResourceName, resourcePath, loadOptions, function onImageLoad(res) {
-            var spritesheet = new _core.Spritesheet(res.texture.baseTexture, resource.data, resource.url);
-
-            spritesheet.parse(function () {
-                resource.spritesheet = spritesheet;
-                resource.textures = spritesheet.textures;
-                next();
-            });
-        });
-    };
-};
-
-var _resourceLoader = __webpack_require__(17);
-
-var _path = __webpack_require__(6);
-
-var _path2 = _interopRequireDefault(_path);
-
-var _core = __webpack_require__(0);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=spritesheetParser.js.map
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports.default = function () {
-    return function textureParser(resource, next) {
-        // create a new texture if the data is an Image object
-        if (resource.data && resource.type === _resourceLoader.Resource.TYPE.IMAGE) {
-            resource.texture = _Texture2.default.fromLoader(resource.data, resource.url, resource.name);
-        }
-        next();
-    };
-};
-
-var _resourceLoader = __webpack_require__(17);
-
-var _Texture = __webpack_require__(9);
-
-var _Texture2 = _interopRequireDefault(_Texture);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=textureParser.js.map
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _Mesh2 = __webpack_require__(16);
-
-var _Mesh3 = _interopRequireDefault(_Mesh2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * The Plane allows you to draw a texture across several points and them manipulate these points
- *
- *```js
- * for (let i = 0; i < 20; i++) {
- *     points.push(new PIXI.Point(i * 50, 0));
- * };
- * let Plane = new PIXI.Plane(PIXI.Texture.fromImage("snake.png"), points);
- *  ```
- *
- * @class
- * @extends PIXI.mesh.Mesh
- * @memberof PIXI.mesh
- *
- */
-var Plane = function (_Mesh) {
-    _inherits(Plane, _Mesh);
-
-    /**
-     * @param {PIXI.Texture} texture - The texture to use on the Plane.
-     * @param {number} verticesX - The number of vertices in the x-axis
-     * @param {number} verticesY - The number of vertices in the y-axis
-     */
-    function Plane(texture, verticesX, verticesY) {
-        _classCallCheck(this, Plane);
-
-        /**
-         * Tracker for if the Plane is ready to be drawn. Needed because Mesh ctor can
-         * call _onTextureUpdated which could call refresh too early.
-         *
-         * @member {boolean}
-         * @private
-         */
-        var _this = _possibleConstructorReturn(this, _Mesh.call(this, texture));
-
-        _this._ready = true;
-
-        _this.verticesX = verticesX || 10;
-        _this.verticesY = verticesY || 10;
-
-        _this.drawMode = _Mesh3.default.DRAW_MODES.TRIANGLES;
-        _this.refresh();
-        return _this;
-    }
-
-    /**
-     * Refreshes
-     *
-     */
-
-
-    Plane.prototype.refresh = function refresh() {
-        var total = this.verticesX * this.verticesY;
-        var verts = [];
-        var colors = [];
-        var uvs = [];
-        var indices = [];
-        var texture = this.texture;
-
-        var segmentsX = this.verticesX - 1;
-        var segmentsY = this.verticesY - 1;
-
-        var sizeX = texture.width / segmentsX;
-        var sizeY = texture.height / segmentsY;
-
-        for (var i = 0; i < total; i++) {
-            if (texture._uvs) {
-                var x = i % this.verticesX;
-                var y = i / this.verticesX | 0;
-
-                verts.push(x * sizeX, y * sizeY);
-
-                // this works for rectangular textures.
-                uvs.push(texture._uvs.x0 + (texture._uvs.x1 - texture._uvs.x0) * (x / (this.verticesX - 1)), texture._uvs.y0 + (texture._uvs.y3 - texture._uvs.y0) * (y / (this.verticesY - 1)));
-            } else {
-                uvs.push(0);
-            }
-        }
-
-        //  cons
-
-        var totalSub = segmentsX * segmentsY;
-
-        for (var _i = 0; _i < totalSub; _i++) {
-            var xpos = _i % segmentsX;
-            var ypos = _i / segmentsX | 0;
-
-            var value = ypos * this.verticesX + xpos;
-            var value2 = ypos * this.verticesX + xpos + 1;
-            var value3 = (ypos + 1) * this.verticesX + xpos;
-            var value4 = (ypos + 1) * this.verticesX + xpos + 1;
-
-            indices.push(value, value2, value3);
-            indices.push(value2, value4, value3);
-        }
-
-        // console.log(indices)
-        this.vertices = new Float32Array(verts);
-        this.uvs = new Float32Array(uvs);
-        this.colors = new Float32Array(colors);
-        this.indices = new Uint16Array(indices);
-
-        this.indexDirty = true;
-    };
-
-    /**
-     * Clear texture UVs when new texture is set
-     *
-     * @private
-     */
-
-
-    Plane.prototype._onTextureUpdate = function _onTextureUpdate() {
-        _Mesh3.default.prototype._onTextureUpdate.call(this);
-
-        // wait for the Plane ctor to finish before calling refresh
-        if (this._ready) {
-            this.refresh();
-        }
-    };
-
-    return Plane;
-}(_Mesh3.default);
-
-exports.default = Plane;
-//# sourceMappingURL=Plane.js.map
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _Mesh = __webpack_require__(16);
-
-Object.defineProperty(exports, 'Mesh', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Mesh).default;
-  }
-});
-
-var _MeshRenderer = __webpack_require__(189);
-
-Object.defineProperty(exports, 'MeshRenderer', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_MeshRenderer).default;
-  }
-});
-
-var _CanvasMeshRenderer = __webpack_require__(188);
-
-Object.defineProperty(exports, 'CanvasMeshRenderer', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CanvasMeshRenderer).default;
-  }
-});
-
-var _Plane = __webpack_require__(87);
-
-Object.defineProperty(exports, 'Plane', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Plane).default;
-  }
-});
-
-var _NineSlicePlane = __webpack_require__(186);
-
-Object.defineProperty(exports, 'NineSlicePlane', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_NineSlicePlane).default;
-  }
-});
-
-var _Rope = __webpack_require__(187);
-
-Object.defineProperty(exports, 'Rope', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Rope).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _ParticleContainer = __webpack_require__(190);
-
-Object.defineProperty(exports, 'ParticleContainer', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_ParticleContainer).default;
-  }
-});
-
-var _ParticleRenderer = __webpack_require__(192);
-
-Object.defineProperty(exports, 'ParticleRenderer', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_ParticleRenderer).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _WebGLPrepare = __webpack_require__(200);
-
-Object.defineProperty(exports, 'webgl', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_WebGLPrepare).default;
-  }
-});
-
-var _CanvasPrepare = __webpack_require__(198);
-
-Object.defineProperty(exports, 'canvas', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CanvasPrepare).default;
-  }
-});
-
-var _BasePrepare = __webpack_require__(38);
-
-Object.defineProperty(exports, 'BasePrepare', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_BasePrepare).default;
-  }
-});
-
-var _CountLimiter = __webpack_require__(91);
-
-Object.defineProperty(exports, 'CountLimiter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CountLimiter).default;
-  }
-});
-
-var _TimeLimiter = __webpack_require__(199);
-
-Object.defineProperty(exports, 'TimeLimiter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_TimeLimiter).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * CountLimiter limits the number of items handled by a {@link PIXI.prepare.BasePrepare} to a specified
- * number of items per frame.
- *
- * @class
- * @memberof PIXI
- */
-var CountLimiter = function () {
-  /**
-   * @param {number} maxItemsPerFrame - The maximum number of items that can be prepared each frame.
-   */
-  function CountLimiter(maxItemsPerFrame) {
-    _classCallCheck(this, CountLimiter);
-
-    /**
-     * The maximum number of items that can be prepared each frame.
-     * @private
-     */
-    this.maxItemsPerFrame = maxItemsPerFrame;
-    /**
-     * The number of items that can be prepared in the current frame.
-     * @type {number}
-     * @private
-     */
-    this.itemsLeft = 0;
-  }
-
-  /**
-   * Resets any counting properties to start fresh on a new frame.
-   */
-
-
-  CountLimiter.prototype.beginFrame = function beginFrame() {
-    this.itemsLeft = this.maxItemsPerFrame;
-  };
-
-  /**
-   * Checks to see if another item can be uploaded. This should only be called once per item.
-   * @return {boolean} If the item is allowed to be uploaded.
-   */
-
-
-  CountLimiter.prototype.allowedToUpload = function allowedToUpload() {
-    return this.itemsLeft-- > 0;
-  };
-
-  return CountLimiter;
-}();
-
-exports.default = CountLimiter;
-//# sourceMappingURL=CountLimiter.js.map
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var repeat = exports.repeat = function repeat(str, times) {
-  return new Array(times + 1).join(str);
-};
-
-var pad = exports.pad = function pad(num, maxLength) {
-  return repeat("0", maxLength - num.toString().length) + num;
-};
-
-var formatTime = exports.formatTime = function formatTime(time) {
-  return pad(time.getHours(), 2) + ":" + pad(time.getMinutes(), 2) + ":" + pad(time.getSeconds(), 2) + "." + pad(time.getMilliseconds(), 3);
-};
-
-// Use performance API if it's available in order to get better precision
-var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
-
-/***/ }),
-/* 93 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = compose;
-/**
- * Composes single-argument functions from right to left. The rightmost
- * function can take multiple arguments as it provides the signature for
- * the resulting composite function.
- *
- * @param {...Function} funcs The functions to compose.
- * @returns {Function} A function obtained by composing the argument functions
- * from right to left. For example, compose(f, g, h) is identical to doing
- * (...args) => f(g(h(...args))).
- */
-
-function compose() {
-  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-    funcs[_key] = arguments[_key];
-  }
-
-  if (funcs.length === 0) {
-    return function (arg) {
-      return arg;
-    };
-  }
-
-  if (funcs.length === 1) {
-    return funcs[0];
-  }
-
-  var last = funcs[funcs.length - 1];
-  var rest = funcs.slice(0, -1);
-  return function () {
-    return rest.reduceRight(function (composed, f) {
-      return f(composed);
-    }, last.apply(undefined, arguments));
-  };
-}
-
-/***/ }),
-/* 94 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_symbol_observable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ActionTypes; });
-/* harmony export (immutable) */ __webpack_exports__["a"] = createStore;
-
-
-
-/**
- * These are private action types reserved by Redux.
- * For any unknown actions, you must return the current state.
- * If the current state is undefined, you must return the initial state.
- * Do not reference these action types directly in your code.
- */
-var ActionTypes = {
-  INIT: '@@redux/INIT'
-};
-
-/**
- * Creates a Redux store that holds the state tree.
- * The only way to change the data in the store is to call `dispatch()` on it.
- *
- * There should only be a single store in your app. To specify how different
- * parts of the state tree respond to actions, you may combine several reducers
- * into a single reducer function by using `combineReducers`.
- *
- * @param {Function} reducer A function that returns the next state tree, given
- * the current state tree and the action to handle.
- *
- * @param {any} [preloadedState] The initial state. You may optionally specify it
- * to hydrate the state from the server in universal apps, or to restore a
- * previously serialized user session.
- * If you use `combineReducers` to produce the root reducer function, this must be
- * an object with the same shape as `combineReducers` keys.
- *
- * @param {Function} enhancer The store enhancer. You may optionally specify it
- * to enhance the store with third-party capabilities such as middleware,
- * time travel, persistence, etc. The only store enhancer that ships with Redux
- * is `applyMiddleware()`.
- *
- * @returns {Store} A Redux store that lets you read the state, dispatch actions
- * and subscribe to changes.
- */
-function createStore(reducer, preloadedState, enhancer) {
-  var _ref2;
-
-  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
-    enhancer = preloadedState;
-    preloadedState = undefined;
-  }
-
-  if (typeof enhancer !== 'undefined') {
-    if (typeof enhancer !== 'function') {
-      throw new Error('Expected the enhancer to be a function.');
-    }
-
-    return enhancer(createStore)(reducer, preloadedState);
-  }
-
-  if (typeof reducer !== 'function') {
-    throw new Error('Expected the reducer to be a function.');
-  }
-
-  var currentReducer = reducer;
-  var currentState = preloadedState;
-  var currentListeners = [];
-  var nextListeners = currentListeners;
-  var isDispatching = false;
-
-  function ensureCanMutateNextListeners() {
-    if (nextListeners === currentListeners) {
-      nextListeners = currentListeners.slice();
-    }
-  }
-
-  /**
-   * Reads the state tree managed by the store.
-   *
-   * @returns {any} The current state tree of your application.
-   */
-  function getState() {
-    return currentState;
-  }
-
-  /**
-   * Adds a change listener. It will be called any time an action is dispatched,
-   * and some part of the state tree may potentially have changed. You may then
-   * call `getState()` to read the current state tree inside the callback.
-   *
-   * You may call `dispatch()` from a change listener, with the following
-   * caveats:
-   *
-   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
-   * If you subscribe or unsubscribe while the listeners are being invoked, this
-   * will not have any effect on the `dispatch()` that is currently in progress.
-   * However, the next `dispatch()` call, whether nested or not, will use a more
-   * recent snapshot of the subscription list.
-   *
-   * 2. The listener should not expect to see all state changes, as the state
-   * might have been updated multiple times during a nested `dispatch()` before
-   * the listener is called. It is, however, guaranteed that all subscribers
-   * registered before the `dispatch()` started will be called with the latest
-   * state by the time it exits.
-   *
-   * @param {Function} listener A callback to be invoked on every dispatch.
-   * @returns {Function} A function to remove this change listener.
-   */
-  function subscribe(listener) {
-    if (typeof listener !== 'function') {
-      throw new Error('Expected listener to be a function.');
-    }
-
-    var isSubscribed = true;
-
-    ensureCanMutateNextListeners();
-    nextListeners.push(listener);
-
-    return function unsubscribe() {
-      if (!isSubscribed) {
-        return;
-      }
-
-      isSubscribed = false;
-
-      ensureCanMutateNextListeners();
-      var index = nextListeners.indexOf(listener);
-      nextListeners.splice(index, 1);
-    };
-  }
-
-  /**
-   * Dispatches an action. It is the only way to trigger a state change.
-   *
-   * The `reducer` function, used to create the store, will be called with the
-   * current state tree and the given `action`. Its return value will
-   * be considered the **next** state of the tree, and the change listeners
-   * will be notified.
-   *
-   * The base implementation only supports plain object actions. If you want to
-   * dispatch a Promise, an Observable, a thunk, or something else, you need to
-   * wrap your store creating function into the corresponding middleware. For
-   * example, see the documentation for the `redux-thunk` package. Even the
-   * middleware will eventually dispatch plain object actions using this method.
-   *
-   * @param {Object} action A plain object representing “what changed”. It is
-   * a good idea to keep actions serializable so you can record and replay user
-   * sessions, or use the time travelling `redux-devtools`. An action must have
-   * a `type` property which may not be `undefined`. It is a good idea to use
-   * string constants for action types.
-   *
-   * @returns {Object} For convenience, the same action object you dispatched.
-   *
-   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
-   * return something else (for example, a Promise you can await).
-   */
-  function dispatch(action) {
-    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__["a" /* default */])(action)) {
-      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
-    }
-
-    if (typeof action.type === 'undefined') {
-      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
-    }
-
-    if (isDispatching) {
-      throw new Error('Reducers may not dispatch actions.');
-    }
-
-    try {
-      isDispatching = true;
-      currentState = currentReducer(currentState, action);
-    } finally {
-      isDispatching = false;
-    }
-
-    var listeners = currentListeners = nextListeners;
-    for (var i = 0; i < listeners.length; i++) {
-      listeners[i]();
-    }
-
-    return action;
-  }
-
-  /**
-   * Replaces the reducer currently used by the store to calculate the state.
-   *
-   * You might need this if your app implements code splitting and you want to
-   * load some of the reducers dynamically. You might also need this if you
-   * implement a hot reloading mechanism for Redux.
-   *
-   * @param {Function} nextReducer The reducer for the store to use instead.
-   * @returns {void}
-   */
-  function replaceReducer(nextReducer) {
-    if (typeof nextReducer !== 'function') {
-      throw new Error('Expected the nextReducer to be a function.');
-    }
-
-    currentReducer = nextReducer;
-    dispatch({ type: ActionTypes.INIT });
-  }
-
-  /**
-   * Interoperability point for observable/reactive libraries.
-   * @returns {observable} A minimal observable of state changes.
-   * For more information, see the observable proposal:
-   * https://github.com/zenparsing/es-observable
-   */
-  function observable() {
-    var _ref;
-
-    var outerSubscribe = subscribe;
-    return _ref = {
-      /**
-       * The minimal observable subscription method.
-       * @param {Object} observer Any object that can be used as an observer.
-       * The observer object should have a `next` method.
-       * @returns {subscription} An object with an `unsubscribe` method that can
-       * be used to unsubscribe the observable from the store, and prevent further
-       * emission of values from the observable.
-       */
-      subscribe: function subscribe(observer) {
-        if (typeof observer !== 'object') {
-          throw new TypeError('Expected the observer to be an object.');
-        }
-
-        function observeState() {
-          if (observer.next) {
-            observer.next(getState());
-          }
-        }
-
-        observeState();
-        var unsubscribe = outerSubscribe(observeState);
-        return { unsubscribe: unsubscribe };
-      }
-    }, _ref[__WEBPACK_IMPORTED_MODULE_1_symbol_observable___default.a] = function () {
-      return this;
-    }, _ref;
-  }
-
-  // When a store is created, an "INIT" action is dispatched so that every
-  // reducer returns their initial state. This effectively populates
-  // the initial state tree.
-  dispatch({ type: ActionTypes.INIT });
-
-  return _ref2 = {
-    dispatch: dispatch,
-    subscribe: subscribe,
-    getState: getState,
-    replaceReducer: replaceReducer
-  }, _ref2[__WEBPACK_IMPORTED_MODULE_1_symbol_observable___default.a] = observable, _ref2;
-}
-
-/***/ }),
-/* 95 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = warning;
-/**
- * Prints a warning in the console if it exists.
- *
- * @param {String} message The warning message.
- * @returns {void}
- */
-function warning(message) {
-  /* eslint-disable no-console */
-  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-    console.error(message);
-  }
-  /* eslint-enable no-console */
-  try {
-    // This error was thrown as a convenience so that if you enable
-    // "break on all exceptions" in your console,
-    // it would pause the execution at this line.
-    throw new Error(message);
-    /* eslint-disable no-empty */
-  } catch (e) {}
-  /* eslint-enable no-empty */
-}
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.eachSeries = eachSeries;
-exports.queue = queue;
-/**
- * Smaller version of the async library constructs.
- *
- */
-function _noop() {} /* empty */
-
-/**
- * Iterates an array in series.
- *
- * @param {Array.<*>} array - Array to iterate.
- * @param {function} iterator - Function to call for each element.
- * @param {function} callback - Function to call when done, or on error.
- */
-function eachSeries(array, iterator, callback) {
-    var i = 0;
-    var len = array.length;
-
-    (function next(err) {
-        if (err || i === len) {
-            if (callback) {
-                callback(err);
-            }
-
-            return;
-        }
-
-        iterator(array[i++], next);
-    })();
-}
-
-/**
- * Ensures a function is only called once.
- *
- * @param {function} fn - The function to wrap.
- * @return {function} The wrapping function.
- */
-function onlyOnce(fn) {
-    return function onceWrapper() {
-        if (fn === null) {
-            throw new Error('Callback was already called.');
-        }
-
-        var callFn = fn;
-
-        fn = null;
-        callFn.apply(this, arguments);
-    };
-}
-
-/**
- * Async queue implementation,
- *
- * @param {function} worker - The worker function to call for each task.
- * @param {number} concurrency - How many workers to run in parrallel.
- * @return {*} The async queue object.
- */
-function queue(worker, concurrency) {
-    if (concurrency == null) {
-        // eslint-disable-line no-eq-null,eqeqeq
-        concurrency = 1;
-    } else if (concurrency === 0) {
-        throw new Error('Concurrency must not be zero');
-    }
-
-    var workers = 0;
-    var q = {
-        _tasks: [],
-        concurrency: concurrency,
-        saturated: _noop,
-        unsaturated: _noop,
-        buffer: concurrency / 4,
-        empty: _noop,
-        drain: _noop,
-        error: _noop,
-        started: false,
-        paused: false,
-        push: function push(data, callback) {
-            _insert(data, false, callback);
-        },
-        kill: function kill() {
-            workers = 0;
-            q.drain = _noop;
-            q.started = false;
-            q._tasks = [];
-        },
-        unshift: function unshift(data, callback) {
-            _insert(data, true, callback);
-        },
-        process: function process() {
-            while (!q.paused && workers < q.concurrency && q._tasks.length) {
-                var task = q._tasks.shift();
-
-                if (q._tasks.length === 0) {
-                    q.empty();
-                }
-
-                workers += 1;
-
-                if (workers === q.concurrency) {
-                    q.saturated();
-                }
-
-                worker(task.data, onlyOnce(_next(task)));
-            }
-        },
-        length: function length() {
-            return q._tasks.length;
-        },
-        running: function running() {
-            return workers;
-        },
-        idle: function idle() {
-            return q._tasks.length + workers === 0;
-        },
-        pause: function pause() {
-            if (q.paused === true) {
-                return;
-            }
-
-            q.paused = true;
-        },
-        resume: function resume() {
-            if (q.paused === false) {
-                return;
-            }
-
-            q.paused = false;
-
-            // Need to call q.process once per concurrent
-            // worker to preserve full concurrency after pause
-            for (var w = 1; w <= q.concurrency; w++) {
-                q.process();
-            }
-        }
-    };
-
-    function _insert(data, insertAtFront, callback) {
-        if (callback != null && typeof callback !== 'function') {
-            // eslint-disable-line no-eq-null,eqeqeq
-            throw new Error('task callback must be a function');
-        }
-
-        q.started = true;
-
-        if (data == null && q.idle()) {
-            // eslint-disable-line no-eq-null,eqeqeq
-            // call drain immediately if there are no tasks
-            setTimeout(function () {
-                return q.drain();
-            }, 1);
-
-            return;
-        }
-
-        var item = {
-            data: data,
-            callback: typeof callback === 'function' ? callback : _noop
-        };
-
-        if (insertAtFront) {
-            q._tasks.unshift(item);
-        } else {
-            q._tasks.push(item);
-        }
-
-        setTimeout(function () {
-            return q.process();
-        }, 1);
-    }
-
-    function _next(task) {
-        return function next() {
-            workers -= 1;
-
-            task.callback.apply(task, arguments);
-
-            if (arguments[0] != null) {
-                // eslint-disable-line no-eq-null,eqeqeq
-                q.error(arguments[0], task.data);
-            }
-
-            if (workers <= q.concurrency - q.buffer) {
-                q.unsaturated();
-            }
-
-            if (q.idle()) {
-                q.drain();
-            }
-
-            q.process();
-        };
-    }
-
-    return q;
-}
-//# sourceMappingURL=async.js.map
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.encodeBinary = encodeBinary;
-var _keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function encodeBinary(input) {
-    var output = '';
-    var inx = 0;
-
-    while (inx < input.length) {
-        // Fill byte buffer array
-        var bytebuffer = [0, 0, 0];
-        var encodedCharIndexes = [0, 0, 0, 0];
-
-        for (var jnx = 0; jnx < bytebuffer.length; ++jnx) {
-            if (inx < input.length) {
-                // throw away high-order byte, as documented at:
-                // https://developer.mozilla.org/En/Using_XMLHttpRequest#Handling_binary_data
-                bytebuffer[jnx] = input.charCodeAt(inx++) & 0xff;
-            } else {
-                bytebuffer[jnx] = 0;
-            }
-        }
-
-        // Get each encoded character, 6 bits at a time
-        // index 1: first 6 bits
-        encodedCharIndexes[0] = bytebuffer[0] >> 2;
-
-        // index 2: second 6 bits (2 least significant bits from input byte 1 + 4 most significant bits from byte 2)
-        encodedCharIndexes[1] = (bytebuffer[0] & 0x3) << 4 | bytebuffer[1] >> 4;
-
-        // index 3: third 6 bits (4 least significant bits from input byte 2 + 2 most significant bits from byte 3)
-        encodedCharIndexes[2] = (bytebuffer[1] & 0x0f) << 2 | bytebuffer[2] >> 6;
-
-        // index 3: forth 6 bits (6 least significant bits from input byte 3)
-        encodedCharIndexes[3] = bytebuffer[2] & 0x3f;
-
-        // Determine whether padding happened, and adjust accordingly
-        var paddingBytes = inx - (input.length - 1);
-
-        switch (paddingBytes) {
-            case 2:
-                // Set last 2 characters to padding char
-                encodedCharIndexes[3] = 64;
-                encodedCharIndexes[2] = 64;
-                break;
-
-            case 1:
-                // Set last character to padding char
-                encodedCharIndexes[3] = 64;
-                break;
-
-            default:
-                break; // No padding - proceed
-        }
-
-        // Now we will grab each appropriate character out of our keystring
-        // based on our index array and append it to the output string
-        for (var _jnx = 0; _jnx < encodedCharIndexes.length; ++_jnx) {
-            output += _keyStr.charAt(encodedCharIndexes[_jnx]);
-        }
-    }
-
-    return output;
-}
-//# sourceMappingURL=b64.js.map
-
-/***/ }),
-/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global, process) {var __WEBPACK_AMD_DEFINE_RESULT__;// Copyright (c) Microsoft, All rights reserved. See License.txt in the project root for license information.
@@ -48421,1139 +40524,43 @@ var ReactiveTest = Rx.ReactiveTest = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module), __webpack_require__(7), __webpack_require__(22)))
 
 /***/ }),
-/* 99 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-const BattleState = {
-	WAITING: 'WAITING', // waiting for ATB gauge to fill
-	READY: 'READY', // ATB gauge is filled, waiting for a turn
-	DEFENDING: 'DEFENDING',
-	ANIMATING: 'ANIMATING',
-	RUNNING: 'RUNNING', // like READY in that you can run, but then stop and your ATB gauge is still full
-	DEAD: 'DEAD'
-};
-
-/* harmony default export */ __webpack_exports__["default"] = BattleState;
-
-/***/ }),
-/* 100 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class BattleTimerBar extends PIXI.Container
-{
-	static get ROUND(){ return 1};
-	static get WIDTH(){ return 30};
-	static get HEIGHT(){ return 6};
-
-	get percentage()
-	{
-		return this._percentage;
-	}
-
-	set percentage(value)
-	{
-        const me = this;
-		if(value === null)
-		{
-			value = 0;
-		}
-
-		if(me._percentage === value)
-		{
-			return;
-		}
-		value = _.clamp(value, 0, 1);
-		me._percentage = value;
-		me.percentageDirty = true;
-		if(value === 1)
-		{
-			me.setState('ready');
-		}
-		else
-		{
-			me.setState('loading');
-		}
-	}
-
-	constructor()
-	{
-        super();
-
-        const me = this;
-
-		me._percentage = 1;
-		me.percentageDirty = false;
-		me.flashDirty = false;
-
-		me.graphics = new PIXI.Graphics();
-		me.addChild(me.graphics);
-
-        me.setState('idle');
-
-		me.redraw();
-	}
-
-    setState(newState)
-    {
-        const me = this;
-        const oldState = me.state;
-        me.state = newState;
-        switch(newState)
-        {
-            case 'readyWhite': me.flashDirty = true;
-            case 'readyGold': me.flashDirty = true;
-            case 'idle': me.visible = true;
-            case 'ready':
-            case 'loading':
-            default:
-                return;
-        }
-    }
-
-	redraw()
-	{
-        const me = this;
-		const OFFSET = 2;
-
-		me.graphics.beginFill(0xFFFFFF);
-		me.graphics.drawRect(0, 
-							0, 
-							BattleTimerBar.WIDTH, 
-							BattleTimerBar.HEIGHT);
-
-		me.graphics.beginFill(0x000080);
-		me.graphics.drawRect(1, 
-									1, 
-									BattleTimerBar.WIDTH - 2, 
-									BattleTimerBar.HEIGHT - 2, 
-									BattleTimerBar.ROUND);
-		
-		
-		let percentageWidth = BattleTimerBar.WIDTH * me._percentage - OFFSET * 2;
-		percentageWidth = _.clamp(percentageWidth, 0, BattleTimerBar.WIDTH);
-		me.graphics.beginFill(0xffd700);
-		me.graphics.drawRect(OFFSET, 
-			OFFSET,
-			percentageWidth, 
-			BattleTimerBar.HEIGHT - OFFSET * 2);
-	}
-
-	render()
-	{
-        const me = this;
-		if(me.percentageDirty || me.flashDirty)
-		{
-			me.graphics.clear();
-		}
-
-		if(me.percentageDirty)
-		{
-			me.percentageDirty = false;
-			me.redraw();
-		}
-	}
-}
-
-/* harmony default export */ __webpack_exports__["a"] = BattleTimerBar;
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
-
-var _polyfill = __webpack_require__(196);
-
-Object.keys(_polyfill).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _polyfill[key];
-        }
-    });
-});
-
-var _deprecation = __webpack_require__(165);
-
-Object.keys(_deprecation).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _deprecation[key];
-        }
-    });
-});
-
-var _core = __webpack_require__(0);
-
-Object.keys(_core).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _core[key];
-        }
-    });
-});
-
-var _accessibility = __webpack_require__(122);
-
-var accessibility = _interopRequireWildcard(_accessibility);
-
-var _extract = __webpack_require__(167);
-
-var extract = _interopRequireWildcard(_extract);
-
-var _extras = __webpack_require__(37);
-
-var extras = _interopRequireWildcard(_extras);
-
-var _filters = __webpack_require__(79);
-
-var filters = _interopRequireWildcard(_filters);
-
-var _interaction = __webpack_require__(81);
-
-var interaction = _interopRequireWildcard(_interaction);
-
-var _loaders = __webpack_require__(84);
-
-var loaders = _interopRequireWildcard(_loaders);
-
-var _mesh = __webpack_require__(88);
-
-var mesh = _interopRequireWildcard(_mesh);
-
-var _particles = __webpack_require__(89);
-
-var particles = _interopRequireWildcard(_particles);
-
-var _prepare = __webpack_require__(90);
-
-var prepare = _interopRequireWildcard(_prepare);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-// export libs
-
-
-// export core
-_core.utils.mixins.performMixins();
-
-// handle mixins now, after all code has been added, including deprecation
-// import polyfills. Done as an export to make sure polyfills are imported first
-exports.accessibility = accessibility;
-exports.extract = extract;
-exports.extras = extras;
-exports.filters = filters;
-exports.interaction = interaction;
-exports.loaders = loaders;
-exports.mesh = mesh;
-exports.particles = particles;
-exports.prepare = prepare;
-
-/**
- * A premade instance of the loader that can be used to load resources.
- *
- * @name loader
- * @memberof PIXI
- * @property {PIXI.loaders.Loader}
- */
-
-var loader = loaders && loaders.Loader ? new loaders.Loader() : null; // check is there in case user excludes loader lib
-
-exports.loader = loader;
-
-// Always export pixi globally.
-
-global.PIXI = exports; // eslint-disable-line
-//# sourceMappingURL=index.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 102 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_logger__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_logger__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_jessewarden_ff6_views_BattleTimerBar__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__com_jessewarden_ff6_views_PlayerList__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_gsap__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_gsap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__com_jessewarden_ff6_views_TextDropper__ = __webpack_require__(229);
 const log = console.log;
 
-
-
-
-
-
-
-const {guid} = __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__["core"];
-
-
-
-
-
-
-
-let store, unsubscribe, pixiApp, charactersContainer;
-const setupRedux = ()=>
-{
-	const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
-		entities: __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__["a" /* entities */],
-		timers: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["a" /* timers */],
-		characters: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["a" /* characters */],
-		battleTimers: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["a" /* battleTimers */]
-	});
-	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_logger___default()()));
-	// store = createStore(allReducers);
-	pixiApp = setupPixi();
-	//setupAndStartGameTimer();
-	// const newPlayerID = addPlayer();
-	// addMonster();
-	// setTimeout(()=>
-	// {
-	// 	removePlayer(newPlayerID);
-	// }, 2000);
-
-	// addBattleTimers();
-
-	addPlayerAndBattleTimer();
-	const secondPlayerAction = addPlayerAndBattleTimer();
-
-	const playerList = new __WEBPACK_IMPORTED_MODULE_9__com_jessewarden_ff6_views_PlayerList__["a" /* default */](store);
-	pixiApp.stage.addChild(playerList);
-	playerList.x = pixiApp.screen.width - playerList.width;
-	playerList.y = 200; 
-
-	const state = store.getState();
-	__WEBPACK_IMPORTED_MODULE_7_lodash__["chain"](state.battleTimers)
-	.map(battleTimer => battleTimer.entity)
-	.forEach(battleTimerEntity =>
-	{
-		startBattleTimer(battleTimerEntity, window, 
-		doneEvent =>
-		{
-			store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* UPDATE_BATTLE_TIMER */], entity: doneEvent.entity});
-		},
-		progressEvent =>
-		{
-			store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* UPDATE_BATTLE_TIMER */], entity: progressEvent.entity});
-		});
-	})
-	.value();
-
-	showHitPointsLowered(secondPlayerAction.playerEntity);
-};
-/* harmony export (immutable) */ __webpack_exports__["a"] = setupRedux;
-
-
-const setupAndStartGameTimer = ()=>
-{
-	const timerID = makeTimer();
-	const tick = (time, difference, now, previousTick) =>
-	{
-		// log("time: " + time + ", diff: " + difference + ", now: " + now + ", prev: " + previousTick);
-		// log(time / 1000);
-		if(time >= 3000)
-		{
-			stopTimer(timerID);
-		}	
-	};
-	startTimer(timerID, window, tick);
-	return timerID;
-};
-/* unused harmony export setupAndStartGameTimer */
-
-
-const makeTimer = ()=>
-{
-	const id = guid();
-	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__["b" /* ADD_ENTITY */], entity: id});
-	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["b" /* CREATE_TIMER */], entity: id});
-	return id;
-};
-/* unused harmony export makeTimer */
-
-
-const startTimer = (entity, window, callback) =>
-{
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["c" /* START_TIMER */], entity, window, callback});
-};
-/* unused harmony export startTimer */
-
-
-const stopTimer = entity =>
-{
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["d" /* STOP_TIMER */], entity});
-};
-/* unused harmony export stopTimer */
-
-
-const addPlayer = (id)=>
-{
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'player'});
-};
-/* unused harmony export addPlayer */
-
-
-const removePlayer = (id)=>
-{
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["c" /* DESTROY_CHARACTER */], entity: id});
-};
-/* unused harmony export removePlayer */
-
-
-const addPlayerAndBattleTimer = ()=>
-{
-	const playerID = guid();
-	const playerEvent = addPlayer(playerID);
-	const battleTimerID = guid();
-	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
-	return {
-		playerEntity: playerID,
-		playerEvent,
-		battleTimerEntity: battleTimerID,
-		battleTimerEvent
-	};
-};
-/* unused harmony export addPlayerAndBattleTimer */
-
-
-const addMonster = ()=>
-{
-	const id = guid();
-	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'monster'});
-	return id;
-};
-/* unused harmony export addMonster */
-
-
-let textDropper;
-const setupPixi = ()=>
-{
-	const app = new PIXI.Application();
-	document.body.appendChild(app.view);
-
-	charactersContainer = new PIXI.Container();
-	app.stage.addChild(charactersContainer);
-
-	textDropper = new __WEBPACK_IMPORTED_MODULE_11__com_jessewarden_ff6_views_TextDropper__["a" /* default */]();
-	app.stage.addChild(textDropper);
-
-	const unsubscribe = store.subscribe(()=>
-	{
-		const state = store.getState();
-		const spritesToRemove = getSpritesToRemove(charactersContainer.children, state.characters);
-		// log("spritesToRemove:", spritesToRemove);
-		if(spritesToRemove.length > 0)
-		{
-			removeSprites(spritesToRemove);
-		}
-
-		const charactersToAdd = getCharactersToAdd(state.characters, charactersContainer.children);
-		// log("charactersToAdd:", charactersToAdd);
-		if(charactersToAdd.length > 0)
-		{
-			addCharacters(charactersToAdd, charactersContainer);
-		}
-	});
-	return app;
-};
-/* unused harmony export setupPixi */
-
-
-const getCharactersToAdd = (characters, children) =>
-{
-	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](characters, children, (character, sprite) =>
-	{
-		return character.entity === sprite.entity;
-	});
-};
-/* unused harmony export getCharactersToAdd */
-
-
-const getSpritesToRemove = (children, characters)=>
-{
-	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](children, characters, (sprite, character) =>
-	{
-		return sprite.entity === character.entity;
-	});
-};
-/* unused harmony export getSpritesToRemove */
-
-
-let playerStartX = 400;
-let playerStartY = 20;
-let monsterStartX = 20;
-let monsterStartY = 20;
-const getSpriteFromCharacter = character =>
-{
-	let sprite;
-	const basePath = './src/com/jessewarden/ff6/characters';
-	if(character.characterType === 'player')
-	{
-		sprite = new PIXI.Sprite.fromImage(basePath + '/warrior_stand.png');
-		sprite.x = playerStartX;
-		sprite.y = playerStartY;
-		playerStartX += 20;
-		playerStartY += 80;
-	}
-	else if(character.characterType === 'monster')
-	{
-		sprite = new PIXI.Sprite.fromImage(basePath + '/goblin.png');
-		sprite.x = monsterStartX;
-		sprite.y = monsterStartY;
-		monsterStartX += 20;
-		monsterStartY += 80;
-	}
-	else
-	{
-		throw new Error("Unknown character type");
-	}
-	sprite.entity = character.entity;
-	return sprite;
-};
-/* unused harmony export getSpriteFromCharacter */
-
-
-const addCharacters = (characters, parent) =>
-{
-	return __WEBPACK_IMPORTED_MODULE_7_lodash__["chain"](characters)
-	.map(getSpriteFromCharacter)
-	.forEach(sprite => parent.addChild(sprite))
-	.value();
-};
-/* unused harmony export addCharacters */
-
-
-const removeSprites = sprites =>
-{
-	return __WEBPACK_IMPORTED_MODULE_7_lodash__["forEach"](sprites, sprite => sprite.parent.removeChild(sprite));
-};
-/* unused harmony export removeSprites */
-
-
-
-const addBattleTimers = ()=>
-{
-	const test = new __WEBPACK_IMPORTED_MODULE_8__com_jessewarden_ff6_views_BattleTimerBar__["a" /* default */]();
-	pixiApp.stage.addChild(test);
-	test.x = 300;
-	test.y = 300;
-	
-
-	const addedID = addBattleTimer();
-	startBattleTimer(addedID, window, (battleTimerEvent)=>
-	{
-		const p = Math.round(percentage * 100);
-		log(p + "%, gauge: " + gauge);
-		log("Done.");
-		test.percentage = percentage;
-		test.render();
-	},
-	(battleTimerEvent)=>
-	{
-		const p = Math.round(percentage * 100);
-		log(p + "%, gauge: " + gauge);
-		test.percentage = percentage;
-		test.render();
-	});
-};
-/* unused harmony export addBattleTimers */
-
-
-const addBattleTimer = (id, characterID)=>
-{
-	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["c" /* CREATE_BATTLE_TIMER */], entity: id, characterEntity: characterID, speed: 255});
-};
-/* unused harmony export addBattleTimer */
-
-
-const startBattleTimer = (entity, window, doneCallback, progressCallback) =>
-{
-	return store.dispatch({
-		type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["d" /* START_BATTLE_TIMER */],
-		entity,
-		window,
-		doneCallback,
-		progressCallback
-	});
-};
-/* unused harmony export startBattleTimer */
-
-
-const delay = milliseconds =>
-{
-	return new Promise( success => setTimeout(success, milliseconds) );
-};
-/* unused harmony export delay */
-
-
-const showHitPointsLowered = (playerEntity)=>
-{
-	return delay(3 * 1000)
-	.then(()=>
-	{
-		const characterSprite = __WEBPACK_IMPORTED_MODULE_7_lodash__["find"](charactersContainer.children, sprite => sprite.entity === playerEntity);
-		textDropper.addTextDrop(characterSprite, 2);
-		return Promise.resolve(store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["d" /* CHARACTER_HIT_POINTS_CHANGED */], newHitPoints: 8, entity: playerEntity}));
-	});
-};
-/* unused harmony export showHitPointsLowered */
-
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * deep-diff.
- * Licensed under the MIT License.
- */
-;(function(root, factory) {
-  'use strict';
-  if (true) {
-    // AMD. Register as an anonymous module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-      return factory();
-    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory();
-  } else {
-    // Browser globals (root is window)
-    root.DeepDiff = factory();
-  }
-}(this, function(undefined) {
-  'use strict';
-
-  var $scope, conflict, conflictResolution = [];
-  if (typeof global === 'object' && global) {
-    $scope = global;
-  } else if (typeof window !== 'undefined') {
-    $scope = window;
-  } else {
-    $scope = {};
-  }
-  conflict = $scope.DeepDiff;
-  if (conflict) {
-    conflictResolution.push(
-      function() {
-        if ('undefined' !== typeof conflict && $scope.DeepDiff === accumulateDiff) {
-          $scope.DeepDiff = conflict;
-          conflict = undefined;
-        }
-      });
-  }
-
-  // nodejs compatible on server side and in the browser.
-  function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor;
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  }
-
-  function Diff(kind, path) {
-    Object.defineProperty(this, 'kind', {
-      value: kind,
-      enumerable: true
-    });
-    if (path && path.length) {
-      Object.defineProperty(this, 'path', {
-        value: path,
-        enumerable: true
-      });
-    }
-  }
-
-  function DiffEdit(path, origin, value) {
-    DiffEdit.super_.call(this, 'E', path);
-    Object.defineProperty(this, 'lhs', {
-      value: origin,
-      enumerable: true
-    });
-    Object.defineProperty(this, 'rhs', {
-      value: value,
-      enumerable: true
-    });
-  }
-  inherits(DiffEdit, Diff);
-
-  function DiffNew(path, value) {
-    DiffNew.super_.call(this, 'N', path);
-    Object.defineProperty(this, 'rhs', {
-      value: value,
-      enumerable: true
-    });
-  }
-  inherits(DiffNew, Diff);
-
-  function DiffDeleted(path, value) {
-    DiffDeleted.super_.call(this, 'D', path);
-    Object.defineProperty(this, 'lhs', {
-      value: value,
-      enumerable: true
-    });
-  }
-  inherits(DiffDeleted, Diff);
-
-  function DiffArray(path, index, item) {
-    DiffArray.super_.call(this, 'A', path);
-    Object.defineProperty(this, 'index', {
-      value: index,
-      enumerable: true
-    });
-    Object.defineProperty(this, 'item', {
-      value: item,
-      enumerable: true
-    });
-  }
-  inherits(DiffArray, Diff);
-
-  function arrayRemove(arr, from, to) {
-    var rest = arr.slice((to || from) + 1 || arr.length);
-    arr.length = from < 0 ? arr.length + from : from;
-    arr.push.apply(arr, rest);
-    return arr;
-  }
-
-  function realTypeOf(subject) {
-    var type = typeof subject;
-    if (type !== 'object') {
-      return type;
-    }
-
-    if (subject === Math) {
-      return 'math';
-    } else if (subject === null) {
-      return 'null';
-    } else if (Array.isArray(subject)) {
-      return 'array';
-    } else if (Object.prototype.toString.call(subject) === '[object Date]') {
-      return 'date';
-    } else if (typeof subject.toString !== 'undefined' && /^\/.*\//.test(subject.toString())) {
-      return 'regexp';
-    }
-    return 'object';
-  }
-
-  function deepDiff(lhs, rhs, changes, prefilter, path, key, stack) {
-    path = path || [];
-    var currentPath = path.slice(0);
-    if (typeof key !== 'undefined') {
-      if (prefilter) {
-        if (typeof(prefilter) === 'function' && prefilter(currentPath, key)) { return; }
-        else if (typeof(prefilter) === 'object') {
-          if (prefilter.prefilter && prefilter.prefilter(currentPath, key)) { return; }
-          if (prefilter.normalize) {
-            var alt = prefilter.normalize(currentPath, key, lhs, rhs);
-            if (alt) {
-              lhs = alt[0];
-              rhs = alt[1];
-            }
-          }
-        }
-      }
-      currentPath.push(key);
-    }
-
-    // Use string comparison for regexes
-    if (realTypeOf(lhs) === 'regexp' && realTypeOf(rhs) === 'regexp') {
-      lhs = lhs.toString();
-      rhs = rhs.toString();
-    }
-
-    var ltype = typeof lhs;
-    var rtype = typeof rhs;
-    if (ltype === 'undefined') {
-      if (rtype !== 'undefined') {
-        changes(new DiffNew(currentPath, rhs));
-      }
-    } else if (rtype === 'undefined') {
-      changes(new DiffDeleted(currentPath, lhs));
-    } else if (realTypeOf(lhs) !== realTypeOf(rhs)) {
-      changes(new DiffEdit(currentPath, lhs, rhs));
-    } else if (Object.prototype.toString.call(lhs) === '[object Date]' && Object.prototype.toString.call(rhs) === '[object Date]' && ((lhs - rhs) !== 0)) {
-      changes(new DiffEdit(currentPath, lhs, rhs));
-    } else if (ltype === 'object' && lhs !== null && rhs !== null) {
-      stack = stack || [];
-      if (stack.indexOf(lhs) < 0) {
-        stack.push(lhs);
-        if (Array.isArray(lhs)) {
-          var i, len = lhs.length;
-          for (i = 0; i < lhs.length; i++) {
-            if (i >= rhs.length) {
-              changes(new DiffArray(currentPath, i, new DiffDeleted(undefined, lhs[i])));
-            } else {
-              deepDiff(lhs[i], rhs[i], changes, prefilter, currentPath, i, stack);
-            }
-          }
-          while (i < rhs.length) {
-            changes(new DiffArray(currentPath, i, new DiffNew(undefined, rhs[i++])));
-          }
-        } else {
-          var akeys = Object.keys(lhs);
-          var pkeys = Object.keys(rhs);
-          akeys.forEach(function(k, i) {
-            var other = pkeys.indexOf(k);
-            if (other >= 0) {
-              deepDiff(lhs[k], rhs[k], changes, prefilter, currentPath, k, stack);
-              pkeys = arrayRemove(pkeys, other);
-            } else {
-              deepDiff(lhs[k], undefined, changes, prefilter, currentPath, k, stack);
-            }
-          });
-          pkeys.forEach(function(k) {
-            deepDiff(undefined, rhs[k], changes, prefilter, currentPath, k, stack);
-          });
-        }
-        stack.length = stack.length - 1;
-      }
-    } else if (lhs !== rhs) {
-      if (!(ltype === 'number' && isNaN(lhs) && isNaN(rhs))) {
-        changes(new DiffEdit(currentPath, lhs, rhs));
-      }
-    }
-  }
-
-  function accumulateDiff(lhs, rhs, prefilter, accum) {
-    accum = accum || [];
-    deepDiff(lhs, rhs,
-      function(diff) {
-        if (diff) {
-          accum.push(diff);
-        }
-      },
-      prefilter);
-    return (accum.length) ? accum : undefined;
-  }
-
-  function applyArrayChange(arr, index, change) {
-    if (change.path && change.path.length) {
-      var it = arr[index],
-          i, u = change.path.length - 1;
-      for (i = 0; i < u; i++) {
-        it = it[change.path[i]];
-      }
-      switch (change.kind) {
-        case 'A':
-          applyArrayChange(it[change.path[i]], change.index, change.item);
-          break;
-        case 'D':
-          delete it[change.path[i]];
-          break;
-        case 'E':
-        case 'N':
-          it[change.path[i]] = change.rhs;
-          break;
-      }
-    } else {
-      switch (change.kind) {
-        case 'A':
-          applyArrayChange(arr[index], change.index, change.item);
-          break;
-        case 'D':
-          arr = arrayRemove(arr, index);
-          break;
-        case 'E':
-        case 'N':
-          arr[index] = change.rhs;
-          break;
-      }
-    }
-    return arr;
-  }
-
-  function applyChange(target, source, change) {
-    if (target && source && change && change.kind) {
-      var it = target,
-          i = -1,
-          last = change.path ? change.path.length - 1 : 0;
-      while (++i < last) {
-        if (typeof it[change.path[i]] === 'undefined') {
-          it[change.path[i]] = (typeof change.path[i] === 'number') ? [] : {};
-        }
-        it = it[change.path[i]];
-      }
-      switch (change.kind) {
-        case 'A':
-          applyArrayChange(change.path ? it[change.path[i]] : it, change.index, change.item);
-          break;
-        case 'D':
-          delete it[change.path[i]];
-          break;
-        case 'E':
-        case 'N':
-          it[change.path[i]] = change.rhs;
-          break;
-      }
-    }
-  }
-
-  function revertArrayChange(arr, index, change) {
-    if (change.path && change.path.length) {
-      // the structure of the object at the index has changed...
-      var it = arr[index],
-          i, u = change.path.length - 1;
-      for (i = 0; i < u; i++) {
-        it = it[change.path[i]];
-      }
-      switch (change.kind) {
-        case 'A':
-          revertArrayChange(it[change.path[i]], change.index, change.item);
-          break;
-        case 'D':
-          it[change.path[i]] = change.lhs;
-          break;
-        case 'E':
-          it[change.path[i]] = change.lhs;
-          break;
-        case 'N':
-          delete it[change.path[i]];
-          break;
-      }
-    } else {
-      // the array item is different...
-      switch (change.kind) {
-        case 'A':
-          revertArrayChange(arr[index], change.index, change.item);
-          break;
-        case 'D':
-          arr[index] = change.lhs;
-          break;
-        case 'E':
-          arr[index] = change.lhs;
-          break;
-        case 'N':
-          arr = arrayRemove(arr, index);
-          break;
-      }
-    }
-    return arr;
-  }
-
-  function revertChange(target, source, change) {
-    if (target && source && change && change.kind) {
-      var it = target,
-          i, u;
-      u = change.path.length - 1;
-      for (i = 0; i < u; i++) {
-        if (typeof it[change.path[i]] === 'undefined') {
-          it[change.path[i]] = {};
-        }
-        it = it[change.path[i]];
-      }
-      switch (change.kind) {
-        case 'A':
-          // Array was modified...
-          // it will be an array...
-          revertArrayChange(it[change.path[i]], change.index, change.item);
-          break;
-        case 'D':
-          // Item was deleted...
-          it[change.path[i]] = change.lhs;
-          break;
-        case 'E':
-          // Item was edited...
-          it[change.path[i]] = change.lhs;
-          break;
-        case 'N':
-          // Item is new...
-          delete it[change.path[i]];
-          break;
-      }
-    }
-  }
-
-  function applyDiff(target, source, filter) {
-    if (target && source) {
-      var onChange = function(change) {
-        if (!filter || filter(target, source, change)) {
-          applyChange(target, source, change);
-        }
-      };
-      deepDiff(target, source, onChange);
-    }
-  }
-
-  Object.defineProperties(accumulateDiff, {
-
-    diff: {
-      value: accumulateDiff,
-      enumerable: true
-    },
-    observableDiff: {
-      value: deepDiff,
-      enumerable: true
-    },
-    applyDiff: {
-      value: applyDiff,
-      enumerable: true
-    },
-    applyChange: {
-      value: applyChange,
-      enumerable: true
-    },
-    revertChange: {
-      value: revertChange,
-      enumerable: true
-    },
-    isConflict: {
-      value: function() {
-        return 'undefined' !== typeof conflict;
-      },
-      enumerable: true
-    },
-    noConflict: {
-      value: function() {
-        if (conflictResolution) {
-          conflictResolution.forEach(function(it) {
-            it();
-          });
-          conflictResolution = null;
-        }
-        return accumulateDiff;
-      },
-      enumerable: true
-    }
-  });
-
-  return accumulateDiff;
-}));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-module.exports = __webpack_require__(10);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const log = console.log;
-
-const _ = __webpack_require__(0);
+const _ = __webpack_require__(10);
 
 const MODE_PLAYER   = 'player';
+/* harmony export (immutable) */ __webpack_exports__["MODE_PLAYER"] = MODE_PLAYER;
+
 const MODE_MONSTER  = 'monster';
+/* harmony export (immutable) */ __webpack_exports__["MODE_MONSTER"] = MODE_MONSTER;
+
 
 const EFFECT_NORMAL = 96;
+/* harmony export (immutable) */ __webpack_exports__["EFFECT_NORMAL"] = EFFECT_NORMAL;
+
 const EFFECT_HASTE  = 126;
+/* harmony export (immutable) */ __webpack_exports__["EFFECT_HASTE"] = EFFECT_HASTE;
+
 const EFFECT_SLOW   = 48;
+/* harmony export (immutable) */ __webpack_exports__["EFFECT_SLOW"] = EFFECT_SLOW;
+
 
 const MAX_GAUGE     = 65536;
+/* harmony export (immutable) */ __webpack_exports__["MAX_GAUGE"] = MAX_GAUGE;
+
 const TIME_SLICE    = 33;
 
 const getPercentage = (gauge) =>
 {
 	return gauge / MAX_GAUGE;
 };
+/* harmony export (immutable) */ __webpack_exports__["getPercentage"] = getPercentage;
+
 
 const characterTick = (effect, speed, gauge)=>
 {
@@ -49561,6 +40568,8 @@ const characterTick = (effect, speed, gauge)=>
 	gauge += Math.round(result);
     return gauge;
 };
+/* harmony export (immutable) */ __webpack_exports__["characterTick"] = characterTick;
+
 // Normal speed:
 
 // ((96 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
@@ -49587,11 +40596,10 @@ const characterTick = (effect, speed, gauge)=>
 
 class Timer
 {
-	constructor(window, performance)
+	constructor(entity)
 	{
 		const me = this;
-		me.window = window;
-		me.performance = performance;
+		me.entity = entity;
 		me.running = false;
 		me.tickBound = me.tick.bind(me);
 	}
@@ -49599,13 +40607,13 @@ class Timer
 	tick(time)
 	{
 		const me = this;
-		const now = me.performance.now();
+		const now = performance.now();
 		const previousTick = me.lastTick;
 		me.difference = now - me.lastTick;
 		me.lastTick = now;
 		if(me.running === true)
 		{
-			me.window.requestAnimationFrame(me.tickBound);
+			window.requestAnimationFrame(me.tickBound);
 			if(me.tickCallback)
 			{
 				me.tickCallback(time, me.difference, now, previousTick);
@@ -49613,38 +40621,34 @@ class Timer
 		}
 	}
 
-	startTimer(callback)
+	startTimer(window, callback)
 	{
 		const me = this;
 		me.running = true;
 		me.tickCallback = callback;
-		me.lastTick = me.performance.now();
-		me.window.requestAnimationFrame(me.tickBound);
+		me.lastTick = performance.now();
+		window.requestAnimationFrame(me.tickBound);
 	}
 
 	stopTimer()
 	{
 		const me = this;
 		me.running = false;
-	}
-
-	resume()
-	{
-		const me = this;
-		me.running = true;
-		me.window.requestAnimationFrame(me.tickBound);
+		delete me.tickCallback;
 	}
 }
+/* harmony export (immutable) */ __webpack_exports__["Timer"] = Timer;
+
 
 // TODO: make monster mode work, I don't get the algo man
 class BattleTimer
 {
-	constructor(window, performance, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
+	constructor(entity, characterEntity, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
 	{
 		const me = this;
-		me.window = window;
-		me.performance = performance;
-		me.timer = new Timer(me.window, me.performance);
+		me.entity = entity;
+		me.timer = new Timer(entity);
+		me.characterEntity = characterEntity;
 		me.counter = counter;
 		me.gauge = gauge;
 		me.effect = effect;
@@ -49652,7 +40656,7 @@ class BattleTimer
 		me.speed = speed;
 	}
 
-	startTimer(doneCallback, progressCallback)
+	startTimer(window, doneCallback, progressCallback)
 	{
 		const me = this;
 		me.doneCallback = doneCallback;
@@ -49662,7 +40666,7 @@ class BattleTimer
 		{
 			me.thirtyMillisecondCounter = 0;
 		}
-		me.timer.startTimer((time, difference, now, previousTick)=>
+		me.timer.startTimer(window, (time, difference, now, previousTick)=>
 		{
 			me.thirtyMillisecondCounter += difference;
 			if(me.thirtyMillisecondCounter >= THIRTY_TIMES_A_SECOND)
@@ -49670,16 +40674,30 @@ class BattleTimer
 				me.thirtyMillisecondCounter = 0;
 				me.counter++;
 				me.gauge = characterTick(me.effect, me.speed, me.gauge);
-				if(me.progressCallback)
-				{
-					me.progressCallback(getPercentage(me.gauge), me.gauge);
-				}
 				if(me.gauge >= MAX_GAUGE)
 				{
 					me.gauge = MAX_GAUGE;
+					me.percentage = 1;
 					me.stopTimer();
-					me.doneCallback(1, me.gauge);
+					me.doneCallback({
+						entity: me.entity,
+						characterEntity: me.characterEntity,
+						percentage: 1, 
+						gauge: me.gauge
+					});
+					return;
 				}
+				if(me.progressCallback)
+				{
+					me.percentage = getPercentage(me.gauge);
+					me.progressCallback({
+						entity: me.entity,
+						characterEntity: me.characterEntity,
+						percentage: me.percentage, 
+						gauge: me.gauge
+					});
+				}
+				
 			}
 		});
 	}
@@ -49689,1083 +40707,664 @@ class BattleTimer
 		const me = this;
 		me.timer.stopTimer();
 	}
-
-	resume()
-	{
-		const me = this;
-		me.timer.resume();
-	}
 }
+/* harmony export (immutable) */ __webpack_exports__["BattleTimer"] = BattleTimer;
 
-module.exports = {
-	MODE_PLAYER,
-	MODE_MONSTER,
-	EFFECT_HASTE,
-	EFFECT_NORMAL,
-	EFFECT_SLOW,
-	MAX_GAUGE,
-	getPercentage,
-	characterTick,
-	Timer,
-	BattleTimer
-};
 
 
 /***/ }),
-/* 2 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Row = __webpack_require__(4);
-const _ = __webpack_require__(0);
-const {Subject} = __webpack_require__(8);
-const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = __webpack_require__(1);
-const BattleState = __webpack_require__(3);
-const {
-	isGauntlet,
-	isAtlasArmlet,
-	isEarring,
-	isGenjiGlove,
-	isHeroRing,
-	isOffering
-} = __webpack_require__(5);
+"use strict";
 
-const none = _.negate(_.every);
-const notNil = _.negate(_.isNil);
 
-let _INCREMENT = 0;
+module.exports = earcut;
 
-const getCharacter = (entity)=>
-{
-	var vm = {};
-	vm.entity = entity;
-	vm.percentage = 0;
-	vm.name = 'default';
-	vm.battleState = BattleState.WAITING;
-	vm.hitPoints = 10;
-	vm.vigor = 10;
-	vm.speed = 80;
-	vm.stamina = 10;
-	vm.magicPower = 10;
-	vm.evade = 1;
-	vm.magicBlock = 10;
-	vm.defense = 10;
-	vm.magicDefense = 10;
-	vm.battlePower = 1;
-	vm.hitRate = 100;
-	vm.dead = false;
-	vm.level = 3;
-	vm.rightHand;
-	vm.leftHand;
-	vm.head;
-	vm.body;
-	vm.relic1;
-	vm.relic2;
-	vm.row = Row.FRONT;
-	vm.type = 'Character';
-	vm.characterType = 'player';
-	return vm;
-};
+function earcut(data, holeIndices, dim) {
 
-function makePlayer(entity)
-{
-	var chr = getCharacter(entity);
-	chr.characterType = 'player';
-	chr.battlePower = 50;
-	chr.entity = entity;
-	return chr;
-}
+    dim = dim || 2;
 
-function makeMonster(entity)
-{
-	var chr = getCharacter(entity);
-	chr.characterType = 'monster';
-	chr.entity = entity;
-	return chr;
-}
+    var hasHoles = holeIndices && holeIndices.length,
+        outerLen = hasHoles ? holeIndices[0] * dim : data.length,
+        outerNode = linkedList(data, 0, outerLen, dim, true),
+        triangles = [];
 
-// TODO: figure out reflection/mirrors
-function equippedWithNoRelics(chr)
-{
-	return _.isNil(_.get(chr, 'relic1')) && _.isNil(_.get(chr, 'relic2'));
-}
+    if (!outerNode) return triangles;
 
-const characterRelics           = (chr) => [_.get(chr, 'relic1'), _.get(chr, 'relic2')];
-const equippedWith              = (chr, isRelicType) => _.some(characterRelics(chr), isRelicType);
-const equippedWithGauntlet      = _.partialRight(equippedWith, isGauntlet);
-const equippedWithOffering      = _.partialRight(equippedWith, isOffering);
-const equippedWithGenjiGlove    = _.partialRight(equippedWith, isGenjiGlove);
-const equippedWithAtlasArmlet   = _.partialRight(equippedWith, isAtlasArmlet);
-const equippedWithHeroRing      = _.partialRight(equippedWith, isHeroRing);
-const equippedWith2HeroRings    = (chr) => _.every(characterRelics(chr), isHeroRing);
-const notEquippedWith2HeroRings = _.negate(equippedWith2HeroRings);
-const equippedWith1HeroRing     = (chr) => _.every([equippedWithHeroRing, notEquippedWith2HeroRings], f => f(chr));
-const equippedWithEarring       = _.partialRight(equippedWith, isEarring);
-const equippedWith2Earrings     = (chr) => _.every(characterRelics(chr), isEarring);
-const notEquippedWith2Earrings  = _.negate(equippedWith2Earrings);
-const equippedWith1Earring      = (chr) => _.every([equippedWithEarring, notEquippedWith2Earrings], f => f(chr));
+    var minX, minY, maxX, maxY, x, y, size;
 
-const rightHandHasWeapon        = (chr) => notNil(_.get(chr, 'rightHand'));
-const leftHandHasWeapon         = (chr) => notNil(_.get(chr, 'leftHand'));
-const rightHandHasNoWeapon      = _.negate(rightHandHasWeapon);
-const leftHandHasNoWeapon       = _.negate(leftHandHasWeapon);
-const hasZeroWeapons            = (chr) => _.every([rightHandHasNoWeapon, leftHandHasNoWeapon], f => f(chr));
-const has2Weapons               = (chr) => _.every([rightHandHasWeapon, leftHandHasWeapon], f => f(chr));
-const doesNotHave2Weapons       = _.negate(has2Weapons);
+    if (hasHoles) outerNode = eliminateHoles(data, holeIndices, outerNode, dim);
 
-const oneOrZeroWeapons = (chr) =>
-{
-	if(rightHandHasWeapon(chr) && leftHandHasNoWeapon(chr))
-	{
-		return true;
-	}
-	else if(rightHandHasNoWeapon(chr) && leftHandHasWeapon(chr))
-	{
-		return true;
-	}
-	else if(hasZeroWeapons(chr))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-};
+    // if the shape is not too simple, we'll use z-order curve hash later; calculate polygon bbox
+    if (data.length > 80 * dim) {
+        minX = maxX = data[0];
+        minY = maxY = data[1];
 
-const toggleRow = chr =>
-{
-	if(chr.row === Row.FRONT)
-	{
-		return Row.BACK;
-	}
-	else
-	{
-		return Row.FRONT;
-	}
-};
+        for (var i = dim; i < outerLen; i += dim) {
+            x = data[i];
+            y = data[i + 1];
+            if (x < minX) minX = x;
+            if (y < minY) minY = y;
+            if (x > maxX) maxX = x;
+            if (y > maxY) maxY = y;
+        }
 
-module.exports = {
-	getCharacter,
-    makePlayer,
-    equippedWithNoRelics,
-    equippedWithGauntlet,
-    rightHandHasWeapon,
-    leftHandHasWeapon,
-    rightHandHasNoWeapon,
-    leftHandHasNoWeapon,
-    hasZeroWeapons,
-	equippedWithOffering,
-	equippedWithGenjiGlove,
-	oneOrZeroWeapons,
-	equippedWithAtlasArmlet,
-	equippedWith1HeroRing,
-	equippedWith2HeroRings,
-	equippedWith1Earring,
-	equippedWith2Earrings
-};
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-const BattleState = {
-	WAITING: 'WAITING', // waiting for ATB gauge to fill
-	READY: 'READY', // ATB gauge is filled, waiting for a turn
-	DEFENDING: 'DEFENDING',
-	ANIMATING: 'ANIMATING',
-	RUNNING: 'RUNNING', // like READY in that you can run, but then stop and your ATB gauge is still full
-	DEAD: 'DEAD'
-};
-
-module.exports = BattleState;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-class Row
-{
-	static get FRONT(){return "front"};
-	static get BACK(){return "back"};
-}
-
-module.exports = Row;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// http://www.rpglegion.com/ff6/items/relics.htm
-
-const _ = __webpack_require__(0);
-
-const getRelic = (relicType) =>
-{
-    return {type: 'relic', relicType};
-}
-
-const AtlasArmlet = 'Atlas Armlet';
-const Earring      = 'Earring';
-const Gauntlet     = 'Gauntlet';
-const GenjiGlove   = 'Genji Glove';
-const HeroRing     = 'Hero Ring';
-const Offering     = 'Offering';
-
-const getAtlasArmletRelic = () => getRelic(AtlasArmlet);
-const getEarringRelic     = () => getRelic(Earring);
-const getGauntletRelic    = () => getRelic(Gauntlet);
-const getGenjiGloveRelic  = () => getRelic(GenjiGlove);
-const getHeroRingRelic    = () => getRelic(HeroRing);
-const getOfferingRelic    = () => getRelic(Offering);
-
-const isRelic       = (o) => _.get(o, 'type') === 'relic';
-const isRelicType   = (type, relic) => _.get(relic, 'relicType') === type;
-
-const isAtlasArmlet = _.partial(isRelicType, AtlasArmlet);
-const isEarring     = _.partial(isRelicType, Earring);
-const isGauntlet    = _.partial(isRelicType, Gauntlet);
-const isGenjiGlove  = _.partial(isRelicType, GenjiGlove);
-const isHeroRing    = _.partial(isRelicType, HeroRing);
-const isOffering    = _.partial(isRelicType, Offering);
-
-module.exports = {
-    isGauntlet,
-	isAtlasArmlet,
-	isEarring,
-	isGenjiGlove,
-	isHeroRing,
-	isOffering,
-	getAtlasArmletRelic,
-    getGauntletRelic
-};
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const log = console.log;
-const _ = __webpack_require__(0);
-
-const {
-	equippedWithGauntlet,
-	equippedWithOffering,
-	equippedWithGenjiGlove,
-	oneOrZeroWeapons,
-	equippedWithAtlasArmlet,
-	equippedWith1HeroRing,
-	equippedWith2HeroRings,
-	equippedWith1Earring,
-	equippedWith2Earrings
-} = __webpack_require__(2);
-
-const PERFECT_HIT_RATE = 255;
-
-const divide = (a, b)=>
-{
-	return Math.floor(a / b);
-};
-
-const getRandomNumberFromRange = (start, end)=>
-{
-	var range = end - start;
-	var result = Math.random() * range;
-	result += start;
-	return Math.round(result);
-};
-
-// level is an int
-const getDamageStep1 = (
-	vigor = 0,
-	battlePower = 0,
-	spellPower = 0,
-	magicPower = 0,
-	level = 0,
-	equippedWithGauntlet = false,
-	equippedWithOffering =  false,
-	standardFightAttack =  true,
-	isPhysicalAttack =  true,
-	isPlayerAndNotMonster =  true,
-	genjiGloveEquipped =  false,
-	oneOrZeroWeapons = true
-)=>
-{
-
-	var damage = 0;
-
-	if(isPhysicalAttack === false && isPlayerAndNotMonster === true)
-	{
-		damage = spellPower * 4 + (level * magicPower * spellPower / 32);
-	}
-	else if(isPhysicalAttack === false && isPlayerAndNotMonster === false)
-	{
-		damage = spellPower * 4 + (level * (magicPower * 3/2) * spellPower / 32);
-	}
-	else if(isPhysicalAttack === true && isPlayerAndNotMonster === true)
-	{
-		var vigor2 = vigor * 2;
-		if (vigor >= 128)
-		{
-			vigor2 = 255;
-		}
-
-		var attack = battlePower + vigor2;
-
-		if (equippedWithGauntlet)
-		{
-			attack += (battlePower * 3 / 4);
-		}
-
-		damage = battlePower + ( (level * level * attack) / 256) * 3 / 2;
-
-		if (equippedWithOffering)
-		{
-			damage /= 2;
-		}
-
-		if (standardFightAttack && genjiGloveEquipped && oneOrZeroWeapons)
-		{
-			damage = Math.ceil(damage * 3/4);
-		}
-	}
-	else if(isPhysicalAttack === true && isPlayerAndNotMonster === false)
-	{
-		damage = level * level * (battlePower * 4 + vigor) / 256;
-	}
-
-	return damage;
-};
-
-const getRandomMonsterVigor = ()=>
-{
-	return getRandomNumberFromRange(56, 63);
-};
-
-const getDamageStep2 = (
-	damage = 0,
-	isPhysicalAttack =  true,
-	equippedWithAtlasArmlet =  false,
-	equippedWith1HeroRing =  false,
-	equippedWith2HeroRings =  false,
-	equippedWith1Earring =  false,
-	equippedWith2Earrings = false
-)=>
-{
-	if(isPhysicalAttack && (equippedWithAtlasArmlet || equippedWith1HeroRing))
-	{
-		damage *= 5/4;
-	}
-	if(isPhysicalAttack === false && (equippedWith1Earring || equippedWith2HeroRings))
-	{
-		damage *= 5/4;
-	}
-	if(isPhysicalAttack === false && (equippedWith2Earrings || equippedWith2HeroRings))
-	{
-		damage += (damage / 4) + (damage / 4);
-	}
-	return damage;
-};
-
-const getDamageStep3 = (
-	damage = 0,
-	isPhysicalAttack = true,
-	attackingMultipleTargets = false)=>
-{
-	if(isPhysicalAttack === false && attackingMultipleTargets === true)
-	{
-		return damage / 2;
-	}
-	else
-	{
-		return damage;
-	}
-};
-
-// TODO: figure out 'if fight command'
-const getDamageStep4 = (damage = 0, attackerIsInBackRow = false) =>
-{
-	if(attackerIsInBackRow === true)
-	{
-		return damage / 2;
-	}
-	else
-	{
-		return damage;
-	}
-};
-
-const getCriticalHit = ()=> getRandomNumberFromRange(1, 32) === 32;
-
-const getDamageStep5 = (damage = 0,
-	hasMorphStatus = false,
-	hasBerserkStatusAndPhysicalAttack = false,
-	isCriticalHit = false) =>
-{
-	var multiplier = 0;
-
-	if(hasMorphStatus)
-	{
-		multiplier += 3;
-	}
-
-	if(hasBerserkStatusAndPhysicalAttack)
-	{
-		multiplier += 2;
-	}
-
-	if(isCriticalHit)
-	{
-		multiplier += 3;
-	}
-
-	damage += ((damage / 2) * multiplier);
-	return damage;
-}
-
-const getDamageModificationsVariance = ()=> getRandomNumberFromRange(224, 255);
-
-const getDamageStep6 = (damage = 0,
-	defense = 0,
-	magicalDefense = 0,
-	variance =  224,
-	isPhysicalAttack =  true,
-	isHealingAttack =  false,
-	targetHasSafeStatus =  false,
-	targetHasShellStatus =  false,
-	targetDefending =  false,
-	targetIsInBackRow =  false,
-	targetHasMorphStatus =  false,
-	targetIsSelf =  false,
-	targetIsCharacter =  false,
-	attackerIsCharacter =  true) =>
-{
-
-	damage = (damage * variance / 256) + 1;
-
-	// defense modification
-	if(isPhysicalAttack)
-	{
-		damage = (damage * (255 - defense) / 256) + 1;
-	}
-	else
-	{
-		damage = (damage * (255 - magicalDefense) / 256) + 1;
-	}
-
-	// safe / shell
-	if((isPhysicalAttack && targetHasSafeStatus) || (isPhysicalAttack === false && targetHasShellStatus))
-	{
-		damage = (damage * 170 / 256) + 1;
-	}
-
-	// target defending
-	if(isPhysicalAttack && targetDefending)
-	{
-		damage /= 2;
-	}
-
-	// target's back row
-	if(isPhysicalAttack && targetIsInBackRow)
-	{
-		damage /= 2;
-	}
-
-	// morph
-	if(isPhysicalAttack === false && targetHasMorphStatus)
-	{
-		damage /= 2;
-	}
-
-	// self damage (healing attack skips this step)
-	if(isHealingAttack === false)
-	{
-		if (targetIsSelf && targetIsCharacter && attackerIsCharacter)
-		{
-			damage /= 2;
-		}
-	}
-
-	return damage;
-};
-
-const getDamageStep7 = (damage = 0,
-						hittingTargetsBack = false,
-						isPhysicalAttack = true) =>
-{
-	var multiplier = 0;
-	if(isPhysicalAttack && hittingTargetsBack)
-	{
-		multiplier += 1;
-	}
-
-	damage += ((damage / 2) * multiplier);
-	return damage;
-};
-
-const getDamageStep8 = (damage = 0, targetHasPetrifyStatus = false)=>
-{
-	if(targetHasPetrifyStatus)
-	{
-		damage = 0;
-	}
-	return damage;
-};
-
-const getDamageStep9 = (
-	damage = 0,
-	elementHasBeenNullified =  false,
-	targetAbsorbsElement =  false,
-	targetIsImmuneToElement =  false,
-	targetIsResistantToElement =  false,
-	targetIsWeakToElement = false
-) =>
-{
-	if(elementHasBeenNullified)
-	{
-		return 0;
-	}
-
-	if(targetAbsorbsElement)
-	{
-		return -damage;
-	}
-
-	if(targetIsImmuneToElement)
-	{
-		return 0;
-	}
-
-	if(targetIsResistantToElement)
-	{
-		damage /= 2;
-		return damage;
-	}
-
-	if(targetIsWeakToElement)
-	{
-		damage *= 2;
-		return damage;
-	}
-
-	return damage;
-};
-
-function getRandomHitOrMissValue()
-{
-	return getRandomNumberFromRange(0, 99);
-}
-
-function getRandomStaminaHitOrMissValue()
-{
-	return getRandomNumberFromRange(0, 127);
-}
-
-function getRandomImageStatusRemoval()
-{
-	return getRandomNumberFromRange(0, 3);
-}
-
-function getRemoveImageStatus()
-{
-	return getRandomNumberFromRange(1, 4) === 4;
-}
-
-const getHitResult = (hit, removeImageStatus=false) =>
-{
-	return {
-		hit,
-		removeImageStatus
-	};
-};
-
-// Step 4e. Chance to hit
-
-//   1. BlockValue = (255 - MBlock * 2) + 1
-
-//   2. If BlockValue > 255 then BlockValue = 255
-//      If BlockValue < 1 then BlockValue = 1
-
-//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
-//      you miss.
-const step4e = magicBlock =>
-{
-	let blockValue = (255 - magicBlock * 2) + 1;
-	blockValue = _.clamp(blockValue, 1, 255);
-	return blockValue;
-};
-
-// returns HitResult
-/*
-	These are ints, not numbers:
-
-	int randomHitOrMissValue =  0,
-	int randomStaminaHitOrMissValue =  0,
-	int randomImageStatusRemovalValue =  0,
-	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
-	int magicBlock =  0,
-	int targetStamina =  null,
-	specialAttackType:AttackType
-*/
-const getHitFromBlockValue = (isPhysicalAttack=true, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue)=>
-{
-	let blockValue;
-	// NOTE: [jwarden 1.23.2017] After re-reading this bug for umpteenth time,
-	// I'm thinking of attempting a fix, and allowing this to be toggled on
-	// at a later date. (tl;dr; Originally, magicBlock was used causing all kinds
-	// of havoc).
-	// http://everything2.com/title/Final+Fantasy+VI+Evade+Bug
-	// NOTE: here in case we handle that whole 'magic block' bug; for now both if thens do the same
-	if(isPhysicalAttack === false)
-	{
-		log("magicBlock:", magicBlockOrDefense);
-		log("hitRate:", hitRate);
-		blockValue =  step4e(magicBlockOrDefense);
-	}
-	else
-	{
-		log("defenese:", magicBlockOrDefense);
-		log("hitRate:", hitRate);
-		blockValue =  step4e(magicBlockOrDefense);
-	}
-
-	//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
-	//      you miss.
-	const hitRateTimesBlockValue = hitRate * blockValue;
-	const result = hitRateTimesBlockValue / 256;
-	// log("getHit results:");
-	// log("hitRate:", hitRate);
-	// log("blockValue:", blockValue);
-	// log("hitRateTimesBlockValue:", hitRateTimesBlockValue);
-	// log("result:", result);
-	// log("randomHitOrMissValue:", randomHitOrMissValue);
-	if( result > randomHitOrMissValue)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-};
-
-const getMagicBlockOrDefense = (isPhysicalAttack=true, magicBlock, defense)=>
-{
-	if(isPhysicalAttack === true)
-	{
-		return defense;
-	}
-	else
-	{
-		return magicBlock;
-	}
-};
-
-const getHitDefaultGetHitOptions = ()=> ({
-	randomHitOrMissValue: 0,
-	randomStaminaHitOrMissValue: 0,
-	isPhysicalAttack: true,
-	targetHasClearStatus: false,
-	protectedFromWound: false,
-	attackMissesDeathProtectedTargets: false,
-	attackCanBeBlockedByStamina: true,
-	spellUnblockable: false,
-	targetHasSleepStatus: false,
-	targetHasPetrifyStatus: false,
-	targetHasFreezeStatus: false,
-	targetHasStopStatus: false,
-	backOfTarget: false,
-	targetHasImageStatus: false,
-	hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
-	defense: 0,
-	magicBlock: 0,
-	targetStamina: 0,
-	specialAttackType: null
-});
-	
-const getHit = (options=getHitDefaultGetHitOptions()) =>
-{
-	const randomHitOrMissValue              = _.get(options, 'randomHitOrMissValue');
-	const randomStaminaHitOrMissValue       = _.get(options, 'randomStaminaHitOrMissValue');
-	const isPhysicalAttack                  = _.get(options, 'isPhysicalAttack');
-	const isMagicalAttack					= !isPhysicalAttack;
-	const targetHasClearStatus              = _.get(options, 'targetHasClearStatus');
-	const protectedFromWound                = _.get(options, 'protectedFromWound');
-	const attackMissesDeathProtectedTargets = _.get(options, 'attackMissesDeathProtectedTargets');
-	const attackCanBeBlockedByStamina       = _.get(options, 'attackCanBeBlockedByStamina');
-	const spellUnblockable                  = _.get(options, 'spellUnblockable');
-	const targetHasSleepStatus              = _.get(options, 'targetHasSleepStatus');
-	const targetHasPetrifyStatus            = _.get(options, 'targetHasPetrifyStatus');
-	const targetHasFreezeStatus             = _.get(options, 'targetHasFreezeStatus');
-	const targetHasStopStatus               = _.get(options, 'targetHasStopStatus');
-	const backOfTarget                      = _.get(options, 'backOfTarget');
-	const targetHasImageStatus              = _.get(options, 'targetHasImageStatus');
-	const hitRate                           = _.get(options, 'hitRate');
-	const defense                           = _.get(options, 'defense');
-	const magicBlock                        = _.get(options, 'magicBlock');
-	const targetStamina                     = _.get(options, 'targetStamina');
-	const specialAttackType                 = _.get(options, 'specialAttackType');
-
-	if(isPhysicalAttack && targetHasClearStatus)
-	{
-		return getHitResult(false);
-	}
-
-	if(isPhysicalAttack === false && targetHasClearStatus)
-	{
-		return getHitResult(true);
-	}
-
-	if(protectedFromWound && attackMissesDeathProtectedTargets)
-	{
-		return getHitResult(false);
-	}
-
-	if(isPhysicalAttack === false && spellUnblockable)
-	{
-		return getHitResult(true);
-	}
-
-	if(_.isNil(specialAttackType))
-	{
-		if(targetHasSleepStatus || targetHasPetrifyStatus || targetHasFreezeStatus || targetHasStopStatus)
-		{
-			return getHitResult(true);
-		}
-
-		if(isPhysicalAttack && backOfTarget)
-		{
-			return getHitResult(true);
-		}
-
-		if(hitRate === PERFECT_HIT_RATE)
-		{
-			return getHitResult(true);
-		}
-
-		if(isPhysicalAttack && targetHasImageStatus)
-		{
-			var removeImageStatus = getRemoveImageStatus();
-			if(removeImageStatus)
-			{
-				// this'll remove Image status
-				return getHitResult(false, true);
-			}
-			else
-			{
-				return getHitResult(false);
-			}
-		}
-
-
-		// Step 4e. Chance to hit
-
-		//   1. BlockValue = (255 - MBlock * 2) + 1
-	
-		//   2. If BlockValue > 255 then BlockValue = 255
-		//      If BlockValue < 1 then BlockValue = 1
-
-		//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
-		//      you miss.
-		const magicBlockOrDefense = getMagicBlockOrDefense(isPhysicalAttack, magicBlock, defense);
-		const hitFromBlockValue = getHitFromBlockValue(isPhysicalAttack, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue);
-		return getHitResult(hitFromBlockValue);
-	}
-
-	// Most attacks use step 4 instead of this step. Only Break, Doom, Demi,
-    // Quartr, X-Zone, W Wind, Shoat, Odin, Raiden, Antlion, Snare, X-Fer, and
-    // Grav Bomb use this step.
-
-    // Step 5b. Check if Stamina blocks
-
-    //   If target's stamina >= [0..127] then the attack misses (even if it hit in
-    //   step 5a); otherwise, the attack hits as long as it hit in step 5a.
-
-	const magicBlockOrDefense = getMagicBlockOrDefense(isPhysicalAttack, magicBlock, defense);
-	const hitFromBlockValue = getHitFromBlockValue(isPhysicalAttack, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue);
-	log("      ");
-	log("\n");
-	log("hitFromBlockValue:", hitFromBlockValue);
-	log("randomHitOrMissValue:", randomHitOrMissValue);
-	log("randomStaminaHitOrMissValue:", randomStaminaHitOrMissValue);
-	log("targetStamina:", targetStamina);
-	if(hitFromBlockValue === true)
-	{
-		if(targetStamina >= randomStaminaHitOrMissValue)
-		{
-			return getHitResult(false);
-		}
-		else
-		{
-			return getHitResult(true);
-		}
-	}
-	else
-	{
-		return getHitResult(false);
-	}
-};
-
-const getDamageResult = (damage, criticalHit, removeImageStatus)=>
-{
-	return {
-		damage,
-		criticalHit,
-		removeImageStatus
-	};
-};
-
-// returns TargetHitResult 
-/*
-	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
-	int magicBlock =  0,
-	int targetStamina =  null,
-*/
-const getDefaultDamageOptions = (
-	attacker, 
-	getCriticalHitFunction=getCriticalHit, 
-	getDamageModificationsVarianceFunction=getDamageModificationsVariance
-)=>
-{
-	return {
-		attacker, // Character
-		getCriticalHitFunction,
-		getDamageModificationsVarianceFunction,
-		targetStamina: null,
-		isPhysicalAttack: true,
-		targetHasClearStatus: false,
-		protectedFromWound: false,
-		attackMissesDeathProtectedTargets: false,
-		attackCanBeBlockedByStamina: true,
-		spellUnblockable: false,
-		targetHasSleepStatus: false,
-		targetHasPetrifyStatus: false,
-		targetHasFreezeStatus: false,
-		targetHasStopStatus: false,
-		targetHasSafeStatus: false,
-		targetHasShellStatus: false,
-		targetDefending: false,
-		targetIsInBackRow: false,
-		targetHasMorphStatus: false,
-		targetIsSelf: false,
-		targetIsCharacter: false,
-		backOfTarget: false,
-		targetHasImageStatus: false,
-		hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
-		magicBlock: 0,
-		specialAttackType: null,
-		attackerIsCharacter: true,
-		attackingMultipleTargets: false,
-		attackerIsInBackRow: false,
-		attackerHasMorphStatus: false,
-		attackerHasBerserkStatusAndPhysicalAttack: false,
-		elementHasBeenNullified: false,
-		targetAbsorbsElement: false,
-		targetIsImmuneToElement: false,
-		targetIsResistantToElement: false,
-		targetIsWeakToElement: false
-	};
-};
-const getDamage = (options=getDefaultDamageOptions) =>
-{
-	const attacker                                  = _.get(options, 'attacker');
-	const targetStamina                             = _.get(options, 'targetStamina');
-	const isPhysicalAttack                          = _.get(options, 'isPhysicalAttack');
-	const targetHasClearStatus                      = _.get(options, 'targetHasClearStatus');
-	const protectedFromWound                        = _.get(options, 'protectedFromWound');
-	const attackMissesDeathProtectedTargets         = _.get(options, 'attackMissesDeathProtectedTargets');
-	const attackCanBeBlockedByStamina               = _.get(options, 'attackCanBeBlockedByStamina');
-	const spellUnblockable                          = _.get(options, 'spellUnblockable');
-	const targetHasSleepStatus                      = _.get(options, 'targetHasSleepStatus');
-	const targetHasPetrifyStatus                    = _.get(options, 'targetHasPetrifyStatus');
-	const targetHasFreezeStatus                     = _.get(options, 'targetHasFreezeStatus');
-	const targetHasStopStatus                       = _.get(options, 'targetHasStopStatus');
-	const targetHasSafeStatus                       = _.get(options, 'targetHasSafeStatus');
-	const targetHasShellStatus                      = _.get(options, 'targetHasShellStatus');
-	const targetDefending                           = _.get(options, 'targetDefending');
-	const targetIsInBackRow                         = _.get(options, 'targetIsInBackRow');
-	const targetHasMorphStatus                      = _.get(options, 'targetHasMorphStatus');
-	const targetIsSelf                              = _.get(options, 'targetIsSelf');
-	const targetIsCharacter                         = _.get(options, 'targetIsCharacter');
-	const backOfTarget                              = _.get(options, 'backOfTarget');
-	const targetHasImageStatus                      = _.get(options, 'targetHasImageStatus');
-	const hitRate                                   = _.get(options, 'hitRate');
-	const magicBlock                                = _.get(options, 'magicBlock');
-	const specialAttackType                         = _.get(options, 'specialAttackType');
-	const attackerIsCharacter                       = _.get(options, 'attackerIsCharacter');
-	const attackingMultipleTargets                  = _.get(options, 'attackingMultipleTargets');
-	const attackerIsInBackRow                       = _.get(options, 'attackerIsInBackRow');
-	const attackerHasMorphStatus                    = _.get(options, 'attackerHasMorphStatus');
-	const attackerHasBerserkStatusAndPhysicalAttack = _.get(options, 'attackerHasBerserkStatusAndPhysicalAttack');
-	const elementHasBeenNullified                   = _.get(options, 'elementHasBeenNullified');
-	const targetAbsorbsElement                      = _.get(options, 'targetAbsorbsElement');
-	const targetIsImmuneToElement                   = _.get(options, 'targetIsImmuneToElement');
-	const targetIsResistantToElement                = _.get(options, 'targetIsResistantToElement');
-	const targetIsWeakToElement                     = _.get(options, 'targetIsWeakToElement');
-	const getCriticalHitFunction					= _.get(options, 'getCriticalHitFunction');
-	const getDamageModificationsVarianceFunction	= _.get(options, 'getDamageModificationsVarianceFunction');
-
-
-	let damage = 0;
-	let criticalHit = getCriticalHitFunction();
-	let damageModificationVariance = getDamageModificationsVarianceFunction();
-	
-	damage = getDamageStep1(
-		attacker.vigor,
-		attacker.battlePower,
-		attacker.level,
-		equippedWithGauntlet(attacker),
-		equippedWithOffering(attacker),
-		isPhysicalAttack,
-		equippedWithGenjiGlove(attacker),
-		oneOrZeroWeapons(attacker)
-	);
-
-	damage = getDamageStep2(
-		damage,
-		isPhysicalAttack,
-		equippedWithAtlasArmlet(attacker),
-		equippedWith1HeroRing(attacker),
-		equippedWith2HeroRings(attacker),
-		equippedWith1Earring(attacker),
-		equippedWith2Earrings(attacker)
-	);
-
-	damage = getDamageStep3(
-		damage,
-		isPhysicalAttack,
-		attackingMultipleTargets);
-
-	damage = getDamageStep4(
-		damage,
-		attackerIsInBackRow
-	);
-
-	damage = getDamageStep5(
-		damage,
-		attackerHasMorphStatus,
-		attackerHasBerserkStatusAndPhysicalAttack,
-		criticalHit
-	);
-
-	damage = getDamageStep6(
-		damage,
-		attacker.defense,
-		attacker.magicDefense,
-		damageModificationVariance,
-		isPhysicalAttack,
-		targetHasSafeStatus,
-		targetHasShellStatus,
-		targetDefending,
-		targetIsInBackRow,
-		targetHasMorphStatus,
-		targetIsSelf,
-		targetIsCharacter,
-		attackerIsCharacter
-	);
-
-	damage = getDamageStep7(
-		damage,
-		backOfTarget,
-		isPhysicalAttack
-	);
-
-	damage = getDamageStep8(
-		damage,
-		targetHasPetrifyStatus
-	);
-
-	damage = getDamageStep9(
-		damage,
-		elementHasBeenNullified,
-		targetAbsorbsElement,
-		targetIsImmuneToElement,
-		targetIsResistantToElement,
-		targetIsWeakToElement
-	);
-
-	damage = Math.round(damage);
-	damage = _.clamp(damage, -9999, 9999);
-
-	// TODO: support attacking mulitple targets
-	return getDamageResult(damage, criticalHit);
-
-// should probably return an array of these...
-//		targetHitResults.add(
-//			new TargetHitResult(
-//				criticalHit: criticalHit,
-//				hit: hitResult.hit,
-//				damage: damage,
-//				removeImageStatus: hitResult.removeImageStatus,
-//				target: target
-//			)
-//		);
-}
-
-module.exports = {
-	getRandomNumberFromRange,
-	getDamageStep1,
-	getRandomMonsterVigor,
-	getDamageStep2,
-	getDamageStep3,
-	getDamageStep4,
-	getCriticalHit,
-	getDamageStep5,
-	getDamageModificationsVariance,
-	getDamageStep6,
-	getDamageStep7,
-	getDamageStep8,
-	getDamageStep9,
-	getHit,
-	step4e,
-	getHitDefaultGetHitOptions,
-	getDefaultDamageOptions,
-	getDamage
-};
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-const s4 = ()=> Math
-.floor((1 + Math.random()) * 0x10000)
-.toString(16)
-.substring(1);
-
-const guid = ()=> s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
-
-module.exports = guid;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = __webpack_require__(98);
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = {
-    battle: {
-        battleTimer: __webpack_require__(1),
-        battleUtils: __webpack_require__(6),
-        character: __webpack_require__(2)
-    },
-    enums: {
-        BattleState: __webpack_require__(3),
-        Row: __webpack_require__(4)
-    },
-    relics: __webpack_require__(5),
-    core: {
-        guid: __webpack_require__(7)
+        // minX, minY and size are later used to transform coords into integers for z-order calculation
+        size = Math.max(maxX - minX, maxY - minY);
     }
+
+    earcutLinked(outerNode, triangles, dim, minX, minY, size);
+
+    return triangles;
+}
+
+// create a circular doubly linked list from polygon points in the specified winding order
+function linkedList(data, start, end, dim, clockwise) {
+    var i, last;
+
+    if (clockwise === (signedArea(data, start, end, dim) > 0)) {
+        for (i = start; i < end; i += dim) last = insertNode(i, data[i], data[i + 1], last);
+    } else {
+        for (i = end - dim; i >= start; i -= dim) last = insertNode(i, data[i], data[i + 1], last);
+    }
+
+    if (last && equals(last, last.next)) {
+        removeNode(last);
+        last = last.next;
+    }
+
+    return last;
+}
+
+// eliminate colinear or duplicate points
+function filterPoints(start, end) {
+    if (!start) return start;
+    if (!end) end = start;
+
+    var p = start,
+        again;
+    do {
+        again = false;
+
+        if (!p.steiner && (equals(p, p.next) || area(p.prev, p, p.next) === 0)) {
+            removeNode(p);
+            p = end = p.prev;
+            if (p === p.next) return null;
+            again = true;
+
+        } else {
+            p = p.next;
+        }
+    } while (again || p !== end);
+
+    return end;
+}
+
+// main ear slicing loop which triangulates a polygon (given as a linked list)
+function earcutLinked(ear, triangles, dim, minX, minY, size, pass) {
+    if (!ear) return;
+
+    // interlink polygon nodes in z-order
+    if (!pass && size) indexCurve(ear, minX, minY, size);
+
+    var stop = ear,
+        prev, next;
+
+    // iterate through ears, slicing them one by one
+    while (ear.prev !== ear.next) {
+        prev = ear.prev;
+        next = ear.next;
+
+        if (size ? isEarHashed(ear, minX, minY, size) : isEar(ear)) {
+            // cut off the triangle
+            triangles.push(prev.i / dim);
+            triangles.push(ear.i / dim);
+            triangles.push(next.i / dim);
+
+            removeNode(ear);
+
+            // skipping the next vertice leads to less sliver triangles
+            ear = next.next;
+            stop = next.next;
+
+            continue;
+        }
+
+        ear = next;
+
+        // if we looped through the whole remaining polygon and can't find any more ears
+        if (ear === stop) {
+            // try filtering points and slicing again
+            if (!pass) {
+                earcutLinked(filterPoints(ear), triangles, dim, minX, minY, size, 1);
+
+            // if this didn't work, try curing all small self-intersections locally
+            } else if (pass === 1) {
+                ear = cureLocalIntersections(ear, triangles, dim);
+                earcutLinked(ear, triangles, dim, minX, minY, size, 2);
+
+            // as a last resort, try splitting the remaining polygon into two
+            } else if (pass === 2) {
+                splitEarcut(ear, triangles, dim, minX, minY, size);
+            }
+
+            break;
+        }
+    }
+}
+
+// check whether a polygon node forms a valid ear with adjacent nodes
+function isEar(ear) {
+    var a = ear.prev,
+        b = ear,
+        c = ear.next;
+
+    if (area(a, b, c) >= 0) return false; // reflex, can't be an ear
+
+    // now make sure we don't have other points inside the potential ear
+    var p = ear.next.next;
+
+    while (p !== ear.prev) {
+        if (pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
+            area(p.prev, p, p.next) >= 0) return false;
+        p = p.next;
+    }
+
+    return true;
+}
+
+function isEarHashed(ear, minX, minY, size) {
+    var a = ear.prev,
+        b = ear,
+        c = ear.next;
+
+    if (area(a, b, c) >= 0) return false; // reflex, can't be an ear
+
+    // triangle bbox; min & max are calculated like this for speed
+    var minTX = a.x < b.x ? (a.x < c.x ? a.x : c.x) : (b.x < c.x ? b.x : c.x),
+        minTY = a.y < b.y ? (a.y < c.y ? a.y : c.y) : (b.y < c.y ? b.y : c.y),
+        maxTX = a.x > b.x ? (a.x > c.x ? a.x : c.x) : (b.x > c.x ? b.x : c.x),
+        maxTY = a.y > b.y ? (a.y > c.y ? a.y : c.y) : (b.y > c.y ? b.y : c.y);
+
+    // z-order range for the current triangle bbox;
+    var minZ = zOrder(minTX, minTY, minX, minY, size),
+        maxZ = zOrder(maxTX, maxTY, minX, minY, size);
+
+    // first look for points inside the triangle in increasing z-order
+    var p = ear.nextZ;
+
+    while (p && p.z <= maxZ) {
+        if (p !== ear.prev && p !== ear.next &&
+            pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
+            area(p.prev, p, p.next) >= 0) return false;
+        p = p.nextZ;
+    }
+
+    // then look for points in decreasing z-order
+    p = ear.prevZ;
+
+    while (p && p.z >= minZ) {
+        if (p !== ear.prev && p !== ear.next &&
+            pointInTriangle(a.x, a.y, b.x, b.y, c.x, c.y, p.x, p.y) &&
+            area(p.prev, p, p.next) >= 0) return false;
+        p = p.prevZ;
+    }
+
+    return true;
+}
+
+// go through all polygon nodes and cure small local self-intersections
+function cureLocalIntersections(start, triangles, dim) {
+    var p = start;
+    do {
+        var a = p.prev,
+            b = p.next.next;
+
+        if (!equals(a, b) && intersects(a, p, p.next, b) && locallyInside(a, b) && locallyInside(b, a)) {
+
+            triangles.push(a.i / dim);
+            triangles.push(p.i / dim);
+            triangles.push(b.i / dim);
+
+            // remove two nodes involved
+            removeNode(p);
+            removeNode(p.next);
+
+            p = start = b;
+        }
+        p = p.next;
+    } while (p !== start);
+
+    return p;
+}
+
+// try splitting polygon into two and triangulate them independently
+function splitEarcut(start, triangles, dim, minX, minY, size) {
+    // look for a valid diagonal that divides the polygon into two
+    var a = start;
+    do {
+        var b = a.next.next;
+        while (b !== a.prev) {
+            if (a.i !== b.i && isValidDiagonal(a, b)) {
+                // split the polygon in two by the diagonal
+                var c = splitPolygon(a, b);
+
+                // filter colinear points around the cuts
+                a = filterPoints(a, a.next);
+                c = filterPoints(c, c.next);
+
+                // run earcut on each half
+                earcutLinked(a, triangles, dim, minX, minY, size);
+                earcutLinked(c, triangles, dim, minX, minY, size);
+                return;
+            }
+            b = b.next;
+        }
+        a = a.next;
+    } while (a !== start);
+}
+
+// link every hole into the outer loop, producing a single-ring polygon without holes
+function eliminateHoles(data, holeIndices, outerNode, dim) {
+    var queue = [],
+        i, len, start, end, list;
+
+    for (i = 0, len = holeIndices.length; i < len; i++) {
+        start = holeIndices[i] * dim;
+        end = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
+        list = linkedList(data, start, end, dim, false);
+        if (list === list.next) list.steiner = true;
+        queue.push(getLeftmost(list));
+    }
+
+    queue.sort(compareX);
+
+    // process holes from left to right
+    for (i = 0; i < queue.length; i++) {
+        eliminateHole(queue[i], outerNode);
+        outerNode = filterPoints(outerNode, outerNode.next);
+    }
+
+    return outerNode;
+}
+
+function compareX(a, b) {
+    return a.x - b.x;
+}
+
+// find a bridge between vertices that connects hole with an outer ring and and link it
+function eliminateHole(hole, outerNode) {
+    outerNode = findHoleBridge(hole, outerNode);
+    if (outerNode) {
+        var b = splitPolygon(outerNode, hole);
+        filterPoints(b, b.next);
+    }
+}
+
+// David Eberly's algorithm for finding a bridge between hole and outer polygon
+function findHoleBridge(hole, outerNode) {
+    var p = outerNode,
+        hx = hole.x,
+        hy = hole.y,
+        qx = -Infinity,
+        m;
+
+    // find a segment intersected by a ray from the hole's leftmost point to the left;
+    // segment's endpoint with lesser x will be potential connection point
+    do {
+        if (hy <= p.y && hy >= p.next.y) {
+            var x = p.x + (hy - p.y) * (p.next.x - p.x) / (p.next.y - p.y);
+            if (x <= hx && x > qx) {
+                qx = x;
+                if (x === hx) {
+                    if (hy === p.y) return p;
+                    if (hy === p.next.y) return p.next;
+                }
+                m = p.x < p.next.x ? p : p.next;
+            }
+        }
+        p = p.next;
+    } while (p !== outerNode);
+
+    if (!m) return null;
+
+    if (hx === qx) return m.prev; // hole touches outer segment; pick lower endpoint
+
+    // look for points inside the triangle of hole point, segment intersection and endpoint;
+    // if there are no points found, we have a valid connection;
+    // otherwise choose the point of the minimum angle with the ray as connection point
+
+    var stop = m,
+        mx = m.x,
+        my = m.y,
+        tanMin = Infinity,
+        tan;
+
+    p = m.next;
+
+    while (p !== stop) {
+        if (hx >= p.x && p.x >= mx &&
+                pointInTriangle(hy < my ? hx : qx, hy, mx, my, hy < my ? qx : hx, hy, p.x, p.y)) {
+
+            tan = Math.abs(hy - p.y) / (hx - p.x); // tangential
+
+            if ((tan < tanMin || (tan === tanMin && p.x > m.x)) && locallyInside(p, hole)) {
+                m = p;
+                tanMin = tan;
+            }
+        }
+
+        p = p.next;
+    }
+
+    return m;
+}
+
+// interlink polygon nodes in z-order
+function indexCurve(start, minX, minY, size) {
+    var p = start;
+    do {
+        if (p.z === null) p.z = zOrder(p.x, p.y, minX, minY, size);
+        p.prevZ = p.prev;
+        p.nextZ = p.next;
+        p = p.next;
+    } while (p !== start);
+
+    p.prevZ.nextZ = null;
+    p.prevZ = null;
+
+    sortLinked(p);
+}
+
+// Simon Tatham's linked list merge sort algorithm
+// http://www.chiark.greenend.org.uk/~sgtatham/algorithms/listsort.html
+function sortLinked(list) {
+    var i, p, q, e, tail, numMerges, pSize, qSize,
+        inSize = 1;
+
+    do {
+        p = list;
+        list = null;
+        tail = null;
+        numMerges = 0;
+
+        while (p) {
+            numMerges++;
+            q = p;
+            pSize = 0;
+            for (i = 0; i < inSize; i++) {
+                pSize++;
+                q = q.nextZ;
+                if (!q) break;
+            }
+
+            qSize = inSize;
+
+            while (pSize > 0 || (qSize > 0 && q)) {
+
+                if (pSize === 0) {
+                    e = q;
+                    q = q.nextZ;
+                    qSize--;
+                } else if (qSize === 0 || !q) {
+                    e = p;
+                    p = p.nextZ;
+                    pSize--;
+                } else if (p.z <= q.z) {
+                    e = p;
+                    p = p.nextZ;
+                    pSize--;
+                } else {
+                    e = q;
+                    q = q.nextZ;
+                    qSize--;
+                }
+
+                if (tail) tail.nextZ = e;
+                else list = e;
+
+                e.prevZ = tail;
+                tail = e;
+            }
+
+            p = q;
+        }
+
+        tail.nextZ = null;
+        inSize *= 2;
+
+    } while (numMerges > 1);
+
+    return list;
+}
+
+// z-order of a point given coords and size of the data bounding box
+function zOrder(x, y, minX, minY, size) {
+    // coords are transformed into non-negative 15-bit integer range
+    x = 32767 * (x - minX) / size;
+    y = 32767 * (y - minY) / size;
+
+    x = (x | (x << 8)) & 0x00FF00FF;
+    x = (x | (x << 4)) & 0x0F0F0F0F;
+    x = (x | (x << 2)) & 0x33333333;
+    x = (x | (x << 1)) & 0x55555555;
+
+    y = (y | (y << 8)) & 0x00FF00FF;
+    y = (y | (y << 4)) & 0x0F0F0F0F;
+    y = (y | (y << 2)) & 0x33333333;
+    y = (y | (y << 1)) & 0x55555555;
+
+    return x | (y << 1);
+}
+
+// find the leftmost node of a polygon ring
+function getLeftmost(start) {
+    var p = start,
+        leftmost = start;
+    do {
+        if (p.x < leftmost.x) leftmost = p;
+        p = p.next;
+    } while (p !== start);
+
+    return leftmost;
+}
+
+// check if a point lies within a convex triangle
+function pointInTriangle(ax, ay, bx, by, cx, cy, px, py) {
+    return (cx - px) * (ay - py) - (ax - px) * (cy - py) >= 0 &&
+           (ax - px) * (by - py) - (bx - px) * (ay - py) >= 0 &&
+           (bx - px) * (cy - py) - (cx - px) * (by - py) >= 0;
+}
+
+// check if a diagonal between two polygon nodes is valid (lies in polygon interior)
+function isValidDiagonal(a, b) {
+    return a.next.i !== b.i && a.prev.i !== b.i && !intersectsPolygon(a, b) &&
+           locallyInside(a, b) && locallyInside(b, a) && middleInside(a, b);
+}
+
+// signed area of a triangle
+function area(p, q, r) {
+    return (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
+}
+
+// check if two points are equal
+function equals(p1, p2) {
+    return p1.x === p2.x && p1.y === p2.y;
+}
+
+// check if two segments intersect
+function intersects(p1, q1, p2, q2) {
+    if ((equals(p1, q1) && equals(p2, q2)) ||
+        (equals(p1, q2) && equals(p2, q1))) return true;
+    return area(p1, q1, p2) > 0 !== area(p1, q1, q2) > 0 &&
+           area(p2, q2, p1) > 0 !== area(p2, q2, q1) > 0;
+}
+
+// check if a polygon diagonal intersects any polygon segments
+function intersectsPolygon(a, b) {
+    var p = a;
+    do {
+        if (p.i !== a.i && p.next.i !== a.i && p.i !== b.i && p.next.i !== b.i &&
+                intersects(p, p.next, a, b)) return true;
+        p = p.next;
+    } while (p !== a);
+
+    return false;
+}
+
+// check if a polygon diagonal is locally inside the polygon
+function locallyInside(a, b) {
+    return area(a.prev, a, a.next) < 0 ?
+        area(a, b, a.next) >= 0 && area(a, a.prev, b) >= 0 :
+        area(a, b, a.prev) < 0 || area(a, a.next, b) < 0;
+}
+
+// check if the middle point of a polygon diagonal is inside the polygon
+function middleInside(a, b) {
+    var p = a,
+        inside = false,
+        px = (a.x + b.x) / 2,
+        py = (a.y + b.y) / 2;
+    do {
+        if (((p.y > py) !== (p.next.y > py)) && (px < (p.next.x - p.x) * (py - p.y) / (p.next.y - p.y) + p.x))
+            inside = !inside;
+        p = p.next;
+    } while (p !== a);
+
+    return inside;
+}
+
+// link two polygon vertices with a bridge; if the vertices belong to the same ring, it splits polygon into two;
+// if one belongs to the outer ring and another to a hole, it merges it into a single ring
+function splitPolygon(a, b) {
+    var a2 = new Node(a.i, a.x, a.y),
+        b2 = new Node(b.i, b.x, b.y),
+        an = a.next,
+        bp = b.prev;
+
+    a.next = b;
+    b.prev = a;
+
+    a2.next = an;
+    an.prev = a2;
+
+    b2.next = a2;
+    a2.prev = b2;
+
+    bp.next = b2;
+    b2.prev = bp;
+
+    return b2;
+}
+
+// create a node and optionally link it with previous one (in a circular doubly linked list)
+function insertNode(i, x, y, last) {
+    var p = new Node(i, x, y);
+
+    if (!last) {
+        p.prev = p;
+        p.next = p;
+
+    } else {
+        p.next = last.next;
+        p.prev = last;
+        last.next.prev = p;
+        last.next = p;
+    }
+    return p;
+}
+
+function removeNode(p) {
+    p.next.prev = p.prev;
+    p.prev.next = p.next;
+
+    if (p.prevZ) p.prevZ.nextZ = p.nextZ;
+    if (p.nextZ) p.nextZ.prevZ = p.prevZ;
+}
+
+function Node(i, x, y) {
+    // vertice index in coordinates array
+    this.i = i;
+
+    // vertex coordinates
+    this.x = x;
+    this.y = y;
+
+    // previous and next vertice nodes in a polygon ring
+    this.prev = null;
+    this.next = null;
+
+    // z-order curve value
+    this.z = null;
+
+    // previous and next nodes in z-order
+    this.prevZ = null;
+    this.nextZ = null;
+
+    // indicates whether this is a steiner point
+    this.steiner = false;
+}
+
+// return a percentage difference between the polygon area and its triangulation area;
+// used to verify correctness of triangulation
+earcut.deviation = function (data, holeIndices, dim, triangles) {
+    var hasHoles = holeIndices && holeIndices.length;
+    var outerLen = hasHoles ? holeIndices[0] * dim : data.length;
+
+    var polygonArea = Math.abs(signedArea(data, 0, outerLen, dim));
+    if (hasHoles) {
+        for (var i = 0, len = holeIndices.length; i < len; i++) {
+            var start = holeIndices[i] * dim;
+            var end = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
+            polygonArea -= Math.abs(signedArea(data, start, end, dim));
+        }
+    }
+
+    var trianglesArea = 0;
+    for (i = 0; i < triangles.length; i += 3) {
+        var a = triangles[i] * dim;
+        var b = triangles[i + 1] * dim;
+        var c = triangles[i + 2] * dim;
+        trianglesArea += Math.abs(
+            (data[a] - data[c]) * (data[b + 1] - data[a + 1]) -
+            (data[a] - data[b]) * (data[c + 1] - data[a + 1]));
+    }
+
+    return polygonArea === 0 && trianglesArea === 0 ? 0 :
+        Math.abs((trianglesArea - polygonArea) / polygonArea);
 };
 
-/***/ })
-/******/ ]);
+function signedArea(data, start, end, dim) {
+    var sum = 0;
+    for (var i = start, j = end - dim; i < end; i += dim) {
+        sum += (data[j] - data[i]) * (data[i + 1] + data[j + 1]);
+        j = i;
+    }
+    return sum;
+}
+
+// turn a polygon in a multi-dimensional array form (e.g. as in GeoJSON) into a form Earcut accepts
+earcut.flatten = function (data) {
+    var dim = data[0][0].length,
+        result = {vertices: [], holes: [], dimensions: dim},
+        holeIndex = 0;
+
+    for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].length; j++) {
+            for (var d = 0; d < dim; d++) result.vertices.push(data[i][j][d]);
+        }
+        if (i > 0) {
+            holeIndex += data[i - 1].length;
+            result.holes.push(holeIndex);
+        }
+    }
+    return result;
+};
+
 
 /***/ }),
-/* 105 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -58629,11 +49228,9411 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(112);
+
+
+/** Built-in value references. */
+var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
+
+/* harmony default export */ __webpack_exports__["a"] = Symbol;
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(113);
+
+
+
+
+/** `Object#toString` result references. */
+var objectTag = '[object Object]';
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Used to infer the `Object` constructor. */
+var objectCtorString = funcToString.call(Object);
+
+/**
+ * Checks if `value` is a plain object, that is, an object created by the
+ * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.8.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * _.isPlainObject(new Foo);
+ * // => false
+ *
+ * _.isPlainObject([1, 2, 3]);
+ * // => false
+ *
+ * _.isPlainObject({ 'x': 0, 'y': 0 });
+ * // => true
+ *
+ * _.isPlainObject(Object.create(null));
+ * // => true
+ */
+function isPlainObject(value) {
+  if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__["a" /* default */])(value) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__["a" /* default */])(value) != objectTag) {
+    return false;
+  }
+  var proto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__getPrototype_js__["a" /* default */])(value);
+  if (proto === null) {
+    return true;
+  }
+  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+    funcToString.call(Ctor) == objectCtorString;
+}
+
+/* harmony default export */ __webpack_exports__["a"] = isPlainObject;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var MiniSignalBinding = (function () {
+  function MiniSignalBinding(fn, once, thisArg) {
+    if (once === undefined) once = false;
+
+    _classCallCheck(this, MiniSignalBinding);
+
+    this._fn = fn;
+    this._once = once;
+    this._thisArg = thisArg;
+    this._next = this._prev = this._owner = null;
+  }
+
+  _createClass(MiniSignalBinding, [{
+    key: 'detach',
+    value: function detach() {
+      if (this._owner === null) return false;
+      this._owner.detach(this);
+      return true;
+    }
+  }]);
+
+  return MiniSignalBinding;
+})();
+
+function _addMiniSignalBinding(self, node) {
+  if (!self._head) {
+    self._head = node;
+    self._tail = node;
+  } else {
+    self._tail._next = node;
+    node._prev = self._tail;
+    self._tail = node;
+  }
+
+  node._owner = self;
+
+  return node;
+}
+
+var MiniSignal = (function () {
+  function MiniSignal() {
+    _classCallCheck(this, MiniSignal);
+
+    this._head = this._tail = undefined;
+  }
+
+  _createClass(MiniSignal, [{
+    key: 'handlers',
+    value: function handlers() {
+      var exists = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+
+      var node = this._head;
+
+      if (exists) return !!node;
+
+      var ee = [];
+
+      while (node) {
+        ee.push(node);
+        node = node._next;
+      }
+
+      return ee;
+    }
+  }, {
+    key: 'has',
+    value: function has(node) {
+      if (!(node instanceof MiniSignalBinding)) {
+        throw new Error('MiniSignal#has(): First arg must be a MiniSignalBinding object.');
+      }
+
+      return node._owner === this;
+    }
+  }, {
+    key: 'dispatch',
+    value: function dispatch() {
+      var node = this._head;
+
+      if (!node) return false;
+
+      while (node) {
+        if (node._once) this.detach(node);
+        node._fn.apply(node._thisArg, arguments);
+        node = node._next;
+      }
+
+      return true;
+    }
+  }, {
+    key: 'add',
+    value: function add(fn) {
+      var thisArg = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+      if (typeof fn !== 'function') {
+        throw new Error('MiniSignal#add(): First arg must be a Function.');
+      }
+      return _addMiniSignalBinding(this, new MiniSignalBinding(fn, false, thisArg));
+    }
+  }, {
+    key: 'once',
+    value: function once(fn) {
+      var thisArg = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+      if (typeof fn !== 'function') {
+        throw new Error('MiniSignal#once(): First arg must be a Function.');
+      }
+      return _addMiniSignalBinding(this, new MiniSignalBinding(fn, true, thisArg));
+    }
+  }, {
+    key: 'detach',
+    value: function detach(node) {
+      if (!(node instanceof MiniSignalBinding)) {
+        throw new Error('MiniSignal#detach(): First arg must be a MiniSignalBinding object.');
+      }
+      if (node._owner !== this) return this;
+
+      if (node._prev) node._prev._next = node._next;
+      if (node._next) node._next._prev = node._prev;
+
+      if (node === this._head) {
+        this._head = node._next;
+        if (node._next === null) {
+          this._tail = null;
+        }
+      } else if (node === this._tail) {
+        this._tail = node._prev;
+        this._tail._next = null;
+      }
+
+      node._owner = null;
+      return this;
+    }
+  }, {
+    key: 'detachAll',
+    value: function detachAll() {
+      var node = this._head;
+      if (!node) return this;
+
+      this._head = this._tail = null;
+
+      while (node) {
+        node._owner = null;
+        node = node._next;
+      }
+      return this;
+    }
+  }]);
+
+  return MiniSignal;
+})();
+
+MiniSignal.MiniSignalBinding = MiniSignalBinding;
+
+exports['default'] = MiniSignal;
+module.exports = exports['default'];
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function parseURI (str, opts) {
+  opts = opts || {}
+
+  var o = {
+    key: ['source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'],
+    q: {
+      name: 'queryKey',
+      parser: /(?:^|&)([^&=]*)=?([^&]*)/g
+    },
+    parser: {
+      strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+      loose: /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+    }
+  }
+
+  var m = o.parser[opts.strictMode ? 'strict' : 'loose'].exec(str)
+  var uri = {}
+  var i = 14
+
+  while (i--) uri[o.key[i]] = m[i] || ''
+
+  uri[o.q.name] = {}
+  uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
+    if ($1) uri[o.q.name][$1] = $2
+  })
+
+  return uri
+}
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+
+/**
+ * Helper class to create a WebGL Texture
+ *
+ * @class
+ * @memberof PIXI.glCore
+ * @param gl {WebGLRenderingContext} The current WebGL context
+ * @param width {number} the width of the texture
+ * @param height {number} the height of the texture
+ * @param format {number} the pixel format of the texture. defaults to gl.RGBA
+ * @param type {number} the gl type of the texture. defaults to gl.UNSIGNED_BYTE
+ */
+var Texture = function(gl, width, height, format, type)
+{
+	/**
+	 * The current WebGL rendering context
+	 *
+	 * @member {WebGLRenderingContext}
+	 */
+	this.gl = gl;
+
+
+	/**
+	 * The WebGL texture
+	 *
+	 * @member {WebGLTexture}
+	 */
+	this.texture = gl.createTexture();
+
+	/**
+	 * If mipmapping was used for this texture, enable and disable with enableMipmap()
+	 *
+	 * @member {Boolean}
+	 */
+	// some settings..
+	this.mipmap = false;
+
+
+	/**
+	 * Set to true to enable pre-multiplied alpha
+	 *
+	 * @member {Boolean}
+	 */
+	this.premultiplyAlpha = false;
+
+	/**
+	 * The width of texture
+	 *
+	 * @member {Number}
+	 */
+	this.width = width || -1;
+	/**
+	 * The height of texture
+	 *
+	 * @member {Number}
+	 */
+	this.height = height || -1;
+
+	/**
+	 * The pixel format of the texture. defaults to gl.RGBA
+	 *
+	 * @member {Number}
+	 */
+	this.format = format || gl.RGBA;
+
+	/**
+	 * The gl type of the texture. defaults to gl.UNSIGNED_BYTE
+	 *
+	 * @member {Number}
+	 */
+	this.type = type || gl.UNSIGNED_BYTE;
+
+
+};
+
+/**
+ * Uploads this texture to the GPU
+ * @param source {HTMLImageElement|ImageData|HTMLVideoElement} the source image of the texture
+ */
+Texture.prototype.upload = function(source)
+{
+	this.bind();
+
+	var gl = this.gl;
+
+
+	gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.premultiplyAlpha);
+
+	var newWidth = source.videoWidth || source.width;
+	var newHeight = source.videoHeight || source.height;
+
+	if(newHeight !== this.height || newWidth !== this.width)
+	{
+		gl.texImage2D(gl.TEXTURE_2D, 0, this.format, this.format, this.type, source);
+	}
+	else
+	{
+    	gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, this.format, this.type, source);
+	}
+
+	// if the source is a video, we need to use the videoWidth / videoHeight properties as width / height will be incorrect.
+	this.width = newWidth;
+	this.height = newHeight;
+
+};
+
+var FLOATING_POINT_AVAILABLE = false;
+
+/**
+ * Use a data source and uploads this texture to the GPU
+ * @param data {TypedArray} the data to upload to the texture
+ * @param width {number} the new width of the texture
+ * @param height {number} the new height of the texture
+ */
+Texture.prototype.uploadData = function(data, width, height)
+{
+	this.bind();
+
+	var gl = this.gl;
+
+
+	if(data instanceof Float32Array)
+	{
+		if(!FLOATING_POINT_AVAILABLE)
+		{
+			var ext = gl.getExtension("OES_texture_float");
+
+			if(ext)
+			{
+				FLOATING_POINT_AVAILABLE = true;
+			}
+			else
+			{
+				throw new Error('floating point textures not available');
+			}
+		}
+
+		this.type = gl.FLOAT;
+	}
+	else
+	{
+		// TODO support for other types
+		this.type = this.type || gl.UNSIGNED_BYTE;
+	}
+
+	// what type of data?
+	gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, this.premultiplyAlpha);
+
+
+	if(width !== this.width || height !== this.height)
+	{
+		gl.texImage2D(gl.TEXTURE_2D, 0, this.format,  width, height, 0, this.format, this.type, data || null);
+	}
+	else
+	{
+		gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, width, height, this.format, this.type, data || null);
+	}
+
+	this.width = width;
+	this.height = height;
+
+
+//	texSubImage2D
+};
+
+/**
+ * Binds the texture
+ * @param  location
+ */
+Texture.prototype.bind = function(location)
+{
+	var gl = this.gl;
+
+	if(location !== undefined)
+	{
+		gl.activeTexture(gl.TEXTURE0 + location);
+	}
+
+	gl.bindTexture(gl.TEXTURE_2D, this.texture);
+};
+
+/**
+ * Unbinds the texture
+ */
+Texture.prototype.unbind = function()
+{
+	var gl = this.gl;
+	gl.bindTexture(gl.TEXTURE_2D, null);
+};
+
+/**
+ * @param linear {Boolean} if we want to use linear filtering or nearest neighbour interpolation
+ */
+Texture.prototype.minFilter = function( linear )
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	if(this.mipmap)
+	{
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, linear ? gl.LINEAR_MIPMAP_LINEAR : gl.NEAREST_MIPMAP_NEAREST);
+	}
+	else
+	{
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, linear ? gl.LINEAR : gl.NEAREST);
+	}
+};
+
+/**
+ * @param linear {Boolean} if we want to use linear filtering or nearest neighbour interpolation
+ */
+Texture.prototype.magFilter = function( linear )
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, linear ? gl.LINEAR : gl.NEAREST);
+};
+
+/**
+ * Enables mipmapping
+ */
+Texture.prototype.enableMipmap = function()
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	this.mipmap = true;
+
+	gl.generateMipmap(gl.TEXTURE_2D);
+};
+
+/**
+ * Enables linear filtering
+ */
+Texture.prototype.enableLinearScaling = function()
+{
+	this.minFilter(true);
+	this.magFilter(true);
+};
+
+/**
+ * Enables nearest neighbour interpolation
+ */
+Texture.prototype.enableNearestScaling = function()
+{
+	this.minFilter(false);
+	this.magFilter(false);
+};
+
+/**
+ * Enables clamping on the texture so WebGL will not repeat it
+ */
+Texture.prototype.enableWrapClamp = function()
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+};
+
+/**
+ * Enable tiling on the texture
+ */
+Texture.prototype.enableWrapRepeat = function()
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+};
+
+Texture.prototype.enableWrapMirrorRepeat = function()
+{
+	var gl = this.gl;
+
+	this.bind();
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.MIRRORED_REPEAT);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.MIRRORED_REPEAT);
+};
+
+
+/**
+ * Destroys this texture
+ */
+Texture.prototype.destroy = function()
+{
+	var gl = this.gl;
+	//TODO
+	gl.deleteTexture(this.texture);
+};
+
+/**
+ * @static
+ * @param gl {WebGLRenderingContext} The current WebGL context
+ * @param source {HTMLImageElement|ImageData} the source image of the texture
+ * @param premultiplyAlpha {Boolean} If we want to use pre-multiplied alpha
+ */
+Texture.fromSource = function(gl, source, premultiplyAlpha)
+{
+	var texture = new Texture(gl);
+	texture.premultiplyAlpha = premultiplyAlpha || false;
+	texture.upload(source);
+
+	return texture;
+};
+
+/**
+ * @static
+ * @param gl {WebGLRenderingContext} The current WebGL context
+ * @param data {TypedArray} the data to upload to the texture
+ * @param width {number} the new width of the texture
+ * @param height {number} the new height of the texture
+ */
+Texture.fromData = function(gl, data, width, height)
+{
+	//console.log(data, width, height);
+	var texture = new Texture(gl);
+	texture.uploadData(data, width, height);
+
+	return texture;
+};
+
+
+module.exports = Texture;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+// var GL_MAP = {};
+
+/**
+ * @param gl {WebGLRenderingContext} The current WebGL context
+ * @param attribs {*}
+ * @param state {*}
+ */
+var setVertexAttribArrays = function (gl, attribs, state)
+{
+    var i;
+    if(state)
+    {
+        var tempAttribState = state.tempAttribState,
+            attribState = state.attribState;
+
+        for (i = 0; i < tempAttribState.length; i++)
+        {
+            tempAttribState[i] = false;
+        }
+
+        // set the new attribs
+        for (i = 0; i < attribs.length; i++)
+        {
+            tempAttribState[attribs[i].attribute.location] = true;
+        }
+
+        for (i = 0; i < attribState.length; i++)
+        {
+            if (attribState[i] !== tempAttribState[i])
+            {
+                attribState[i] = tempAttribState[i];
+
+                if (state.attribState[i])
+                {
+                    gl.enableVertexAttribArray(i);
+                }
+                else
+                {
+                    gl.disableVertexAttribArray(i);
+                }
+            }
+        }
+
+    }
+    else
+    {
+        for (i = 0; i < attribs.length; i++)
+        {
+            var attrib = attribs[i];
+            gl.enableVertexAttribArray(attrib.attribute.location);
+        }
+    }
+};
+
+module.exports = setVertexAttribArrays;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+
+/**
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param gl {WebGLRenderingContext} The current WebGL context {WebGLProgram}
+ * @param vertexSrc {string|string[]} The vertex shader source as an array of strings.
+ * @param fragmentSrc {string|string[]} The fragment shader source as an array of strings.
+ * @param attributeLocations {Object} An attribute location map that lets you manually set the attribute locations
+ * @return {WebGLProgram} the shader program
+ */
+var compileProgram = function(gl, vertexSrc, fragmentSrc, attributeLocations)
+{
+    var glVertShader = compileShader(gl, gl.VERTEX_SHADER, vertexSrc);
+    var glFragShader = compileShader(gl, gl.FRAGMENT_SHADER, fragmentSrc);
+
+    var program = gl.createProgram();
+
+    gl.attachShader(program, glVertShader);
+    gl.attachShader(program, glFragShader);
+
+    // optionally, set the attributes manually for the program rather than letting WebGL decide..
+    if(attributeLocations)
+    {
+        for(var i in attributeLocations)
+        {
+            gl.bindAttribLocation(program, attributeLocations[i], i);
+        }
+    }
+
+
+    gl.linkProgram(program);
+
+    // if linking fails, then log and cleanup
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS))
+    {
+        console.error('Pixi.js Error: Could not initialize shader.');
+        console.error('gl.VALIDATE_STATUS', gl.getProgramParameter(program, gl.VALIDATE_STATUS));
+        console.error('gl.getError()', gl.getError());
+
+        // if there is a program info log, log it
+        if (gl.getProgramInfoLog(program) !== '')
+        {
+            console.warn('Pixi.js Warning: gl.getProgramInfoLog()', gl.getProgramInfoLog(program));
+        }
+
+        gl.deleteProgram(program);
+        program = null;
+    }
+
+    // clean up some shaders
+    gl.deleteShader(glVertShader);
+    gl.deleteShader(glFragShader);
+
+    return program;
+};
+
+/**
+ * @private
+ * @param gl {WebGLRenderingContext} The current WebGL context {WebGLProgram}
+ * @param type {Number} the type, can be either VERTEX_SHADER or FRAGMENT_SHADER
+ * @param vertexSrc {string|string[]} The vertex shader source as an array of strings.
+ * @return {WebGLShader} the shader
+ */
+var compileShader = function (gl, type, src)
+{
+    var shader = gl.createShader(type);
+
+    gl.shaderSource(shader, src);
+    gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
+    {
+        console.log(gl.getShaderInfoLog(shader));
+        return null;
+    }
+
+    return shader;
+};
+
+module.exports = compileProgram;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+/**
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param type {String} Type of value
+ * @param size {Number}
+ */
+var defaultValue = function(type, size) 
+{
+    switch (type)
+    {
+        case 'float':
+            return 0;
+
+        case 'vec2': 
+            return new Float32Array(2 * size);
+
+        case 'vec3':
+            return new Float32Array(3 * size);
+
+        case 'vec4':     
+            return new Float32Array(4 * size);
+            
+        case 'int':
+        case 'sampler2D':
+            return 0;
+
+        case 'ivec2':   
+            return new Int32Array(2 * size);
+
+        case 'ivec3':
+            return new Int32Array(3 * size);
+
+        case 'ivec4': 
+            return new Int32Array(4 * size);
+
+        case 'bool':     
+            return false;
+
+        case 'bvec2':
+
+            return booleanArray( 2 * size);
+
+        case 'bvec3':
+            return booleanArray(3 * size);
+
+        case 'bvec4':
+            return booleanArray(4 * size);
+
+        case 'mat2':
+            return new Float32Array([1, 0,
+                                     0, 1]);
+
+        case 'mat3': 
+            return new Float32Array([1, 0, 0,
+                                     0, 1, 0,
+                                     0, 0, 1]);
+
+        case 'mat4':
+            return new Float32Array([1, 0, 0, 0,
+                                     0, 1, 0, 0,
+                                     0, 0, 1, 0,
+                                     0, 0, 0, 1]);
+    }
+};
+
+var booleanArray = function(size)
+{
+    var array = new Array(size);
+
+    for (var i = 0; i < array.length; i++) 
+    {
+        array[i] = false;
+    }
+
+    return array;
+};
+
+module.exports = defaultValue;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var mapType = __webpack_require__(26);
+var mapSize = __webpack_require__(55);
+
+/**
+ * Extracts the attributes
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param gl {WebGLRenderingContext} The current WebGL rendering context
+ * @param program {WebGLProgram} The shader program to get the attributes from
+ * @return attributes {Object}
+ */
+var extractAttributes = function(gl, program)
+{
+    var attributes = {};
+
+    var totalAttributes = gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES);
+
+    for (var i = 0; i < totalAttributes; i++)
+    {
+        var attribData = gl.getActiveAttrib(program, i);
+        var type = mapType(gl, attribData.type);
+
+        attributes[attribData.name] = {
+            type:type,
+            size:mapSize(type),
+            location:gl.getAttribLocation(program, attribData.name),
+            //TODO - make an attribute object
+            pointer: pointer
+        };
+    }
+
+    return attributes;
+};
+
+var pointer = function(type, normalized, stride, start){
+    // console.log(this.location)
+    gl.vertexAttribPointer(this.location,this.size, type || gl.FLOAT, normalized || false, stride || 0, start || 0);
+};
+
+module.exports = extractAttributes;
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var mapType = __webpack_require__(26);
+var defaultValue = __webpack_require__(51);
+
+/**
+ * Extracts the uniforms
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param gl {WebGLRenderingContext} The current WebGL rendering context
+ * @param program {WebGLProgram} The shader program to get the uniforms from
+ * @return uniforms {Object}
+ */
+var extractUniforms = function(gl, program)
+{
+	var uniforms = {};
+
+    var totalUniforms = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
+
+    for (var i = 0; i < totalUniforms; i++)
+    {
+    	var uniformData = gl.getActiveUniform(program, i);
+    	var name = uniformData.name.replace(/\[.*?\]/, "");
+        var type = mapType(gl, uniformData.type );
+
+    	uniforms[name] = {
+    		type:type,
+    		size:uniformData.size,
+    		location:gl.getUniformLocation(program, name),
+    		value:defaultValue(type, uniformData.size)
+    	};
+    }
+
+	return uniforms;
+};
+
+module.exports = extractUniforms;
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+/**
+ * Extracts the attributes
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param gl {WebGLRenderingContext} The current WebGL rendering context
+ * @param uniforms {Array} @mat ?
+ * @return attributes {Object}
+ */
+var generateUniformAccessObject = function(gl, uniformData)
+{
+    // this is the object we will be sending back.
+    // an object hierachy will be created for structs
+    var uniforms = {data:{}};
+
+    uniforms.gl = gl;
+
+    var uniformKeys= Object.keys(uniformData);
+
+    for (var i = 0; i < uniformKeys.length; i++)
+    {
+        var fullName = uniformKeys[i];
+
+        var nameTokens = fullName.split('.');
+        var name = nameTokens[nameTokens.length - 1];
+
+
+        var uniformGroup = getUniformGroup(nameTokens, uniforms);
+
+        var uniform =  uniformData[fullName];
+        uniformGroup.data[name] = uniform;
+
+        uniformGroup.gl = gl;
+
+        Object.defineProperty(uniformGroup, name, {
+            get: generateGetter(name),
+            set: generateSetter(name, uniform)
+        });
+    }
+
+    return uniforms;
+};
+
+var generateGetter = function(name)
+{
+	var template = getterTemplate.replace('%%', name);
+	return new Function(template); // jshint ignore:line
+};
+
+var generateSetter = function(name, uniform)
+{
+    var template = setterTemplate.replace(/%%/g, name);
+    var setTemplate;
+
+    if(uniform.size === 1)
+    {
+        setTemplate = GLSL_TO_SINGLE_SETTERS[uniform.type];
+    }
+    else
+    {
+        setTemplate = GLSL_TO_ARRAY_SETTERS[uniform.type];
+    }
+
+    if(setTemplate)
+    {
+        template += "\nthis.gl." + setTemplate + ";";
+    }
+
+  	return new Function('value', template); // jshint ignore:line
+};
+
+var getUniformGroup = function(nameTokens, uniform)
+{
+    var cur = uniform;
+
+    for (var i = 0; i < nameTokens.length - 1; i++)
+    {
+        var o = cur[nameTokens[i]] || {data:{}};
+        cur[nameTokens[i]] = o;
+        cur = o;
+    }
+
+    return cur;
+};
+
+var getterTemplate = [
+    'return this.data.%%.value;',
+].join('\n');
+
+var setterTemplate = [
+    'this.data.%%.value = value;',
+    'var location = this.data.%%.location;'
+].join('\n');
+
+
+var GLSL_TO_SINGLE_SETTERS = {
+
+    'float':    'uniform1f(location, value)',
+
+    'vec2':     'uniform2f(location, value[0], value[1])',
+    'vec3':     'uniform3f(location, value[0], value[1], value[2])',
+    'vec4':     'uniform4f(location, value[0], value[1], value[2], value[3])',
+
+    'int':      'uniform1i(location, value)',
+    'ivec2':    'uniform2i(location, value[0], value[1])',
+    'ivec3':    'uniform3i(location, value[0], value[1], value[2])',
+    'ivec4':    'uniform4i(location, value[0], value[1], value[2], value[3])',
+
+    'bool':     'uniform1i(location, value)',
+    'bvec2':    'uniform2i(location, value[0], value[1])',
+    'bvec3':    'uniform3i(location, value[0], value[1], value[2])',
+    'bvec4':    'uniform4i(location, value[0], value[1], value[2], value[3])',
+
+    'mat2':     'uniformMatrix2fv(location, false, value)',
+    'mat3':     'uniformMatrix3fv(location, false, value)',
+    'mat4':     'uniformMatrix4fv(location, false, value)',
+
+    'sampler2D':'uniform1i(location, value)'
+};
+
+var GLSL_TO_ARRAY_SETTERS = {
+
+    'float':    'uniform1fv(location, value)',
+
+    'vec2':     'uniform2fv(location, value)',
+    'vec3':     'uniform3fv(location, value)',
+    'vec4':     'uniform4fv(location, value)',
+
+    'int':      'uniform1iv(location, value)',
+    'ivec2':    'uniform2iv(location, value)',
+    'ivec3':    'uniform3iv(location, value)',
+    'ivec4':    'uniform4iv(location, value)',
+
+    'bool':     'uniform1iv(location, value)',
+    'bvec2':    'uniform2iv(location, value)',
+    'bvec3':    'uniform3iv(location, value)',
+    'bvec4':    'uniform4iv(location, value)',
+
+    'sampler2D':'uniform1iv(location, value)'
+};
+
+module.exports = generateUniformAccessObject;
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+/**
+ * @class
+ * @memberof PIXI.glCore.shader
+ * @param type {String}
+ * @return {Number}
+ */
+var mapSize = function(type) 
+{ 
+    return GLSL_TO_SIZE[type];
+};
+
+
+var GLSL_TO_SIZE = {
+    'float':    1,
+    'vec2':     2,
+    'vec3':     3,
+    'vec4':     4,
+
+    'int':      1,
+    'ivec2':    2,
+    'ivec3':    3,
+    'ivec4':    4,
+
+    'bool':     1,
+    'bvec2':    2,
+    'bvec3':    3,
+    'bvec4':    4,
+
+    'mat2':     4,
+    'mat3':     9,
+    'mat4':     16,
+
+    'sampler2D':  1
+};
+
+module.exports = mapSize;
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports) {
+
+/**
+ * Sets the float precision on the shader. If the precision is already present this function will do nothing
+ * @param {string} src       the shader source
+ * @param {string} precision The float precision of the shader. Options are 'lowp', 'mediump' or 'highp'.
+ *
+ * @return {string} modified shader source
+ */
+var setPrecision = function(src, precision)
+{
+    if(src.substring(0, 9) !== 'precision')
+    {
+        return 'precision ' + precision + ' float;\n' + src;
+    }
+
+    return src;
+};
+
+module.exports = setPrecision;
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+/**
+ * Default property values of accessible objects
+ * used by {@link PIXI.accessibility.AccessibilityManager}.
+ *
+ * @function accessibleTarget
+ * @memberof PIXI.accessibility
+ * @example
+ *      function MyObject() {}
+ *
+ *      Object.assign(
+ *          MyObject.prototype,
+ *          PIXI.accessibility.accessibleTarget
+ *      );
+ */
+exports.default = {
+  /**
+   *  Flag for if the object is accessible. If true AccessibilityManager will overlay a
+   *   shadow div with attributes set
+   *
+   * @member {boolean}
+   */
+  accessible: false,
+
+  /**
+   * Sets the title attribute of the shadow div
+   * If accessibleTitle AND accessibleHint has not been this will default to 'displayObject [tabIndex]'
+   *
+   * @member {string}
+   */
+  accessibleTitle: null,
+
+  /**
+   * Sets the aria-label attribute of the shadow div
+   *
+   * @member {string}
+   */
+  accessibleHint: null,
+
+  /**
+   * @todo Needs docs.
+   */
+  tabIndex: 0,
+
+  /**
+   * @todo Needs docs.
+   */
+  _accessibleActive: false,
+
+  /**
+   * @todo Needs docs.
+   */
+  _accessibleDiv: false
+};
+//# sourceMappingURL=accessibleTarget.js.map
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.autoDetectRenderer = autoDetectRenderer;
+
+var _utils = __webpack_require__(2);
+
+var utils = _interopRequireWildcard(_utils);
+
+var _CanvasRenderer = __webpack_require__(13);
+
+var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
+
+var _WebGLRenderer = __webpack_require__(19);
+
+var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/**
+ * This helper function will automatically detect which renderer you should be using.
+ * WebGL is the preferred renderer as it is a lot faster. If webGL is not supported by
+ * the browser then this function will return a canvas renderer
+ *
+ * @memberof PIXI
+ * @function autoDetectRenderer
+ * @param {number} [width=800] - the width of the renderers view
+ * @param {number} [height=600] - the height of the renderers view
+ * @param {object} [options] - The optional renderer parameters
+ * @param {HTMLCanvasElement} [options.view] - the canvas to use as a view, optional
+ * @param {boolean} [options.transparent=false] - If the render view is transparent, default false
+ * @param {boolean} [options.antialias=false] - sets antialias (only applicable in chrome at the moment)
+ * @param {boolean} [options.preserveDrawingBuffer=false] - enables drawing buffer preservation, enable this if you
+ *      need to call toDataUrl on the webgl context
+ * @param {number} [options.resolution=1] - The resolution / device pixel ratio of the renderer, retina would be 2
+ * @param {boolean} [noWebGL=false] - prevents selection of WebGL renderer, even if such is present
+ * @return {PIXI.WebGLRenderer|PIXI.CanvasRenderer} Returns WebGL renderer if available, otherwise CanvasRenderer
+ */
+function autoDetectRenderer() {
+    var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 800;
+    var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 600;
+    var options = arguments[2];
+    var noWebGL = arguments[3];
+
+    if (!noWebGL && utils.isWebGLSupported()) {
+        return new _WebGLRenderer2.default(width, height, options);
+    }
+
+    return new _CanvasRenderer2.default(width, height, options);
+}
+//# sourceMappingURL=autoDetectRenderer.js.map
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _eventemitter = __webpack_require__(8);
+
+var _eventemitter2 = _interopRequireDefault(_eventemitter);
+
+var _const = __webpack_require__(1);
+
+var _settings = __webpack_require__(4);
+
+var _settings2 = _interopRequireDefault(_settings);
+
+var _TransformStatic = __webpack_require__(61);
+
+var _TransformStatic2 = _interopRequireDefault(_TransformStatic);
+
+var _Transform = __webpack_require__(60);
+
+var _Transform2 = _interopRequireDefault(_Transform);
+
+var _Bounds = __webpack_require__(27);
+
+var _Bounds2 = _interopRequireDefault(_Bounds);
+
+var _math = __webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// _tempDisplayObjectParent = new DisplayObject();
+
+/**
+ * The base class for all objects that are rendered on the screen.
+ * This is an abstract class and should not be used on its own rather it should be extended.
+ *
+ * @class
+ * @extends EventEmitter
+ * @mixes PIXI.interaction.interactiveTarget
+ * @memberof PIXI
+ */
+var DisplayObject = function (_EventEmitter) {
+    _inherits(DisplayObject, _EventEmitter);
+
+    /**
+     *
+     */
+    function DisplayObject() {
+        _classCallCheck(this, DisplayObject);
+
+        var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+        var TransformClass = _settings2.default.TRANSFORM_MODE === _const.TRANSFORM_MODE.STATIC ? _TransformStatic2.default : _Transform2.default;
+
+        _this.tempDisplayObjectParent = null;
+
+        // TODO: need to create Transform from factory
+        /**
+         * World transform and local transform of this object.
+         * This will become read-only later, please do not assign anything there unless you know what are you doing
+         *
+         * @member {PIXI.TransformBase}
+         */
+        _this.transform = new TransformClass();
+
+        /**
+         * The opacity of the object.
+         *
+         * @member {number}
+         */
+        _this.alpha = 1;
+
+        /**
+         * The visibility of the object. If false the object will not be drawn, and
+         * the updateTransform function will not be called.
+         *
+         * Only affects recursive calls from parent. You can ask for bounds or call updateTransform manually
+         *
+         * @member {boolean}
+         */
+        _this.visible = true;
+
+        /**
+         * Can this object be rendered, if false the object will not be drawn but the updateTransform
+         * methods will still be called.
+         *
+         * Only affects recursive calls from parent. You can ask for bounds manually
+         *
+         * @member {boolean}
+         */
+        _this.renderable = true;
+
+        /**
+         * The display object container that contains this display object.
+         *
+         * @member {PIXI.Container}
+         * @readonly
+         */
+        _this.parent = null;
+
+        /**
+         * The multiplied alpha of the displayObject
+         *
+         * @member {number}
+         * @readonly
+         */
+        _this.worldAlpha = 1;
+
+        /**
+         * The area the filter is applied to. This is used as more of an optimisation
+         * rather than figuring out the dimensions of the displayObject each frame you can set this rectangle
+         *
+         * Also works as an interaction mask
+         *
+         * @member {PIXI.Rectangle}
+         */
+        _this.filterArea = null;
+
+        _this._filters = null;
+        _this._enabledFilters = null;
+
+        /**
+         * The bounds object, this is used to calculate and store the bounds of the displayObject
+         *
+         * @member {PIXI.Rectangle}
+         * @private
+         */
+        _this._bounds = new _Bounds2.default();
+        _this._boundsID = 0;
+        _this._lastBoundsID = -1;
+        _this._boundsRect = null;
+        _this._localBoundsRect = null;
+
+        /**
+         * The original, cached mask of the object
+         *
+         * @member {PIXI.Graphics|PIXI.Sprite}
+         * @private
+         */
+        _this._mask = null;
+
+        /**
+         * If the object has been destroyed via destroy(). If true, it should not be used.
+         *
+         * @member {boolean}
+         * @private
+         * @readonly
+         */
+        _this._destroyed = false;
+        return _this;
+    }
+
+    /**
+     * @private
+     * @member {PIXI.DisplayObject}
+     */
+
+
+    /**
+     * Updates the object transform for rendering
+     *
+     * TODO - Optimization pass!
+     */
+    DisplayObject.prototype.updateTransform = function updateTransform() {
+        this.transform.updateTransform(this.parent.transform);
+        // multiply the alphas..
+        this.worldAlpha = this.alpha * this.parent.worldAlpha;
+
+        this._bounds.updateID++;
+    };
+
+    /**
+     * recursively updates transform of all objects from the root to this one
+     * internal function for toLocal()
+     */
+
+
+    DisplayObject.prototype._recursivePostUpdateTransform = function _recursivePostUpdateTransform() {
+        if (this.parent) {
+            this.parent._recursivePostUpdateTransform();
+            this.transform.updateTransform(this.parent.transform);
+        } else {
+            this.transform.updateTransform(this._tempDisplayObjectParent.transform);
+        }
+    };
+
+    /**
+     * Retrieves the bounds of the displayObject as a rectangle object.
+     *
+     * @param {boolean} skipUpdate - setting to true will stop the transforms of the scene graph from
+     *  being updated. This means the calculation returned MAY be out of date BUT will give you a
+     *  nice performance boost
+     * @param {PIXI.Rectangle} rect - Optional rectangle to store the result of the bounds calculation
+     * @return {PIXI.Rectangle} the rectangular bounding area
+     */
+
+
+    DisplayObject.prototype.getBounds = function getBounds(skipUpdate, rect) {
+        if (!skipUpdate) {
+            if (!this.parent) {
+                this.parent = this._tempDisplayObjectParent;
+                this.updateTransform();
+                this.parent = null;
+            } else {
+                this._recursivePostUpdateTransform();
+                this.updateTransform();
+            }
+        }
+
+        if (this._boundsID !== this._lastBoundsID) {
+            this.calculateBounds();
+        }
+
+        if (!rect) {
+            if (!this._boundsRect) {
+                this._boundsRect = new _math.Rectangle();
+            }
+
+            rect = this._boundsRect;
+        }
+
+        return this._bounds.getRectangle(rect);
+    };
+
+    /**
+     * Retrieves the local bounds of the displayObject as a rectangle object
+     *
+     * @param {PIXI.Rectangle} [rect] - Optional rectangle to store the result of the bounds calculation
+     * @return {PIXI.Rectangle} the rectangular bounding area
+     */
+
+
+    DisplayObject.prototype.getLocalBounds = function getLocalBounds(rect) {
+        var transformRef = this.transform;
+        var parentRef = this.parent;
+
+        this.parent = null;
+        this.transform = this._tempDisplayObjectParent.transform;
+
+        if (!rect) {
+            if (!this._localBoundsRect) {
+                this._localBoundsRect = new _math.Rectangle();
+            }
+
+            rect = this._localBoundsRect;
+        }
+
+        var bounds = this.getBounds(false, rect);
+
+        this.parent = parentRef;
+        this.transform = transformRef;
+
+        return bounds;
+    };
+
+    /**
+     * Calculates the global position of the display object
+     *
+     * @param {PIXI.Point} position - The world origin to calculate from
+     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
+     *  (otherwise will create a new Point)
+     * @param {boolean} [skipUpdate=false] - Should we skip the update transform.
+     * @return {PIXI.Point} A point object representing the position of this object
+     */
+
+
+    DisplayObject.prototype.toGlobal = function toGlobal(position, point) {
+        var skipUpdate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+        if (!skipUpdate) {
+            this._recursivePostUpdateTransform();
+
+            // this parent check is for just in case the item is a root object.
+            // If it is we need to give it a temporary parent so that displayObjectUpdateTransform works correctly
+            // this is mainly to avoid a parent check in the main loop. Every little helps for performance :)
+            if (!this.parent) {
+                this.parent = this._tempDisplayObjectParent;
+                this.displayObjectUpdateTransform();
+                this.parent = null;
+            } else {
+                this.displayObjectUpdateTransform();
+            }
+        }
+
+        // don't need to update the lot
+        return this.worldTransform.apply(position, point);
+    };
+
+    /**
+     * Calculates the local position of the display object relative to another point
+     *
+     * @param {PIXI.Point} position - The world origin to calculate from
+     * @param {PIXI.DisplayObject} [from] - The DisplayObject to calculate the global position from
+     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
+     *  (otherwise will create a new Point)
+     * @param {boolean} [skipUpdate=false] - Should we skip the update transform
+     * @return {PIXI.Point} A point object representing the position of this object
+     */
+
+
+    DisplayObject.prototype.toLocal = function toLocal(position, from, point, skipUpdate) {
+        if (from) {
+            position = from.toGlobal(position, point, skipUpdate);
+        }
+
+        if (!skipUpdate) {
+            this._recursivePostUpdateTransform();
+
+            // this parent check is for just in case the item is a root object.
+            // If it is we need to give it a temporary parent so that displayObjectUpdateTransform works correctly
+            // this is mainly to avoid a parent check in the main loop. Every little helps for performance :)
+            if (!this.parent) {
+                this.parent = this._tempDisplayObjectParent;
+                this.displayObjectUpdateTransform();
+                this.parent = null;
+            } else {
+                this.displayObjectUpdateTransform();
+            }
+        }
+
+        // simply apply the matrix..
+        return this.worldTransform.applyInverse(position, point);
+    };
+
+    /**
+     * Renders the object using the WebGL renderer
+     *
+     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     */
+
+
+    DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) // eslint-disable-line no-unused-vars
+    {}
+    // OVERWRITE;
+
+
+    /**
+     * Renders the object using the Canvas renderer
+     *
+     * @param {PIXI.CanvasRenderer} renderer - The renderer
+     */
+    ;
+
+    DisplayObject.prototype.renderCanvas = function renderCanvas(renderer) // eslint-disable-line no-unused-vars
+    {}
+    // OVERWRITE;
+
+
+    /**
+     * Set the parent Container of this DisplayObject
+     *
+     * @param {PIXI.Container} container - The Container to add this DisplayObject to
+     * @return {PIXI.Container} The Container that this DisplayObject was added to
+     */
+    ;
+
+    DisplayObject.prototype.setParent = function setParent(container) {
+        if (!container || !container.addChild) {
+            throw new Error('setParent: Argument must be a Container');
+        }
+
+        container.addChild(this);
+
+        return container;
+    };
+
+    /**
+     * Convenience function to set the position, scale, skew and pivot at once.
+     *
+     * @param {number} [x=0] - The X position
+     * @param {number} [y=0] - The Y position
+     * @param {number} [scaleX=1] - The X scale value
+     * @param {number} [scaleY=1] - The Y scale value
+     * @param {number} [rotation=0] - The rotation
+     * @param {number} [skewX=0] - The X skew value
+     * @param {number} [skewY=0] - The Y skew value
+     * @param {number} [pivotX=0] - The X pivot value
+     * @param {number} [pivotY=0] - The Y pivot value
+     * @return {PIXI.DisplayObject} The DisplayObject instance
+     */
+
+
+    DisplayObject.prototype.setTransform = function setTransform() {
+        var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+        var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+        var scaleX = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+        var scaleY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+        var rotation = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+        var skewX = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+        var skewY = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0;
+        var pivotX = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : 0;
+        var pivotY = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : 0;
+
+        this.position.x = x;
+        this.position.y = y;
+        this.scale.x = !scaleX ? 1 : scaleX;
+        this.scale.y = !scaleY ? 1 : scaleY;
+        this.rotation = rotation;
+        this.skew.x = skewX;
+        this.skew.y = skewY;
+        this.pivot.x = pivotX;
+        this.pivot.y = pivotY;
+
+        return this;
+    };
+
+    /**
+     * Base destroy method for generic display objects. This will automatically
+     * remove the display object from its parent Container as well as remove
+     * all current event listeners and internal references. Do not use a DisplayObject
+     * after calling `destroy`.
+     *
+     */
+
+
+    DisplayObject.prototype.destroy = function destroy() {
+        this.removeAllListeners();
+        if (this.parent) {
+            this.parent.removeChild(this);
+        }
+        this.transform = null;
+
+        this.parent = null;
+
+        this._bounds = null;
+        this._currentBounds = null;
+        this._mask = null;
+
+        this.filterArea = null;
+
+        this.interactive = false;
+        this.interactiveChildren = false;
+
+        this._destroyed = true;
+    };
+
+    /**
+     * The position of the displayObject on the x axis relative to the local coordinates of the parent.
+     * An alias to position.x
+     *
+     * @member {number}
+     */
+
+
+    _createClass(DisplayObject, [{
+        key: '_tempDisplayObjectParent',
+        get: function get() {
+            if (this.tempDisplayObjectParent === null) {
+                this.tempDisplayObjectParent = new DisplayObject();
+            }
+
+            return this.tempDisplayObjectParent;
+        }
+    }, {
+        key: 'x',
+        get: function get() {
+            return this.position.x;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.position.x = value;
+        }
+
+        /**
+         * The position of the displayObject on the y axis relative to the local coordinates of the parent.
+         * An alias to position.y
+         *
+         * @member {number}
+         */
+
+    }, {
+        key: 'y',
+        get: function get() {
+            return this.position.y;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.position.y = value;
+        }
+
+        /**
+         * Current transform of the object based on world (parent) factors
+         *
+         * @member {PIXI.Matrix}
+         * @readonly
+         */
+
+    }, {
+        key: 'worldTransform',
+        get: function get() {
+            return this.transform.worldTransform;
+        }
+
+        /**
+         * Current transform of the object based on local factors: position, scale, other stuff
+         *
+         * @member {PIXI.Matrix}
+         * @readonly
+         */
+
+    }, {
+        key: 'localTransform',
+        get: function get() {
+            return this.transform.localTransform;
+        }
+
+        /**
+         * The coordinate of the object relative to the local coordinates of the parent.
+         * Assignment by value since pixi-v4.
+         *
+         * @member {PIXI.Point|PIXI.ObservablePoint}
+         */
+
+    }, {
+        key: 'position',
+        get: function get() {
+            return this.transform.position;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.position.copy(value);
+        }
+
+        /**
+         * The scale factor of the object.
+         * Assignment by value since pixi-v4.
+         *
+         * @member {PIXI.Point|PIXI.ObservablePoint}
+         */
+
+    }, {
+        key: 'scale',
+        get: function get() {
+            return this.transform.scale;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.scale.copy(value);
+        }
+
+        /**
+         * The pivot point of the displayObject that it rotates around
+         * Assignment by value since pixi-v4.
+         *
+         * @member {PIXI.Point|PIXI.ObservablePoint}
+         */
+
+    }, {
+        key: 'pivot',
+        get: function get() {
+            return this.transform.pivot;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.pivot.copy(value);
+        }
+
+        /**
+         * The skew factor for the object in radians.
+         * Assignment by value since pixi-v4.
+         *
+         * @member {PIXI.ObservablePoint}
+         */
+
+    }, {
+        key: 'skew',
+        get: function get() {
+            return this.transform.skew;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.skew.copy(value);
+        }
+
+        /**
+         * The rotation of the object in radians.
+         *
+         * @member {number}
+         */
+
+    }, {
+        key: 'rotation',
+        get: function get() {
+            return this.transform.rotation;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.transform.rotation = value;
+        }
+
+        /**
+         * Indicates if the object is globally visible.
+         *
+         * @member {boolean}
+         * @readonly
+         */
+
+    }, {
+        key: 'worldVisible',
+        get: function get() {
+            var item = this;
+
+            do {
+                if (!item.visible) {
+                    return false;
+                }
+
+                item = item.parent;
+            } while (item);
+
+            return true;
+        }
+
+        /**
+         * Sets a mask for the displayObject. A mask is an object that limits the visibility of an
+         * object to the shape of the mask applied to it. In PIXI a regular mask must be a
+         * PIXI.Graphics or a PIXI.Sprite object. This allows for much faster masking in canvas as it
+         * utilises shape clipping. To remove a mask, set this property to null.
+         *
+         * @todo For the moment, PIXI.CanvasRenderer doesn't support PIXI.Sprite as mask.
+         *
+         * @member {PIXI.Graphics|PIXI.Sprite}
+         */
+
+    }, {
+        key: 'mask',
+        get: function get() {
+            return this._mask;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            if (this._mask) {
+                this._mask.renderable = true;
+            }
+
+            this._mask = value;
+
+            if (this._mask) {
+                this._mask.renderable = false;
+            }
+        }
+
+        /**
+         * Sets the filters for the displayObject.
+         * * IMPORTANT: This is a webGL only feature and will be ignored by the canvas renderer.
+         * To remove filters simply set this property to 'null'
+         *
+         * @member {PIXI.Filter[]}
+         */
+
+    }, {
+        key: 'filters',
+        get: function get() {
+            return this._filters && this._filters.slice();
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._filters = value && value.slice();
+        }
+    }]);
+
+    return DisplayObject;
+}(_eventemitter2.default);
+
+// performance increase to avoid using call.. (10x faster)
+
+
+exports.default = DisplayObject;
+DisplayObject.prototype.displayObjectUpdateTransform = DisplayObject.prototype.updateTransform;
+//# sourceMappingURL=DisplayObject.js.map
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _math = __webpack_require__(3);
+
+var _TransformBase2 = __webpack_require__(28);
+
+var _TransformBase3 = _interopRequireDefault(_TransformBase2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Generic class to deal with traditional 2D matrix transforms
+ * local transformation is calculated from position,scale,skew and rotation
+ *
+ * @class
+ * @extends PIXI.TransformBase
+ * @memberof PIXI
+ */
+var Transform = function (_TransformBase) {
+  _inherits(Transform, _TransformBase);
+
+  /**
+   *
+   */
+  function Transform() {
+    _classCallCheck(this, Transform);
+
+    /**
+    * The coordinate of the object relative to the local coordinates of the parent.
+    *
+    * @member {PIXI.Point}
+    */
+    var _this = _possibleConstructorReturn(this, _TransformBase.call(this));
+
+    _this.position = new _math.Point(0, 0);
+
+    /**
+     * The scale factor of the object.
+     *
+     * @member {PIXI.Point}
+     */
+    _this.scale = new _math.Point(1, 1);
+
+    /**
+     * The skew amount, on the x and y axis.
+     *
+     * @member {PIXI.ObservablePoint}
+     */
+    _this.skew = new _math.ObservablePoint(_this.updateSkew, _this, 0, 0);
+
+    /**
+     * The pivot point of the displayObject that it rotates around
+     *
+     * @member {PIXI.Point}
+     */
+    _this.pivot = new _math.Point(0, 0);
+
+    /**
+     * The rotation value of the object, in radians
+     *
+     * @member {Number}
+     * @private
+     */
+    _this._rotation = 0;
+
+    _this._cx = 1; // cos rotation + skewY;
+    _this._sx = 0; // sin rotation + skewY;
+    _this._cy = 0; // cos rotation + Math.PI/2 - skewX;
+    _this._sy = 1; // sin rotation + Math.PI/2 - skewX;
+    return _this;
+  }
+
+  /**
+   * Updates the skew values when the skew or rotation changes.
+   *
+   * @private
+   */
+
+
+  Transform.prototype.updateSkew = function updateSkew() {
+    this._cx = Math.cos(this._rotation + this.skew._y);
+    this._sx = Math.sin(this._rotation + this.skew._y);
+    this._cy = -Math.sin(this._rotation - this.skew._x); // cos, added PI/2
+    this._sy = Math.cos(this._rotation - this.skew._x); // sin, added PI/2
+  };
+
+  /**
+   * Updates only local matrix
+   */
+
+
+  Transform.prototype.updateLocalTransform = function updateLocalTransform() {
+    var lt = this.localTransform;
+
+    lt.a = this._cx * this.scale.x;
+    lt.b = this._sx * this.scale.x;
+    lt.c = this._cy * this.scale.y;
+    lt.d = this._sy * this.scale.y;
+
+    lt.tx = this.position.x - (this.pivot.x * lt.a + this.pivot.y * lt.c);
+    lt.ty = this.position.y - (this.pivot.x * lt.b + this.pivot.y * lt.d);
+  };
+
+  /**
+   * Updates the values of the object and applies the parent's transform.
+   *
+   * @param {PIXI.Transform} parentTransform - The transform of the parent of this object
+   */
+
+
+  Transform.prototype.updateTransform = function updateTransform(parentTransform) {
+    var lt = this.localTransform;
+
+    lt.a = this._cx * this.scale.x;
+    lt.b = this._sx * this.scale.x;
+    lt.c = this._cy * this.scale.y;
+    lt.d = this._sy * this.scale.y;
+
+    lt.tx = this.position.x - (this.pivot.x * lt.a + this.pivot.y * lt.c);
+    lt.ty = this.position.y - (this.pivot.x * lt.b + this.pivot.y * lt.d);
+
+    // concat the parent matrix with the objects transform.
+    var pt = parentTransform.worldTransform;
+    var wt = this.worldTransform;
+
+    wt.a = lt.a * pt.a + lt.b * pt.c;
+    wt.b = lt.a * pt.b + lt.b * pt.d;
+    wt.c = lt.c * pt.a + lt.d * pt.c;
+    wt.d = lt.c * pt.b + lt.d * pt.d;
+    wt.tx = lt.tx * pt.a + lt.ty * pt.c + pt.tx;
+    wt.ty = lt.tx * pt.b + lt.ty * pt.d + pt.ty;
+
+    this._worldID++;
+  };
+
+  /**
+   * Decomposes a matrix and sets the transforms properties based on it.
+   *
+   * @param {PIXI.Matrix} matrix - The matrix to decompose
+   */
+
+
+  Transform.prototype.setFromMatrix = function setFromMatrix(matrix) {
+    matrix.decompose(this);
+  };
+
+  /**
+   * The rotation of the object in radians.
+   *
+   * @member {number}
+   */
+
+
+  _createClass(Transform, [{
+    key: 'rotation',
+    get: function get() {
+      return this._rotation;
+    },
+    set: function set(value) // eslint-disable-line require-jsdoc
+    {
+      this._rotation = value;
+      this.updateSkew();
+    }
+  }]);
+
+  return Transform;
+}(_TransformBase3.default);
+
+exports.default = Transform;
+//# sourceMappingURL=Transform.js.map
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _math = __webpack_require__(3);
+
+var _TransformBase2 = __webpack_require__(28);
+
+var _TransformBase3 = _interopRequireDefault(_TransformBase2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Transform that takes care about its versions
+ *
+ * @class
+ * @extends PIXI.TransformBase
+ * @memberof PIXI
+ */
+var TransformStatic = function (_TransformBase) {
+    _inherits(TransformStatic, _TransformBase);
+
+    /**
+     *
+     */
+    function TransformStatic() {
+        _classCallCheck(this, TransformStatic);
+
+        /**
+        * The coordinate of the object relative to the local coordinates of the parent.
+        *
+        * @member {PIXI.ObservablePoint}
+        */
+        var _this = _possibleConstructorReturn(this, _TransformBase.call(this));
+
+        _this.position = new _math.ObservablePoint(_this.onChange, _this, 0, 0);
+
+        /**
+         * The scale factor of the object.
+         *
+         * @member {PIXI.ObservablePoint}
+         */
+        _this.scale = new _math.ObservablePoint(_this.onChange, _this, 1, 1);
+
+        /**
+         * The pivot point of the displayObject that it rotates around
+         *
+         * @member {PIXI.ObservablePoint}
+         */
+        _this.pivot = new _math.ObservablePoint(_this.onChange, _this, 0, 0);
+
+        /**
+         * The skew amount, on the x and y axis.
+         *
+         * @member {PIXI.ObservablePoint}
+         */
+        _this.skew = new _math.ObservablePoint(_this.updateSkew, _this, 0, 0);
+
+        _this._rotation = 0;
+
+        _this._cx = 1; // cos rotation + skewY;
+        _this._sx = 0; // sin rotation + skewY;
+        _this._cy = 0; // cos rotation + Math.PI/2 - skewX;
+        _this._sy = 1; // sin rotation + Math.PI/2 - skewX;
+
+        _this._localID = 0;
+        _this._currentLocalID = 0;
+        return _this;
+    }
+
+    /**
+     * Called when a value changes.
+     *
+     * @private
+     */
+
+
+    TransformStatic.prototype.onChange = function onChange() {
+        this._localID++;
+    };
+
+    /**
+     * Called when skew or rotation changes
+     *
+     * @private
+     */
+
+
+    TransformStatic.prototype.updateSkew = function updateSkew() {
+        this._cx = Math.cos(this._rotation + this.skew._y);
+        this._sx = Math.sin(this._rotation + this.skew._y);
+        this._cy = -Math.sin(this._rotation - this.skew._x); // cos, added PI/2
+        this._sy = Math.cos(this._rotation - this.skew._x); // sin, added PI/2
+
+        this._localID++;
+    };
+
+    /**
+     * Updates only local matrix
+     */
+
+
+    TransformStatic.prototype.updateLocalTransform = function updateLocalTransform() {
+        var lt = this.localTransform;
+
+        if (this._localID !== this._currentLocalID) {
+            // get the matrix values of the displayobject based on its transform properties..
+            lt.a = this._cx * this.scale._x;
+            lt.b = this._sx * this.scale._x;
+            lt.c = this._cy * this.scale._y;
+            lt.d = this._sy * this.scale._y;
+
+            lt.tx = this.position._x - (this.pivot._x * lt.a + this.pivot._y * lt.c);
+            lt.ty = this.position._y - (this.pivot._x * lt.b + this.pivot._y * lt.d);
+            this._currentLocalID = this._localID;
+
+            // force an update..
+            this._parentID = -1;
+        }
+    };
+
+    /**
+     * Updates the values of the object and applies the parent's transform.
+     *
+     * @param {PIXI.Transform} parentTransform - The transform of the parent of this object
+     */
+
+
+    TransformStatic.prototype.updateTransform = function updateTransform(parentTransform) {
+        var lt = this.localTransform;
+
+        if (this._localID !== this._currentLocalID) {
+            // get the matrix values of the displayobject based on its transform properties..
+            lt.a = this._cx * this.scale._x;
+            lt.b = this._sx * this.scale._x;
+            lt.c = this._cy * this.scale._y;
+            lt.d = this._sy * this.scale._y;
+
+            lt.tx = this.position._x - (this.pivot._x * lt.a + this.pivot._y * lt.c);
+            lt.ty = this.position._y - (this.pivot._x * lt.b + this.pivot._y * lt.d);
+            this._currentLocalID = this._localID;
+
+            // force an update..
+            this._parentID = -1;
+        }
+
+        if (this._parentID !== parentTransform._worldID) {
+            // concat the parent matrix with the objects transform.
+            var pt = parentTransform.worldTransform;
+            var wt = this.worldTransform;
+
+            wt.a = lt.a * pt.a + lt.b * pt.c;
+            wt.b = lt.a * pt.b + lt.b * pt.d;
+            wt.c = lt.c * pt.a + lt.d * pt.c;
+            wt.d = lt.c * pt.b + lt.d * pt.d;
+            wt.tx = lt.tx * pt.a + lt.ty * pt.c + pt.tx;
+            wt.ty = lt.tx * pt.b + lt.ty * pt.d + pt.ty;
+
+            this._parentID = parentTransform._worldID;
+
+            // update the id of the transform..
+            this._worldID++;
+        }
+    };
+
+    /**
+     * Decomposes a matrix and sets the transforms properties based on it.
+     *
+     * @param {PIXI.Matrix} matrix - The matrix to decompose
+     */
+
+
+    TransformStatic.prototype.setFromMatrix = function setFromMatrix(matrix) {
+        matrix.decompose(this);
+        this._localID++;
+    };
+
+    /**
+     * The rotation of the object in radians.
+     *
+     * @member {number}
+     */
+
+
+    _createClass(TransformStatic, [{
+        key: 'rotation',
+        get: function get() {
+            return this._rotation;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._rotation = value;
+            this.updateSkew();
+        }
+    }]);
+
+    return TransformStatic;
+}(_TransformBase3.default);
+
+exports.default = TransformStatic;
+//# sourceMappingURL=TransformStatic.js.map
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * A GraphicsData object.
+ *
+ * @class
+ * @memberof PIXI
+ */
+var GraphicsData = function () {
+  /**
+   *
+   * @param {number} lineWidth - the width of the line to draw
+   * @param {number} lineColor - the color of the line to draw
+   * @param {number} lineAlpha - the alpha of the line to draw
+   * @param {number} fillColor - the color of the fill
+   * @param {number} fillAlpha - the alpha of the fill
+   * @param {boolean} fill - whether or not the shape is filled with a colour
+   * @param {boolean} nativeLines - the method for drawing lines
+   * @param {PIXI.Circle|PIXI.Rectangle|PIXI.Ellipse|PIXI.Polygon} shape - The shape object to draw.
+   */
+  function GraphicsData(lineWidth, lineColor, lineAlpha, fillColor, fillAlpha, fill, nativeLines, shape) {
+    _classCallCheck(this, GraphicsData);
+
+    /**
+     * @member {number} the width of the line to draw
+     */
+    this.lineWidth = lineWidth;
+    /**
+     * @member {boolean} if true the liens will be draw using LINES instead of TRIANGLE_STRIP
+     */
+    this.nativeLines = nativeLines;
+
+    /**
+     * @member {number} the color of the line to draw
+     */
+    this.lineColor = lineColor;
+
+    /**
+     * @member {number} the alpha of the line to draw
+     */
+    this.lineAlpha = lineAlpha;
+
+    /**
+     * @member {number} cached tint of the line to draw
+     */
+    this._lineTint = lineColor;
+
+    /**
+     * @member {number} the color of the fill
+     */
+    this.fillColor = fillColor;
+
+    /**
+     * @member {number} the alpha of the fill
+     */
+    this.fillAlpha = fillAlpha;
+
+    /**
+     * @member {number} cached tint of the fill
+     */
+    this._fillTint = fillColor;
+
+    /**
+     * @member {boolean} whether or not the shape is filled with a colour
+     */
+    this.fill = fill;
+
+    this.holes = [];
+
+    /**
+     * @member {PIXI.Circle|PIXI.Ellipse|PIXI.Polygon|PIXI.Rectangle|PIXI.RoundedRectangle} The shape object to draw.
+     */
+    this.shape = shape;
+
+    /**
+     * @member {number} The type of the shape, see the Const.Shapes file for all the existing types,
+     */
+    this.type = shape.type;
+  }
+
+  /**
+   * Creates a new GraphicsData object with the same values as this one.
+   *
+   * @return {PIXI.GraphicsData} Cloned GraphicsData object
+   */
+
+
+  GraphicsData.prototype.clone = function clone() {
+    return new GraphicsData(this.lineWidth, this.lineColor, this.lineAlpha, this.fillColor, this.fillAlpha, this.fill, this.nativeLines, this.shape);
+  };
+
+  /**
+   * Adds a hole to the shape.
+   *
+   * @param {PIXI.Rectangle|PIXI.Circle} shape - The shape of the hole.
+   */
+
+
+  GraphicsData.prototype.addHole = function addHole(shape) {
+    this.holes.push(shape);
+  };
+
+  /**
+   * Destroys the Graphics data.
+   */
+
+
+  GraphicsData.prototype.destroy = function destroy() {
+    this.shape = null;
+    this.holes = null;
+  };
+
+  return GraphicsData;
+}();
+
+exports.default = GraphicsData;
+//# sourceMappingURL=GraphicsData.js.map
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _Matrix = __webpack_require__(29);
+
+var _Matrix2 = _interopRequireDefault(_Matrix);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ux = [1, 1, 0, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 0, 1]; // Your friendly neighbour https://en.wikipedia.org/wiki/Dihedral_group of order 16
+
+var uy = [0, 1, 1, 1, 0, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1];
+var vx = [0, -1, -1, -1, 0, 1, 1, 1, 0, 1, 1, 1, 0, -1, -1, -1];
+var vy = [1, 1, 0, -1, -1, -1, 0, 1, -1, -1, 0, 1, 1, 1, 0, -1];
+var tempMatrices = [];
+
+var mul = [];
+
+function signum(x) {
+    if (x < 0) {
+        return -1;
+    }
+    if (x > 0) {
+        return 1;
+    }
+
+    return 0;
+}
+
+function init() {
+    for (var i = 0; i < 16; i++) {
+        var row = [];
+
+        mul.push(row);
+
+        for (var j = 0; j < 16; j++) {
+            var _ux = signum(ux[i] * ux[j] + vx[i] * uy[j]);
+            var _uy = signum(uy[i] * ux[j] + vy[i] * uy[j]);
+            var _vx = signum(ux[i] * vx[j] + vx[i] * vy[j]);
+            var _vy = signum(uy[i] * vx[j] + vy[i] * vy[j]);
+
+            for (var k = 0; k < 16; k++) {
+                if (ux[k] === _ux && uy[k] === _uy && vx[k] === _vx && vy[k] === _vy) {
+                    row.push(k);
+                    break;
+                }
+            }
+        }
+    }
+
+    for (var _i = 0; _i < 16; _i++) {
+        var mat = new _Matrix2.default();
+
+        mat.set(ux[_i], uy[_i], vx[_i], vy[_i], 0, 0);
+        tempMatrices.push(mat);
+    }
+}
+
+init();
+
+/**
+ * Implements Dihedral Group D_8, see [group D4]{@link http://mathworld.wolfram.com/DihedralGroupD4.html},
+ * D8 is the same but with diagonals. Used for texture rotations.
+ *
+ * Vector xX(i), xY(i) is U-axis of sprite with rotation i
+ * Vector yY(i), yY(i) is V-axis of sprite with rotation i
+ * Rotations: 0 grad (0), 90 grad (2), 180 grad (4), 270 grad (6)
+ * Mirrors: vertical (8), main diagonal (10), horizontal (12), reverse diagonal (14)
+ * This is the small part of gameofbombs.com portal system. It works.
+ *
+ * @author Ivan @ivanpopelyshev
+ * @class
+ * @memberof PIXI
+ */
+var GroupD8 = {
+    E: 0,
+    SE: 1,
+    S: 2,
+    SW: 3,
+    W: 4,
+    NW: 5,
+    N: 6,
+    NE: 7,
+    MIRROR_VERTICAL: 8,
+    MIRROR_HORIZONTAL: 12,
+    uX: function uX(ind) {
+        return ux[ind];
+    },
+    uY: function uY(ind) {
+        return uy[ind];
+    },
+    vX: function vX(ind) {
+        return vx[ind];
+    },
+    vY: function vY(ind) {
+        return vy[ind];
+    },
+    inv: function inv(rotation) {
+        if (rotation & 8) {
+            return rotation & 15;
+        }
+
+        return -rotation & 7;
+    },
+    add: function add(rotationSecond, rotationFirst) {
+        return mul[rotationSecond][rotationFirst];
+    },
+    sub: function sub(rotationSecond, rotationFirst) {
+        return mul[rotationSecond][GroupD8.inv(rotationFirst)];
+    },
+
+    /**
+     * Adds 180 degrees to rotation. Commutative operation.
+     *
+     * @memberof PIXI.GroupD8
+     * @param {number} rotation - The number to rotate.
+     * @returns {number} rotated number
+     */
+    rotate180: function rotate180(rotation) {
+        return rotation ^ 4;
+    },
+
+    /**
+     * I dont know why sometimes width and heights needs to be swapped. We'll fix it later.
+     *
+     * @memberof PIXI.GroupD8
+     * @param {number} rotation - The number to check.
+     * @returns {boolean} Whether or not the width/height should be swapped.
+     */
+    isSwapWidthHeight: function isSwapWidthHeight(rotation) {
+        return (rotation & 3) === 2;
+    },
+
+    /**
+     * @memberof PIXI.GroupD8
+     * @param {number} dx - TODO
+     * @param {number} dy - TODO
+     *
+     * @return {number} TODO
+     */
+    byDirection: function byDirection(dx, dy) {
+        if (Math.abs(dx) * 2 <= Math.abs(dy)) {
+            if (dy >= 0) {
+                return GroupD8.S;
+            }
+
+            return GroupD8.N;
+        } else if (Math.abs(dy) * 2 <= Math.abs(dx)) {
+            if (dx > 0) {
+                return GroupD8.E;
+            }
+
+            return GroupD8.W;
+        } else if (dy > 0) {
+            if (dx > 0) {
+                return GroupD8.SE;
+            }
+
+            return GroupD8.SW;
+        } else if (dx > 0) {
+            return GroupD8.NE;
+        }
+
+        return GroupD8.NW;
+    },
+
+    /**
+     * Helps sprite to compensate texture packer rotation.
+     *
+     * @memberof PIXI.GroupD8
+     * @param {PIXI.Matrix} matrix - sprite world matrix
+     * @param {number} rotation - The rotation factor to use.
+     * @param {number} tx - sprite anchoring
+     * @param {number} ty - sprite anchoring
+     */
+    matrixAppendRotationInv: function matrixAppendRotationInv(matrix, rotation) {
+        var tx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+        var ty = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+        // Packer used "rotation", we use "inv(rotation)"
+        var mat = tempMatrices[GroupD8.inv(rotation)];
+
+        mat.tx = tx;
+        mat.ty = ty;
+        matrix.append(mat);
+    }
+};
+
+exports.default = GroupD8;
+//# sourceMappingURL=GroupD8.js.map
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * The Point object represents a location in a two-dimensional coordinate system, where x represents
+ * the horizontal axis and y represents the vertical axis.
+ * An observable point is a point that triggers a callback when the point's position is changed.
+ *
+ * @class
+ * @memberof PIXI
+ */
+var ObservablePoint = function () {
+    /**
+     * @param {Function} cb - callback when changed
+     * @param {object} scope - owner of callback
+     * @param {number} [x=0] - position of the point on the x axis
+     * @param {number} [y=0] - position of the point on the y axis
+     */
+    function ObservablePoint(cb, scope) {
+        var x = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+        var y = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+        _classCallCheck(this, ObservablePoint);
+
+        this._x = x;
+        this._y = y;
+
+        this.cb = cb;
+        this.scope = scope;
+    }
+
+    /**
+     * Sets the point to a new x and y position.
+     * If y is omitted, both x and y will be set to x.
+     *
+     * @param {number} [x=0] - position of the point on the x axis
+     * @param {number} [y=0] - position of the point on the y axis
+     */
+
+
+    ObservablePoint.prototype.set = function set(x, y) {
+        var _x = x || 0;
+        var _y = y || (y !== 0 ? _x : 0);
+
+        if (this._x !== _x || this._y !== _y) {
+            this._x = _x;
+            this._y = _y;
+            this.cb.call(this.scope);
+        }
+    };
+
+    /**
+     * Copies the data from another point
+     *
+     * @param {PIXI.Point|PIXI.ObservablePoint} point - point to copy from
+     */
+
+
+    ObservablePoint.prototype.copy = function copy(point) {
+        if (this._x !== point.x || this._y !== point.y) {
+            this._x = point.x;
+            this._y = point.y;
+            this.cb.call(this.scope);
+        }
+    };
+
+    /**
+     * The position of the displayObject on the x axis relative to the local coordinates of the parent.
+     *
+     * @member {number}
+     */
+
+
+    _createClass(ObservablePoint, [{
+        key: "x",
+        get: function get() {
+            return this._x;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            if (this._x !== value) {
+                this._x = value;
+                this.cb.call(this.scope);
+            }
+        }
+
+        /**
+         * The position of the displayObject on the x axis relative to the local coordinates of the parent.
+         *
+         * @member {number}
+         */
+
+    }, {
+        key: "y",
+        get: function get() {
+            return this._y;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            if (this._y !== value) {
+                this._y = value;
+                this.cb.call(this.scope);
+            }
+        }
+    }]);
+
+    return ObservablePoint;
+}();
+
+exports.default = ObservablePoint;
+//# sourceMappingURL=ObservablePoint.js.map
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _utils = __webpack_require__(2);
+
+var _math = __webpack_require__(3);
+
+var _const = __webpack_require__(1);
+
+var _settings = __webpack_require__(4);
+
+var _settings2 = _interopRequireDefault(_settings);
+
+var _Container = __webpack_require__(12);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _RenderTexture = __webpack_require__(34);
+
+var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
+
+var _eventemitter = __webpack_require__(8);
+
+var _eventemitter2 = _interopRequireDefault(_eventemitter);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var tempMatrix = new _math.Matrix();
+
+/**
+ * The SystemRenderer is the base for a Pixi Renderer. It is extended by the {@link PIXI.CanvasRenderer}
+ * and {@link PIXI.WebGLRenderer} which can be used for rendering a Pixi scene.
+ *
+ * @abstract
+ * @class
+ * @extends EventEmitter
+ * @memberof PIXI
+ */
+
+var SystemRenderer = function (_EventEmitter) {
+  _inherits(SystemRenderer, _EventEmitter);
+
+  /**
+   * @param {string} system - The name of the system this renderer is for.
+   * @param {number} [screenWidth=800] - the width of the screen
+   * @param {number} [screenHeight=600] - the height of the screen
+   * @param {object} [options] - The optional renderer parameters
+   * @param {HTMLCanvasElement} [options.view] - the canvas to use as a view, optional
+   * @param {boolean} [options.transparent=false] - If the render view is transparent, default false
+   * @param {boolean} [options.autoResize=false] - If the render view is automatically resized, default false
+   * @param {boolean} [options.antialias=false] - sets antialias (only applicable in chrome at the moment)
+   * @param {number} [options.resolution=1] - The resolution / device pixel ratio of the renderer. The
+   *  resolution of the renderer retina would be 2.
+   * @param {boolean} [options.clearBeforeRender=true] - This sets if the CanvasRenderer will clear the canvas or
+   *      not before the new render pass.
+   * @param {number} [options.backgroundColor=0x000000] - The background color of the rendered area
+   *  (shown if not transparent).
+   * @param {boolean} [options.roundPixels=false] - If true Pixi will Math.floor() x/y values when rendering,
+   *  stopping pixel interpolation.
+   */
+  function SystemRenderer(system, screenWidth, screenHeight, options) {
+    _classCallCheck(this, SystemRenderer);
+
+    var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+    (0, _utils.sayHello)(system);
+
+    // prepare options
+    if (options) {
+      for (var i in _settings2.default.RENDER_OPTIONS) {
+        if (typeof options[i] === 'undefined') {
+          options[i] = _settings2.default.RENDER_OPTIONS[i];
+        }
+      }
+    } else {
+      options = _settings2.default.RENDER_OPTIONS;
+    }
+
+    /**
+     * The type of the renderer.
+     *
+     * @member {number}
+     * @default PIXI.RENDERER_TYPE.UNKNOWN
+     * @see PIXI.RENDERER_TYPE
+     */
+    _this.type = _const.RENDERER_TYPE.UNKNOWN;
+
+    /**
+     * Measurements of the screen. (0, 0, screenWidth, screenHeight)
+     *
+     * Its safe to use as filterArea or hitArea for whole stage
+     *
+     * @member {PIXI.Rectangle}
+     */
+    _this.screen = new _math.Rectangle(0, 0, screenWidth || 800, screenHeight || 600);
+
+    /**
+     * The canvas element that everything is drawn to
+     *
+     * @member {HTMLCanvasElement}
+     */
+    _this.view = options.view || document.createElement('canvas');
+
+    /**
+     * The resolution / device pixel ratio of the renderer
+     *
+     * @member {number}
+     * @default 1
+     */
+    _this.resolution = options.resolution || _settings2.default.RESOLUTION;
+
+    /**
+     * Whether the render view is transparent
+     *
+     * @member {boolean}
+     */
+    _this.transparent = options.transparent;
+
+    /**
+     * Whether css dimensions of canvas view should be resized to screen dimensions automatically
+     *
+     * @member {boolean}
+     */
+    _this.autoResize = options.autoResize || false;
+
+    /**
+     * Tracks the blend modes useful for this renderer.
+     *
+     * @member {object<string, mixed>}
+     */
+    _this.blendModes = null;
+
+    /**
+     * The value of the preserveDrawingBuffer flag affects whether or not the contents of
+     * the stencil buffer is retained after rendering.
+     *
+     * @member {boolean}
+     */
+    _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
+
+    /**
+     * This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
+     * If the scene is NOT transparent Pixi will use a canvas sized fillRect operation every
+     * frame to set the canvas background color. If the scene is transparent Pixi will use clearRect
+     * to clear the canvas every frame. Disable this by setting this to false. For example if
+     * your game has a canvas filling background image you often don't need this set.
+     *
+     * @member {boolean}
+     * @default
+     */
+    _this.clearBeforeRender = options.clearBeforeRender;
+
+    /**
+     * If true Pixi will Math.floor() x/y values when rendering, stopping pixel interpolation.
+     * Handy for crisp pixel art and speed on legacy devices.
+     *
+     * @member {boolean}
+     */
+    _this.roundPixels = options.roundPixels;
+
+    /**
+     * The background color as a number.
+     *
+     * @member {number}
+     * @private
+     */
+    _this._backgroundColor = 0x000000;
+
+    /**
+     * The background color as an [R, G, B] array.
+     *
+     * @member {number[]}
+     * @private
+     */
+    _this._backgroundColorRgba = [0, 0, 0, 0];
+
+    /**
+     * The background color as a string.
+     *
+     * @member {string}
+     * @private
+     */
+    _this._backgroundColorString = '#000000';
+
+    _this.backgroundColor = options.backgroundColor || _this._backgroundColor; // run bg color setter
+
+    /**
+     * This temporary display object used as the parent of the currently being rendered item
+     *
+     * @member {PIXI.DisplayObject}
+     * @private
+     */
+    _this._tempDisplayObjectParent = new _Container2.default();
+
+    /**
+     * The last root object that the renderer tried to render.
+     *
+     * @member {PIXI.DisplayObject}
+     * @private
+     */
+    _this._lastObjectRendered = _this._tempDisplayObjectParent;
+    return _this;
+  }
+
+  /**
+   * Same as view.width, actual number of pixels in the canvas by horizontal
+   *
+   * @member {number}
+   * @readonly
+   * @default 800
+   */
+
+
+  /**
+   * Resizes the screen and canvas to the specified width and height
+   * Canvas dimensions are multiplied by resolution
+   *
+   * @param {number} screenWidth - the new width of the screen
+   * @param {number} screenHeight - the new height of the screen
+   */
+  SystemRenderer.prototype.resize = function resize(screenWidth, screenHeight) {
+    this.screen.width = screenWidth;
+    this.screen.height = screenHeight;
+
+    this.view.width = screenWidth * this.resolution;
+    this.view.height = screenHeight * this.resolution;
+
+    if (this.autoResize) {
+      this.view.style.width = screenWidth + 'px';
+      this.view.style.height = screenHeight + 'px';
+    }
+  };
+
+  /**
+   * Useful function that returns a texture of the display object that can then be used to create sprites
+   * This can be quite useful if your displayObject is complicated and needs to be reused multiple times.
+   *
+   * @param {PIXI.DisplayObject} displayObject - The displayObject the object will be generated from
+   * @param {number} scaleMode - Should be one of the scaleMode consts
+   * @param {number} resolution - The resolution / device pixel ratio of the texture being generated
+   * @return {PIXI.Texture} a texture of the graphics object
+   */
+
+
+  SystemRenderer.prototype.generateTexture = function generateTexture(displayObject, scaleMode, resolution) {
+    var bounds = displayObject.getLocalBounds();
+
+    var renderTexture = _RenderTexture2.default.create(bounds.width | 0, bounds.height | 0, scaleMode, resolution);
+
+    tempMatrix.tx = -bounds.x;
+    tempMatrix.ty = -bounds.y;
+
+    this.render(displayObject, renderTexture, false, tempMatrix, true);
+
+    return renderTexture;
+  };
+
+  /**
+   * Removes everything from the renderer and optionally removes the Canvas DOM element.
+   *
+   * @param {boolean} [removeView=false] - Removes the Canvas element from the DOM.
+   */
+
+
+  SystemRenderer.prototype.destroy = function destroy(removeView) {
+    if (removeView && this.view.parentNode) {
+      this.view.parentNode.removeChild(this.view);
+    }
+
+    this.type = _const.RENDERER_TYPE.UNKNOWN;
+
+    this.view = null;
+
+    this.screen = null;
+
+    this.resolution = 0;
+
+    this.transparent = false;
+
+    this.autoResize = false;
+
+    this.blendModes = null;
+
+    this.preserveDrawingBuffer = false;
+    this.clearBeforeRender = false;
+
+    this.roundPixels = false;
+
+    this._backgroundColor = 0;
+    this._backgroundColorRgba = null;
+    this._backgroundColorString = null;
+
+    this.backgroundColor = 0;
+    this._tempDisplayObjectParent = null;
+    this._lastObjectRendered = null;
+  };
+
+  /**
+   * The background color to fill if not transparent
+   *
+   * @member {number}
+   */
+
+
+  _createClass(SystemRenderer, [{
+    key: 'width',
+    get: function get() {
+      return this.view.width;
+    }
+
+    /**
+     * Same as view.height, actual number of pixels in the canvas by vertical
+     *
+     * @member {number}
+     * @readonly
+     * @default 600
+     */
+
+  }, {
+    key: 'height',
+    get: function get() {
+      return this.view.height;
+    }
+  }, {
+    key: 'backgroundColor',
+    get: function get() {
+      return this._backgroundColor;
+    },
+    set: function set(value) // eslint-disable-line require-jsdoc
+    {
+      this._backgroundColor = value;
+      this._backgroundColorString = (0, _utils.hex2string)(value);
+      (0, _utils.hex2rgb)(value, this._backgroundColorRgba);
+    }
+  }]);
+
+  return SystemRenderer;
+}(_eventemitter2.default);
+
+exports.default = SystemRenderer;
+//# sourceMappingURL=SystemRenderer.js.map
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _settings = __webpack_require__(4);
+
+var _settings2 = _interopRequireDefault(_settings);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Creates a Canvas element of the given size.
+ *
+ * @class
+ * @memberof PIXI
+ */
+var CanvasRenderTarget = function () {
+  /**
+   * @param {number} width - the width for the newly created canvas
+   * @param {number} height - the height for the newly created canvas
+   * @param {number} [resolution=1] - The resolution / device pixel ratio of the canvas
+   */
+  function CanvasRenderTarget(width, height, resolution) {
+    _classCallCheck(this, CanvasRenderTarget);
+
+    /**
+     * The Canvas object that belongs to this CanvasRenderTarget.
+     *
+     * @member {HTMLCanvasElement}
+     */
+    this.canvas = document.createElement('canvas');
+
+    /**
+     * A CanvasRenderingContext2D object representing a two-dimensional rendering context.
+     *
+     * @member {CanvasRenderingContext2D}
+     */
+    this.context = this.canvas.getContext('2d');
+
+    this.resolution = resolution || _settings2.default.RESOLUTION;
+
+    this.resize(width, height);
+  }
+
+  /**
+   * Clears the canvas that was created by the CanvasRenderTarget class.
+   *
+   * @private
+   */
+
+
+  CanvasRenderTarget.prototype.clear = function clear() {
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  };
+
+  /**
+   * Resizes the canvas to the specified width and height.
+   *
+   * @param {number} width - the new width of the canvas
+   * @param {number} height - the new height of the canvas
+   */
+
+
+  CanvasRenderTarget.prototype.resize = function resize(width, height) {
+    this.canvas.width = width * this.resolution;
+    this.canvas.height = height * this.resolution;
+  };
+
+  /**
+   * Destroys this canvas.
+   *
+   */
+
+
+  CanvasRenderTarget.prototype.destroy = function destroy() {
+    this.context = null;
+    this.canvas = null;
+  };
+
+  /**
+   * The width of the canvas buffer in pixels.
+   *
+   * @member {number}
+   */
+
+
+  _createClass(CanvasRenderTarget, [{
+    key: 'width',
+    get: function get() {
+      return this.canvas.width;
+    },
+    set: function set(val) // eslint-disable-line require-jsdoc
+    {
+      this.canvas.width = val;
+    }
+
+    /**
+     * The height of the canvas buffer in pixels.
+     *
+     * @member {number}
+     */
+
+  }, {
+    key: 'height',
+    get: function get() {
+      return this.canvas.height;
+    },
+    set: function set(val) // eslint-disable-line require-jsdoc
+    {
+      this.canvas.height = val;
+    }
+  }]);
+
+  return CanvasRenderTarget;
+}();
+
+exports.default = CanvasRenderTarget;
+//# sourceMappingURL=CanvasRenderTarget.js.map
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = canUseNewCanvasBlendModes;
+/**
+ * Creates a little colored canvas
+ *
+ * @ignore
+ * @param {string} color - The color to make the canvas
+ * @return {canvas} a small canvas element
+ */
+function createColoredCanvas(color) {
+    var canvas = document.createElement('canvas');
+
+    canvas.width = 6;
+    canvas.height = 1;
+
+    var context = canvas.getContext('2d');
+
+    context.fillStyle = color;
+    context.fillRect(0, 0, 6, 1);
+
+    return canvas;
+}
+
+/**
+ * Checks whether the Canvas BlendModes are supported by the current browser
+ *
+ * @return {boolean} whether they are supported
+ */
+function canUseNewCanvasBlendModes() {
+    if (typeof document === 'undefined') {
+        return false;
+    }
+
+    var magenta = createColoredCanvas('#ff00ff');
+    var yellow = createColoredCanvas('#ffff00');
+
+    var canvas = document.createElement('canvas');
+
+    canvas.width = 6;
+    canvas.height = 1;
+
+    var context = canvas.getContext('2d');
+
+    context.globalCompositeOperation = 'multiply';
+    context.drawImage(magenta, 0, 0);
+    context.drawImage(yellow, 2, 0);
+
+    var imageData = context.getImageData(2, 0, 1, 1);
+
+    if (!imageData) {
+        return false;
+    }
+
+    var data = imageData.data;
+
+    return data[0] === 255 && data[1] === 0 && data[2] === 0;
+}
+//# sourceMappingURL=canUseNewCanvasBlendModes.js.map
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extractUniformsFromSrc = __webpack_require__(143);
+
+var _extractUniformsFromSrc2 = _interopRequireDefault(_extractUniformsFromSrc);
+
+var _utils = __webpack_require__(2);
+
+var _const = __webpack_require__(1);
+
+var _settings = __webpack_require__(4);
+
+var _settings2 = _interopRequireDefault(_settings);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var SOURCE_KEY_MAP = {};
+
+// let math = require('../../../math');
+/**
+ * @class
+ * @memberof PIXI
+ * @extends PIXI.Shader
+ */
+
+var Filter = function () {
+  /**
+   * @param {string} [vertexSrc] - The source of the vertex shader.
+   * @param {string} [fragmentSrc] - The source of the fragment shader.
+   * @param {object} [uniforms] - Custom uniforms to use to augment the built-in ones.
+   */
+  function Filter(vertexSrc, fragmentSrc, uniforms) {
+    _classCallCheck(this, Filter);
+
+    /**
+     * The vertex shader.
+     *
+     * @member {string}
+     */
+    this.vertexSrc = vertexSrc || Filter.defaultVertexSrc;
+
+    /**
+     * The fragment shader.
+     *
+     * @member {string}
+     */
+    this.fragmentSrc = fragmentSrc || Filter.defaultFragmentSrc;
+
+    this.blendMode = _const.BLEND_MODES.NORMAL;
+
+    this.uniformData = uniforms || (0, _extractUniformsFromSrc2.default)(this.vertexSrc, this.fragmentSrc, 'projectionMatrix|uSampler');
+
+    /**
+     * An object containing the current values of custom uniforms.
+     * @example <caption>Updating the value of a custom uniform</caption>
+     * filter.uniforms.time = performance.now();
+     *
+     * @member {object}
+     */
+    this.uniforms = {};
+
+    for (var i in this.uniformData) {
+      this.uniforms[i] = this.uniformData[i].value;
+    }
+
+    // this is where we store shader references..
+    // TODO we could cache this!
+    this.glShaders = {};
+
+    // used for cacheing.. sure there is a better way!
+    if (!SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc]) {
+      SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc] = (0, _utils.uid)();
+    }
+
+    this.glShaderKey = SOURCE_KEY_MAP[this.vertexSrc + this.fragmentSrc];
+
+    /**
+     * The padding of the filter. Some filters require extra space to breath such as a blur.
+     * Increasing this will add extra width and height to the bounds of the object that the
+     * filter is applied to.
+     *
+     * @member {number}
+     */
+    this.padding = 4;
+
+    /**
+     * The resolution of the filter. Setting this to be lower will lower the quality but
+     * increase the performance of the filter.
+     *
+     * @member {number}
+     */
+    this.resolution = _settings2.default.RESOLUTION;
+
+    /**
+     * If enabled is true the filter is applied, if false it will not.
+     *
+     * @member {boolean}
+     */
+    this.enabled = true;
+  }
+
+  /**
+   * Applies the filter
+   *
+   * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
+   * @param {PIXI.RenderTarget} input - The input render target.
+   * @param {PIXI.RenderTarget} output - The target to output to.
+   * @param {boolean} clear - Should the output be cleared before rendering to it
+   * @param {object} [currentState] - It's current state of filter.
+   *        There are some useful properties in the currentState :
+   *        target, filters, sourceFrame, destinationFrame, renderTarget, resolution
+   */
+
+
+  Filter.prototype.apply = function apply(filterManager, input, output, clear, currentState) // eslint-disable-line no-unused-vars
+  {
+    // --- //
+    //  this.uniforms.filterMatrix = filterManager.calculateSpriteMatrix(tempMatrix, window.panda );
+
+    // do as you please!
+
+    filterManager.applyFilter(this, input, output, clear);
+
+    // or just do a regular render..
+  };
+
+  /**
+   * The default vertex shader source
+   *
+   * @static
+   * @constant
+   */
+
+
+  _createClass(Filter, null, [{
+    key: 'defaultVertexSrc',
+    get: function get() {
+      return ['attribute vec2 aVertexPosition;', 'attribute vec2 aTextureCoord;', 'uniform mat3 projectionMatrix;', 'uniform mat3 filterMatrix;', 'varying vec2 vTextureCoord;', 'varying vec2 vFilterCoord;', 'void main(void){', '   gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);', '   vFilterCoord = ( filterMatrix * vec3( aTextureCoord, 1.0)  ).xy;', '   vTextureCoord = aTextureCoord ;', '}'].join('\n');
+    }
+
+    /**
+     * The default fragment shader source
+     *
+     * @static
+     * @constant
+     */
+
+  }, {
+    key: 'defaultFragmentSrc',
+    get: function get() {
+      return ['varying vec2 vTextureCoord;', 'varying vec2 vFilterCoord;', 'uniform sampler2D uSampler;', 'uniform sampler2D filterSampler;', 'void main(void){', '   vec4 masky = texture2D(filterSampler, vFilterCoord);', '   vec4 sample = texture2D(uSampler, vTextureCoord);', '   vec4 color;', '   if(mod(vFilterCoord.x, 1.0) > 0.5)', '   {', '     color = vec4(1.0, 0.0, 0.0, 1.0);', '   }', '   else', '   {', '     color = vec4(0.0, 1.0, 0.0, 1.0);', '   }',
+      // '   gl_FragColor = vec4(mod(vFilterCoord.x, 1.5), vFilterCoord.y,0.0,1.0);',
+      '   gl_FragColor = mix(sample, masky, 0.5);', '   gl_FragColor *= sample.a;', '}'].join('\n');
+    }
+  }]);
+
+  return Filter;
+}();
+
+exports.default = Filter;
+//# sourceMappingURL=Filter.js.map
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _Filter2 = __webpack_require__(68);
+
+var _Filter3 = _interopRequireDefault(_Filter2);
+
+var _math = __webpack_require__(3);
+
+var _path = __webpack_require__(6);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * The SpriteMaskFilter class
+ *
+ * @class
+ * @extends PIXI.Filter
+ * @memberof PIXI
+ */
+var SpriteMaskFilter = function (_Filter) {
+    _inherits(SpriteMaskFilter, _Filter);
+
+    /**
+     * @param {PIXI.Sprite} sprite - the target sprite
+     */
+    function SpriteMaskFilter(sprite) {
+        _classCallCheck(this, SpriteMaskFilter);
+
+        var maskMatrix = new _math.Matrix();
+
+        var _this = _possibleConstructorReturn(this, _Filter.call(this, 'attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 otherMatrix;\n\nvarying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = aTextureCoord;\n    vMaskCoord = ( otherMatrix * vec3( aTextureCoord, 1.0)  ).xy;\n}\n', 'varying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform float alpha;\nuniform sampler2D mask;\n\nvoid main(void)\n{\n    // check clip! this will stop the mask bleeding out from the edges\n    vec2 text = abs( vMaskCoord - 0.5 );\n    text = step(0.5, text);\n\n    float clip = 1.0 - max(text.y, text.x);\n    vec4 original = texture2D(uSampler, vTextureCoord);\n    vec4 masky = texture2D(mask, vMaskCoord);\n\n    original *= (masky.r * masky.a * alpha * clip);\n\n    gl_FragColor = original;\n}\n'));
+
+        sprite.renderable = false;
+
+        _this.maskSprite = sprite;
+        _this.maskMatrix = maskMatrix;
+        return _this;
+    }
+
+    /**
+     * Applies the filter
+     *
+     * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
+     * @param {PIXI.RenderTarget} input - The input render target.
+     * @param {PIXI.RenderTarget} output - The target to output to.
+     */
+
+
+    SpriteMaskFilter.prototype.apply = function apply(filterManager, input, output) {
+        var maskSprite = this.maskSprite;
+
+        this.uniforms.mask = maskSprite._texture;
+        this.uniforms.otherMatrix = filterManager.calculateSpriteMatrix(this.maskMatrix, maskSprite);
+        this.uniforms.alpha = maskSprite.worldAlpha;
+
+        filterManager.applyFilter(this, input, output);
+    };
+
+    return SpriteMaskFilter;
+}(_Filter3.default);
+
+exports.default = SpriteMaskFilter;
+//# sourceMappingURL=SpriteMaskFilter.js.map
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _pixiGlCore = __webpack_require__(5);
+
+var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
+
+var _createIndicesForQuads = __webpack_require__(36);
+
+var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Helper class to create a quad
+ *
+ * @class
+ * @memberof PIXI
+ */
+var Quad = function () {
+  /**
+   * @param {WebGLRenderingContext} gl - The gl context for this quad to use.
+   * @param {object} state - TODO: Description
+   */
+  function Quad(gl, state) {
+    _classCallCheck(this, Quad);
+
+    /*
+     * the current WebGL drawing context
+     *
+     * @member {WebGLRenderingContext}
+     */
+    this.gl = gl;
+
+    /**
+     * An array of vertices
+     *
+     * @member {Float32Array}
+     */
+    this.vertices = new Float32Array([-1, -1, 1, -1, 1, 1, -1, 1]);
+
+    /**
+     * The Uvs of the quad
+     *
+     * @member {Float32Array}
+     */
+    this.uvs = new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]);
+
+    this.interleaved = new Float32Array(8 * 2);
+
+    for (var i = 0; i < 4; i++) {
+      this.interleaved[i * 4] = this.vertices[i * 2];
+      this.interleaved[i * 4 + 1] = this.vertices[i * 2 + 1];
+      this.interleaved[i * 4 + 2] = this.uvs[i * 2];
+      this.interleaved[i * 4 + 3] = this.uvs[i * 2 + 1];
+    }
+
+    /*
+     * @member {Uint16Array} An array containing the indices of the vertices
+     */
+    this.indices = (0, _createIndicesForQuads2.default)(1);
+
+    /*
+     * @member {glCore.GLBuffer} The vertex buffer
+     */
+    this.vertexBuffer = _pixiGlCore2.default.GLBuffer.createVertexBuffer(gl, this.interleaved, gl.STATIC_DRAW);
+
+    /*
+     * @member {glCore.GLBuffer} The index buffer
+     */
+    this.indexBuffer = _pixiGlCore2.default.GLBuffer.createIndexBuffer(gl, this.indices, gl.STATIC_DRAW);
+
+    /*
+     * @member {glCore.VertexArrayObject} The index buffer
+     */
+    this.vao = new _pixiGlCore2.default.VertexArrayObject(gl, state);
+  }
+
+  /**
+   * Initialises the vaos and uses the shader.
+   *
+   * @param {PIXI.Shader} shader - the shader to use
+   */
+
+
+  Quad.prototype.initVao = function initVao(shader) {
+    this.vao.clear().addIndex(this.indexBuffer).addAttribute(this.vertexBuffer, shader.attributes.aVertexPosition, this.gl.FLOAT, false, 4 * 4, 0).addAttribute(this.vertexBuffer, shader.attributes.aTextureCoord, this.gl.FLOAT, false, 4 * 4, 2 * 4);
+  };
+
+  /**
+   * Maps two Rectangle to the quad.
+   *
+   * @param {PIXI.Rectangle} targetTextureFrame - the first rectangle
+   * @param {PIXI.Rectangle} destinationFrame - the second rectangle
+   * @return {PIXI.Quad} Returns itself.
+   */
+
+
+  Quad.prototype.map = function map(targetTextureFrame, destinationFrame) {
+    var x = 0; // destinationFrame.x / targetTextureFrame.width;
+    var y = 0; // destinationFrame.y / targetTextureFrame.height;
+
+    this.uvs[0] = x;
+    this.uvs[1] = y;
+
+    this.uvs[2] = x + destinationFrame.width / targetTextureFrame.width;
+    this.uvs[3] = y;
+
+    this.uvs[4] = x + destinationFrame.width / targetTextureFrame.width;
+    this.uvs[5] = y + destinationFrame.height / targetTextureFrame.height;
+
+    this.uvs[6] = x;
+    this.uvs[7] = y + destinationFrame.height / targetTextureFrame.height;
+
+    x = destinationFrame.x;
+    y = destinationFrame.y;
+
+    this.vertices[0] = x;
+    this.vertices[1] = y;
+
+    this.vertices[2] = x + destinationFrame.width;
+    this.vertices[3] = y;
+
+    this.vertices[4] = x + destinationFrame.width;
+    this.vertices[5] = y + destinationFrame.height;
+
+    this.vertices[6] = x;
+    this.vertices[7] = y + destinationFrame.height;
+
+    return this;
+  };
+
+  /**
+   * Binds the buffer and uploads the data
+   *
+   * @return {PIXI.Quad} Returns itself.
+   */
+
+
+  Quad.prototype.upload = function upload() {
+    for (var i = 0; i < 4; i++) {
+      this.interleaved[i * 4] = this.vertices[i * 2];
+      this.interleaved[i * 4 + 1] = this.vertices[i * 2 + 1];
+      this.interleaved[i * 4 + 2] = this.uvs[i * 2];
+      this.interleaved[i * 4 + 3] = this.uvs[i * 2 + 1];
+    }
+
+    this.vertexBuffer.upload(this.interleaved);
+
+    return this;
+  };
+
+  /**
+   * Removes this quad from WebGL
+   */
+
+
+  Quad.prototype.destroy = function destroy() {
+    var gl = this.gl;
+
+    gl.deleteBuffer(this.vertexBuffer);
+    gl.deleteBuffer(this.indexBuffer);
+  };
+
+  return Quad;
+}();
+
+exports.default = Quad;
+//# sourceMappingURL=Quad.js.map
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // disabling eslint for now, going to rewrite this in v5
+/* eslint-disable */
+
+var _const = __webpack_require__(1);
+
+var _utils = __webpack_require__(2);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var defaultStyle = {
+    align: 'left',
+    breakWords: false,
+    dropShadow: false,
+    dropShadowAlpha: 1,
+    dropShadowAngle: Math.PI / 6,
+    dropShadowBlur: 0,
+    dropShadowColor: '#000000',
+    dropShadowDistance: 5,
+    fill: 'black',
+    fillGradientType: _const.TEXT_GRADIENT.LINEAR_VERTICAL,
+    fillGradientStops: [],
+    fontFamily: 'Arial',
+    fontSize: 26,
+    fontStyle: 'normal',
+    fontVariant: 'normal',
+    fontWeight: 'normal',
+    letterSpacing: 0,
+    lineHeight: 0,
+    lineJoin: 'miter',
+    miterLimit: 10,
+    padding: 0,
+    stroke: 'black',
+    strokeThickness: 0,
+    textBaseline: 'alphabetic',
+    trim: false,
+    wordWrap: false,
+    wordWrapWidth: 100
+};
+
+/**
+ * A TextStyle Object decorates a Text Object. It can be shared between
+ * multiple Text objects. Changing the style will update all text objects using it.
+ *
+ * @class
+ * @memberof PIXI
+ */
+
+var TextStyle = function () {
+    /**
+     * @param {object} [style] - The style parameters
+     * @param {string} [style.align='left'] - Alignment for multiline text ('left', 'center' or 'right'),
+     *  does not affect single line text
+     * @param {boolean} [style.breakWords=false] - Indicates if lines can be wrapped within words, it
+     *  needs wordWrap to be set to true
+     * @param {boolean} [style.dropShadow=false] - Set a drop shadow for the text
+     * @param {number} [style.dropShadowAlpha=1] - Set alpha for the drop shadow
+     * @param {number} [style.dropShadowAngle=Math.PI/6] - Set a angle of the drop shadow
+     * @param {number} [style.dropShadowBlur=0] - Set a shadow blur radius
+     * @param {string} [style.dropShadowColor='#000000'] - A fill style to be used on the dropshadow e.g 'red', '#00FF00'
+     * @param {number} [style.dropShadowDistance=5] - Set a distance of the drop shadow
+     * @param {string|string[]|number|number[]|CanvasGradient|CanvasPattern} [style.fill='black'] - A canvas
+     *  fillstyle that will be used on the text e.g 'red', '#00FF00'. Can be an array to create a gradient
+     *  eg ['#000000','#FFFFFF']
+     * {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle|MDN}
+     * @param {number} [style.fillGradientType=PIXI.TEXT_GRADIENT.LINEAR_VERTICAL] - If fill is an array of colours
+     *  to create a gradient, this can change the type/direction of the gradient. See {@link PIXI.TEXT_GRADIENT}
+     * @param {number[]} [style.fillGradientStops] - If fill is an array of colours to create a gradient, this array can set
+     * the stop points (numbers between 0 and 1) for the color, overriding the default behaviour of evenly spacing them.
+     * @param {string|string[]} [style.fontFamily='Arial'] - The font family
+     * @param {number|string} [style.fontSize=26] - The font size (as a number it converts to px, but as a string,
+     *  equivalents are '26px','20pt','160%' or '1.6em')
+     * @param {string} [style.fontStyle='normal'] - The font style ('normal', 'italic' or 'oblique')
+     * @param {string} [style.fontVariant='normal'] - The font variant ('normal' or 'small-caps')
+     * @param {string} [style.fontWeight='normal'] - The font weight ('normal', 'bold', 'bolder', 'lighter' and '100',
+     *  '200', '300', '400', '500', '600', '700', 800' or '900')
+     * @param {number} [style.letterSpacing=0] - The amount of spacing between letters, default is 0
+     * @param {number} [style.lineHeight] - The line height, a number that represents the vertical space that a letter uses
+     * @param {string} [style.lineJoin='miter'] - The lineJoin property sets the type of corner created, it can resolve
+     *      spiked text issues. Default is 'miter' (creates a sharp corner).
+     * @param {number} [style.miterLimit=10] - The miter limit to use when using the 'miter' lineJoin mode. This can reduce
+     *      or increase the spikiness of rendered text.
+     * @param {number} [style.padding=0] - Occasionally some fonts are cropped. Adding some padding will prevent this from
+     *     happening by adding padding to all sides of the text.
+     * @param {string|number} [style.stroke='black'] - A canvas fillstyle that will be used on the text stroke
+     *  e.g 'blue', '#FCFF00'
+     * @param {number} [style.strokeThickness=0] - A number that represents the thickness of the stroke.
+     *  Default is 0 (no stroke)
+     * @param {boolean} [style.trim=false] - Trim transparent borders
+     * @param {string} [style.textBaseline='alphabetic'] - The baseline of the text that is rendered.
+     * @param {boolean} [style.wordWrap=false] - Indicates if word wrap should be used
+     * @param {number} [style.wordWrapWidth=100] - The width at which text will wrap, it needs wordWrap to be set to true
+     */
+    function TextStyle(style) {
+        _classCallCheck(this, TextStyle);
+
+        this.styleID = 0;
+
+        Object.assign(this, defaultStyle, style);
+    }
+
+    /**
+     * Creates a new TextStyle object with the same values as this one.
+     * Note that the only the properties of the object are cloned.
+     *
+     * @return {PIXI.TextStyle} New cloned TextStyle object
+     */
+
+
+    TextStyle.prototype.clone = function clone() {
+        var clonedProperties = {};
+
+        for (var key in defaultStyle) {
+            clonedProperties[key] = this[key];
+        }
+
+        return new TextStyle(clonedProperties);
+    };
+
+    /**
+     * Resets all properties to the defaults specified in TextStyle.prototype._default
+     */
+
+
+    TextStyle.prototype.reset = function reset() {
+        Object.assign(this, defaultStyle);
+    };
+
+    _createClass(TextStyle, [{
+        key: 'align',
+        get: function get() {
+            return this._align;
+        },
+        set: function set(align) {
+            if (this._align !== align) {
+                this._align = align;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'breakWords',
+        get: function get() {
+            return this._breakWords;
+        },
+        set: function set(breakWords) {
+            if (this._breakWords !== breakWords) {
+                this._breakWords = breakWords;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadow',
+        get: function get() {
+            return this._dropShadow;
+        },
+        set: function set(dropShadow) {
+            if (this._dropShadow !== dropShadow) {
+                this._dropShadow = dropShadow;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadowAlpha',
+        get: function get() {
+            return this._dropShadowAlpha;
+        },
+        set: function set(dropShadowAlpha) {
+            if (this._dropShadowAlpha !== dropShadowAlpha) {
+                this._dropShadowAlpha = dropShadowAlpha;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadowAngle',
+        get: function get() {
+            return this._dropShadowAngle;
+        },
+        set: function set(dropShadowAngle) {
+            if (this._dropShadowAngle !== dropShadowAngle) {
+                this._dropShadowAngle = dropShadowAngle;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadowBlur',
+        get: function get() {
+            return this._dropShadowBlur;
+        },
+        set: function set(dropShadowBlur) {
+            if (this._dropShadowBlur !== dropShadowBlur) {
+                this._dropShadowBlur = dropShadowBlur;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadowColor',
+        get: function get() {
+            return this._dropShadowColor;
+        },
+        set: function set(dropShadowColor) {
+            var outputColor = getColor(dropShadowColor);
+            if (this._dropShadowColor !== outputColor) {
+                this._dropShadowColor = outputColor;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'dropShadowDistance',
+        get: function get() {
+            return this._dropShadowDistance;
+        },
+        set: function set(dropShadowDistance) {
+            if (this._dropShadowDistance !== dropShadowDistance) {
+                this._dropShadowDistance = dropShadowDistance;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fill',
+        get: function get() {
+            return this._fill;
+        },
+        set: function set(fill) {
+            var outputColor = getColor(fill);
+            if (this._fill !== outputColor) {
+                this._fill = outputColor;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fillGradientType',
+        get: function get() {
+            return this._fillGradientType;
+        },
+        set: function set(fillGradientType) {
+            if (this._fillGradientType !== fillGradientType) {
+                this._fillGradientType = fillGradientType;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fillGradientStops',
+        get: function get() {
+            return this._fillGradientStops;
+        },
+        set: function set(fillGradientStops) {
+            if (!areArraysEqual(this._fillGradientStops, fillGradientStops)) {
+                this._fillGradientStops = fillGradientStops;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fontFamily',
+        get: function get() {
+            return this._fontFamily;
+        },
+        set: function set(fontFamily) {
+            if (this.fontFamily !== fontFamily) {
+                this._fontFamily = fontFamily;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fontSize',
+        get: function get() {
+            return this._fontSize;
+        },
+        set: function set(fontSize) {
+            if (this._fontSize !== fontSize) {
+                this._fontSize = fontSize;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fontStyle',
+        get: function get() {
+            return this._fontStyle;
+        },
+        set: function set(fontStyle) {
+            if (this._fontStyle !== fontStyle) {
+                this._fontStyle = fontStyle;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fontVariant',
+        get: function get() {
+            return this._fontVariant;
+        },
+        set: function set(fontVariant) {
+            if (this._fontVariant !== fontVariant) {
+                this._fontVariant = fontVariant;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'fontWeight',
+        get: function get() {
+            return this._fontWeight;
+        },
+        set: function set(fontWeight) {
+            if (this._fontWeight !== fontWeight) {
+                this._fontWeight = fontWeight;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'letterSpacing',
+        get: function get() {
+            return this._letterSpacing;
+        },
+        set: function set(letterSpacing) {
+            if (this._letterSpacing !== letterSpacing) {
+                this._letterSpacing = letterSpacing;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'lineHeight',
+        get: function get() {
+            return this._lineHeight;
+        },
+        set: function set(lineHeight) {
+            if (this._lineHeight !== lineHeight) {
+                this._lineHeight = lineHeight;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'lineJoin',
+        get: function get() {
+            return this._lineJoin;
+        },
+        set: function set(lineJoin) {
+            if (this._lineJoin !== lineJoin) {
+                this._lineJoin = lineJoin;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'miterLimit',
+        get: function get() {
+            return this._miterLimit;
+        },
+        set: function set(miterLimit) {
+            if (this._miterLimit !== miterLimit) {
+                this._miterLimit = miterLimit;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'padding',
+        get: function get() {
+            return this._padding;
+        },
+        set: function set(padding) {
+            if (this._padding !== padding) {
+                this._padding = padding;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'stroke',
+        get: function get() {
+            return this._stroke;
+        },
+        set: function set(stroke) {
+            var outputColor = getColor(stroke);
+            if (this._stroke !== outputColor) {
+                this._stroke = outputColor;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'strokeThickness',
+        get: function get() {
+            return this._strokeThickness;
+        },
+        set: function set(strokeThickness) {
+            if (this._strokeThickness !== strokeThickness) {
+                this._strokeThickness = strokeThickness;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'textBaseline',
+        get: function get() {
+            return this._textBaseline;
+        },
+        set: function set(textBaseline) {
+            if (this._textBaseline !== textBaseline) {
+                this._textBaseline = textBaseline;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'trim',
+        get: function get() {
+            return this._trim;
+        },
+        set: function set(trim) {
+            if (this._trim !== trim) {
+                this._trim = trim;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'wordWrap',
+        get: function get() {
+            return this._wordWrap;
+        },
+        set: function set(wordWrap) {
+            if (this._wordWrap !== wordWrap) {
+                this._wordWrap = wordWrap;
+                this.styleID++;
+            }
+        }
+    }, {
+        key: 'wordWrapWidth',
+        get: function get() {
+            return this._wordWrapWidth;
+        },
+        set: function set(wordWrapWidth) {
+            if (this._wordWrapWidth !== wordWrapWidth) {
+                this._wordWrapWidth = wordWrapWidth;
+                this.styleID++;
+            }
+        }
+    }]);
+
+    return TextStyle;
+}();
+
+/**
+ * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
+ *
+ * @param {number|number[]} color
+ * @return {string} The color as a string.
+ */
+
+
+exports.default = TextStyle;
+function getSingleColor(color) {
+    if (typeof color === 'number') {
+        return (0, _utils.hex2string)(color);
+    } else if (typeof color === 'string') {
+        if (color.indexOf('0x') === 0) {
+            color = color.replace('0x', '#');
+        }
+    }
+
+    return color;
+}
+
+/**
+ * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
+ * This version can also convert array of colors
+ *
+ * @param {number|number[]} color
+ * @return {string} The color as a string.
+ */
+function getColor(color) {
+    if (!Array.isArray(color)) {
+        return getSingleColor(color);
+    } else {
+        for (var i = 0; i < color.length; ++i) {
+            color[i] = getSingleColor(color[i]);
+        }
+
+        return color;
+    }
+}
+
+/**
+ * Utility function to convert hexadecimal colors to strings, and simply return the color if it's a string.
+ * This version can also convert array of colors
+ *
+ * @param {Array} array1 First array to compare
+ * @param {Array} array2 Second array to compare
+ * @return {boolean} Do the arrays contain the same values in the same order
+ */
+function areArraysEqual(array1, array2) {
+    if (!Array.isArray(array1) || !Array.isArray(array2)) {
+        return false;
+    }
+
+    if (array1.length !== array2.length) {
+        return false;
+    }
+
+    for (var i = 0; i < array1.length; ++i) {
+        if (array1[i] !== array2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+//# sourceMappingURL=TextStyle.js.map
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _BaseTexture2 = __webpack_require__(15);
+
+var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
+
+var _settings = __webpack_require__(4);
+
+var _settings2 = _interopRequireDefault(_settings);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A BaseRenderTexture is a special texture that allows any Pixi display object to be rendered to it.
+ *
+ * __Hint__: All DisplayObjects (i.e. Sprites) that render to a BaseRenderTexture should be preloaded
+ * otherwise black rectangles will be drawn instead.
+ *
+ * A BaseRenderTexture takes a snapshot of any Display Object given to its render method. The position
+ * and rotation of the given Display Objects is ignored. For example:
+ *
+ * ```js
+ * let renderer = PIXI.autoDetectRenderer(1024, 1024, { view: canvas, ratio: 1 });
+ * let baseRenderTexture = new PIXI.BaseRenderTexture(renderer, 800, 600);
+ * let sprite = PIXI.Sprite.fromImage("spinObj_01.png");
+ *
+ * sprite.position.x = 800/2;
+ * sprite.position.y = 600/2;
+ * sprite.anchor.x = 0.5;
+ * sprite.anchor.y = 0.5;
+ *
+ * baseRenderTexture.render(sprite);
+ * ```
+ *
+ * The Sprite in this case will be rendered using its local transform. To render this sprite at 0,0
+ * you can clear the transform
+ *
+ * ```js
+ *
+ * sprite.setTransform()
+ *
+ * let baseRenderTexture = new PIXI.BaseRenderTexture(100, 100);
+ * let renderTexture = new PIXI.RenderTexture(baseRenderTexture);
+ *
+ * renderer.render(sprite, renderTexture);  // Renders to center of RenderTexture
+ * ```
+ *
+ * @class
+ * @extends PIXI.BaseTexture
+ * @memberof PIXI
+ */
+var BaseRenderTexture = function (_BaseTexture) {
+  _inherits(BaseRenderTexture, _BaseTexture);
+
+  /**
+   * @param {number} [width=100] - The width of the base render texture
+   * @param {number} [height=100] - The height of the base render texture
+   * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+   * @param {number} [resolution=1] - The resolution / device pixel ratio of the texture being generated
+   */
+  function BaseRenderTexture() {
+    var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100;
+    var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+    var scaleMode = arguments[2];
+    var resolution = arguments[3];
+
+    _classCallCheck(this, BaseRenderTexture);
+
+    var _this = _possibleConstructorReturn(this, _BaseTexture.call(this, null, scaleMode));
+
+    _this.resolution = resolution || _settings2.default.RESOLUTION;
+
+    _this.width = width;
+    _this.height = height;
+
+    _this.realWidth = _this.width * _this.resolution;
+    _this.realHeight = _this.height * _this.resolution;
+
+    _this.scaleMode = scaleMode !== undefined ? scaleMode : _settings2.default.SCALE_MODE;
+    _this.hasLoaded = true;
+
+    /**
+     * A map of renderer IDs to webgl renderTargets
+     *
+     * @private
+     * @member {object<number, WebGLTexture>}
+     */
+    _this._glRenderTargets = {};
+
+    /**
+     * A reference to the canvas render target (we only need one as this can be shared across renderers)
+     *
+     * @private
+     * @member {object<number, WebGLTexture>}
+     */
+    _this._canvasRenderTarget = null;
+
+    /**
+     * This will let the renderer know if the texture is valid. If it's not then it cannot be rendered.
+     *
+     * @member {boolean}
+     */
+    _this.valid = false;
+    return _this;
+  }
+
+  /**
+   * Resizes the BaseRenderTexture.
+   *
+   * @param {number} width - The width to resize to.
+   * @param {number} height - The height to resize to.
+   */
+
+
+  BaseRenderTexture.prototype.resize = function resize(width, height) {
+    if (width === this.width && height === this.height) {
+      return;
+    }
+
+    this.valid = width > 0 && height > 0;
+
+    this.width = width;
+    this.height = height;
+
+    this.realWidth = this.width * this.resolution;
+    this.realHeight = this.height * this.resolution;
+
+    if (!this.valid) {
+      return;
+    }
+
+    this.emit('update', this);
+  };
+
+  /**
+   * Destroys this texture
+   *
+   */
+
+
+  BaseRenderTexture.prototype.destroy = function destroy() {
+    _BaseTexture.prototype.destroy.call(this, true);
+    this.renderer = null;
+  };
+
+  return BaseRenderTexture;
+}(_BaseTexture3.default);
+
+exports.default = BaseRenderTexture;
+//# sourceMappingURL=BaseRenderTexture.js.map
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _GroupD = __webpack_require__(63);
+
+var _GroupD2 = _interopRequireDefault(_GroupD);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * A standard object to store the Uvs of a texture
+ *
+ * @class
+ * @private
+ * @memberof PIXI
+ */
+var TextureUvs = function () {
+    /**
+     *
+     */
+    function TextureUvs() {
+        _classCallCheck(this, TextureUvs);
+
+        this.x0 = 0;
+        this.y0 = 0;
+
+        this.x1 = 1;
+        this.y1 = 0;
+
+        this.x2 = 1;
+        this.y2 = 1;
+
+        this.x3 = 0;
+        this.y3 = 1;
+
+        this.uvsUint32 = new Uint32Array(4);
+    }
+
+    /**
+     * Sets the texture Uvs based on the given frame information.
+     *
+     * @private
+     * @param {PIXI.Rectangle} frame - The frame of the texture
+     * @param {PIXI.Rectangle} baseFrame - The base frame of the texture
+     * @param {number} rotate - Rotation of frame, see {@link PIXI.GroupD8}
+     */
+
+
+    TextureUvs.prototype.set = function set(frame, baseFrame, rotate) {
+        var tw = baseFrame.width;
+        var th = baseFrame.height;
+
+        if (rotate) {
+            // width and height div 2 div baseFrame size
+            var w2 = frame.width / 2 / tw;
+            var h2 = frame.height / 2 / th;
+
+            // coordinates of center
+            var cX = frame.x / tw + w2;
+            var cY = frame.y / th + h2;
+
+            rotate = _GroupD2.default.add(rotate, _GroupD2.default.NW); // NW is top-left corner
+            this.x0 = cX + w2 * _GroupD2.default.uX(rotate);
+            this.y0 = cY + h2 * _GroupD2.default.uY(rotate);
+
+            rotate = _GroupD2.default.add(rotate, 2); // rotate 90 degrees clockwise
+            this.x1 = cX + w2 * _GroupD2.default.uX(rotate);
+            this.y1 = cY + h2 * _GroupD2.default.uY(rotate);
+
+            rotate = _GroupD2.default.add(rotate, 2);
+            this.x2 = cX + w2 * _GroupD2.default.uX(rotate);
+            this.y2 = cY + h2 * _GroupD2.default.uY(rotate);
+
+            rotate = _GroupD2.default.add(rotate, 2);
+            this.x3 = cX + w2 * _GroupD2.default.uX(rotate);
+            this.y3 = cY + h2 * _GroupD2.default.uY(rotate);
+        } else {
+            this.x0 = frame.x / tw;
+            this.y0 = frame.y / th;
+
+            this.x1 = (frame.x + frame.width) / tw;
+            this.y1 = frame.y / th;
+
+            this.x2 = (frame.x + frame.width) / tw;
+            this.y2 = (frame.y + frame.height) / th;
+
+            this.x3 = frame.x / tw;
+            this.y3 = (frame.y + frame.height) / th;
+        }
+
+        this.uvsUint32[0] = (this.y0 * 65535 & 0xFFFF) << 16 | this.x0 * 65535 & 0xFFFF;
+        this.uvsUint32[1] = (this.y1 * 65535 & 0xFFFF) << 16 | this.x1 * 65535 & 0xFFFF;
+        this.uvsUint32[2] = (this.y2 * 65535 & 0xFFFF) << 16 | this.x2 * 65535 & 0xFFFF;
+        this.uvsUint32[3] = (this.y3 * 65535 & 0xFFFF) << 16 | this.x3 * 65535 & 0xFFFF;
+    };
+
+    return TextureUvs;
+}();
+
+exports.default = TextureUvs;
+//# sourceMappingURL=TextureUvs.js.map
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _BaseTexture2 = __webpack_require__(15);
+
+var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
+
+var _utils = __webpack_require__(2);
+
+var _ticker = __webpack_require__(35);
+
+var ticker = _interopRequireWildcard(_ticker);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A texture of a [playing] Video.
+ *
+ * Video base textures mimic Pixi BaseTexture.from.... method in their creation process.
+ *
+ * This can be used in several ways, such as:
+ *
+ * ```js
+ * let texture = PIXI.VideoBaseTexture.fromUrl('http://mydomain.com/video.mp4');
+ *
+ * let texture = PIXI.VideoBaseTexture.fromUrl({ src: 'http://mydomain.com/video.mp4', mime: 'video/mp4' });
+ *
+ * let texture = PIXI.VideoBaseTexture.fromUrls(['/video.webm', '/video.mp4']);
+ *
+ * let texture = PIXI.VideoBaseTexture.fromUrls([
+ *     { src: '/video.webm', mime: 'video/webm' },
+ *     { src: '/video.mp4', mime: 'video/mp4' }
+ * ]);
+ * ```
+ *
+ * See the ["deus" demo](http://www.goodboydigital.com/pixijs/examples/deus/).
+ *
+ * @class
+ * @extends PIXI.BaseTexture
+ * @memberof PIXI
+ */
+var VideoBaseTexture = function (_BaseTexture) {
+    _inherits(VideoBaseTexture, _BaseTexture);
+
+    /**
+     * @param {HTMLVideoElement} source - Video source
+     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     */
+    function VideoBaseTexture(source, scaleMode) {
+        _classCallCheck(this, VideoBaseTexture);
+
+        if (!source) {
+            throw new Error('No video source element specified.');
+        }
+
+        // hook in here to check if video is already available.
+        // BaseTexture looks for a source.complete boolean, plus width & height.
+
+        if ((source.readyState === source.HAVE_ENOUGH_DATA || source.readyState === source.HAVE_FUTURE_DATA) && source.width && source.height) {
+            source.complete = true;
+        }
+
+        var _this = _possibleConstructorReturn(this, _BaseTexture.call(this, source, scaleMode));
+
+        _this.width = source.videoWidth;
+        _this.height = source.videoHeight;
+
+        _this._autoUpdate = true;
+        _this._isAutoUpdating = false;
+
+        /**
+         * When set to true will automatically play videos used by this texture once
+         * they are loaded. If false, it will not modify the playing state.
+         *
+         * @member {boolean}
+         * @default true
+         */
+        _this.autoPlay = true;
+
+        _this.update = _this.update.bind(_this);
+        _this._onCanPlay = _this._onCanPlay.bind(_this);
+
+        source.addEventListener('play', _this._onPlayStart.bind(_this));
+        source.addEventListener('pause', _this._onPlayStop.bind(_this));
+        _this.hasLoaded = false;
+        _this.__loaded = false;
+
+        if (!_this._isSourceReady()) {
+            source.addEventListener('canplay', _this._onCanPlay);
+            source.addEventListener('canplaythrough', _this._onCanPlay);
+        } else {
+            _this._onCanPlay();
+        }
+        return _this;
+    }
+
+    /**
+     * Returns true if the underlying source is playing.
+     *
+     * @private
+     * @return {boolean} True if playing.
+     */
+
+
+    VideoBaseTexture.prototype._isSourcePlaying = function _isSourcePlaying() {
+        var source = this.source;
+
+        return source.currentTime > 0 && source.paused === false && source.ended === false && source.readyState > 2;
+    };
+
+    /**
+     * Returns true if the underlying source is ready for playing.
+     *
+     * @private
+     * @return {boolean} True if ready.
+     */
+
+
+    VideoBaseTexture.prototype._isSourceReady = function _isSourceReady() {
+        return this.source.readyState === 3 || this.source.readyState === 4;
+    };
+
+    /**
+     * Runs the update loop when the video is ready to play
+     *
+     * @private
+     */
+
+
+    VideoBaseTexture.prototype._onPlayStart = function _onPlayStart() {
+        // Just in case the video has not received its can play even yet..
+        if (!this.hasLoaded) {
+            this._onCanPlay();
+        }
+
+        if (!this._isAutoUpdating && this.autoUpdate) {
+            ticker.shared.add(this.update, this);
+            this._isAutoUpdating = true;
+        }
+    };
+
+    /**
+     * Fired when a pause event is triggered, stops the update loop
+     *
+     * @private
+     */
+
+
+    VideoBaseTexture.prototype._onPlayStop = function _onPlayStop() {
+        if (this._isAutoUpdating) {
+            ticker.shared.remove(this.update, this);
+            this._isAutoUpdating = false;
+        }
+    };
+
+    /**
+     * Fired when the video is loaded and ready to play
+     *
+     * @private
+     */
+
+
+    VideoBaseTexture.prototype._onCanPlay = function _onCanPlay() {
+        this.hasLoaded = true;
+
+        if (this.source) {
+            this.source.removeEventListener('canplay', this._onCanPlay);
+            this.source.removeEventListener('canplaythrough', this._onCanPlay);
+
+            this.width = this.source.videoWidth;
+            this.height = this.source.videoHeight;
+
+            // prevent multiple loaded dispatches..
+            if (!this.__loaded) {
+                this.__loaded = true;
+                this.emit('loaded', this);
+            }
+
+            if (this._isSourcePlaying()) {
+                this._onPlayStart();
+            } else if (this.autoPlay) {
+                this.source.play();
+            }
+        }
+    };
+
+    /**
+     * Destroys this texture
+     *
+     */
+
+
+    VideoBaseTexture.prototype.destroy = function destroy() {
+        if (this._isAutoUpdating) {
+            ticker.shared.remove(this.update, this);
+        }
+
+        if (this.source && this.source._pixiId) {
+            delete _utils.BaseTextureCache[this.source._pixiId];
+            delete this.source._pixiId;
+        }
+
+        _BaseTexture.prototype.destroy.call(this);
+    };
+
+    /**
+     * Mimic Pixi BaseTexture.from.... method.
+     *
+     * @static
+     * @param {HTMLVideoElement} video - Video to create texture from
+     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
+     */
+
+
+    VideoBaseTexture.fromVideo = function fromVideo(video, scaleMode) {
+        if (!video._pixiId) {
+            video._pixiId = 'video_' + (0, _utils.uid)();
+        }
+
+        var baseTexture = _utils.BaseTextureCache[video._pixiId];
+
+        if (!baseTexture) {
+            baseTexture = new VideoBaseTexture(video, scaleMode);
+            _utils.BaseTextureCache[video._pixiId] = baseTexture;
+        }
+
+        return baseTexture;
+    };
+
+    /**
+     * Helper function that creates a new BaseTexture based on the given video element.
+     * This BaseTexture can then be used to create a texture
+     *
+     * @static
+     * @param {string|object|string[]|object[]} videoSrc - The URL(s) for the video.
+     * @param {string} [videoSrc.src] - One of the source urls for the video
+     * @param {string} [videoSrc.mime] - The mimetype of the video (e.g. 'video/mp4'). If not specified
+     *  the url's extension will be used as the second part of the mime type.
+     * @param {number} scaleMode - See {@link PIXI.SCALE_MODES} for possible values
+     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
+     */
+
+
+    VideoBaseTexture.fromUrl = function fromUrl(videoSrc, scaleMode) {
+        var video = document.createElement('video');
+
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('playsinline', '');
+
+        // array of objects or strings
+        if (Array.isArray(videoSrc)) {
+            for (var i = 0; i < videoSrc.length; ++i) {
+                video.appendChild(createSource(videoSrc[i].src || videoSrc[i], videoSrc[i].mime));
+            }
+        }
+        // single object or string
+        else {
+                video.appendChild(createSource(videoSrc.src || videoSrc, videoSrc.mime));
+            }
+
+        video.load();
+
+        return VideoBaseTexture.fromVideo(video, scaleMode);
+    };
+
+    /**
+     * Should the base texture automatically update itself, set to true by default
+     *
+     * @member {boolean}
+     */
+
+
+    _createClass(VideoBaseTexture, [{
+        key: 'autoUpdate',
+        get: function get() {
+            return this._autoUpdate;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            if (value !== this._autoUpdate) {
+                this._autoUpdate = value;
+
+                if (!this._autoUpdate && this._isAutoUpdating) {
+                    ticker.shared.remove(this.update, this);
+                    this._isAutoUpdating = false;
+                } else if (this._autoUpdate && !this._isAutoUpdating) {
+                    ticker.shared.add(this.update, this);
+                    this._isAutoUpdating = true;
+                }
+            }
+        }
+    }]);
+
+    return VideoBaseTexture;
+}(_BaseTexture3.default);
+
+exports.default = VideoBaseTexture;
+
+
+VideoBaseTexture.fromUrls = VideoBaseTexture.fromUrl;
+
+function createSource(path, type) {
+    if (!type) {
+        type = 'video/' + path.substr(path.lastIndexOf('.') + 1);
+    }
+
+    var source = document.createElement('source');
+
+    source.src = path;
+    source.type = type;
+
+    return source;
+}
+//# sourceMappingURL=VideoBaseTexture.js.map
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Matrix = __webpack_require__(29);
+
+var _Matrix2 = _interopRequireDefault(_Matrix);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var tempMat = new _Matrix2.default();
+
+/**
+ * class controls uv transform and frame clamp for texture
+ *
+ * @class
+ * @memberof PIXI.extras
+ */
+
+var TextureTransform = function () {
+    /**
+     *
+     * @param {PIXI.Texture} texture observed texture
+     * @param {number} [clampMargin] Changes frame clamping, 0.5 by default. Use -0.5 for extra border.
+     * @constructor
+     */
+    function TextureTransform(texture, clampMargin) {
+        _classCallCheck(this, TextureTransform);
+
+        this._texture = texture;
+
+        this.mapCoord = new _Matrix2.default();
+
+        this.uClampFrame = new Float32Array(4);
+
+        this.uClampOffset = new Float32Array(2);
+
+        this._lastTextureID = -1;
+
+        /**
+         * Changes frame clamping
+         * Works with TilingSprite and Mesh
+         * Change to 1.5 if you texture has repeated right and bottom lines, that leads to smoother borders
+         *
+         * @default 0
+         * @member {number}
+         */
+        this.clampOffset = 0;
+
+        /**
+         * Changes frame clamping
+         * Works with TilingSprite and Mesh
+         * Change to -0.5 to add a pixel to the edge, recommended for transparent trimmed textures in atlas
+         *
+         * @default 0.5
+         * @member {number}
+         */
+        this.clampMargin = typeof clampMargin === 'undefined' ? 0.5 : clampMargin;
+    }
+
+    /**
+     * texture property
+     * @member {PIXI.Texture}
+     */
+
+
+    /**
+     * updates matrices if texture was changed
+     * @param {boolean} forceUpdate if true, matrices will be updated any case
+     */
+    TextureTransform.prototype.update = function update(forceUpdate) {
+        var tex = this._texture;
+
+        if (!tex || !tex.valid) {
+            return;
+        }
+
+        if (!forceUpdate && this._lastTextureID === tex._updateID) {
+            return;
+        }
+
+        this._lastTextureID = tex._updateID;
+
+        var uvs = tex._uvs;
+
+        this.mapCoord.set(uvs.x1 - uvs.x0, uvs.y1 - uvs.y0, uvs.x3 - uvs.x0, uvs.y3 - uvs.y0, uvs.x0, uvs.y0);
+
+        var orig = tex.orig;
+        var trim = tex.trim;
+
+        if (trim) {
+            tempMat.set(orig.width / trim.width, 0, 0, orig.height / trim.height, -trim.x / trim.width, -trim.y / trim.height);
+            this.mapCoord.append(tempMat);
+        }
+
+        var texBase = tex.baseTexture;
+        var frame = this.uClampFrame;
+        var margin = this.clampMargin / texBase.resolution;
+        var offset = this.clampOffset;
+
+        frame[0] = (tex._frame.x + margin + offset) / texBase.width;
+        frame[1] = (tex._frame.y + margin + offset) / texBase.height;
+        frame[2] = (tex._frame.x + tex._frame.width - margin + offset) / texBase.width;
+        frame[3] = (tex._frame.y + tex._frame.height - margin + offset) / texBase.height;
+        this.uClampOffset[0] = offset / texBase.realWidth;
+        this.uClampOffset[1] = offset / texBase.realHeight;
+    };
+
+    _createClass(TextureTransform, [{
+        key: 'texture',
+        get: function get() {
+            return this._texture;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._texture = value;
+            this._lastTextureID = -1;
+        }
+    }]);
+
+    return TextureTransform;
+}();
+
+exports.default = TextureTransform;
+//# sourceMappingURL=TextureTransform.js.map
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _core = __webpack_require__(0);
+
+var core = _interopRequireWildcard(_core);
+
+var _generateBlurVertSource = __webpack_require__(79);
+
+var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
+
+var _generateBlurFragSource = __webpack_require__(78);
+
+var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
+
+var _getMaxBlurKernelSize = __webpack_require__(80);
+
+var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * The BlurXFilter applies a horizontal Gaussian blur to an object.
+ *
+ * @class
+ * @extends PIXI.Filter
+ * @memberof PIXI.filters
+ */
+var BlurXFilter = function (_core$Filter) {
+    _inherits(BlurXFilter, _core$Filter);
+
+    /**
+     * @param {number} strength - The strength of the blur filter.
+     * @param {number} quality - The quality of the blur filter.
+     * @param {number} resolution - The resolution of the blur filter.
+     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
+     */
+    function BlurXFilter(strength, quality, resolution, kernelSize) {
+        _classCallCheck(this, BlurXFilter);
+
+        kernelSize = kernelSize || 5;
+        var vertSrc = (0, _generateBlurVertSource2.default)(kernelSize, true);
+        var fragSrc = (0, _generateBlurFragSource2.default)(kernelSize);
+
+        var _this = _possibleConstructorReturn(this, _core$Filter.call(this,
+        // vertex shader
+        vertSrc,
+        // fragment shader
+        fragSrc));
+
+        _this.resolution = resolution || core.settings.RESOLUTION;
+
+        _this._quality = 0;
+
+        _this.quality = quality || 4;
+        _this.strength = strength || 8;
+
+        _this.firstRun = true;
+        return _this;
+    }
+
+    /**
+     * Applies the filter.
+     *
+     * @param {PIXI.FilterManager} filterManager - The manager.
+     * @param {PIXI.RenderTarget} input - The input target.
+     * @param {PIXI.RenderTarget} output - The output target.
+     * @param {boolean} clear - Should the output be cleared before rendering?
+     */
+
+
+    BlurXFilter.prototype.apply = function apply(filterManager, input, output, clear) {
+        if (this.firstRun) {
+            var gl = filterManager.renderer.gl;
+            var kernelSize = (0, _getMaxBlurKernelSize2.default)(gl);
+
+            this.vertexSrc = (0, _generateBlurVertSource2.default)(kernelSize, true);
+            this.fragmentSrc = (0, _generateBlurFragSource2.default)(kernelSize);
+
+            this.firstRun = false;
+        }
+
+        this.uniforms.strength = 1 / output.size.width * (output.size.width / input.size.width);
+
+        // screen space!
+        this.uniforms.strength *= this.strength;
+        this.uniforms.strength /= this.passes; // / this.passes//Math.pow(1, this.passes);
+
+        if (this.passes === 1) {
+            filterManager.applyFilter(this, input, output, clear);
+        } else {
+            var renderTarget = filterManager.getRenderTarget(true);
+            var flip = input;
+            var flop = renderTarget;
+
+            for (var i = 0; i < this.passes - 1; i++) {
+                filterManager.applyFilter(this, flip, flop, true);
+
+                var temp = flop;
+
+                flop = flip;
+                flip = temp;
+            }
+
+            filterManager.applyFilter(this, flip, output, clear);
+
+            filterManager.returnRenderTarget(renderTarget);
+        }
+    };
+
+    /**
+     * Sets the strength of both the blur.
+     *
+     * @member {number}
+     * @default 16
+     */
+
+
+    _createClass(BlurXFilter, [{
+        key: 'blur',
+        get: function get() {
+            return this.strength;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.padding = Math.abs(value) * 2;
+            this.strength = value;
+        }
+
+        /**
+        * Sets the quality of the blur by modifying the number of passes. More passes means higher
+        * quaility bluring but the lower the performance.
+        *
+        * @member {number}
+        * @default 4
+        */
+
+    }, {
+        key: 'quality',
+        get: function get() {
+            return this._quality;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._quality = value;
+            this.passes = value;
+        }
+    }]);
+
+    return BlurXFilter;
+}(core.Filter);
+
+exports.default = BlurXFilter;
+//# sourceMappingURL=BlurXFilter.js.map
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _core = __webpack_require__(0);
+
+var core = _interopRequireWildcard(_core);
+
+var _generateBlurVertSource = __webpack_require__(79);
+
+var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
+
+var _generateBlurFragSource = __webpack_require__(78);
+
+var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
+
+var _getMaxBlurKernelSize = __webpack_require__(80);
+
+var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * The BlurYFilter applies a horizontal Gaussian blur to an object.
+ *
+ * @class
+ * @extends PIXI.Filter
+ * @memberof PIXI.filters
+ */
+var BlurYFilter = function (_core$Filter) {
+    _inherits(BlurYFilter, _core$Filter);
+
+    /**
+     * @param {number} strength - The strength of the blur filter.
+     * @param {number} quality - The quality of the blur filter.
+     * @param {number} resolution - The resolution of the blur filter.
+     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
+     */
+    function BlurYFilter(strength, quality, resolution, kernelSize) {
+        _classCallCheck(this, BlurYFilter);
+
+        kernelSize = kernelSize || 5;
+        var vertSrc = (0, _generateBlurVertSource2.default)(kernelSize, false);
+        var fragSrc = (0, _generateBlurFragSource2.default)(kernelSize);
+
+        var _this = _possibleConstructorReturn(this, _core$Filter.call(this,
+        // vertex shader
+        vertSrc,
+        // fragment shader
+        fragSrc));
+
+        _this.resolution = resolution || core.settings.RESOLUTION;
+
+        _this._quality = 0;
+
+        _this.quality = quality || 4;
+        _this.strength = strength || 8;
+
+        _this.firstRun = true;
+        return _this;
+    }
+
+    /**
+     * Applies the filter.
+     *
+     * @param {PIXI.FilterManager} filterManager - The manager.
+     * @param {PIXI.RenderTarget} input - The input target.
+     * @param {PIXI.RenderTarget} output - The output target.
+     * @param {boolean} clear - Should the output be cleared before rendering?
+     */
+
+
+    BlurYFilter.prototype.apply = function apply(filterManager, input, output, clear) {
+        if (this.firstRun) {
+            var gl = filterManager.renderer.gl;
+            var kernelSize = (0, _getMaxBlurKernelSize2.default)(gl);
+
+            this.vertexSrc = (0, _generateBlurVertSource2.default)(kernelSize, false);
+            this.fragmentSrc = (0, _generateBlurFragSource2.default)(kernelSize);
+
+            this.firstRun = false;
+        }
+
+        this.uniforms.strength = 1 / output.size.height * (output.size.height / input.size.height);
+
+        this.uniforms.strength *= this.strength;
+        this.uniforms.strength /= this.passes;
+
+        if (this.passes === 1) {
+            filterManager.applyFilter(this, input, output, clear);
+        } else {
+            var renderTarget = filterManager.getRenderTarget(true);
+            var flip = input;
+            var flop = renderTarget;
+
+            for (var i = 0; i < this.passes - 1; i++) {
+                filterManager.applyFilter(this, flip, flop, true);
+
+                var temp = flop;
+
+                flop = flip;
+                flip = temp;
+            }
+
+            filterManager.applyFilter(this, flip, output, clear);
+
+            filterManager.returnRenderTarget(renderTarget);
+        }
+    };
+
+    /**
+     * Sets the strength of both the blur.
+     *
+     * @member {number}
+     * @default 2
+     */
+
+
+    _createClass(BlurYFilter, [{
+        key: 'blur',
+        get: function get() {
+            return this.strength;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this.padding = Math.abs(value) * 2;
+            this.strength = value;
+        }
+
+        /**
+         * Sets the quality of the blur by modifying the number of passes. More passes means higher
+         * quaility bluring but the lower the performance.
+         *
+         * @member {number}
+         * @default 4
+         */
+
+    }, {
+        key: 'quality',
+        get: function get() {
+            return this._quality;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._quality = value;
+            this.passes = value;
+        }
+    }]);
+
+    return BlurYFilter;
+}(core.Filter);
+
+exports.default = BlurYFilter;
+//# sourceMappingURL=BlurYFilter.js.map
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = generateFragBlurSource;
+var GAUSSIAN_VALUES = {
+    5: [0.153388, 0.221461, 0.250301],
+    7: [0.071303, 0.131514, 0.189879, 0.214607],
+    9: [0.028532, 0.067234, 0.124009, 0.179044, 0.20236],
+    11: [0.0093, 0.028002, 0.065984, 0.121703, 0.175713, 0.198596],
+    13: [0.002406, 0.009255, 0.027867, 0.065666, 0.121117, 0.174868, 0.197641],
+    15: [0.000489, 0.002403, 0.009246, 0.02784, 0.065602, 0.120999, 0.174697, 0.197448]
+};
+
+var fragTemplate = ['varying vec2 vBlurTexCoords[%size%];', 'uniform sampler2D uSampler;', 'void main(void)', '{', '    gl_FragColor = vec4(0.0);', '    %blur%', '}'].join('\n');
+
+function generateFragBlurSource(kernelSize) {
+    var kernel = GAUSSIAN_VALUES[kernelSize];
+    var halfLength = kernel.length;
+
+    var fragSource = fragTemplate;
+
+    var blurLoop = '';
+    var template = 'gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;';
+    var value = void 0;
+
+    for (var i = 0; i < kernelSize; i++) {
+        var blur = template.replace('%index%', i);
+
+        value = i;
+
+        if (i >= halfLength) {
+            value = kernelSize - i - 1;
+        }
+
+        blur = blur.replace('%value%', kernel[value]);
+
+        blurLoop += blur;
+        blurLoop += '\n';
+    }
+
+    fragSource = fragSource.replace('%blur%', blurLoop);
+    fragSource = fragSource.replace('%size%', kernelSize);
+
+    return fragSource;
+}
+//# sourceMappingURL=generateBlurFragSource.js.map
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = generateVertBlurSource;
+var vertTemplate = ['attribute vec2 aVertexPosition;', 'attribute vec2 aTextureCoord;', 'uniform float strength;', 'uniform mat3 projectionMatrix;', 'varying vec2 vBlurTexCoords[%size%];', 'void main(void)', '{', 'gl_Position = vec4((projectionMatrix * vec3((aVertexPosition), 1.0)).xy, 0.0, 1.0);', '%blur%', '}'].join('\n');
+
+function generateVertBlurSource(kernelSize, x) {
+    var halfLength = Math.ceil(kernelSize / 2);
+
+    var vertSource = vertTemplate;
+
+    var blurLoop = '';
+    var template = void 0;
+    // let value;
+
+    if (x) {
+        template = 'vBlurTexCoords[%index%] = aTextureCoord + vec2(%sampleIndex% * strength, 0.0);';
+    } else {
+        template = 'vBlurTexCoords[%index%] = aTextureCoord + vec2(0.0, %sampleIndex% * strength);';
+    }
+
+    for (var i = 0; i < kernelSize; i++) {
+        var blur = template.replace('%index%', i);
+
+        // value = i;
+
+        // if(i >= halfLength)
+        // {
+        //     value = kernelSize - i - 1;
+        // }
+
+        blur = blur.replace('%sampleIndex%', i - (halfLength - 1) + '.0');
+
+        blurLoop += blur;
+        blurLoop += '\n';
+    }
+
+    vertSource = vertSource.replace('%blur%', blurLoop);
+    vertSource = vertSource.replace('%size%', kernelSize);
+
+    return vertSource;
+}
+//# sourceMappingURL=generateBlurVertSource.js.map
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = getMaxKernelSize;
+function getMaxKernelSize(gl) {
+    var maxVaryings = gl.getParameter(gl.MAX_VARYING_VECTORS);
+    var kernelSize = 15;
+
+    while (kernelSize > maxVaryings) {
+        kernelSize -= 2;
+    }
+
+    return kernelSize;
+}
+//# sourceMappingURL=getMaxBlurKernelSize.js.map
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _FXAAFilter = __webpack_require__(179);
+
+Object.defineProperty(exports, 'FXAAFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_FXAAFilter).default;
+  }
+});
+
+var _NoiseFilter = __webpack_require__(180);
+
+Object.defineProperty(exports, 'NoiseFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_NoiseFilter).default;
+  }
+});
+
+var _DisplacementFilter = __webpack_require__(178);
+
+Object.defineProperty(exports, 'DisplacementFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_DisplacementFilter).default;
+  }
+});
+
+var _BlurFilter = __webpack_require__(176);
+
+Object.defineProperty(exports, 'BlurFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_BlurFilter).default;
+  }
+});
+
+var _BlurXFilter = __webpack_require__(76);
+
+Object.defineProperty(exports, 'BlurXFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_BlurXFilter).default;
+  }
+});
+
+var _BlurYFilter = __webpack_require__(77);
+
+Object.defineProperty(exports, 'BlurYFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_BlurYFilter).default;
+  }
+});
+
+var _ColorMatrixFilter = __webpack_require__(177);
+
+Object.defineProperty(exports, 'ColorMatrixFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ColorMatrixFilter).default;
+  }
+});
+
+var _VoidFilter = __webpack_require__(181);
+
+Object.defineProperty(exports, 'VoidFilter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_VoidFilter).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _core = __webpack_require__(0);
+
+var core = _interopRequireWildcard(_core);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Holds all information related to an Interaction event
+ *
+ * @class
+ * @memberof PIXI.interaction
+ */
+var InteractionData = function () {
+  /**
+   *
+   */
+  function InteractionData() {
+    _classCallCheck(this, InteractionData);
+
+    /**
+     * This point stores the global coords of where the touch/mouse event happened
+     *
+     * @member {PIXI.Point}
+     */
+    this.global = new core.Point();
+
+    /**
+     * The target DisplayObject that was interacted with
+     *
+     * @member {PIXI.DisplayObject}
+     */
+    this.target = null;
+
+    /**
+     * When passed to an event handler, this will be the original DOM Event that was captured
+     *
+     * @member {Event}
+     */
+    this.originalEvent = null;
+
+    /**
+     * Unique identifier for this interaction
+     *
+     * @member {number}
+     */
+    this.identifier = null;
+  }
+
+  /**
+   * This will return the local coordinates of the specified displayObject for this InteractionData
+   *
+   * @param {PIXI.DisplayObject} displayObject - The DisplayObject that you would like the local
+   *  coords off
+   * @param {PIXI.Point} [point] - A Point object in which to store the value, optional (otherwise
+   *  will create a new point)
+   * @param {PIXI.Point} [globalPos] - A Point object containing your custom global coords, optional
+   *  (otherwise will use the current global coords)
+   * @return {PIXI.Point} A point containing the coordinates of the InteractionData position relative
+   *  to the DisplayObject
+   */
+
+
+  InteractionData.prototype.getLocalPosition = function getLocalPosition(displayObject, point, globalPos) {
+    return displayObject.worldTransform.applyInverse(globalPos || this.global, point);
+  };
+
+  return InteractionData;
+}();
+
+exports.default = InteractionData;
+//# sourceMappingURL=InteractionData.js.map
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _InteractionData = __webpack_require__(82);
+
+Object.defineProperty(exports, 'InteractionData', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_InteractionData).default;
+  }
+});
+
+var _InteractionManager = __webpack_require__(183);
+
+Object.defineProperty(exports, 'InteractionManager', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_InteractionManager).default;
+  }
+});
+
+var _interactiveTarget = __webpack_require__(84);
+
+Object.defineProperty(exports, 'interactiveTarget', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_interactiveTarget).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+/**
+ * Default property values of interactive objects
+ * Used by {@link PIXI.interaction.InteractionManager} to automatically give all DisplayObjects these properties
+ *
+ * @mixin
+ * @name interactiveTarget
+ * @memberof PIXI.interaction
+ * @example
+ *      function MyObject() {}
+ *
+ *      Object.assign(
+ *          core.DisplayObject.prototype,
+ *          PIXI.interaction.interactiveTarget
+ *      );
+ */
+exports.default = {
+  /**
+   * Determines if the displayObject be clicked/touched
+   *
+   * @inner {boolean}
+   */
+  interactive: false,
+
+  /**
+   * Determines if the children to the displayObject can be clicked/touched
+   * Setting this to false allows pixi to bypass a recursive hitTest function
+   *
+   * @inner {boolean}
+   */
+  interactiveChildren: true,
+
+  /**
+   * Interaction shape. Children will be hit first, then this shape will be checked.
+   * Setting this will cause this shape to be checked in hit tests rather than the displayObject's bounds.
+   *
+   * @inner {PIXI.Rectangle|PIXI.Circle|PIXI.Ellipse|PIXI.Polygon|PIXI.RoundedRectangle}
+   */
+  hitArea: null,
+
+  /**
+   * If enabled, the mouse cursor use the pointer behavior when hovered over the displayObject if it is interactive
+   * Setting this changes the 'cursor' property to `'pointer'`.
+   *
+   * @member {boolean}
+   * @memberof PIXI.interaction.interactiveTarget#
+   */
+  get buttonMode() {
+    return this.cursor === 'pointer';
+  },
+  set buttonMode(value) {
+    if (value) {
+      this.cursor = 'pointer';
+    } else if (this.cursor === 'pointer') {
+      this.cursor = null;
+    }
+  },
+
+  /**
+   * This defines what cursor mode is used when the mouse cursor
+   * is hovered over the displayObject.
+   *
+   * @see https://developer.mozilla.org/en/docs/Web/CSS/cursor
+   *
+   * @inner {string}
+   */
+  cursor: null,
+
+  /**
+   * Internal set of all active pointers, by identifier
+   *
+   * @member {Map<number, InteractionTrackingData>}
+   * @memberof PIXI.interaction.interactiveTarget#
+   * @private
+   */
+  get trackedPointers() {
+    if (this._trackedPointers === undefined) this._trackedPointers = {};
+
+    return this._trackedPointers;
+  },
+
+  /**
+   * Map of all tracked pointers, by identifier. Use trackedPointers to access.
+   *
+   * @private {Map<number, InteractionTrackingData>}
+   */
+  _trackedPointers: undefined
+};
+//# sourceMappingURL=interactiveTarget.js.map
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.parse = parse;
+
+exports.default = function () {
+    return function bitmapFontParser(resource, next) {
+        // skip if no data or not xml data
+        if (!resource.data || resource.type !== _resourceLoader.Resource.TYPE.XML) {
+            next();
+
+            return;
+        }
+
+        // skip if not bitmap font data, using some silly duck-typing
+        if (resource.data.getElementsByTagName('page').length === 0 || resource.data.getElementsByTagName('info').length === 0 || resource.data.getElementsByTagName('info')[0].getAttribute('face') === null) {
+            next();
+
+            return;
+        }
+
+        var xmlUrl = !resource.isDataUrl ? path.dirname(resource.url) : '';
+
+        if (resource.isDataUrl) {
+            if (xmlUrl === '.') {
+                xmlUrl = '';
+            }
+
+            if (this.baseUrl && xmlUrl) {
+                // if baseurl has a trailing slash then add one to xmlUrl so the replace works below
+                if (this.baseUrl.charAt(this.baseUrl.length - 1) === '/') {
+                    xmlUrl += '/';
+                }
+
+                // remove baseUrl from xmlUrl
+                xmlUrl = xmlUrl.replace(this.baseUrl, '');
+            }
+        }
+
+        // if there is an xmlUrl now, it needs a trailing slash. Ensure that it does if the string isn't empty.
+        if (xmlUrl && xmlUrl.charAt(xmlUrl.length - 1) !== '/') {
+            xmlUrl += '/';
+        }
+
+        var textureUrl = xmlUrl + resource.data.getElementsByTagName('page')[0].getAttribute('file');
+
+        if (_core.utils.TextureCache[textureUrl]) {
+            // reuse existing texture
+            parse(resource, _core.utils.TextureCache[textureUrl]);
+            next();
+        } else {
+            var loadOptions = {
+                crossOrigin: resource.crossOrigin,
+                loadType: _resourceLoader.Resource.LOAD_TYPE.IMAGE,
+                metadata: resource.metadata.imageMetadata,
+                parentResource: resource
+            };
+
+            // load the texture for the font
+            this.add(resource.name + '_image', textureUrl, loadOptions, function (res) {
+                parse(resource, res.texture);
+                next();
+            });
+        }
+    };
+};
+
+var _path = __webpack_require__(6);
+
+var path = _interopRequireWildcard(_path);
+
+var _core = __webpack_require__(0);
+
+var _resourceLoader = __webpack_require__(17);
+
+var _extras = __webpack_require__(37);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/**
+ * Register a BitmapText font from loader resource.
+ *
+ * @function parseBitmapFontData
+ * @memberof PIXI.loaders
+ * @param {PIXI.loaders.Resource} resource - Loader resource.
+ * @param {PIXI.Texture} texture - Reference to texture.
+ */
+function parse(resource, texture) {
+    resource.bitmapFont = _extras.BitmapText.registerFont(resource.data, texture);
+}
+//# sourceMappingURL=bitmapFontParser.js.map
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _loader = __webpack_require__(185);
+
+Object.defineProperty(exports, 'Loader', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_loader).default;
+  }
+});
+
+var _bitmapFontParser = __webpack_require__(85);
+
+Object.defineProperty(exports, 'bitmapFontParser', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_bitmapFontParser).default;
+  }
+});
+Object.defineProperty(exports, 'parseBitmapFontData', {
+  enumerable: true,
+  get: function get() {
+    return _bitmapFontParser.parse;
+  }
+});
+
+var _spritesheetParser = __webpack_require__(87);
+
+Object.defineProperty(exports, 'spritesheetParser', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_spritesheetParser).default;
+  }
+});
+
+var _textureParser = __webpack_require__(88);
+
+Object.defineProperty(exports, 'textureParser', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_textureParser).default;
+  }
+});
+
+var _resourceLoader = __webpack_require__(17);
+
+Object.defineProperty(exports, 'Resource', {
+  enumerable: true,
+  get: function get() {
+    return _resourceLoader.Resource;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function () {
+    return function spritesheetParser(resource, next) {
+        var resourcePath = void 0;
+        var imageResourceName = resource.name + '_image';
+
+        // skip if no data, its not json, it isn't spritesheet data, or the image resource already exists
+        if (!resource.data || resource.type !== _resourceLoader.Resource.TYPE.JSON || !resource.data.frames || this.resources[imageResourceName]) {
+            next();
+
+            return;
+        }
+
+        var loadOptions = {
+            crossOrigin: resource.crossOrigin,
+            loadType: _resourceLoader.Resource.LOAD_TYPE.IMAGE,
+            metadata: resource.metadata.imageMetadata,
+            parentResource: resource
+        };
+
+        // Prepend url path unless the resource image is a data url
+        if (resource.isDataUrl) {
+            resourcePath = resource.data.meta.image;
+        } else {
+            resourcePath = _path2.default.dirname(resource.url.replace(this.baseUrl, '')) + '/' + resource.data.meta.image;
+        }
+
+        // load the image for this sheet
+        this.add(imageResourceName, resourcePath, loadOptions, function onImageLoad(res) {
+            var spritesheet = new _core.Spritesheet(res.texture.baseTexture, resource.data, resource.url);
+
+            spritesheet.parse(function () {
+                resource.spritesheet = spritesheet;
+                resource.textures = spritesheet.textures;
+                next();
+            });
+        });
+    };
+};
+
+var _resourceLoader = __webpack_require__(17);
+
+var _path = __webpack_require__(6);
+
+var _path2 = _interopRequireDefault(_path);
+
+var _core = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=spritesheetParser.js.map
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function () {
+    return function textureParser(resource, next) {
+        // create a new texture if the data is an Image object
+        if (resource.data && resource.type === _resourceLoader.Resource.TYPE.IMAGE) {
+            resource.texture = _Texture2.default.fromLoader(resource.data, resource.url, resource.name);
+        }
+        next();
+    };
+};
+
+var _resourceLoader = __webpack_require__(17);
+
+var _Texture = __webpack_require__(9);
+
+var _Texture2 = _interopRequireDefault(_Texture);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=textureParser.js.map
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _Mesh2 = __webpack_require__(16);
+
+var _Mesh3 = _interopRequireDefault(_Mesh2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * The Plane allows you to draw a texture across several points and them manipulate these points
+ *
+ *```js
+ * for (let i = 0; i < 20; i++) {
+ *     points.push(new PIXI.Point(i * 50, 0));
+ * };
+ * let Plane = new PIXI.Plane(PIXI.Texture.fromImage("snake.png"), points);
+ *  ```
+ *
+ * @class
+ * @extends PIXI.mesh.Mesh
+ * @memberof PIXI.mesh
+ *
+ */
+var Plane = function (_Mesh) {
+    _inherits(Plane, _Mesh);
+
+    /**
+     * @param {PIXI.Texture} texture - The texture to use on the Plane.
+     * @param {number} verticesX - The number of vertices in the x-axis
+     * @param {number} verticesY - The number of vertices in the y-axis
+     */
+    function Plane(texture, verticesX, verticesY) {
+        _classCallCheck(this, Plane);
+
+        /**
+         * Tracker for if the Plane is ready to be drawn. Needed because Mesh ctor can
+         * call _onTextureUpdated which could call refresh too early.
+         *
+         * @member {boolean}
+         * @private
+         */
+        var _this = _possibleConstructorReturn(this, _Mesh.call(this, texture));
+
+        _this._ready = true;
+
+        _this.verticesX = verticesX || 10;
+        _this.verticesY = verticesY || 10;
+
+        _this.drawMode = _Mesh3.default.DRAW_MODES.TRIANGLES;
+        _this.refresh();
+        return _this;
+    }
+
+    /**
+     * Refreshes
+     *
+     */
+
+
+    Plane.prototype.refresh = function refresh() {
+        var total = this.verticesX * this.verticesY;
+        var verts = [];
+        var colors = [];
+        var uvs = [];
+        var indices = [];
+        var texture = this.texture;
+
+        var segmentsX = this.verticesX - 1;
+        var segmentsY = this.verticesY - 1;
+
+        var sizeX = texture.width / segmentsX;
+        var sizeY = texture.height / segmentsY;
+
+        for (var i = 0; i < total; i++) {
+            if (texture._uvs) {
+                var x = i % this.verticesX;
+                var y = i / this.verticesX | 0;
+
+                verts.push(x * sizeX, y * sizeY);
+
+                // this works for rectangular textures.
+                uvs.push(texture._uvs.x0 + (texture._uvs.x1 - texture._uvs.x0) * (x / (this.verticesX - 1)), texture._uvs.y0 + (texture._uvs.y3 - texture._uvs.y0) * (y / (this.verticesY - 1)));
+            } else {
+                uvs.push(0);
+            }
+        }
+
+        //  cons
+
+        var totalSub = segmentsX * segmentsY;
+
+        for (var _i = 0; _i < totalSub; _i++) {
+            var xpos = _i % segmentsX;
+            var ypos = _i / segmentsX | 0;
+
+            var value = ypos * this.verticesX + xpos;
+            var value2 = ypos * this.verticesX + xpos + 1;
+            var value3 = (ypos + 1) * this.verticesX + xpos;
+            var value4 = (ypos + 1) * this.verticesX + xpos + 1;
+
+            indices.push(value, value2, value3);
+            indices.push(value2, value4, value3);
+        }
+
+        // console.log(indices)
+        this.vertices = new Float32Array(verts);
+        this.uvs = new Float32Array(uvs);
+        this.colors = new Float32Array(colors);
+        this.indices = new Uint16Array(indices);
+
+        this.indexDirty = true;
+    };
+
+    /**
+     * Clear texture UVs when new texture is set
+     *
+     * @private
+     */
+
+
+    Plane.prototype._onTextureUpdate = function _onTextureUpdate() {
+        _Mesh3.default.prototype._onTextureUpdate.call(this);
+
+        // wait for the Plane ctor to finish before calling refresh
+        if (this._ready) {
+            this.refresh();
+        }
+    };
+
+    return Plane;
+}(_Mesh3.default);
+
+exports.default = Plane;
+//# sourceMappingURL=Plane.js.map
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _Mesh = __webpack_require__(16);
+
+Object.defineProperty(exports, 'Mesh', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Mesh).default;
+  }
+});
+
+var _MeshRenderer = __webpack_require__(189);
+
+Object.defineProperty(exports, 'MeshRenderer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_MeshRenderer).default;
+  }
+});
+
+var _CanvasMeshRenderer = __webpack_require__(188);
+
+Object.defineProperty(exports, 'CanvasMeshRenderer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CanvasMeshRenderer).default;
+  }
+});
+
+var _Plane = __webpack_require__(89);
+
+Object.defineProperty(exports, 'Plane', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Plane).default;
+  }
+});
+
+var _NineSlicePlane = __webpack_require__(186);
+
+Object.defineProperty(exports, 'NineSlicePlane', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_NineSlicePlane).default;
+  }
+});
+
+var _Rope = __webpack_require__(187);
+
+Object.defineProperty(exports, 'Rope', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Rope).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _ParticleContainer = __webpack_require__(190);
+
+Object.defineProperty(exports, 'ParticleContainer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ParticleContainer).default;
+  }
+});
+
+var _ParticleRenderer = __webpack_require__(192);
+
+Object.defineProperty(exports, 'ParticleRenderer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ParticleRenderer).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _WebGLPrepare = __webpack_require__(200);
+
+Object.defineProperty(exports, 'webgl', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_WebGLPrepare).default;
+  }
+});
+
+var _CanvasPrepare = __webpack_require__(198);
+
+Object.defineProperty(exports, 'canvas', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CanvasPrepare).default;
+  }
+});
+
+var _BasePrepare = __webpack_require__(38);
+
+Object.defineProperty(exports, 'BasePrepare', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_BasePrepare).default;
+  }
+});
+
+var _CountLimiter = __webpack_require__(93);
+
+Object.defineProperty(exports, 'CountLimiter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CountLimiter).default;
+  }
+});
+
+var _TimeLimiter = __webpack_require__(199);
+
+Object.defineProperty(exports, 'TimeLimiter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_TimeLimiter).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * CountLimiter limits the number of items handled by a {@link PIXI.prepare.BasePrepare} to a specified
+ * number of items per frame.
+ *
+ * @class
+ * @memberof PIXI
+ */
+var CountLimiter = function () {
+  /**
+   * @param {number} maxItemsPerFrame - The maximum number of items that can be prepared each frame.
+   */
+  function CountLimiter(maxItemsPerFrame) {
+    _classCallCheck(this, CountLimiter);
+
+    /**
+     * The maximum number of items that can be prepared each frame.
+     * @private
+     */
+    this.maxItemsPerFrame = maxItemsPerFrame;
+    /**
+     * The number of items that can be prepared in the current frame.
+     * @type {number}
+     * @private
+     */
+    this.itemsLeft = 0;
+  }
+
+  /**
+   * Resets any counting properties to start fresh on a new frame.
+   */
+
+
+  CountLimiter.prototype.beginFrame = function beginFrame() {
+    this.itemsLeft = this.maxItemsPerFrame;
+  };
+
+  /**
+   * Checks to see if another item can be uploaded. This should only be called once per item.
+   * @return {boolean} If the item is allowed to be uploaded.
+   */
+
+
+  CountLimiter.prototype.allowedToUpload = function allowedToUpload() {
+    return this.itemsLeft-- > 0;
+  };
+
+  return CountLimiter;
+}();
+
+exports.default = CountLimiter;
+//# sourceMappingURL=CountLimiter.js.map
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var repeat = exports.repeat = function repeat(str, times) {
+  return new Array(times + 1).join(str);
+};
+
+var pad = exports.pad = function pad(num, maxLength) {
+  return repeat("0", maxLength - num.toString().length) + num;
+};
+
+var formatTime = exports.formatTime = function formatTime(time) {
+  return pad(time.getHours(), 2) + ":" + pad(time.getMinutes(), 2) + ":" + pad(time.getSeconds(), 2) + "." + pad(time.getMilliseconds(), 3);
+};
+
+// Use performance API if it's available in order to get better precision
+var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
+
+/***/ }),
+/* 95 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = compose;
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */
+
+function compose() {
+  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
+
+  if (funcs.length === 0) {
+    return function (arg) {
+      return arg;
+    };
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+
+  var last = funcs[funcs.length - 1];
+  var rest = funcs.slice(0, -1);
+  return function () {
+    return rest.reduceRight(function (composed, f) {
+      return f(composed);
+    }, last.apply(undefined, arguments));
+  };
+}
+
+/***/ }),
+/* 96 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_symbol_observable__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ActionTypes; });
+/* harmony export (immutable) */ __webpack_exports__["a"] = createStore;
+
+
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+var ActionTypes = {
+  INIT: '@@redux/INIT'
+};
+
+/**
+ * Creates a Redux store that holds the state tree.
+ * The only way to change the data in the store is to call `dispatch()` on it.
+ *
+ * There should only be a single store in your app. To specify how different
+ * parts of the state tree respond to actions, you may combine several reducers
+ * into a single reducer function by using `combineReducers`.
+ *
+ * @param {Function} reducer A function that returns the next state tree, given
+ * the current state tree and the action to handle.
+ *
+ * @param {any} [preloadedState] The initial state. You may optionally specify it
+ * to hydrate the state from the server in universal apps, or to restore a
+ * previously serialized user session.
+ * If you use `combineReducers` to produce the root reducer function, this must be
+ * an object with the same shape as `combineReducers` keys.
+ *
+ * @param {Function} enhancer The store enhancer. You may optionally specify it
+ * to enhance the store with third-party capabilities such as middleware,
+ * time travel, persistence, etc. The only store enhancer that ships with Redux
+ * is `applyMiddleware()`.
+ *
+ * @returns {Store} A Redux store that lets you read the state, dispatch actions
+ * and subscribe to changes.
+ */
+function createStore(reducer, preloadedState, enhancer) {
+  var _ref2;
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preloadedState;
+    preloadedState = undefined;
+  }
+
+  if (typeof enhancer !== 'undefined') {
+    if (typeof enhancer !== 'function') {
+      throw new Error('Expected the enhancer to be a function.');
+    }
+
+    return enhancer(createStore)(reducer, preloadedState);
+  }
+
+  if (typeof reducer !== 'function') {
+    throw new Error('Expected the reducer to be a function.');
+  }
+
+  var currentReducer = reducer;
+  var currentState = preloadedState;
+  var currentListeners = [];
+  var nextListeners = currentListeners;
+  var isDispatching = false;
+
+  function ensureCanMutateNextListeners() {
+    if (nextListeners === currentListeners) {
+      nextListeners = currentListeners.slice();
+    }
+  }
+
+  /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+  function getState() {
+    return currentState;
+  }
+
+  /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+  function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected listener to be a function.');
+    }
+
+    var isSubscribed = true;
+
+    ensureCanMutateNextListeners();
+    nextListeners.push(listener);
+
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+
+      isSubscribed = false;
+
+      ensureCanMutateNextListeners();
+      var index = nextListeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+    };
+  }
+
+  /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+  function dispatch(action) {
+    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__["a" /* default */])(action)) {
+      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+    }
+
+    if (typeof action.type === 'undefined') {
+      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+    }
+
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+
+    var listeners = currentListeners = nextListeners;
+    for (var i = 0; i < listeners.length; i++) {
+      listeners[i]();
+    }
+
+    return action;
+  }
+
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+  function replaceReducer(nextReducer) {
+    if (typeof nextReducer !== 'function') {
+      throw new Error('Expected the nextReducer to be a function.');
+    }
+
+    currentReducer = nextReducer;
+    dispatch({ type: ActionTypes.INIT });
+  }
+
+  /**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/zenparsing/es-observable
+   */
+  function observable() {
+    var _ref;
+
+    var outerSubscribe = subscribe;
+    return _ref = {
+      /**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+      subscribe: function subscribe(observer) {
+        if (typeof observer !== 'object') {
+          throw new TypeError('Expected the observer to be an object.');
+        }
+
+        function observeState() {
+          if (observer.next) {
+            observer.next(getState());
+          }
+        }
+
+        observeState();
+        var unsubscribe = outerSubscribe(observeState);
+        return { unsubscribe: unsubscribe };
+      }
+    }, _ref[__WEBPACK_IMPORTED_MODULE_1_symbol_observable___default.a] = function () {
+      return this;
+    }, _ref;
+  }
+
+  // When a store is created, an "INIT" action is dispatched so that every
+  // reducer returns their initial state. This effectively populates
+  // the initial state tree.
+  dispatch({ type: ActionTypes.INIT });
+
+  return _ref2 = {
+    dispatch: dispatch,
+    subscribe: subscribe,
+    getState: getState,
+    replaceReducer: replaceReducer
+  }, _ref2[__WEBPACK_IMPORTED_MODULE_1_symbol_observable___default.a] = observable, _ref2;
+}
+
+/***/ }),
+/* 97 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = warning;
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable no-empty */
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.eachSeries = eachSeries;
+exports.queue = queue;
+/**
+ * Smaller version of the async library constructs.
+ *
+ */
+function _noop() {} /* empty */
+
+/**
+ * Iterates an array in series.
+ *
+ * @param {Array.<*>} array - Array to iterate.
+ * @param {function} iterator - Function to call for each element.
+ * @param {function} callback - Function to call when done, or on error.
+ */
+function eachSeries(array, iterator, callback) {
+    var i = 0;
+    var len = array.length;
+
+    (function next(err) {
+        if (err || i === len) {
+            if (callback) {
+                callback(err);
+            }
+
+            return;
+        }
+
+        iterator(array[i++], next);
+    })();
+}
+
+/**
+ * Ensures a function is only called once.
+ *
+ * @param {function} fn - The function to wrap.
+ * @return {function} The wrapping function.
+ */
+function onlyOnce(fn) {
+    return function onceWrapper() {
+        if (fn === null) {
+            throw new Error('Callback was already called.');
+        }
+
+        var callFn = fn;
+
+        fn = null;
+        callFn.apply(this, arguments);
+    };
+}
+
+/**
+ * Async queue implementation,
+ *
+ * @param {function} worker - The worker function to call for each task.
+ * @param {number} concurrency - How many workers to run in parrallel.
+ * @return {*} The async queue object.
+ */
+function queue(worker, concurrency) {
+    if (concurrency == null) {
+        // eslint-disable-line no-eq-null,eqeqeq
+        concurrency = 1;
+    } else if (concurrency === 0) {
+        throw new Error('Concurrency must not be zero');
+    }
+
+    var workers = 0;
+    var q = {
+        _tasks: [],
+        concurrency: concurrency,
+        saturated: _noop,
+        unsaturated: _noop,
+        buffer: concurrency / 4,
+        empty: _noop,
+        drain: _noop,
+        error: _noop,
+        started: false,
+        paused: false,
+        push: function push(data, callback) {
+            _insert(data, false, callback);
+        },
+        kill: function kill() {
+            workers = 0;
+            q.drain = _noop;
+            q.started = false;
+            q._tasks = [];
+        },
+        unshift: function unshift(data, callback) {
+            _insert(data, true, callback);
+        },
+        process: function process() {
+            while (!q.paused && workers < q.concurrency && q._tasks.length) {
+                var task = q._tasks.shift();
+
+                if (q._tasks.length === 0) {
+                    q.empty();
+                }
+
+                workers += 1;
+
+                if (workers === q.concurrency) {
+                    q.saturated();
+                }
+
+                worker(task.data, onlyOnce(_next(task)));
+            }
+        },
+        length: function length() {
+            return q._tasks.length;
+        },
+        running: function running() {
+            return workers;
+        },
+        idle: function idle() {
+            return q._tasks.length + workers === 0;
+        },
+        pause: function pause() {
+            if (q.paused === true) {
+                return;
+            }
+
+            q.paused = true;
+        },
+        resume: function resume() {
+            if (q.paused === false) {
+                return;
+            }
+
+            q.paused = false;
+
+            // Need to call q.process once per concurrent
+            // worker to preserve full concurrency after pause
+            for (var w = 1; w <= q.concurrency; w++) {
+                q.process();
+            }
+        }
+    };
+
+    function _insert(data, insertAtFront, callback) {
+        if (callback != null && typeof callback !== 'function') {
+            // eslint-disable-line no-eq-null,eqeqeq
+            throw new Error('task callback must be a function');
+        }
+
+        q.started = true;
+
+        if (data == null && q.idle()) {
+            // eslint-disable-line no-eq-null,eqeqeq
+            // call drain immediately if there are no tasks
+            setTimeout(function () {
+                return q.drain();
+            }, 1);
+
+            return;
+        }
+
+        var item = {
+            data: data,
+            callback: typeof callback === 'function' ? callback : _noop
+        };
+
+        if (insertAtFront) {
+            q._tasks.unshift(item);
+        } else {
+            q._tasks.push(item);
+        }
+
+        setTimeout(function () {
+            return q.process();
+        }, 1);
+    }
+
+    function _next(task) {
+        return function next() {
+            workers -= 1;
+
+            task.callback.apply(task, arguments);
+
+            if (arguments[0] != null) {
+                // eslint-disable-line no-eq-null,eqeqeq
+                q.error(arguments[0], task.data);
+            }
+
+            if (workers <= q.concurrency - q.buffer) {
+                q.unsaturated();
+            }
+
+            if (q.idle()) {
+                q.drain();
+            }
+
+            q.process();
+        };
+    }
+
+    return q;
+}
+//# sourceMappingURL=async.js.map
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.encodeBinary = encodeBinary;
+var _keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function encodeBinary(input) {
+    var output = '';
+    var inx = 0;
+
+    while (inx < input.length) {
+        // Fill byte buffer array
+        var bytebuffer = [0, 0, 0];
+        var encodedCharIndexes = [0, 0, 0, 0];
+
+        for (var jnx = 0; jnx < bytebuffer.length; ++jnx) {
+            if (inx < input.length) {
+                // throw away high-order byte, as documented at:
+                // https://developer.mozilla.org/En/Using_XMLHttpRequest#Handling_binary_data
+                bytebuffer[jnx] = input.charCodeAt(inx++) & 0xff;
+            } else {
+                bytebuffer[jnx] = 0;
+            }
+        }
+
+        // Get each encoded character, 6 bits at a time
+        // index 1: first 6 bits
+        encodedCharIndexes[0] = bytebuffer[0] >> 2;
+
+        // index 2: second 6 bits (2 least significant bits from input byte 1 + 4 most significant bits from byte 2)
+        encodedCharIndexes[1] = (bytebuffer[0] & 0x3) << 4 | bytebuffer[1] >> 4;
+
+        // index 3: third 6 bits (4 least significant bits from input byte 2 + 2 most significant bits from byte 3)
+        encodedCharIndexes[2] = (bytebuffer[1] & 0x0f) << 2 | bytebuffer[2] >> 6;
+
+        // index 3: forth 6 bits (6 least significant bits from input byte 3)
+        encodedCharIndexes[3] = bytebuffer[2] & 0x3f;
+
+        // Determine whether padding happened, and adjust accordingly
+        var paddingBytes = inx - (input.length - 1);
+
+        switch (paddingBytes) {
+            case 2:
+                // Set last 2 characters to padding char
+                encodedCharIndexes[3] = 64;
+                encodedCharIndexes[2] = 64;
+                break;
+
+            case 1:
+                // Set last character to padding char
+                encodedCharIndexes[3] = 64;
+                break;
+
+            default:
+                break; // No padding - proceed
+        }
+
+        // Now we will grab each appropriate character out of our keystring
+        // based on our index array and append it to the output string
+        for (var _jnx = 0; _jnx < encodedCharIndexes.length; ++_jnx) {
+            output += _keyStr.charAt(encodedCharIndexes[_jnx]);
+        }
+    }
+
+    return output;
+}
+//# sourceMappingURL=b64.js.map
+
+/***/ }),
+/* 100 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+const BattleState = {
+	WAITING: 'WAITING', // waiting for ATB gauge to fill
+	READY: 'READY', // ATB gauge is filled, waiting for a turn
+	DEFENDING: 'DEFENDING',
+	ANIMATING: 'ANIMATING',
+	RUNNING: 'RUNNING', // like READY in that you can run, but then stop and your ATB gauge is still full
+	DEAD: 'DEAD'
+};
+
+/* harmony default export */ __webpack_exports__["default"] = BattleState;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class BattleTimerBar extends PIXI.Container
+{
+	static get ROUND(){ return 1};
+	static get WIDTH(){ return 30};
+	static get HEIGHT(){ return 6};
+
+	get percentage()
+	{
+		return this._percentage;
+	}
+
+	set percentage(value)
+	{
+        const me = this;
+		if(value === null)
+		{
+			value = 0;
+		}
+
+		if(me._percentage === value)
+		{
+			return;
+		}
+		value = _.clamp(value, 0, 1);
+		me._percentage = value;
+		me.percentageDirty = true;
+		if(value === 1)
+		{
+			me.setState('ready');
+		}
+		else
+		{
+			me.setState('loading');
+		}
+	}
+
+	constructor()
+	{
+        super();
+
+        const me = this;
+
+		me._percentage = 1;
+		me.percentageDirty = false;
+		me.flashDirty = false;
+
+		me.graphics = new PIXI.Graphics();
+		me.addChild(me.graphics);
+
+        me.setState('idle');
+
+		me.redraw();
+	}
+
+    setState(newState)
+    {
+        const me = this;
+        const oldState = me.state;
+        me.state = newState;
+        switch(newState)
+        {
+            case 'readyWhite': me.flashDirty = true;
+            case 'readyGold': me.flashDirty = true;
+            case 'idle': me.visible = true;
+            case 'ready':
+            case 'loading':
+            default:
+                return;
+        }
+    }
+
+	redraw()
+	{
+        const me = this;
+		const OFFSET = 2;
+
+		me.graphics.beginFill(0xFFFFFF);
+		me.graphics.drawRect(0, 
+							0, 
+							BattleTimerBar.WIDTH, 
+							BattleTimerBar.HEIGHT);
+
+		me.graphics.beginFill(0x000080);
+		me.graphics.drawRect(1, 
+									1, 
+									BattleTimerBar.WIDTH - 2, 
+									BattleTimerBar.HEIGHT - 2, 
+									BattleTimerBar.ROUND);
+		
+		
+		let percentageWidth = BattleTimerBar.WIDTH * me._percentage - OFFSET * 2;
+		percentageWidth = _.clamp(percentageWidth, 0, BattleTimerBar.WIDTH);
+		me.graphics.beginFill(0xffd700);
+		me.graphics.drawRect(OFFSET, 
+			OFFSET,
+			percentageWidth, 
+			BattleTimerBar.HEIGHT - OFFSET * 2);
+	}
+
+	render()
+	{
+        const me = this;
+		if(me.percentageDirty || me.flashDirty)
+		{
+			me.graphics.clear();
+		}
+
+		if(me.percentageDirty)
+		{
+			me.percentageDirty = false;
+			me.redraw();
+		}
+	}
+}
+
+/* harmony default export */ __webpack_exports__["a"] = BattleTimerBar;
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+exports.__esModule = true;
+exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
+
+var _polyfill = __webpack_require__(196);
+
+Object.keys(_polyfill).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _polyfill[key];
+        }
+    });
+});
+
+var _deprecation = __webpack_require__(165);
+
+Object.keys(_deprecation).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _deprecation[key];
+        }
+    });
+});
+
+var _core = __webpack_require__(0);
+
+Object.keys(_core).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _core[key];
+        }
+    });
+});
+
+var _accessibility = __webpack_require__(122);
+
+var accessibility = _interopRequireWildcard(_accessibility);
+
+var _extract = __webpack_require__(167);
+
+var extract = _interopRequireWildcard(_extract);
+
+var _extras = __webpack_require__(37);
+
+var extras = _interopRequireWildcard(_extras);
+
+var _filters = __webpack_require__(81);
+
+var filters = _interopRequireWildcard(_filters);
+
+var _interaction = __webpack_require__(83);
+
+var interaction = _interopRequireWildcard(_interaction);
+
+var _loaders = __webpack_require__(86);
+
+var loaders = _interopRequireWildcard(_loaders);
+
+var _mesh = __webpack_require__(90);
+
+var mesh = _interopRequireWildcard(_mesh);
+
+var _particles = __webpack_require__(91);
+
+var particles = _interopRequireWildcard(_particles);
+
+var _prepare = __webpack_require__(92);
+
+var prepare = _interopRequireWildcard(_prepare);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+// export libs
+
+
+// export core
+_core.utils.mixins.performMixins();
+
+// handle mixins now, after all code has been added, including deprecation
+// import polyfills. Done as an export to make sure polyfills are imported first
+exports.accessibility = accessibility;
+exports.extract = extract;
+exports.extras = extras;
+exports.filters = filters;
+exports.interaction = interaction;
+exports.loaders = loaders;
+exports.mesh = mesh;
+exports.particles = particles;
+exports.prepare = prepare;
+
+/**
+ * A premade instance of the loader that can be used to load resources.
+ *
+ * @name loader
+ * @memberof PIXI
+ * @property {PIXI.loaders.Loader}
+ */
+
+var loader = loaders && loaders.Loader ? new loaders.Loader() : null; // check is there in case user excludes loader lib
+
+exports.loader = loader;
+
+// Always export pixi globally.
+
+global.PIXI = exports; // eslint-disable-line
+//# sourceMappingURL=index.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
+/* 103 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_logger__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_logger__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_jessewarden_ff6_views_BattleTimerBar__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__com_jessewarden_ff6_views_PlayerList__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_gsap__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_gsap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__com_jessewarden_ff6_views_TextDropper__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__com_jessewarden_ff6_views_Menu__ = __webpack_require__(228);
+const log = console.log;
+
+
+
+
+
+
+
+const {guid} = __WEBPACK_IMPORTED_MODULE_6_final_fantasy_6_algorithms__["core"];
+
+
+
+
+
+
+
+
+let store, unsubscribe, pixiApp, charactersContainer;
+const setupRedux = ()=>
+{
+	const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
+		entities: __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__["a" /* entities */],
+		timers: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["a" /* timers */],
+		characters: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["a" /* characters */],
+		battleTimers: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["a" /* battleTimers */]
+	});
+	store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(allReducers, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_logger___default()()));
+	// store = createStore(allReducers);
+	pixiApp = setupPixi();
+
+
+	// addPlayerAndBattleTimer();
+	// const secondPlayerAction = addPlayerAndBattleTimer();
+
+	// const playerList = new PlayerList(store);
+	// pixiApp.stage.addChild(playerList);
+	// playerList.x = pixiApp.screen.width - playerList.width;
+	// playerList.y = 200; 
+
+	// const state = store.getState();
+	// _.chain(state.battleTimers)
+	// .map(battleTimer => battleTimer.entity)
+	// .forEach(battleTimerEntity =>
+	// {
+	// 	startBattleTimer(battleTimerEntity, window, 
+	// 	doneEvent =>
+	// 	{
+	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+	// 	},
+	// 	progressEvent =>
+	// 	{
+	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
+	// 	});
+	// })
+	// .value();
+
+	// showHitPointsLowered(secondPlayerAction.playerEntity);
+
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
+	PIXI.loader.load((loader, resources) =>
+	{
+	// 	log("resources:", resources);
+	// 	// PIXI.loaders.parseBitmapFontData(loader, resources);
+		const menuItems = [
+			{name: "Uno"},
+			{name: "Dos"},
+			{name: "Tres"}
+		];
+		const test = new __WEBPACK_IMPORTED_MODULE_12__com_jessewarden_ff6_views_Menu__["a" /* default */](menuItems);
+		pixiApp.stage.addChild(test);
+		test.changes.subscribe(event =>
+		{
+			log("event:", event);
+			test.setMenuItems([
+				{name: "Yes"}
+			]);
+		});
+
+		// setTimeout(()=>
+		// {
+		// 	test.setMenuItems([
+		// 		{name: "What"},
+		// 		{name: "The"}
+		// 	]);
+		// }, 3000);
+	});
+
+	
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = setupRedux;
+
+
+const setupAndStartGameTimer = ()=>
+{
+	const timerID = makeTimer();
+	const tick = (time, difference, now, previousTick) =>
+	{
+		// log("time: " + time + ", diff: " + difference + ", now: " + now + ", prev: " + previousTick);
+		// log(time / 1000);
+		if(time >= 3000)
+		{
+			stopTimer(timerID);
+		}	
+	};
+	startTimer(timerID, window, tick);
+	return timerID;
+};
+/* unused harmony export setupAndStartGameTimer */
+
+
+const makeTimer = ()=>
+{
+	const id = guid();
+	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_2__com_jessewarden_ff6_entities__["b" /* ADD_ENTITY */], entity: id});
+	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["b" /* CREATE_TIMER */], entity: id});
+	return id;
+};
+/* unused harmony export makeTimer */
+
+
+const startTimer = (entity, window, callback) =>
+{
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["c" /* START_TIMER */], entity, window, callback});
+};
+/* unused harmony export startTimer */
+
+
+const stopTimer = entity =>
+{
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_3__com_jessewarden_ff6_timers__["d" /* STOP_TIMER */], entity});
+};
+/* unused harmony export stopTimer */
+
+
+const addPlayer = (id)=>
+{
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'player'});
+};
+/* unused harmony export addPlayer */
+
+
+const removePlayer = (id)=>
+{
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["c" /* DESTROY_CHARACTER */], entity: id});
+};
+/* unused harmony export removePlayer */
+
+
+const addPlayerAndBattleTimer = ()=>
+{
+	const playerID = guid();
+	const playerEvent = addPlayer(playerID);
+	const battleTimerID = guid();
+	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
+	return {
+		playerEntity: playerID,
+		playerEvent,
+		battleTimerEntity: battleTimerID,
+		battleTimerEvent
+	};
+};
+/* unused harmony export addPlayerAndBattleTimer */
+
+
+const addMonster = ()=>
+{
+	const id = guid();
+	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'monster'});
+	return id;
+};
+/* unused harmony export addMonster */
+
+
+let textDropper;
+const setupPixi = ()=>
+{
+	const app = new PIXI.Application();
+	document.body.appendChild(app.view);
+
+	charactersContainer = new PIXI.Container();
+	app.stage.addChild(charactersContainer);
+
+	textDropper = new __WEBPACK_IMPORTED_MODULE_11__com_jessewarden_ff6_views_TextDropper__["a" /* default */]();
+	app.stage.addChild(textDropper);
+
+	const unsubscribe = store.subscribe(()=>
+	{
+		const state = store.getState();
+		const spritesToRemove = getSpritesToRemove(charactersContainer.children, state.characters);
+		// log("spritesToRemove:", spritesToRemove);
+		if(spritesToRemove.length > 0)
+		{
+			removeSprites(spritesToRemove);
+		}
+
+		const charactersToAdd = getCharactersToAdd(state.characters, charactersContainer.children);
+		// log("charactersToAdd:", charactersToAdd);
+		if(charactersToAdd.length > 0)
+		{
+			addCharacters(charactersToAdd, charactersContainer);
+		}
+	});
+	return app;
+};
+/* unused harmony export setupPixi */
+
+
+const getCharactersToAdd = (characters, children) =>
+{
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](characters, children, (character, sprite) =>
+	{
+		return character.entity === sprite.entity;
+	});
+};
+/* unused harmony export getCharactersToAdd */
+
+
+const getSpritesToRemove = (children, characters)=>
+{
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["differenceWith"](children, characters, (sprite, character) =>
+	{
+		return sprite.entity === character.entity;
+	});
+};
+/* unused harmony export getSpritesToRemove */
+
+
+let playerStartX = 400;
+let playerStartY = 20;
+let monsterStartX = 20;
+let monsterStartY = 20;
+const getSpriteFromCharacter = character =>
+{
+	let sprite;
+	const basePath = './src/com/jessewarden/ff6/characters';
+	if(character.characterType === 'player')
+	{
+		sprite = new PIXI.Sprite.fromImage(basePath + '/warrior_stand.png');
+		sprite.x = playerStartX;
+		sprite.y = playerStartY;
+		playerStartX += 20;
+		playerStartY += 80;
+	}
+	else if(character.characterType === 'monster')
+	{
+		sprite = new PIXI.Sprite.fromImage(basePath + '/goblin.png');
+		sprite.x = monsterStartX;
+		sprite.y = monsterStartY;
+		monsterStartX += 20;
+		monsterStartY += 80;
+	}
+	else
+	{
+		throw new Error("Unknown character type");
+	}
+	sprite.entity = character.entity;
+	return sprite;
+};
+/* unused harmony export getSpriteFromCharacter */
+
+
+const addCharacters = (characters, parent) =>
+{
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["chain"](characters)
+	.map(getSpriteFromCharacter)
+	.forEach(sprite => parent.addChild(sprite))
+	.value();
+};
+/* unused harmony export addCharacters */
+
+
+const removeSprites = sprites =>
+{
+	return __WEBPACK_IMPORTED_MODULE_7_lodash__["forEach"](sprites, sprite => sprite.parent.removeChild(sprite));
+};
+/* unused harmony export removeSprites */
+
+
+const addBattleTimer = (id, characterID)=>
+{
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["b" /* CREATE_BATTLE_TIMER */], entity: id, characterEntity: characterID, speed: 255});
+};
+/* unused harmony export addBattleTimer */
+
+
+const startBattleTimer = (entity, window, doneCallback, progressCallback) =>
+{
+	return store.dispatch({
+		type: __WEBPACK_IMPORTED_MODULE_5__com_jessewarden_ff6_battletimers__["c" /* START_BATTLE_TIMER */],
+		entity,
+		window,
+		doneCallback,
+		progressCallback
+	});
+};
+/* unused harmony export startBattleTimer */
+
+
+const delay = milliseconds =>
+{
+	return new Promise( success => setTimeout(success, milliseconds) );
+};
+/* unused harmony export delay */
+
+
+const showHitPointsLowered = (playerEntity)=>
+{
+	return delay(3 * 1000)
+	.then(()=>
+	{
+		const characterSprite = __WEBPACK_IMPORTED_MODULE_7_lodash__["find"](charactersContainer.children, sprite => sprite.entity === playerEntity);
+		textDropper.addTextDrop(characterSprite, 2);
+		return Promise.resolve(store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["d" /* CHARACTER_HIT_POINTS_CHANGED */], newHitPoints: 8, entity: playerEntity}));
+	});
+};
+/* unused harmony export showHitPointsLowered */
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * deep-diff.
+ * Licensed under the MIT License.
+ */
+;(function(root, factory) {
+  'use strict';
+  if (true) {
+    // AMD. Register as an anonymous module.
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+      return factory();
+    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    // Browser globals (root is window)
+    root.DeepDiff = factory();
+  }
+}(this, function(undefined) {
+  'use strict';
+
+  var $scope, conflict, conflictResolution = [];
+  if (typeof global === 'object' && global) {
+    $scope = global;
+  } else if (typeof window !== 'undefined') {
+    $scope = window;
+  } else {
+    $scope = {};
+  }
+  conflict = $scope.DeepDiff;
+  if (conflict) {
+    conflictResolution.push(
+      function() {
+        if ('undefined' !== typeof conflict && $scope.DeepDiff === accumulateDiff) {
+          $scope.DeepDiff = conflict;
+          conflict = undefined;
+        }
+      });
+  }
+
+  // nodejs compatible on server side and in the browser.
+  function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor;
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  }
+
+  function Diff(kind, path) {
+    Object.defineProperty(this, 'kind', {
+      value: kind,
+      enumerable: true
+    });
+    if (path && path.length) {
+      Object.defineProperty(this, 'path', {
+        value: path,
+        enumerable: true
+      });
+    }
+  }
+
+  function DiffEdit(path, origin, value) {
+    DiffEdit.super_.call(this, 'E', path);
+    Object.defineProperty(this, 'lhs', {
+      value: origin,
+      enumerable: true
+    });
+    Object.defineProperty(this, 'rhs', {
+      value: value,
+      enumerable: true
+    });
+  }
+  inherits(DiffEdit, Diff);
+
+  function DiffNew(path, value) {
+    DiffNew.super_.call(this, 'N', path);
+    Object.defineProperty(this, 'rhs', {
+      value: value,
+      enumerable: true
+    });
+  }
+  inherits(DiffNew, Diff);
+
+  function DiffDeleted(path, value) {
+    DiffDeleted.super_.call(this, 'D', path);
+    Object.defineProperty(this, 'lhs', {
+      value: value,
+      enumerable: true
+    });
+  }
+  inherits(DiffDeleted, Diff);
+
+  function DiffArray(path, index, item) {
+    DiffArray.super_.call(this, 'A', path);
+    Object.defineProperty(this, 'index', {
+      value: index,
+      enumerable: true
+    });
+    Object.defineProperty(this, 'item', {
+      value: item,
+      enumerable: true
+    });
+  }
+  inherits(DiffArray, Diff);
+
+  function arrayRemove(arr, from, to) {
+    var rest = arr.slice((to || from) + 1 || arr.length);
+    arr.length = from < 0 ? arr.length + from : from;
+    arr.push.apply(arr, rest);
+    return arr;
+  }
+
+  function realTypeOf(subject) {
+    var type = typeof subject;
+    if (type !== 'object') {
+      return type;
+    }
+
+    if (subject === Math) {
+      return 'math';
+    } else if (subject === null) {
+      return 'null';
+    } else if (Array.isArray(subject)) {
+      return 'array';
+    } else if (Object.prototype.toString.call(subject) === '[object Date]') {
+      return 'date';
+    } else if (typeof subject.toString !== 'undefined' && /^\/.*\//.test(subject.toString())) {
+      return 'regexp';
+    }
+    return 'object';
+  }
+
+  function deepDiff(lhs, rhs, changes, prefilter, path, key, stack) {
+    path = path || [];
+    var currentPath = path.slice(0);
+    if (typeof key !== 'undefined') {
+      if (prefilter) {
+        if (typeof(prefilter) === 'function' && prefilter(currentPath, key)) { return; }
+        else if (typeof(prefilter) === 'object') {
+          if (prefilter.prefilter && prefilter.prefilter(currentPath, key)) { return; }
+          if (prefilter.normalize) {
+            var alt = prefilter.normalize(currentPath, key, lhs, rhs);
+            if (alt) {
+              lhs = alt[0];
+              rhs = alt[1];
+            }
+          }
+        }
+      }
+      currentPath.push(key);
+    }
+
+    // Use string comparison for regexes
+    if (realTypeOf(lhs) === 'regexp' && realTypeOf(rhs) === 'regexp') {
+      lhs = lhs.toString();
+      rhs = rhs.toString();
+    }
+
+    var ltype = typeof lhs;
+    var rtype = typeof rhs;
+    if (ltype === 'undefined') {
+      if (rtype !== 'undefined') {
+        changes(new DiffNew(currentPath, rhs));
+      }
+    } else if (rtype === 'undefined') {
+      changes(new DiffDeleted(currentPath, lhs));
+    } else if (realTypeOf(lhs) !== realTypeOf(rhs)) {
+      changes(new DiffEdit(currentPath, lhs, rhs));
+    } else if (Object.prototype.toString.call(lhs) === '[object Date]' && Object.prototype.toString.call(rhs) === '[object Date]' && ((lhs - rhs) !== 0)) {
+      changes(new DiffEdit(currentPath, lhs, rhs));
+    } else if (ltype === 'object' && lhs !== null && rhs !== null) {
+      stack = stack || [];
+      if (stack.indexOf(lhs) < 0) {
+        stack.push(lhs);
+        if (Array.isArray(lhs)) {
+          var i, len = lhs.length;
+          for (i = 0; i < lhs.length; i++) {
+            if (i >= rhs.length) {
+              changes(new DiffArray(currentPath, i, new DiffDeleted(undefined, lhs[i])));
+            } else {
+              deepDiff(lhs[i], rhs[i], changes, prefilter, currentPath, i, stack);
+            }
+          }
+          while (i < rhs.length) {
+            changes(new DiffArray(currentPath, i, new DiffNew(undefined, rhs[i++])));
+          }
+        } else {
+          var akeys = Object.keys(lhs);
+          var pkeys = Object.keys(rhs);
+          akeys.forEach(function(k, i) {
+            var other = pkeys.indexOf(k);
+            if (other >= 0) {
+              deepDiff(lhs[k], rhs[k], changes, prefilter, currentPath, k, stack);
+              pkeys = arrayRemove(pkeys, other);
+            } else {
+              deepDiff(lhs[k], undefined, changes, prefilter, currentPath, k, stack);
+            }
+          });
+          pkeys.forEach(function(k) {
+            deepDiff(undefined, rhs[k], changes, prefilter, currentPath, k, stack);
+          });
+        }
+        stack.length = stack.length - 1;
+      }
+    } else if (lhs !== rhs) {
+      if (!(ltype === 'number' && isNaN(lhs) && isNaN(rhs))) {
+        changes(new DiffEdit(currentPath, lhs, rhs));
+      }
+    }
+  }
+
+  function accumulateDiff(lhs, rhs, prefilter, accum) {
+    accum = accum || [];
+    deepDiff(lhs, rhs,
+      function(diff) {
+        if (diff) {
+          accum.push(diff);
+        }
+      },
+      prefilter);
+    return (accum.length) ? accum : undefined;
+  }
+
+  function applyArrayChange(arr, index, change) {
+    if (change.path && change.path.length) {
+      var it = arr[index],
+          i, u = change.path.length - 1;
+      for (i = 0; i < u; i++) {
+        it = it[change.path[i]];
+      }
+      switch (change.kind) {
+        case 'A':
+          applyArrayChange(it[change.path[i]], change.index, change.item);
+          break;
+        case 'D':
+          delete it[change.path[i]];
+          break;
+        case 'E':
+        case 'N':
+          it[change.path[i]] = change.rhs;
+          break;
+      }
+    } else {
+      switch (change.kind) {
+        case 'A':
+          applyArrayChange(arr[index], change.index, change.item);
+          break;
+        case 'D':
+          arr = arrayRemove(arr, index);
+          break;
+        case 'E':
+        case 'N':
+          arr[index] = change.rhs;
+          break;
+      }
+    }
+    return arr;
+  }
+
+  function applyChange(target, source, change) {
+    if (target && source && change && change.kind) {
+      var it = target,
+          i = -1,
+          last = change.path ? change.path.length - 1 : 0;
+      while (++i < last) {
+        if (typeof it[change.path[i]] === 'undefined') {
+          it[change.path[i]] = (typeof change.path[i] === 'number') ? [] : {};
+        }
+        it = it[change.path[i]];
+      }
+      switch (change.kind) {
+        case 'A':
+          applyArrayChange(change.path ? it[change.path[i]] : it, change.index, change.item);
+          break;
+        case 'D':
+          delete it[change.path[i]];
+          break;
+        case 'E':
+        case 'N':
+          it[change.path[i]] = change.rhs;
+          break;
+      }
+    }
+  }
+
+  function revertArrayChange(arr, index, change) {
+    if (change.path && change.path.length) {
+      // the structure of the object at the index has changed...
+      var it = arr[index],
+          i, u = change.path.length - 1;
+      for (i = 0; i < u; i++) {
+        it = it[change.path[i]];
+      }
+      switch (change.kind) {
+        case 'A':
+          revertArrayChange(it[change.path[i]], change.index, change.item);
+          break;
+        case 'D':
+          it[change.path[i]] = change.lhs;
+          break;
+        case 'E':
+          it[change.path[i]] = change.lhs;
+          break;
+        case 'N':
+          delete it[change.path[i]];
+          break;
+      }
+    } else {
+      // the array item is different...
+      switch (change.kind) {
+        case 'A':
+          revertArrayChange(arr[index], change.index, change.item);
+          break;
+        case 'D':
+          arr[index] = change.lhs;
+          break;
+        case 'E':
+          arr[index] = change.lhs;
+          break;
+        case 'N':
+          arr = arrayRemove(arr, index);
+          break;
+      }
+    }
+    return arr;
+  }
+
+  function revertChange(target, source, change) {
+    if (target && source && change && change.kind) {
+      var it = target,
+          i, u;
+      u = change.path.length - 1;
+      for (i = 0; i < u; i++) {
+        if (typeof it[change.path[i]] === 'undefined') {
+          it[change.path[i]] = {};
+        }
+        it = it[change.path[i]];
+      }
+      switch (change.kind) {
+        case 'A':
+          // Array was modified...
+          // it will be an array...
+          revertArrayChange(it[change.path[i]], change.index, change.item);
+          break;
+        case 'D':
+          // Item was deleted...
+          it[change.path[i]] = change.lhs;
+          break;
+        case 'E':
+          // Item was edited...
+          it[change.path[i]] = change.lhs;
+          break;
+        case 'N':
+          // Item is new...
+          delete it[change.path[i]];
+          break;
+      }
+    }
+  }
+
+  function applyDiff(target, source, filter) {
+    if (target && source) {
+      var onChange = function(change) {
+        if (!filter || filter(target, source, change)) {
+          applyChange(target, source, change);
+        }
+      };
+      deepDiff(target, source, onChange);
+    }
+  }
+
+  Object.defineProperties(accumulateDiff, {
+
+    diff: {
+      value: accumulateDiff,
+      enumerable: true
+    },
+    observableDiff: {
+      value: deepDiff,
+      enumerable: true
+    },
+    applyDiff: {
+      value: applyDiff,
+      enumerable: true
+    },
+    applyChange: {
+      value: applyChange,
+      enumerable: true
+    },
+    revertChange: {
+      value: revertChange,
+      enumerable: true
+    },
+    isConflict: {
+      value: function() {
+        return 'undefined' !== typeof conflict;
+      },
+      enumerable: true
+    },
+    noConflict: {
+      value: function() {
+        if (conflictResolution) {
+          conflictResolution.forEach(function(it) {
+            it();
+          });
+          conflictResolution = null;
+        }
+        return accumulateDiff;
+      },
+      enumerable: true
+    }
+  });
+
+  return accumulateDiff;
+}));
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(10);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const log = console.log;
+
+const _ = __webpack_require__(0);
+
+const MODE_PLAYER   = 'player';
+const MODE_MONSTER  = 'monster';
+
+const EFFECT_NORMAL = 96;
+const EFFECT_HASTE  = 126;
+const EFFECT_SLOW   = 48;
+
+const MAX_GAUGE     = 65536;
+const TIME_SLICE    = 33;
+
+const getPercentage = (gauge) =>
+{
+	return gauge / MAX_GAUGE;
+};
+
+const characterTick = (effect, speed, gauge)=>
+{
+	const result = (((effect * (speed + 20)) / 16));
+	gauge += Math.round(result);
+    return gauge;
+};
+// Normal speed:
+
+// ((96 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+// If Hasted:
+
+// ((126 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+// If Slowed:
+
+// ((48 * (Speed + 20)) * (255 - ((Battle Speed - 1) * 24))) / 16
+
+// export function *timerBrowserNotNode()
+// {
+// 	let time = performance.now();
+// 	let lastTick = time;
+// 	yield {time, difference: 0};
+// 	while(true)
+// 	{
+// 		time = performance.now();
+// 		yield {time, difference: time - lastTick};
+// 	}
+// }
+
+class Timer
+{
+	constructor(window, performance)
+	{
+		const me = this;
+		me.window = window;
+		me.performance = performance;
+		me.running = false;
+		me.tickBound = me.tick.bind(me);
+	}
+
+	tick(time)
+	{
+		const me = this;
+		const now = me.performance.now();
+		const previousTick = me.lastTick;
+		me.difference = now - me.lastTick;
+		me.lastTick = now;
+		if(me.running === true)
+		{
+			me.window.requestAnimationFrame(me.tickBound);
+			if(me.tickCallback)
+			{
+				me.tickCallback(time, me.difference, now, previousTick);
+			}
+		}
+	}
+
+	startTimer(callback)
+	{
+		const me = this;
+		me.running = true;
+		me.tickCallback = callback;
+		me.lastTick = me.performance.now();
+		me.window.requestAnimationFrame(me.tickBound);
+	}
+
+	stopTimer()
+	{
+		const me = this;
+		me.running = false;
+	}
+
+	resume()
+	{
+		const me = this;
+		me.running = true;
+		me.window.requestAnimationFrame(me.tickBound);
+	}
+}
+
+// TODO: make monster mode work, I don't get the algo man
+class BattleTimer
+{
+	constructor(window, performance, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
+	{
+		const me = this;
+		me.window = window;
+		me.performance = performance;
+		me.timer = new Timer(me.window, me.performance);
+		me.counter = counter;
+		me.gauge = gauge;
+		me.effect = effect;
+		me.mode = mode;
+		me.speed = speed;
+	}
+
+	startTimer(doneCallback, progressCallback)
+	{
+		const me = this;
+		me.doneCallback = doneCallback;
+		me.progressCallback = progressCallback;
+		const THIRTY_TIMES_A_SECOND = 1000 / 30;
+		if(_.isNil(me.thirtyMillisecondCounter))
+		{
+			me.thirtyMillisecondCounter = 0;
+		}
+		me.timer.startTimer((time, difference, now, previousTick)=>
+		{
+			me.thirtyMillisecondCounter += difference;
+			if(me.thirtyMillisecondCounter >= THIRTY_TIMES_A_SECOND)
+			{
+				me.thirtyMillisecondCounter = 0;
+				me.counter++;
+				me.gauge = characterTick(me.effect, me.speed, me.gauge);
+				if(me.progressCallback)
+				{
+					me.progressCallback(getPercentage(me.gauge), me.gauge);
+				}
+				if(me.gauge >= MAX_GAUGE)
+				{
+					me.gauge = MAX_GAUGE;
+					me.stopTimer();
+					me.doneCallback(1, me.gauge);
+				}
+			}
+		});
+	}
+
+	stopTimer()
+	{
+		const me = this;
+		me.timer.stopTimer();
+	}
+
+	resume()
+	{
+		const me = this;
+		me.timer.resume();
+	}
+}
+
+module.exports = {
+	MODE_PLAYER,
+	MODE_MONSTER,
+	EFFECT_HASTE,
+	EFFECT_NORMAL,
+	EFFECT_SLOW,
+	MAX_GAUGE,
+	getPercentage,
+	characterTick,
+	Timer,
+	BattleTimer
+};
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Row = __webpack_require__(4);
+const _ = __webpack_require__(0);
+const {Subject} = __webpack_require__(8);
+const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = __webpack_require__(1);
+const BattleState = __webpack_require__(3);
+const {
+	isGauntlet,
+	isAtlasArmlet,
+	isEarring,
+	isGenjiGlove,
+	isHeroRing,
+	isOffering
+} = __webpack_require__(5);
+
+const none = _.negate(_.every);
+const notNil = _.negate(_.isNil);
+
+let _INCREMENT = 0;
+
+const getCharacter = (entity)=>
+{
+	var vm = {};
+	vm.entity = entity;
+	vm.percentage = 0;
+	vm.name = 'default';
+	vm.battleState = BattleState.WAITING;
+	vm.hitPoints = 10;
+	vm.vigor = 10;
+	vm.speed = 80;
+	vm.stamina = 10;
+	vm.magicPower = 10;
+	vm.evade = 1;
+	vm.magicBlock = 10;
+	vm.defense = 10;
+	vm.magicDefense = 10;
+	vm.battlePower = 1;
+	vm.hitRate = 100;
+	vm.dead = false;
+	vm.level = 3;
+	vm.rightHand;
+	vm.leftHand;
+	vm.head;
+	vm.body;
+	vm.relic1;
+	vm.relic2;
+	vm.row = Row.FRONT;
+	vm.type = 'Character';
+	vm.characterType = 'player';
+	return vm;
+};
+
+function makePlayer(entity)
+{
+	var chr = getCharacter(entity);
+	chr.characterType = 'player';
+	chr.battlePower = 50;
+	chr.entity = entity;
+	return chr;
+}
+
+function makeMonster(entity)
+{
+	var chr = getCharacter(entity);
+	chr.characterType = 'monster';
+	chr.entity = entity;
+	return chr;
+}
+
+// TODO: figure out reflection/mirrors
+function equippedWithNoRelics(chr)
+{
+	return _.isNil(_.get(chr, 'relic1')) && _.isNil(_.get(chr, 'relic2'));
+}
+
+const characterRelics           = (chr) => [_.get(chr, 'relic1'), _.get(chr, 'relic2')];
+const equippedWith              = (chr, isRelicType) => _.some(characterRelics(chr), isRelicType);
+const equippedWithGauntlet      = _.partialRight(equippedWith, isGauntlet);
+const equippedWithOffering      = _.partialRight(equippedWith, isOffering);
+const equippedWithGenjiGlove    = _.partialRight(equippedWith, isGenjiGlove);
+const equippedWithAtlasArmlet   = _.partialRight(equippedWith, isAtlasArmlet);
+const equippedWithHeroRing      = _.partialRight(equippedWith, isHeroRing);
+const equippedWith2HeroRings    = (chr) => _.every(characterRelics(chr), isHeroRing);
+const notEquippedWith2HeroRings = _.negate(equippedWith2HeroRings);
+const equippedWith1HeroRing     = (chr) => _.every([equippedWithHeroRing, notEquippedWith2HeroRings], f => f(chr));
+const equippedWithEarring       = _.partialRight(equippedWith, isEarring);
+const equippedWith2Earrings     = (chr) => _.every(characterRelics(chr), isEarring);
+const notEquippedWith2Earrings  = _.negate(equippedWith2Earrings);
+const equippedWith1Earring      = (chr) => _.every([equippedWithEarring, notEquippedWith2Earrings], f => f(chr));
+
+const rightHandHasWeapon        = (chr) => notNil(_.get(chr, 'rightHand'));
+const leftHandHasWeapon         = (chr) => notNil(_.get(chr, 'leftHand'));
+const rightHandHasNoWeapon      = _.negate(rightHandHasWeapon);
+const leftHandHasNoWeapon       = _.negate(leftHandHasWeapon);
+const hasZeroWeapons            = (chr) => _.every([rightHandHasNoWeapon, leftHandHasNoWeapon], f => f(chr));
+const has2Weapons               = (chr) => _.every([rightHandHasWeapon, leftHandHasWeapon], f => f(chr));
+const doesNotHave2Weapons       = _.negate(has2Weapons);
+
+const oneOrZeroWeapons = (chr) =>
+{
+	if(rightHandHasWeapon(chr) && leftHandHasNoWeapon(chr))
+	{
+		return true;
+	}
+	else if(rightHandHasNoWeapon(chr) && leftHandHasWeapon(chr))
+	{
+		return true;
+	}
+	else if(hasZeroWeapons(chr))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+};
+
+const toggleRow = chr =>
+{
+	if(chr.row === Row.FRONT)
+	{
+		return Row.BACK;
+	}
+	else
+	{
+		return Row.FRONT;
+	}
+};
+
+module.exports = {
+	getCharacter,
+    makePlayer,
+    equippedWithNoRelics,
+    equippedWithGauntlet,
+    rightHandHasWeapon,
+    leftHandHasWeapon,
+    rightHandHasNoWeapon,
+    leftHandHasNoWeapon,
+    hasZeroWeapons,
+	equippedWithOffering,
+	equippedWithGenjiGlove,
+	oneOrZeroWeapons,
+	equippedWithAtlasArmlet,
+	equippedWith1HeroRing,
+	equippedWith2HeroRings,
+	equippedWith1Earring,
+	equippedWith2Earrings
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+const BattleState = {
+	WAITING: 'WAITING', // waiting for ATB gauge to fill
+	READY: 'READY', // ATB gauge is filled, waiting for a turn
+	DEFENDING: 'DEFENDING',
+	ANIMATING: 'ANIMATING',
+	RUNNING: 'RUNNING', // like READY in that you can run, but then stop and your ATB gauge is still full
+	DEAD: 'DEAD'
+};
+
+module.exports = BattleState;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+class Row
+{
+	static get FRONT(){return "front"};
+	static get BACK(){return "back"};
+}
+
+module.exports = Row;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// http://www.rpglegion.com/ff6/items/relics.htm
+
+const _ = __webpack_require__(0);
+
+const getRelic = (relicType) =>
+{
+    return {type: 'relic', relicType};
+}
+
+const AtlasArmlet = 'Atlas Armlet';
+const Earring      = 'Earring';
+const Gauntlet     = 'Gauntlet';
+const GenjiGlove   = 'Genji Glove';
+const HeroRing     = 'Hero Ring';
+const Offering     = 'Offering';
+
+const getAtlasArmletRelic = () => getRelic(AtlasArmlet);
+const getEarringRelic     = () => getRelic(Earring);
+const getGauntletRelic    = () => getRelic(Gauntlet);
+const getGenjiGloveRelic  = () => getRelic(GenjiGlove);
+const getHeroRingRelic    = () => getRelic(HeroRing);
+const getOfferingRelic    = () => getRelic(Offering);
+
+const isRelic       = (o) => _.get(o, 'type') === 'relic';
+const isRelicType   = (type, relic) => _.get(relic, 'relicType') === type;
+
+const isAtlasArmlet = _.partial(isRelicType, AtlasArmlet);
+const isEarring     = _.partial(isRelicType, Earring);
+const isGauntlet    = _.partial(isRelicType, Gauntlet);
+const isGenjiGlove  = _.partial(isRelicType, GenjiGlove);
+const isHeroRing    = _.partial(isRelicType, HeroRing);
+const isOffering    = _.partial(isRelicType, Offering);
+
+module.exports = {
+    isGauntlet,
+	isAtlasArmlet,
+	isEarring,
+	isGenjiGlove,
+	isHeroRing,
+	isOffering,
+	getAtlasArmletRelic,
+    getGauntletRelic
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const log = console.log;
+const _ = __webpack_require__(0);
+
+const {
+	equippedWithGauntlet,
+	equippedWithOffering,
+	equippedWithGenjiGlove,
+	oneOrZeroWeapons,
+	equippedWithAtlasArmlet,
+	equippedWith1HeroRing,
+	equippedWith2HeroRings,
+	equippedWith1Earring,
+	equippedWith2Earrings
+} = __webpack_require__(2);
+
+const PERFECT_HIT_RATE = 255;
+
+const divide = (a, b)=>
+{
+	return Math.floor(a / b);
+};
+
+const getRandomNumberFromRange = (start, end)=>
+{
+	var range = end - start;
+	var result = Math.random() * range;
+	result += start;
+	return Math.round(result);
+};
+
+// level is an int
+const getDamageStep1 = (
+	vigor = 0,
+	battlePower = 0,
+	spellPower = 0,
+	magicPower = 0,
+	level = 0,
+	equippedWithGauntlet = false,
+	equippedWithOffering =  false,
+	standardFightAttack =  true,
+	isPhysicalAttack =  true,
+	isPlayerAndNotMonster =  true,
+	genjiGloveEquipped =  false,
+	oneOrZeroWeapons = true
+)=>
+{
+
+	var damage = 0;
+
+	if(isPhysicalAttack === false && isPlayerAndNotMonster === true)
+	{
+		damage = spellPower * 4 + (level * magicPower * spellPower / 32);
+	}
+	else if(isPhysicalAttack === false && isPlayerAndNotMonster === false)
+	{
+		damage = spellPower * 4 + (level * (magicPower * 3/2) * spellPower / 32);
+	}
+	else if(isPhysicalAttack === true && isPlayerAndNotMonster === true)
+	{
+		var vigor2 = vigor * 2;
+		if (vigor >= 128)
+		{
+			vigor2 = 255;
+		}
+
+		var attack = battlePower + vigor2;
+
+		if (equippedWithGauntlet)
+		{
+			attack += (battlePower * 3 / 4);
+		}
+
+		damage = battlePower + ( (level * level * attack) / 256) * 3 / 2;
+
+		if (equippedWithOffering)
+		{
+			damage /= 2;
+		}
+
+		if (standardFightAttack && genjiGloveEquipped && oneOrZeroWeapons)
+		{
+			damage = Math.ceil(damage * 3/4);
+		}
+	}
+	else if(isPhysicalAttack === true && isPlayerAndNotMonster === false)
+	{
+		damage = level * level * (battlePower * 4 + vigor) / 256;
+	}
+
+	return damage;
+};
+
+const getRandomMonsterVigor = ()=>
+{
+	return getRandomNumberFromRange(56, 63);
+};
+
+const getDamageStep2 = (
+	damage = 0,
+	isPhysicalAttack =  true,
+	equippedWithAtlasArmlet =  false,
+	equippedWith1HeroRing =  false,
+	equippedWith2HeroRings =  false,
+	equippedWith1Earring =  false,
+	equippedWith2Earrings = false
+)=>
+{
+	if(isPhysicalAttack && (equippedWithAtlasArmlet || equippedWith1HeroRing))
+	{
+		damage *= 5/4;
+	}
+	if(isPhysicalAttack === false && (equippedWith1Earring || equippedWith2HeroRings))
+	{
+		damage *= 5/4;
+	}
+	if(isPhysicalAttack === false && (equippedWith2Earrings || equippedWith2HeroRings))
+	{
+		damage += (damage / 4) + (damage / 4);
+	}
+	return damage;
+};
+
+const getDamageStep3 = (
+	damage = 0,
+	isPhysicalAttack = true,
+	attackingMultipleTargets = false)=>
+{
+	if(isPhysicalAttack === false && attackingMultipleTargets === true)
+	{
+		return damage / 2;
+	}
+	else
+	{
+		return damage;
+	}
+};
+
+// TODO: figure out 'if fight command'
+const getDamageStep4 = (damage = 0, attackerIsInBackRow = false) =>
+{
+	if(attackerIsInBackRow === true)
+	{
+		return damage / 2;
+	}
+	else
+	{
+		return damage;
+	}
+};
+
+const getCriticalHit = ()=> getRandomNumberFromRange(1, 32) === 32;
+
+const getDamageStep5 = (damage = 0,
+	hasMorphStatus = false,
+	hasBerserkStatusAndPhysicalAttack = false,
+	isCriticalHit = false) =>
+{
+	var multiplier = 0;
+
+	if(hasMorphStatus)
+	{
+		multiplier += 3;
+	}
+
+	if(hasBerserkStatusAndPhysicalAttack)
+	{
+		multiplier += 2;
+	}
+
+	if(isCriticalHit)
+	{
+		multiplier += 3;
+	}
+
+	damage += ((damage / 2) * multiplier);
+	return damage;
+}
+
+const getDamageModificationsVariance = ()=> getRandomNumberFromRange(224, 255);
+
+const getDamageStep6 = (damage = 0,
+	defense = 0,
+	magicalDefense = 0,
+	variance =  224,
+	isPhysicalAttack =  true,
+	isHealingAttack =  false,
+	targetHasSafeStatus =  false,
+	targetHasShellStatus =  false,
+	targetDefending =  false,
+	targetIsInBackRow =  false,
+	targetHasMorphStatus =  false,
+	targetIsSelf =  false,
+	targetIsCharacter =  false,
+	attackerIsCharacter =  true) =>
+{
+
+	damage = (damage * variance / 256) + 1;
+
+	// defense modification
+	if(isPhysicalAttack)
+	{
+		damage = (damage * (255 - defense) / 256) + 1;
+	}
+	else
+	{
+		damage = (damage * (255 - magicalDefense) / 256) + 1;
+	}
+
+	// safe / shell
+	if((isPhysicalAttack && targetHasSafeStatus) || (isPhysicalAttack === false && targetHasShellStatus))
+	{
+		damage = (damage * 170 / 256) + 1;
+	}
+
+	// target defending
+	if(isPhysicalAttack && targetDefending)
+	{
+		damage /= 2;
+	}
+
+	// target's back row
+	if(isPhysicalAttack && targetIsInBackRow)
+	{
+		damage /= 2;
+	}
+
+	// morph
+	if(isPhysicalAttack === false && targetHasMorphStatus)
+	{
+		damage /= 2;
+	}
+
+	// self damage (healing attack skips this step)
+	if(isHealingAttack === false)
+	{
+		if (targetIsSelf && targetIsCharacter && attackerIsCharacter)
+		{
+			damage /= 2;
+		}
+	}
+
+	return damage;
+};
+
+const getDamageStep7 = (damage = 0,
+						hittingTargetsBack = false,
+						isPhysicalAttack = true) =>
+{
+	var multiplier = 0;
+	if(isPhysicalAttack && hittingTargetsBack)
+	{
+		multiplier += 1;
+	}
+
+	damage += ((damage / 2) * multiplier);
+	return damage;
+};
+
+const getDamageStep8 = (damage = 0, targetHasPetrifyStatus = false)=>
+{
+	if(targetHasPetrifyStatus)
+	{
+		damage = 0;
+	}
+	return damage;
+};
+
+const getDamageStep9 = (
+	damage = 0,
+	elementHasBeenNullified =  false,
+	targetAbsorbsElement =  false,
+	targetIsImmuneToElement =  false,
+	targetIsResistantToElement =  false,
+	targetIsWeakToElement = false
+) =>
+{
+	if(elementHasBeenNullified)
+	{
+		return 0;
+	}
+
+	if(targetAbsorbsElement)
+	{
+		return -damage;
+	}
+
+	if(targetIsImmuneToElement)
+	{
+		return 0;
+	}
+
+	if(targetIsResistantToElement)
+	{
+		damage /= 2;
+		return damage;
+	}
+
+	if(targetIsWeakToElement)
+	{
+		damage *= 2;
+		return damage;
+	}
+
+	return damage;
+};
+
+function getRandomHitOrMissValue()
+{
+	return getRandomNumberFromRange(0, 99);
+}
+
+function getRandomStaminaHitOrMissValue()
+{
+	return getRandomNumberFromRange(0, 127);
+}
+
+function getRandomImageStatusRemoval()
+{
+	return getRandomNumberFromRange(0, 3);
+}
+
+function getRemoveImageStatus()
+{
+	return getRandomNumberFromRange(1, 4) === 4;
+}
+
+const getHitResult = (hit, removeImageStatus=false) =>
+{
+	return {
+		hit,
+		removeImageStatus
+	};
+};
+
+// Step 4e. Chance to hit
+
+//   1. BlockValue = (255 - MBlock * 2) + 1
+
+//   2. If BlockValue > 255 then BlockValue = 255
+//      If BlockValue < 1 then BlockValue = 1
+
+//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
+//      you miss.
+const step4e = magicBlock =>
+{
+	let blockValue = (255 - magicBlock * 2) + 1;
+	blockValue = _.clamp(blockValue, 1, 255);
+	return blockValue;
+};
+
+// returns HitResult
+/*
+	These are ints, not numbers:
+
+	int randomHitOrMissValue =  0,
+	int randomStaminaHitOrMissValue =  0,
+	int randomImageStatusRemovalValue =  0,
+	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	int magicBlock =  0,
+	int targetStamina =  null,
+	specialAttackType:AttackType
+*/
+const getHitFromBlockValue = (isPhysicalAttack=true, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue)=>
+{
+	let blockValue;
+	// NOTE: [jwarden 1.23.2017] After re-reading this bug for umpteenth time,
+	// I'm thinking of attempting a fix, and allowing this to be toggled on
+	// at a later date. (tl;dr; Originally, magicBlock was used causing all kinds
+	// of havoc).
+	// http://everything2.com/title/Final+Fantasy+VI+Evade+Bug
+	// NOTE: here in case we handle that whole 'magic block' bug; for now both if thens do the same
+	if(isPhysicalAttack === false)
+	{
+		log("magicBlock:", magicBlockOrDefense);
+		log("hitRate:", hitRate);
+		blockValue =  step4e(magicBlockOrDefense);
+	}
+	else
+	{
+		log("defenese:", magicBlockOrDefense);
+		log("hitRate:", hitRate);
+		blockValue =  step4e(magicBlockOrDefense);
+	}
+
+	//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
+	//      you miss.
+	const hitRateTimesBlockValue = hitRate * blockValue;
+	const result = hitRateTimesBlockValue / 256;
+	// log("getHit results:");
+	// log("hitRate:", hitRate);
+	// log("blockValue:", blockValue);
+	// log("hitRateTimesBlockValue:", hitRateTimesBlockValue);
+	// log("result:", result);
+	// log("randomHitOrMissValue:", randomHitOrMissValue);
+	if( result > randomHitOrMissValue)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+};
+
+const getMagicBlockOrDefense = (isPhysicalAttack=true, magicBlock, defense)=>
+{
+	if(isPhysicalAttack === true)
+	{
+		return defense;
+	}
+	else
+	{
+		return magicBlock;
+	}
+};
+
+const getHitDefaultGetHitOptions = ()=> ({
+	randomHitOrMissValue: 0,
+	randomStaminaHitOrMissValue: 0,
+	isPhysicalAttack: true,
+	targetHasClearStatus: false,
+	protectedFromWound: false,
+	attackMissesDeathProtectedTargets: false,
+	attackCanBeBlockedByStamina: true,
+	spellUnblockable: false,
+	targetHasSleepStatus: false,
+	targetHasPetrifyStatus: false,
+	targetHasFreezeStatus: false,
+	targetHasStopStatus: false,
+	backOfTarget: false,
+	targetHasImageStatus: false,
+	hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
+	defense: 0,
+	magicBlock: 0,
+	targetStamina: 0,
+	specialAttackType: null
+});
+	
+const getHit = (options=getHitDefaultGetHitOptions()) =>
+{
+	const randomHitOrMissValue              = _.get(options, 'randomHitOrMissValue');
+	const randomStaminaHitOrMissValue       = _.get(options, 'randomStaminaHitOrMissValue');
+	const isPhysicalAttack                  = _.get(options, 'isPhysicalAttack');
+	const isMagicalAttack					= !isPhysicalAttack;
+	const targetHasClearStatus              = _.get(options, 'targetHasClearStatus');
+	const protectedFromWound                = _.get(options, 'protectedFromWound');
+	const attackMissesDeathProtectedTargets = _.get(options, 'attackMissesDeathProtectedTargets');
+	const attackCanBeBlockedByStamina       = _.get(options, 'attackCanBeBlockedByStamina');
+	const spellUnblockable                  = _.get(options, 'spellUnblockable');
+	const targetHasSleepStatus              = _.get(options, 'targetHasSleepStatus');
+	const targetHasPetrifyStatus            = _.get(options, 'targetHasPetrifyStatus');
+	const targetHasFreezeStatus             = _.get(options, 'targetHasFreezeStatus');
+	const targetHasStopStatus               = _.get(options, 'targetHasStopStatus');
+	const backOfTarget                      = _.get(options, 'backOfTarget');
+	const targetHasImageStatus              = _.get(options, 'targetHasImageStatus');
+	const hitRate                           = _.get(options, 'hitRate');
+	const defense                           = _.get(options, 'defense');
+	const magicBlock                        = _.get(options, 'magicBlock');
+	const targetStamina                     = _.get(options, 'targetStamina');
+	const specialAttackType                 = _.get(options, 'specialAttackType');
+
+	if(isPhysicalAttack && targetHasClearStatus)
+	{
+		return getHitResult(false);
+	}
+
+	if(isPhysicalAttack === false && targetHasClearStatus)
+	{
+		return getHitResult(true);
+	}
+
+	if(protectedFromWound && attackMissesDeathProtectedTargets)
+	{
+		return getHitResult(false);
+	}
+
+	if(isPhysicalAttack === false && spellUnblockable)
+	{
+		return getHitResult(true);
+	}
+
+	if(_.isNil(specialAttackType))
+	{
+		if(targetHasSleepStatus || targetHasPetrifyStatus || targetHasFreezeStatus || targetHasStopStatus)
+		{
+			return getHitResult(true);
+		}
+
+		if(isPhysicalAttack && backOfTarget)
+		{
+			return getHitResult(true);
+		}
+
+		if(hitRate === PERFECT_HIT_RATE)
+		{
+			return getHitResult(true);
+		}
+
+		if(isPhysicalAttack && targetHasImageStatus)
+		{
+			var removeImageStatus = getRemoveImageStatus();
+			if(removeImageStatus)
+			{
+				// this'll remove Image status
+				return getHitResult(false, true);
+			}
+			else
+			{
+				return getHitResult(false);
+			}
+		}
+
+
+		// Step 4e. Chance to hit
+
+		//   1. BlockValue = (255 - MBlock * 2) + 1
+	
+		//   2. If BlockValue > 255 then BlockValue = 255
+		//      If BlockValue < 1 then BlockValue = 1
+
+		//   3. If ((Hit Rate * BlockValue) / 256) > [0..99] then you hit; otherwise,
+		//      you miss.
+		const magicBlockOrDefense = getMagicBlockOrDefense(isPhysicalAttack, magicBlock, defense);
+		const hitFromBlockValue = getHitFromBlockValue(isPhysicalAttack, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue);
+		return getHitResult(hitFromBlockValue);
+	}
+
+	// Most attacks use step 4 instead of this step. Only Break, Doom, Demi,
+    // Quartr, X-Zone, W Wind, Shoat, Odin, Raiden, Antlion, Snare, X-Fer, and
+    // Grav Bomb use this step.
+
+    // Step 5b. Check if Stamina blocks
+
+    //   If target's stamina >= [0..127] then the attack misses (even if it hit in
+    //   step 5a); otherwise, the attack hits as long as it hit in step 5a.
+
+	const magicBlockOrDefense = getMagicBlockOrDefense(isPhysicalAttack, magicBlock, defense);
+	const hitFromBlockValue = getHitFromBlockValue(isPhysicalAttack, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue);
+	log("      ");
+	log("\n");
+	log("hitFromBlockValue:", hitFromBlockValue);
+	log("randomHitOrMissValue:", randomHitOrMissValue);
+	log("randomStaminaHitOrMissValue:", randomStaminaHitOrMissValue);
+	log("targetStamina:", targetStamina);
+	if(hitFromBlockValue === true)
+	{
+		if(targetStamina >= randomStaminaHitOrMissValue)
+		{
+			return getHitResult(false);
+		}
+		else
+		{
+			return getHitResult(true);
+		}
+	}
+	else
+	{
+		return getHitResult(false);
+	}
+};
+
+const getDamageResult = (damage, criticalHit, removeImageStatus)=>
+{
+	return {
+		damage,
+		criticalHit,
+		removeImageStatus
+	};
+};
+
+// returns TargetHitResult 
+/*
+	int hitRate =  180,  // TODO: need weapon's info, this is where hitRate comes from
+	int magicBlock =  0,
+	int targetStamina =  null,
+*/
+const getDefaultDamageOptions = (
+	attacker, 
+	getCriticalHitFunction=getCriticalHit, 
+	getDamageModificationsVarianceFunction=getDamageModificationsVariance
+)=>
+{
+	return {
+		attacker, // Character
+		getCriticalHitFunction,
+		getDamageModificationsVarianceFunction,
+		targetStamina: null,
+		isPhysicalAttack: true,
+		targetHasClearStatus: false,
+		protectedFromWound: false,
+		attackMissesDeathProtectedTargets: false,
+		attackCanBeBlockedByStamina: true,
+		spellUnblockable: false,
+		targetHasSleepStatus: false,
+		targetHasPetrifyStatus: false,
+		targetHasFreezeStatus: false,
+		targetHasStopStatus: false,
+		targetHasSafeStatus: false,
+		targetHasShellStatus: false,
+		targetDefending: false,
+		targetIsInBackRow: false,
+		targetHasMorphStatus: false,
+		targetIsSelf: false,
+		targetIsCharacter: false,
+		backOfTarget: false,
+		targetHasImageStatus: false,
+		hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
+		magicBlock: 0,
+		specialAttackType: null,
+		attackerIsCharacter: true,
+		attackingMultipleTargets: false,
+		attackerIsInBackRow: false,
+		attackerHasMorphStatus: false,
+		attackerHasBerserkStatusAndPhysicalAttack: false,
+		elementHasBeenNullified: false,
+		targetAbsorbsElement: false,
+		targetIsImmuneToElement: false,
+		targetIsResistantToElement: false,
+		targetIsWeakToElement: false
+	};
+};
+const getDamage = (options=getDefaultDamageOptions) =>
+{
+	const attacker                                  = _.get(options, 'attacker');
+	const targetStamina                             = _.get(options, 'targetStamina');
+	const isPhysicalAttack                          = _.get(options, 'isPhysicalAttack');
+	const targetHasClearStatus                      = _.get(options, 'targetHasClearStatus');
+	const protectedFromWound                        = _.get(options, 'protectedFromWound');
+	const attackMissesDeathProtectedTargets         = _.get(options, 'attackMissesDeathProtectedTargets');
+	const attackCanBeBlockedByStamina               = _.get(options, 'attackCanBeBlockedByStamina');
+	const spellUnblockable                          = _.get(options, 'spellUnblockable');
+	const targetHasSleepStatus                      = _.get(options, 'targetHasSleepStatus');
+	const targetHasPetrifyStatus                    = _.get(options, 'targetHasPetrifyStatus');
+	const targetHasFreezeStatus                     = _.get(options, 'targetHasFreezeStatus');
+	const targetHasStopStatus                       = _.get(options, 'targetHasStopStatus');
+	const targetHasSafeStatus                       = _.get(options, 'targetHasSafeStatus');
+	const targetHasShellStatus                      = _.get(options, 'targetHasShellStatus');
+	const targetDefending                           = _.get(options, 'targetDefending');
+	const targetIsInBackRow                         = _.get(options, 'targetIsInBackRow');
+	const targetHasMorphStatus                      = _.get(options, 'targetHasMorphStatus');
+	const targetIsSelf                              = _.get(options, 'targetIsSelf');
+	const targetIsCharacter                         = _.get(options, 'targetIsCharacter');
+	const backOfTarget                              = _.get(options, 'backOfTarget');
+	const targetHasImageStatus                      = _.get(options, 'targetHasImageStatus');
+	const hitRate                                   = _.get(options, 'hitRate');
+	const magicBlock                                = _.get(options, 'magicBlock');
+	const specialAttackType                         = _.get(options, 'specialAttackType');
+	const attackerIsCharacter                       = _.get(options, 'attackerIsCharacter');
+	const attackingMultipleTargets                  = _.get(options, 'attackingMultipleTargets');
+	const attackerIsInBackRow                       = _.get(options, 'attackerIsInBackRow');
+	const attackerHasMorphStatus                    = _.get(options, 'attackerHasMorphStatus');
+	const attackerHasBerserkStatusAndPhysicalAttack = _.get(options, 'attackerHasBerserkStatusAndPhysicalAttack');
+	const elementHasBeenNullified                   = _.get(options, 'elementHasBeenNullified');
+	const targetAbsorbsElement                      = _.get(options, 'targetAbsorbsElement');
+	const targetIsImmuneToElement                   = _.get(options, 'targetIsImmuneToElement');
+	const targetIsResistantToElement                = _.get(options, 'targetIsResistantToElement');
+	const targetIsWeakToElement                     = _.get(options, 'targetIsWeakToElement');
+	const getCriticalHitFunction					= _.get(options, 'getCriticalHitFunction');
+	const getDamageModificationsVarianceFunction	= _.get(options, 'getDamageModificationsVarianceFunction');
+
+
+	let damage = 0;
+	let criticalHit = getCriticalHitFunction();
+	let damageModificationVariance = getDamageModificationsVarianceFunction();
+	
+	damage = getDamageStep1(
+		attacker.vigor,
+		attacker.battlePower,
+		attacker.level,
+		equippedWithGauntlet(attacker),
+		equippedWithOffering(attacker),
+		isPhysicalAttack,
+		equippedWithGenjiGlove(attacker),
+		oneOrZeroWeapons(attacker)
+	);
+
+	damage = getDamageStep2(
+		damage,
+		isPhysicalAttack,
+		equippedWithAtlasArmlet(attacker),
+		equippedWith1HeroRing(attacker),
+		equippedWith2HeroRings(attacker),
+		equippedWith1Earring(attacker),
+		equippedWith2Earrings(attacker)
+	);
+
+	damage = getDamageStep3(
+		damage,
+		isPhysicalAttack,
+		attackingMultipleTargets);
+
+	damage = getDamageStep4(
+		damage,
+		attackerIsInBackRow
+	);
+
+	damage = getDamageStep5(
+		damage,
+		attackerHasMorphStatus,
+		attackerHasBerserkStatusAndPhysicalAttack,
+		criticalHit
+	);
+
+	damage = getDamageStep6(
+		damage,
+		attacker.defense,
+		attacker.magicDefense,
+		damageModificationVariance,
+		isPhysicalAttack,
+		targetHasSafeStatus,
+		targetHasShellStatus,
+		targetDefending,
+		targetIsInBackRow,
+		targetHasMorphStatus,
+		targetIsSelf,
+		targetIsCharacter,
+		attackerIsCharacter
+	);
+
+	damage = getDamageStep7(
+		damage,
+		backOfTarget,
+		isPhysicalAttack
+	);
+
+	damage = getDamageStep8(
+		damage,
+		targetHasPetrifyStatus
+	);
+
+	damage = getDamageStep9(
+		damage,
+		elementHasBeenNullified,
+		targetAbsorbsElement,
+		targetIsImmuneToElement,
+		targetIsResistantToElement,
+		targetIsWeakToElement
+	);
+
+	damage = Math.round(damage);
+	damage = _.clamp(damage, -9999, 9999);
+
+	// TODO: support attacking mulitple targets
+	return getDamageResult(damage, criticalHit);
+
+// should probably return an array of these...
+//		targetHitResults.add(
+//			new TargetHitResult(
+//				criticalHit: criticalHit,
+//				hit: hitResult.hit,
+//				damage: damage,
+//				removeImageStatus: hitResult.removeImageStatus,
+//				target: target
+//			)
+//		);
+}
+
+module.exports = {
+	getRandomNumberFromRange,
+	getDamageStep1,
+	getRandomMonsterVigor,
+	getDamageStep2,
+	getDamageStep3,
+	getDamageStep4,
+	getCriticalHit,
+	getDamageStep5,
+	getDamageModificationsVariance,
+	getDamageStep6,
+	getDamageStep7,
+	getDamageStep8,
+	getDamageStep9,
+	getHit,
+	step4e,
+	getHitDefaultGetHitOptions,
+	getDefaultDamageOptions,
+	getDamage
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+const s4 = ()=> Math
+.floor((1 + Math.random()) * 0x10000)
+.toString(16)
+.substring(1);
+
+const guid = ()=> s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+
+module.exports = guid;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(40);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+    battle: {
+        battleTimer: __webpack_require__(1),
+        battleUtils: __webpack_require__(6),
+        character: __webpack_require__(2)
+    },
+    enums: {
+        BattleState: __webpack_require__(3),
+        Row: __webpack_require__(4)
+    },
+    relics: __webpack_require__(5),
+    core: {
+        guid: __webpack_require__(7)
+    }
+};
+
+/***/ })
+/******/ ]);
+
+/***/ }),
 /* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(110);
 
@@ -58697,7 +58696,7 @@ var getPrototype = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__overArg_js
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(44);
 
 
 /** Used for built-in method references. */
@@ -59077,7 +59076,7 @@ module.exports = Buffer;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var Texture = __webpack_require__(46);
+var Texture = __webpack_require__(48);
 
 /**
  * Helper class to create a webGL Framebuffer
@@ -59308,11 +59307,11 @@ module.exports = Framebuffer;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var compileProgram = __webpack_require__(48),
-	extractAttributes = __webpack_require__(50),
-	extractUniforms = __webpack_require__(51),
-	setPrecision = __webpack_require__(54),
-	generateUniformAccessObject = __webpack_require__(52);
+var compileProgram = __webpack_require__(50),
+	extractAttributes = __webpack_require__(52),
+	extractUniforms = __webpack_require__(53),
+	setPrecision = __webpack_require__(56),
+	generateUniformAccessObject = __webpack_require__(54);
 
 /**
  * Helper class to create a webGL Shader
@@ -59406,7 +59405,7 @@ module.exports = Shader;
 
 
 // state object//
-var setVertexAttribArrays = __webpack_require__( 47 );
+var setVertexAttribArrays = __webpack_require__( 49 );
 
 /**
  * Helper class to work with WebGL VertexArrayObjects (vaos)
@@ -59705,13 +59704,13 @@ module.exports = createContext;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-    compileProgram: __webpack_require__(48),
-    defaultValue: __webpack_require__(49),
-    extractAttributes: __webpack_require__(50),
-    extractUniforms: __webpack_require__(51),
-    generateUniformAccessObject: __webpack_require__(52),
-    setPrecision: __webpack_require__(54),
-    mapSize: __webpack_require__(53),
+    compileProgram: __webpack_require__(50),
+    defaultValue: __webpack_require__(51),
+    extractAttributes: __webpack_require__(52),
+    extractUniforms: __webpack_require__(53),
+    generateUniformAccessObject: __webpack_require__(54),
+    setPrecision: __webpack_require__(56),
+    mapSize: __webpack_require__(55),
     mapType: __webpack_require__(26)
 };
 
@@ -59732,7 +59731,7 @@ var _ismobilejs = __webpack_require__(25);
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
-var _accessibleTarget = __webpack_require__(55);
+var _accessibleTarget = __webpack_require__(57);
 
 var _accessibleTarget2 = _interopRequireDefault(_accessibleTarget);
 
@@ -60223,7 +60222,7 @@ core.CanvasRenderer.registerPlugin('accessibility', AccessibilityManager);
 
 exports.__esModule = true;
 
-var _accessibleTarget = __webpack_require__(55);
+var _accessibleTarget = __webpack_require__(57);
 
 Object.defineProperty(exports, 'accessibleTarget', {
   enumerable: true,
@@ -60255,7 +60254,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _autoDetectRenderer = __webpack_require__(56);
+var _autoDetectRenderer = __webpack_require__(58);
 
 var _Container = __webpack_require__(12);
 
@@ -60445,7 +60444,7 @@ var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
-var _GraphicsData = __webpack_require__(60);
+var _GraphicsData = __webpack_require__(62);
 
 var _GraphicsData2 = _interopRequireDefault(_GraphicsData);
 
@@ -62488,7 +62487,7 @@ var _buildLine2 = _interopRequireDefault(_buildLine);
 
 var _utils = __webpack_require__(2);
 
-var _earcut = __webpack_require__(41);
+var _earcut = __webpack_require__(42);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -62652,7 +62651,7 @@ function buildRectangle(graphicsData, webGLData) {
 exports.__esModule = true;
 exports.default = buildRoundedRectangle;
 
-var _earcut = __webpack_require__(41);
+var _earcut = __webpack_require__(42);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -63507,7 +63506,7 @@ exports.default = mapCanvasBlendModesToPixi;
 
 var _const = __webpack_require__(1);
 
-var _canUseNewCanvasBlendModes = __webpack_require__(65);
+var _canUseNewCanvasBlendModes = __webpack_require__(67);
 
 var _canUseNewCanvasBlendModes2 = _interopRequireDefault(_canUseNewCanvasBlendModes);
 
@@ -64395,7 +64394,7 @@ var _RenderTarget = __webpack_require__(21);
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
-var _Quad = __webpack_require__(68);
+var _Quad = __webpack_require__(70);
 
 var _Quad2 = _interopRequireDefault(_Quad);
 
@@ -64966,7 +64965,7 @@ var _WebGLManager2 = __webpack_require__(14);
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
-var _SpriteMaskFilter = __webpack_require__(67);
+var _SpriteMaskFilter = __webpack_require__(69);
 
 var _SpriteMaskFilter2 = _interopRequireDefault(_SpriteMaskFilter);
 
@@ -66343,7 +66342,7 @@ var _settings = __webpack_require__(4);
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _TextStyle = __webpack_require__(69);
+var _TextStyle = __webpack_require__(71);
 
 var _TextStyle2 = _interopRequireDefault(_TextStyle);
 
@@ -68203,11 +68202,11 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _mesh = __webpack_require__(88);
+var _mesh = __webpack_require__(90);
 
 var mesh = _interopRequireWildcard(_mesh);
 
-var _particles = __webpack_require__(89);
+var _particles = __webpack_require__(91);
 
 var particles = _interopRequireWildcard(_particles);
 
@@ -68215,19 +68214,19 @@ var _extras = __webpack_require__(37);
 
 var extras = _interopRequireWildcard(_extras);
 
-var _filters = __webpack_require__(79);
+var _filters = __webpack_require__(81);
 
 var filters = _interopRequireWildcard(_filters);
 
-var _prepare = __webpack_require__(90);
+var _prepare = __webpack_require__(92);
 
 var prepare = _interopRequireWildcard(_prepare);
 
-var _loaders = __webpack_require__(84);
+var _loaders = __webpack_require__(86);
 
 var loaders = _interopRequireWildcard(_loaders);
 
-var _interaction = __webpack_require__(81);
+var _interaction = __webpack_require__(83);
 
 var interaction = _interopRequireWildcard(_interaction);
 
@@ -70051,7 +70050,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _ObservablePoint = __webpack_require__(62);
+var _ObservablePoint = __webpack_require__(64);
 
 var _ObservablePoint2 = _interopRequireDefault(_ObservablePoint);
 
@@ -70601,7 +70600,7 @@ var _CanvasTinter = __webpack_require__(33);
 
 var _CanvasTinter2 = _interopRequireDefault(_CanvasTinter);
 
-var _TextureTransform = __webpack_require__(73);
+var _TextureTransform = __webpack_require__(75);
 
 var _TextureTransform2 = _interopRequireDefault(_TextureTransform);
 
@@ -71661,11 +71660,11 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _BlurXFilter = __webpack_require__(74);
+var _BlurXFilter = __webpack_require__(76);
 
 var _BlurXFilter2 = _interopRequireDefault(_BlurXFilter);
 
-var _BlurYFilter = __webpack_require__(75);
+var _BlurYFilter = __webpack_require__(77);
 
 var _BlurYFilter2 = _interopRequireDefault(_BlurYFilter);
 
@@ -72756,7 +72755,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _InteractionData = __webpack_require__(80);
+var _InteractionData = __webpack_require__(82);
 
 var _InteractionData2 = _interopRequireDefault(_InteractionData);
 
@@ -72772,7 +72771,7 @@ var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _interactiveTarget = __webpack_require__(82);
+var _interactiveTarget = __webpack_require__(84);
 
 var _interactiveTarget2 = _interopRequireDefault(_interactiveTarget);
 
@@ -74440,15 +74439,15 @@ var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _textureParser = __webpack_require__(86);
+var _textureParser = __webpack_require__(88);
 
 var _textureParser2 = _interopRequireDefault(_textureParser);
 
-var _spritesheetParser = __webpack_require__(85);
+var _spritesheetParser = __webpack_require__(87);
 
 var _spritesheetParser2 = _interopRequireDefault(_spritesheetParser);
 
-var _bitmapFontParser = __webpack_require__(83);
+var _bitmapFontParser = __webpack_require__(85);
 
 var _bitmapFontParser2 = _interopRequireDefault(_bitmapFontParser);
 
@@ -74598,7 +74597,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Plane2 = __webpack_require__(87);
+var _Plane2 = __webpack_require__(89);
 
 var _Plane3 = _interopRequireDefault(_Plane2);
 
@@ -78002,7 +78001,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 exports.printBuffer = printBuffer;
 
-var _helpers = __webpack_require__(92);
+var _helpers = __webpack_require__(94);
 
 var _diff = __webpack_require__(207);
 
@@ -78194,7 +78193,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = diffLogger;
 
-var _deepDiff = __webpack_require__(103);
+var _deepDiff = __webpack_require__(104);
 
 var _deepDiff2 = _interopRequireDefault(_deepDiff);
 
@@ -78297,7 +78296,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _core = __webpack_require__(205);
 
-var _helpers = __webpack_require__(92);
+var _helpers = __webpack_require__(94);
 
 var _defaults = __webpack_require__(206);
 
@@ -78420,7 +78419,7 @@ module.exports = exports['default'];
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(95);
 /* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -78530,9 +78529,9 @@ function bindActionCreators(actionCreators, dispatch) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(95);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(97);
 /* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
 
 
@@ -78670,12 +78669,12 @@ function combineReducers(reducers) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(94);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(97);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* unused harmony reexport bindActionCreators */
@@ -78712,15 +78711,15 @@ exports.__esModule = true;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _miniSignals = __webpack_require__(44);
+var _miniSignals = __webpack_require__(46);
 
 var _miniSignals2 = _interopRequireDefault(_miniSignals);
 
-var _parseUri = __webpack_require__(45);
+var _parseUri = __webpack_require__(47);
 
 var _parseUri2 = _interopRequireDefault(_parseUri);
 
-var _async = __webpack_require__(96);
+var _async = __webpack_require__(98);
 
 var async = _interopRequireWildcard(_async);
 
@@ -79341,7 +79340,7 @@ var _Resource = __webpack_require__(39);
 
 var _Resource2 = _interopRequireDefault(_Resource);
 
-var _b = __webpack_require__(97);
+var _b = __webpack_require__(99);
 
 var _b2 = _interopRequireDefault(_b);
 
@@ -80269,9 +80268,9 @@ module.exports = __webpack_amd_options__;
 /* unused harmony export toggleRow */
 const Row = __webpack_require__(225);
 const _ = __webpack_require__(10);
-const {Subject} = __webpack_require__(98);
-const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = __webpack_require__(40);
-const BattleState = __webpack_require__(99);
+const {Subject} = __webpack_require__(40);
+const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = __webpack_require__(41);
+const BattleState = __webpack_require__(100);
 const {
 	isGauntlet,
 	isAtlasArmlet,
@@ -80437,21 +80436,21 @@ function toggleRow(chr)
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(41);
 const CREATE_BATTLE_TIMER  = 'CREATE_BATTLE_TIMER';
-/* harmony export (immutable) */ __webpack_exports__["c"] = CREATE_BATTLE_TIMER;
+/* harmony export (immutable) */ __webpack_exports__["b"] = CREATE_BATTLE_TIMER;
 
 const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
 /* unused harmony export DESTROY_BATTLE_TIMER */
 
 const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
-/* harmony export (immutable) */ __webpack_exports__["d"] = START_BATTLE_TIMER;
+/* harmony export (immutable) */ __webpack_exports__["c"] = START_BATTLE_TIMER;
 
 const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
 /* unused harmony export STOP_BATTLE_TIMER */
 
 const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
-/* harmony export (immutable) */ __webpack_exports__["b"] = UPDATE_BATTLE_TIMER;
+/* unused harmony export UPDATE_BATTLE_TIMER */
 
 
  
@@ -80537,7 +80536,7 @@ const battleTimers = (state=[], action) =>
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums_BattleState__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums_BattleState__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__battle_Character__ = __webpack_require__(221);
 const CREATE_CHARACTER = 'CREATE_CHARACTER';
 /* harmony export (immutable) */ __webpack_exports__["b"] = CREATE_CHARACTER;
@@ -80776,7 +80775,7 @@ const isOffering    = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.partial(isR
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__battle_battleTimer__ = __webpack_require__(41);
 const CREATE_TIMER = 'CREATE_TIMER';
 /* harmony export (immutable) */ __webpack_exports__["b"] = CREATE_TIMER;
 
@@ -80857,7 +80856,164 @@ const timers = (state=[], action) =>
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BattleTimerBar__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gsap__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_gsap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rx__);
+
+
+const log = console.log;
+
+class Menu extends PIXI.Container
+{
+	get targets(){ return this._items.children;}
+
+	constructor(menuItems, width=320, height=160)
+	{
+        super();
+        const me = this;
+		me._width = 320;
+		me._height = 160;
+		me._menuItems = menuItems;
+
+		me.createChildren();
+	}
+
+	createChildren()
+	{
+		const me = this;
+
+		me._border = new PIXI.Graphics();
+		me._border.beginFill(0x0000FF);
+		me._border.lineStyle(4, 0xFFFFFF, 1);
+		me._border.drawRoundedRect(0, 0, me._width, me._height, 6);
+		me.addChild(me._border);
+
+		me._items = new PIXI.Container();
+		me.addChild(me._items);
+
+		me.changes = new __WEBPACK_IMPORTED_MODULE_1_rx__["Subject"]();
+
+		me._fieldPool = [];
+		me._spritePool = [];
+
+		me.redraw();
+	}
+
+	getTextField()
+	{
+		const me = this;
+		if(me._fieldPool.length > 0)
+		{
+			return me._fieldPool.pop();
+		}
+		else
+		{
+			const style = {
+
+			    fontFamily: 'Final Fantasy VI SNESa',
+			    fill : '#FFFFFF',
+			    dropShadow : true,
+			    dropShadowColor : '#000000',
+			    dropShadowAngle : Math.PI / 6,
+			    dropShadowDistance : 2,
+			    wordWrap : false,
+                fontSize: 36
+			};
+			const textField = new PIXI.Text('???');
+            // const textField = new PIXI.extras.BitmapText("???", {font: "36px Final Fantasy VI SNESa"});
+            textField.style = new PIXI.TextStyle(style);
+			textField.interactive = true;
+			return textField;
+		}
+	}
+
+	getSprite()
+	{
+		var vm = this;
+		if(me._spritePool.length > 0)
+		{
+			return me._spritePool.pop();
+		}
+		else
+		{
+			return new PIXI.Sprite();
+		}
+	}
+
+    getTextFieldFromMenuItem(menuItem)
+    {
+        const me = this;
+        const field = me.getTextField();
+        field.text = menuItem.name;
+        const style = field.style;
+        if(menuItem.disabled)
+        {
+            field.interactive = false;
+            style.fill = "#666666";
+        }
+        else
+        {
+            field.interactive = true;
+            style.fill = "#FFFFFF";
+        }
+        field.on('mouseup', (event)=>
+        {
+            me.changes.onNext(
+                { type: 'click', menuItem }
+            );
+        });
+        return field;
+    }
+
+    setMenuItems(newMenuItems)
+    {
+        const me = this;
+        me._menuItems = newMenuItems;
+        me.redraw();
+    }
+
+	redraw()
+	{
+		const me = this;
+		if(me._items.children.length > 1)
+		{
+			while(me._items.children.length > 0)
+			{
+				const removedField = me._items.removeChildAt(me._items.children.length - 1);
+                me._fieldPool.push(removedField);
+			}
+		}
+
+		if(_.isNil(me._menuItems) === true)
+		{
+			return;
+		}
+
+        let startX = 16;
+		let startY = 8;
+        _.chain(me._menuItems)
+        .map(item => me.getTextFieldFromMenuItem(item))
+        .forEach(field =>
+        {
+            log("field.width:", field.width);
+            field.x = startX;
+            field.y = startY;
+            startY += 24;
+			me._items.addChild(field);
+        })
+        .value();
+	}
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Menu;
+
+
+/***/ }),
+/* 229 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BattleTimerBar__ = __webpack_require__(101);
 
 
 class PlayerList extends PIXI.Container
@@ -81028,11 +81184,11 @@ class PlayerList extends PIXI.Container
         });
 	}
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = PlayerList;
+/* unused harmony export default */
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81134,14 +81290,14 @@ class TextDropper extends PIXI.Container
 /* harmony default export */ __webpack_exports__["a"] = TextDropper;
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__application__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__application__ = __webpack_require__(103);
 // import 'babel-polyfill';
 
 // import {setupRedux} from './main';

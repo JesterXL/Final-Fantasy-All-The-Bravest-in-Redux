@@ -17,6 +17,7 @@ import BattleTimerBar from './com/jessewarden/ff6/views/BattleTimerBar';
 import PlayerList from './com/jessewarden/ff6/views/PlayerList';
 import "gsap";
 import TextDropper from './com/jessewarden/ff6/views/TextDropper';
+import Menu from './com/jessewarden/ff6/views/Menu';
 
 
 let store, unsubscribe, pixiApp, charactersContainer;
@@ -31,42 +32,68 @@ export const setupRedux = ()=>
 	store = createStore(allReducers, applyMiddleware(createLogger()));
 	// store = createStore(allReducers);
 	pixiApp = setupPixi();
-	//setupAndStartGameTimer();
-	// const newPlayerID = addPlayer();
-	// addMonster();
-	// setTimeout(()=>
+
+
+	// addPlayerAndBattleTimer();
+	// const secondPlayerAction = addPlayerAndBattleTimer();
+
+	// const playerList = new PlayerList(store);
+	// pixiApp.stage.addChild(playerList);
+	// playerList.x = pixiApp.screen.width - playerList.width;
+	// playerList.y = 200; 
+
+	// const state = store.getState();
+	// _.chain(state.battleTimers)
+	// .map(battleTimer => battleTimer.entity)
+	// .forEach(battleTimerEntity =>
 	// {
-	// 	removePlayer(newPlayerID);
-	// }, 2000);
+	// 	startBattleTimer(battleTimerEntity, window, 
+	// 	doneEvent =>
+	// 	{
+	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+	// 	},
+	// 	progressEvent =>
+	// 	{
+	// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
+	// 	});
+	// })
+	// .value();
 
-	// addBattleTimers();
+	// showHitPointsLowered(secondPlayerAction.playerEntity);
 
-	addPlayerAndBattleTimer();
-	const secondPlayerAction = addPlayerAndBattleTimer();
-
-	const playerList = new PlayerList(store);
-	pixiApp.stage.addChild(playerList);
-	playerList.x = pixiApp.screen.width - playerList.width;
-	playerList.y = 200; 
-
-	const state = store.getState();
-	_.chain(state.battleTimers)
-	.map(battleTimer => battleTimer.entity)
-	.forEach(battleTimerEntity =>
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
+	PIXI.loader.load((loader, resources) =>
 	{
-		startBattleTimer(battleTimerEntity, window, 
-		doneEvent =>
+	// 	log("resources:", resources);
+	// 	// PIXI.loaders.parseBitmapFontData(loader, resources);
+		const menuItems = [
+			{name: "Uno"},
+			{name: "Dos"},
+			{name: "Tres"}
+		];
+		const test = new Menu(menuItems);
+		pixiApp.stage.addChild(test);
+		test.changes.subscribe(event =>
 		{
-			store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity});
-		},
-		progressEvent =>
-		{
-			store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity});
+			log("event:", event);
+			test.setMenuItems([
+				{name: "Yes"}
+			]);
 		});
-	})
-	.value();
 
-	showHitPointsLowered(secondPlayerAction.playerEntity);
+		// setTimeout(()=>
+		// {
+		// 	test.setMenuItems([
+		// 		{name: "What"},
+		// 		{name: "The"}
+		// 	]);
+		// }, 3000);
+	});
+
+	
 };
 
 export const setupAndStartGameTimer = ()=>
@@ -225,33 +252,6 @@ export const addCharacters = (characters, parent) =>
 export const removeSprites = sprites =>
 {
 	return _.forEach(sprites, sprite => sprite.parent.removeChild(sprite));
-};
-
-
-export const addBattleTimers = ()=>
-{
-	const test = new BattleTimerBar();
-	pixiApp.stage.addChild(test);
-	test.x = 300;
-	test.y = 300;
-	
-
-	const addedID = addBattleTimer();
-	startBattleTimer(addedID, window, (battleTimerEvent)=>
-	{
-		const p = Math.round(percentage * 100);
-		log(p + "%, gauge: " + gauge);
-		log("Done.");
-		test.percentage = percentage;
-		test.render();
-	},
-	(battleTimerEvent)=>
-	{
-		const p = Math.round(percentage * 100);
-		log(p + "%, gauge: " + gauge);
-		test.percentage = percentage;
-		test.render();
-	});
 };
 
 export const addBattleTimer = (id, characterID)=>
