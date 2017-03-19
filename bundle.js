@@ -56631,7 +56631,7 @@ const setupRedux = ()=>
 		})
 		.value();
 
-		// showHitPointsLowered(secondPlayerAction.playerEntity);
+		showHitPointsLowered(secondPlayerAction.playerEntity);
 
 	});
 
@@ -81109,16 +81109,22 @@ class PlayerList extends PIXI.Container
 		}
     }
 
+	getPlayersFromCharaters(state)
+	{
+		return _.filter(state.characters, character => character.characterType === 'player');
+	}
+
     onStoreChange()
     {
 		const me = this;
         const state = me.store.getState();
-        const spritesToRemove = me.getSpritesToRemove(me._characters.children, state.characters);
+		const players = me.getPlayersFromCharaters(state);
+        const spritesToRemove = me.getSpritesToRemove(me._characters.children, players);
 		if(spritesToRemove.length > 0)
 		{
 			_.forEach(spritesToRemove, sprite => sprite.parent.removeChild(sprite));
 		}
-		const charactersToAdd = me.getCharactersToAdd(state.characters, me._characters.children);
+		const charactersToAdd = me.getCharactersToAdd(players, me._characters.children);
 		if(charactersToAdd.length > 0)
 		{
 			me.addCharacters(charactersToAdd, me._characters);
@@ -81219,8 +81225,15 @@ class TextDropper extends PIXI.Container
 		me.addChild(field);
 		const point = {x: target.x, y: target.y};
 //		point = target.localToGlobal(point);
-		field.x = point.x + (target.width / 2) - (field.width / 2);
+		field.x = point.x + target.width - (field.width / 2);
 		field.y = point.y + target.height - field.height;
+		
+		
+		// const _border = new PIXI.Graphics();
+		// _border.beginFill(0xFF0000, 0.5);
+		// _border.drawRect(field.x, field.y, field.width, field.height);
+		// me.addChild(_border);
+		
 		// console.log("x: " + field.x + ", y: " + field.y);
 		if(miss === false)
 		{
@@ -81262,7 +81275,7 @@ class TextDropper extends PIXI.Container
 
 			const style = {
 			    
-			    fontFamily: '36px Final Fantasy VI SNESa',
+			    fontFamily: 'Final Fantasy VI SNESa',
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
@@ -81270,6 +81283,7 @@ class TextDropper extends PIXI.Container
 			    dropShadowColor : '#000000',
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
+				fontSize: 18,
 			    wordWrap : false
 			};
 			// var style = {

@@ -87,16 +87,22 @@ export default class PlayerList extends PIXI.Container
 		}
     }
 
+	getPlayersFromCharaters(state)
+	{
+		return _.filter(state.characters, character => character.characterType === 'player');
+	}
+
     onStoreChange()
     {
 		const me = this;
         const state = me.store.getState();
-        const spritesToRemove = me.getSpritesToRemove(me._characters.children, state.characters);
+		const players = me.getPlayersFromCharaters(state);
+        const spritesToRemove = me.getSpritesToRemove(me._characters.children, players);
 		if(spritesToRemove.length > 0)
 		{
 			_.forEach(spritesToRemove, sprite => sprite.parent.removeChild(sprite));
 		}
-		const charactersToAdd = me.getCharactersToAdd(state.characters, me._characters.children);
+		const charactersToAdd = me.getCharactersToAdd(players, me._characters.children);
 		if(charactersToAdd.length > 0)
 		{
 			me.addCharacters(charactersToAdd, me._characters);

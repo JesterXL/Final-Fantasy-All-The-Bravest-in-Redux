@@ -70,7 +70,7 @@ export const setupRedux = ()=>
 		})
 		.value();
 
-		// showHitPointsLowered(secondPlayerAction.playerEntity);
+		showHitPointsLowered(secondPlayerAction.playerEntity);
 
 	});
 

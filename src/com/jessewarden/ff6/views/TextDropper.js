@@ -14,8 +14,15 @@ class TextDropper extends PIXI.Container
 		me.addChild(field);
 		const point = {x: target.x, y: target.y};
 //		point = target.localToGlobal(point);
-		field.x = point.x + (target.width / 2) - (field.width / 2);
+		field.x = point.x + target.width - (field.width / 2);
 		field.y = point.y + target.height - field.height;
+		
+		
+		// const _border = new PIXI.Graphics();
+		// _border.beginFill(0xFF0000, 0.5);
+		// _border.drawRect(field.x, field.y, field.width, field.height);
+		// me.addChild(_border);
+		
 		// console.log("x: " + field.x + ", y: " + field.y);
 		if(miss === false)
 		{
@@ -57,7 +64,7 @@ class TextDropper extends PIXI.Container
 
 			const style = {
 			    
-			    fontFamily: '36px Final Fantasy VI SNESa',
+			    fontFamily: 'Final Fantasy VI SNESa',
 			    fill : '#FFFFFF',
 			    stroke : '#000000',
 			    strokeThickness : 2,
@@ -65,6 +72,7 @@ class TextDropper extends PIXI.Container
 			    dropShadowColor : '#000000',
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
+				fontSize: 18,
 			    wordWrap : false
 			};
 			// var style = {
