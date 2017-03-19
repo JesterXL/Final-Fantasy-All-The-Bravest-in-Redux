@@ -56603,7 +56603,7 @@ const setupRedux = ()=>
 	{
 		addPlayerAndBattleTimer('Cow');
 		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
-
+		addMonsterAndBattleTimer();
 		const playerList = new __WEBPACK_IMPORTED_MODULE_9__com_jessewarden_ff6_views_PlayerList__["a" /* default */](store);
 		pixiApp.stage.addChild(playerList);
 		log("pixiApp.screen:", pixiApp.screen);
@@ -56717,13 +56717,27 @@ const addPlayerAndBattleTimer = (name)=>
 /* unused harmony export addPlayerAndBattleTimer */
 
 
-const addMonster = ()=>
+const addMonster = (id)=>
 {
-	const id = guid();
-	store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'monster'});
-	return id;
+	return store.dispatch({type: __WEBPACK_IMPORTED_MODULE_4__com_jessewarden_ff6_characters__["b" /* CREATE_CHARACTER */], entity: id, characterType: 'monster'});
 };
 /* unused harmony export addMonster */
+
+
+const addMonsterAndBattleTimer = ()=>
+{
+	const monsterID = guid();
+	const monsterEvent = addMonster(monsterID);
+	const battleTimerID = guid();
+	const battleTimerEvent = addBattleTimer(battleTimerID, monsterID);
+	return {
+		monsterEntity: monsterID,
+		monsterEvent,
+		battleTimerEntity: battleTimerID,
+		battleTimerEvent
+	};
+};
+/* unused harmony export addMonsterAndBattleTimer */
 
 
 let textDropper;
@@ -56785,12 +56799,14 @@ const getSpritesToRemove = (children, characters)=>
 /* unused harmony export getSpritesToRemove */
 
 
+let playerStartX = 200;
+let playerStartY = 20;
+let monsterStartX = 20;
+let monsterStartY = 20;
+
 const getSpriteFromCharacter = character =>
 {
-	let playerStartX = pixiApp.screen.width / 2;
-	let playerStartY = 20;
-	let monsterStartX = 20;
-	let monsterStartY = 20;
+	
 	let sprite;
 	const basePath = './src/com/jessewarden/ff6/characters';
 	if(character.characterType === 'player')
@@ -56798,16 +56814,16 @@ const getSpriteFromCharacter = character =>
 		sprite = new PIXI.Sprite.fromImage('./src/images/locke.png');
 		sprite.x = playerStartX;
 		sprite.y = playerStartY;
-		playerStartX += 20;
-		playerStartY += 80;
+		playerStartX += 10;
+		playerStartY += 30;
 	}
 	else if(character.characterType === 'monster')
 	{
 		sprite = new PIXI.Sprite.fromImage(basePath + '/goblin.png');
 		sprite.x = monsterStartX;
 		sprite.y = monsterStartY;
-		monsterStartX += 20;
-		monsterStartY += 80;
+		monsterStartX += 10;
+		monsterStartY += 40;
 	}
 	else
 	{
