@@ -7,14 +7,17 @@ import { characters, CREATE_CHARACTER, DESTROY_CHARACTER } from './com/jesseward
 import {
 	battleTimers,
 	CREATE_BATTLE_TIMER,
-	START_BATTLE_TIMER
+	START_BATTLE_TIMER,
+	UPDATE_BATTLE_TIMER
 } from './com/jessewarden/ff6/battletimers';
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
+import BattleTimerBar from './com/jessewarden/ff6/views/BattleTimerBar';
+import PlayerList from './com/jessewarden/ff6/views/PlayerList';
 
 
-let store, unsubscribe;
+let store, unsubscribe, pixiApp, charactersContainer;
 export const setupRedux = ()=>
 {
 	const allReducers = combineReducers({
@@ -25,16 +28,41 @@ export const setupRedux = ()=>
 	});
 	store = createStore(allReducers, applyMiddleware(createLogger()));
 	// store = createStore(allReducers);
-	setupPixi();
+	pixiApp = setupPixi();
 	//setupAndStartGameTimer();
-	const newPlayerID = addPlayer();
-	addMonster();
+	// const newPlayerID = addPlayer();
+	// addMonster();
 	// setTimeout(()=>
 	// {
 	// 	removePlayer(newPlayerID);
 	// }, 2000);
 
-	addBattleTimers();
+	// addBattleTimers();
+
+	addPlayerAndBattleTimer();
+	addPlayerAndBattleTimer();
+
+	const playerList = new PlayerList(store);
+	pixiApp.stage.addChild(playerList);
+	playerList.x = pixiApp.screen.width - playerList.width;
+	playerList.y = 200; 
+
+	const state = store.getState();
+	_.chain(state.battleTimers)
+	.map(battleTimer => battleTimer.entity)
+	.forEach(battleTimerEntity =>
+	{
+		startBattleTimer(battleTimerEntity, window, 
+		doneEvent =>
+		{
+			store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity});
+		},
+		progressEvent =>
+		{
+			store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity});
+		});
+	})
+	.value();
 };
 
 export const setupAndStartGameTimer = ()=>
@@ -71,16 +99,28 @@ export const stopTimer = entity =>
 	return store.dispatch({type: STOP_TIMER, entity});
 };
 
-export const addPlayer = ()=>
+export const addPlayer = (id)=>
 {
-	const id = guid();
-	store.dispatch({type: CREATE_CHARACTER, entity: id, characterType: 'player'});
-	return id;
+	return store.dispatch({type: CREATE_CHARACTER, entity: id, characterType: 'player'});
 };
 
 export const removePlayer = (id)=>
 {
 	return store.dispatch({type: DESTROY_CHARACTER, entity: id});
+};
+
+export const addPlayerAndBattleTimer = ()=>
+{
+	const playerID = guid();
+	const playerEvent = addPlayer(playerID);
+	const battleTimerID = guid();
+	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
+	return {
+		playerEntity: playerID,
+		playerEvent,
+		battleTimerEntity: battleTimerID,
+		battleTimerEvent
+	};
 };
 
 export const addMonster = ()=>
@@ -90,28 +130,32 @@ export const addMonster = ()=>
 	return id;
 };
 
-
 export const setupPixi = ()=>
 {
 	const app = new PIXI.Application();
 	document.body.appendChild(app.view);
+
+	charactersContainer = new PIXI.Container();
+	app.stage.addChild(charactersContainer);
+
 	const unsubscribe = store.subscribe(()=>
 	{
 		const state = store.getState();
-		const spritesToRemove = getSpritesToRemove(app.stage.children, state.characters);
+		const spritesToRemove = getSpritesToRemove(charactersContainer.children, state.characters);
 		// log("spritesToRemove:", spritesToRemove);
 		if(spritesToRemove.length > 0)
 		{
 			removeSprites(spritesToRemove);
 		}
 
-		const charactersToAdd = getCharactersToAdd(state.characters, app.stage.children);
+		const charactersToAdd = getCharactersToAdd(state.characters, charactersContainer.children);
 		// log("charactersToAdd:", charactersToAdd);
 		if(charactersToAdd.length > 0)
 		{
-			addCharacters(charactersToAdd, app.stage);
+			addCharacters(charactersToAdd, charactersContainer);
 		}
 	});
+	return app;
 };
 
 export const getCharactersToAdd = (characters, children) =>
@@ -178,25 +222,33 @@ export const removeSprites = sprites =>
 
 export const addBattleTimers = ()=>
 {
+	const test = new BattleTimerBar();
+	pixiApp.stage.addChild(test);
+	test.x = 300;
+	test.y = 300;
+	
+
 	const addedID = addBattleTimer();
-	startBattleTimer(addedID, window, (percentage, gauge)=>
+	startBattleTimer(addedID, window, (battleTimerEvent)=>
 	{
 		const p = Math.round(percentage * 100);
 		log(p + "%, gauge: " + gauge);
 		log("Done.");
+		test.percentage = percentage;
+		test.render();
 	},
-	(percentage, gauge)=>
+	(battleTimerEvent)=>
 	{
 		const p = Math.round(percentage * 100);
 		log(p + "%, gauge: " + gauge);
+		test.percentage = percentage;
+		test.render();
 	});
 };
 
-export const addBattleTimer = ()=>
+export const addBattleTimer = (id, characterID)=>
 {
-	const id = guid();
-	store.dispatch({type: CREATE_BATTLE_TIMER, entity: id, speed: 255});
-	return id;
+	return store.dispatch({type: CREATE_BATTLE_TIMER, entity: id, characterEntity: characterID, speed: 255});
 };
 
 export const startBattleTimer = (entity, window, doneCallback, progressCallback) =>

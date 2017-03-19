@@ -2,6 +2,7 @@ export const CREATE_BATTLE_TIMER  = 'CREATE_BATTLE_TIMER';
 export const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
 export const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
 export const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
+export const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
 
 import { 
     BattleTimer,
@@ -16,6 +17,7 @@ export const createBattleTimer = (state, action)=>
 {
     const battleTimer = new BattleTimer(
         action.entity,
+        action.characterEntity,
         _.get(action, 'counter', 0),
         _.get(action, 'gauge', 0),
         _.get(action, 'effect', EFFECT_NORMAL),
@@ -68,6 +70,7 @@ export const battleTimers = (state=[], action) =>
         case DESTROY_BATTLE_TIMER: return destroyBattleTimer(state, action);
         case START_BATTLE_TIMER: return startBattleTimer(state, action);
         case STOP_BATTLE_TIMER: return stopBattleTimer(state, action);
+        case UPDATE_BATTLE_TIMER:
         default: return state;
 	}
 }
