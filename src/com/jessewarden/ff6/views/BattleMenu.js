@@ -46,36 +46,30 @@ export default class BattleMenu extends PIXI.Container
 		me.rowMenu.y = me.mainMenu.y;
 
 		me.setState('hide');
-		// me.lastCursorManagerEvent = undefined;
-		
-		store.subscribe(()=>
+		me.cursorManager.changes.subscribe( event =>
 		{
-			const state = store.getState();
-			const cursorManagerTargets = _.get(state, 'cursorManagerTargets');
-			// if(cursorManagerTargets.event === me.lastCursorManagerEvent)
-			// {
-			// 	return;
-			// }
-			const currentState = me.state;
-			switch(cursorManagerTargets.event)
+			const type = event.type;
+			switch(type)
 			{
 				case EVENT_MOVE_RIGHT:
-					if(currentState == 'main')
+					log("move right");
+					if(me.state == 'main')
 					{
 						me.setState('defense');
 					}
-					else if(currentState == 'row')
+					else if(me.state == 'row')
 					{
 						me.setState('main');
 					}
 					break;
 
 				case EVENT_MOVE_LEFT:
-					if(currentState == 'defense')
+					log("move left");
+					if(me.state == 'defense')
 					{
 						me.setState('main');
 					}
-					else if(currentState == 'main')
+					else if(me.state == 'main')
 					{
 						me.setState('row');
 					}
@@ -111,17 +105,17 @@ export default class BattleMenu extends PIXI.Container
 				break;
 			case 'main':
 				me.mainMenu.visible = true;
-				me.cursorManager.setTargets(me.mainMenu, me.mainMenu.targets);
+				me.cursorManager.setTargets(me.mainMenu.targets);
 				break;
 			case 'defense':
 				me.defendMenu.visible = true;
-				me.cursorManager.setTargets(me.defendMenu, me.defendMenu.targets);
+				me.cursorManager.setTargets(me.defendMenu.targets);
 				break;
 				// leave defense
 				// me.defendMenu.visible = false;
 			case 'row':
 				me.rowMenu.visible = true;
-				me.cursorManager.setTargets(me.rowMenu, me.rowMenu.targets);
+				me.cursorManager.setTargets(me.rowMenu.targets);
 				break;
 				// leave row
 				// me.rowMenu.visible = false;
@@ -129,7 +123,7 @@ export default class BattleMenu extends PIXI.Container
 				me.mainMenu.visible = false;
 				me.defendMenu.visible = false;
 				me.rowMenu.visible = false;
-				me.cursorManager.setTargets(me.mainMenu, me.mainMenu.targets);
+				me.cursorManager.setTargets(me.mainMenu.targets);
 				break;
 		}
 	}

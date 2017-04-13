@@ -141,12 +141,6 @@ export default class CursorManager extends PIXI.Container
 	get selectedIndex(){ return this._selectedIndex};
 	set selectedIndex(newValue)
 	{
-		if(_.isNaN(newValue))
-		{
-			log("targets:", this.targets);
-			log("targets len:", this.targets.length);
-			debugger;
-		}
 		this._selectedIndex = newValue;
 		this._selectCurrentElement();
 	}
@@ -154,6 +148,7 @@ export default class CursorManager extends PIXI.Container
 	previousTarget()
 	{
 		const me = this;
+		
 		if(_.isArray(me.targets) === false || me.targets.length === 0)
 		{
 			me.selectedIndex = -1;
@@ -206,7 +201,7 @@ export default class CursorManager extends PIXI.Container
 		const me = this;
 		me._setCursorVisible(false);
 
-		if(me._selectedIndex < 1)
+		if(me._selectedIndex < 0)
 		{
 			return;
 		}
@@ -215,7 +210,7 @@ export default class CursorManager extends PIXI.Container
 		me._setCursorVisible(true);
 		// console.log("target.parent.y:", this.targetsParent.y);
 		me.targetPoint = new PIXI.Point(target.x, target.y);
-		me.point = me.targetsParent.toGlobal(me.targetPoint);
+		me.point = target.parent.toGlobal(me.targetPoint);
 		// console.log("point:", point);
 		me.sprite.x = me.point.x - 16 - 2;
 		me.sprite.y = me.point.y + target.height / 2;
