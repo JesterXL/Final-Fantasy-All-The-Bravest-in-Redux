@@ -9,6 +9,7 @@ export default class Menu extends PIXI.Container
 	constructor(menuItems, width=320, height=160)
 	{
         super();
+		
         const me = this;
 		me._width = width;
 		me._height = height;

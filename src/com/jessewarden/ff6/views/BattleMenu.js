@@ -1,199 +1,161 @@
-import PIXI from "pixi.js";
-import _ from "lodash";
-import "gsap";
 import {Subject} from 'rx';
 import Menu from './Menu';
-// import CursorManager from '../managers/CursorManager';
-// import KeyboardManager from '../managers/KeyboardManager';
+import {
+	EVENT_ESCAPE,
+	EVENT_SELECTED,
+	EVENT_MOVE_RIGHT,
+	EVENT_MOVE_LEFT
+} from '../managers/CursorManager';
 
-export default class BattleMenu
+const log = console.log;
+
+export default class BattleMenu extends PIXI.Container
 {
-
-	get changes(){return this._changes;}
-
-	constructor()
+	constructor(cursorManager, store)
 	{
-		var vm = this;
+		super();
+
+		const me = this;
 		
-		vm._changes = new Subject();
+		me.changes = new Subject();
+		me.cursorManager = cursorManager;
 
-		vm.mainMenuItems = []
-		vm.mainMenuItems.push({name: "Attack"});
-		vm.mainMenuItems.push({name: "Items"});
+		me.mainMenuItems = []
+		me.mainMenuItems.push({name: "Attack"});
+		me.mainMenuItems.push({name: "Items"});
 
-		vm.mainMenu = new Menu(300, 280, vm.mainMenuItems);
-		vm.mainMenu.container.x = 34;
-		vm.mainMenu.container.y = 200;
+		me.mainMenu = new Menu(me.mainMenuItems, 156, 120);
+		me.addChild(me.mainMenu);
+		me.mainMenu.x = 34;
+		me.mainMenu.y = 100;
 
-		vm.defendMenuItems = []
-		vm.defendMenuItems.push({name: "Defend"});
+		me.defendMenuItems = []
+		me.defendMenuItems.push({name: "Defend"});
 
-		vm.defendMenu = new Menu(300, 280, vm.defendMenuItems);
-		vm.defendMenu.container.x = vm.mainMenu.container.x + 30;
-		vm.defendMenu.container.y = vm.mainMenu.container.y;
+		me.defendMenu = new Menu(me.defendMenuItems, 156, 120);
+		me.addChild(me.defendMenu);
+		me.defendMenu.x = me.mainMenu.x + 30;
+		me.defendMenu.y = me.mainMenu.y;
 
-		vm.rowMenuItems = [];
-		vm.rowMenuItems.push({name: "Change Row"});
+		me.rowMenuItems = [];
+		me.rowMenuItems.push({name: "Change Row"});
 
-		vm.rowMenu = new Menu(300, 280, vm.rowMenuItems);
-		vm.rowMenu.container.x = vm.mainMenu.container.x - 30;
-		vm.rowMenu.container.y = vm.mainMenu.container.y;
+		me.rowMenu = new Menu(me.rowMenuItems, 156, 120);
+		me.addChild(me.rowMenu);
+		me.rowMenu.x = me.mainMenu.x - 30;
+		me.rowMenu.y = me.mainMenu.y;
 
-		vm.fsm = new StateMachine();
-		// vm.fsm.changes.subscribe((event)=>
-		// {
-		// 	// console.log("BattleMenu::fsm::event", event);
-		// });
-
-		vm.fsm.addState('hide',
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = false;
-			vm.defendMenu.container.visible = false;
-			vm.rowMenu.container.visible = false;
-			if(vm.cursorManager)
-			{
-				vm.cursorManager.clearAllTargets();
-			}
-		});
-
-		vm.fsm.addState("main",
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
-		});
-
-		vm.fsm.addState("defense", 
-		["main"],
-		()=>
-		{
-			vm.defendMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.defendMenu.container, vm.defendMenu.targets);
-		},
-		()=>
-		{
-			vm.defendMenu.container.visible = false;
-		});
+		me.setState('hide');
+		// me.lastCursorManagerEvent = undefined;
 		
-		vm.fsm.addState("row", 
-		["main"],
-		()=>
+		store.subscribe(()=>
 		{
-			vm.rowMenu.container.visible = true;
-			vm.cursorManager.setTargets(vm.rowMenu.container, vm.rowMenu.targets);
-		},
-		()=>
-		{
-			vm.rowMenu.container.visible = false;
-		});
-
-		vm.fsm.addState("attack",
-		['*'],
-		()=>
-		{
-			vm.mainMenu.container.visible = false;
-			vm.defendMenu.container.visible = false;
-			vm.rowMenu.container.visible = false;
-			vm.cursorManager.setTargets(vm.mainMenu.container, vm.mainMenu.targets);
-		});
-
-		vm.fsm.initialState = 'hide';
-
-	}
-
-	setup(stage, containerToAddTo, keyboardManager, cursorManager)
-	{
-		var vm = this;
-		vm.stage = stage;
-		vm.containerToAddTo = containerToAddTo;
-
-		vm.containerToAddTo.addChild(vm.mainMenu.container);
-		vm.containerToAddTo.addChild(vm.defendMenu.container);
-		vm.containerToAddTo.addChild(vm.rowMenu.container);
-
-		vm.keyboardManager = keyboardManager;
-		vm.cursorManager = cursorManager;
-		vm.cursorManager.setup(stage, keyboardManager);
-		vm.cursorManagerChanges = vm.cursorManager.changes
-		.subscribe((event)=>
-		{
-			// console.log("BattleMenu::cursorManager::subscribe, event:", event);
-			var currentState = vm.fsm.currentState.name;
-			var fsm = vm.fsm;
-			switch(event.type)
+			const state = store.getState();
+			const cursorManagerTargets = _.get(state, 'cursorManagerTargets');
+			// if(cursorManagerTargets.event === me.lastCursorManagerEvent)
+			// {
+			// 	return;
+			// }
+			const currentState = me.state;
+			switch(cursorManagerTargets.event)
 			{
-				case 'cursorManager:moveRight':
+				case EVENT_MOVE_RIGHT:
 					if(currentState == 'main')
 					{
-						fsm.changeState('defense');
+						me.setState('defense');
 					}
 					else if(currentState == 'row')
 					{
-						fsm.changeState('main');
+						me.setState('main');
 					}
 					break;
 
-				case 'cursorManager:moveLeft':
+				case EVENT_MOVE_LEFT:
 					if(currentState == 'defense')
 					{
-						fsm.changeState('main');
+						me.setState('main');
 					}
 					else if(currentState == 'main')
 					{
-						fsm.changeState('row');
+						me.setState('row');
 					}
-					break;
-
-				case 'cursorManager:selected':
-					var selectedItem;
-					switch(currentState)
-					{
-						case "main":
-							selectedItem = vm.mainMenuItems[vm.cursorManager.selectedIndex].name;
-							break;
-
-						case "defense":
-							selectedItem = vm.defendMenuItems[vm.cursorManager.selectedIndex].name;
-							break;
-
-						case "row":
-							selectedItem = vm.rowMenuItems[vm.cursorManager.selectedIndex].name;
-							break;
-					}
-					// fsm.changeState('hide');
-					vm._changes.onNext({type: 'battleMenu:itemSelected', item: selectedItem});
 					break;
 			}
 		});
+	}
+
+	setState(newState)
+	{
+		const me = this;
+		const oldState = me.state;
+		switch(oldState)
+		{
+			case 'defense':
+				me.defendMenu.visible = false;
+				break;
+			case 'row':
+				me.rowMenu.visible = false;
+				break;
+		}
+		me.state = newState;
+		switch(newState)
+		{
+			case 'hide':
+				me.mainMenu.visible = false;
+				me.defendMenu.visible = false;
+				me.rowMenu.visible = false;
+				if(me.cursorManager)
+				{
+					me.cursorManager.clearAllTargets();
+				}
+				break;
+			case 'main':
+				me.mainMenu.visible = true;
+				me.cursorManager.setTargets(me.mainMenu, me.mainMenu.targets);
+				break;
+			case 'defense':
+				me.defendMenu.visible = true;
+				me.cursorManager.setTargets(me.defendMenu, me.defendMenu.targets);
+				break;
+				// leave defense
+				// me.defendMenu.visible = false;
+			case 'row':
+				me.rowMenu.visible = true;
+				me.cursorManager.setTargets(me.rowMenu, me.rowMenu.targets);
+				break;
+				// leave row
+				// me.rowMenu.visible = false;
+			case 'attack':
+				me.mainMenu.visible = false;
+				me.defendMenu.visible = false;
+				me.rowMenu.visible = false;
+				me.cursorManager.setTargets(me.mainMenu, me.mainMenu.targets);
+				break;
+		}
 	}
 
 	tearDown()
 	{
-		var vm = this;
-		vm.stage = undefined;
-		vm.containerToAddTo = undefined;
+		const me = this;
+		
+		me.mainMenu.parent.parent.removeChild(me.mainMenu);
+		me.defendMenu.parent.parent.removeChild(me.defendMenu);
+		me.rowMenu.parent.parent.removeChild(me.rowMenu);
 
-		vm.mainMenu.container.parent.removeChild(vm.mainMenu.container);
-		vm.defendMenu.container.parent.removeChild(vm.defendMenu.container);
-		vm.rowMenu.container.parent.removeChild(vm.rowMenu.container);
-
-		vm.cursorManagerChanges.dispose();
-		vm.cursorManagerChanges = undefined;
-		vm.cursorManager.tearDown();
-		vm.cursorManager = undefined;
-		vm.keyboardManager = undefined;
+		me.cursorManagerChanges.dispose();
+		me.cursorManagerChanges = undefined;
+		me.cursorManager.tearDown();
+		me.cursorManager = undefined;
+		me.keyboardManager = undefined;
 	}
 
 	show()
 	{
-		this.fsm.changeState("main");
+		this.setState("main");
 	}
 
 	hide()
 	{
-		this.fsm.changeState("hide");
+		this.setState("hide");
 	}
 }

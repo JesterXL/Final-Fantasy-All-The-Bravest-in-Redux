@@ -3,6 +3,7 @@ export const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
 export const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
 export const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
 export const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
+// export const BATTLE_TIMER_DONE = 'BATTLE_TIMER_DONE';
 
 import { 
     BattleTimer,

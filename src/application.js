@@ -1,6 +1,6 @@
 const log = console.log;
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import createLogger from 'redux-logger';
+import logger from 'redux-logger';
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/entities';
 import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/timers';
 import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED } from './com/jessewarden/ff6/characters';
@@ -10,6 +10,7 @@ import {
 	START_BATTLE_TIMER,
 	UPDATE_BATTLE_TIMER
 } from './com/jessewarden/ff6/battletimers';
+import { menustate } from './com/jessewarden/ff6/menustate';
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
@@ -18,61 +19,93 @@ import PlayerList from './com/jessewarden/ff6/views/PlayerList';
 import "gsap";
 import TextDropper from './com/jessewarden/ff6/views/TextDropper';
 import Menu from './com/jessewarden/ff6/views/Menu';
-
+import BattleMenu from './com/jessewarden/ff6/views/BattleMenu';
+import "howler";
+import CursorManager from './com/jessewarden/ff6/managers/CursorManager';
+import KeyboardManager from './com/jessewarden/ff6/managers/KeyboardManager';
 
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
+let keyboardManager, cursorManager;
 export const setupRedux = ()=>
 {
 	const allReducers = combineReducers({
 		entities,
 		timers,
 		characters,
-		battleTimers
+		battleTimers,
+		menustate
 	});
-	// store = createStore(allReducers, applyMiddleware(createLogger()));
-	store = createStore(allReducers);
+	store = createStore(allReducers, applyMiddleware(logger));
+	// store = createStore(allReducers);
 	pixiApp = setupPixi();
-	
+	store.dispatch({type: 'cow'});
 
-	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
-	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
-	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
-	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
-	PIXI.loader.load((loader, resources) =>
-	{
-		addPlayerAndBattleTimer('Cow');
-		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
-		addMonsterAndBattleTimer();
-		const playerList = new PlayerList(store);
-		pixiApp.stage.addChild(playerList);
-		log("pixiApp.screen:", pixiApp.screen);
-		playerList.x = pixiApp.screen.width - playerList.width;
-		playerList.y = pixiApp.screen.height - playerList.height; 
+	keyboardManager = new KeyboardManager();
+	cursorManager = new CursorManager(keyboardManager, store);
+	pixiApp.stage.addChild(cursorManager);
 
-		blankMenu = new Menu(undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
-		pixiApp.stage.addChild(blankMenu);
-		blankMenu.y = pixiApp.screen.height - blankMenu.height;
+	const battleMenu = new BattleMenu(cursorManager, store);
+	pixiApp.stage.addChild(battleMenu);
+	battleMenu.show();
 
-		const state = store.getState();
-		_.chain(state.battleTimers)
-		.map(battleTimer => battleTimer.entity)
-		.forEach(battleTimerEntity =>
-		{
-			startBattleTimer(battleTimerEntity, window, 
-			doneEvent =>
-			{
-				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-			},
-			progressEvent =>
-			{
-				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
-			});
-		})
-		.value();
+	// const mainMenuItems = []
+	// mainMenuItems.push({name: "Attack"});
+	// mainMenuItems.push({name: "Items"});
 
-		showHitPointsLowered(secondPlayerAction.playerEntity);
+	// const mainMenu = new Menu(mainMenuItems, 156, 120);
+	// pixiApp.stage.addChild(mainMenu);
 
-	});
+	// const testMenu = new Menu(['uno', 'dos'], 200, 200);
+	// pixiApp.stage.addChild(testMenu);
+
+	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
+	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
+	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
+	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
+	// PIXI.loader.load((loader, resources) =>
+	// {
+	// 	keyboardManager = new KeyboardManager();
+	// 	cursorManager = new CursorManager(keyboardManager);
+	// 	pixiApp.stage.addChild(cursorManager);
+
+	// 	const battleMenu = new BattleMenu(keyboardManager, cursorManager);
+	// 	battleMenu.show();
+
+		// addPlayerAndBattleTimer('Cow');
+		// const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
+		// addMonsterAndBattleTimer();
+		// const playerList = new PlayerList(store);
+		// pixiApp.stage.addChild(playerList);
+		// log("pixiApp.screen:", pixiApp.screen);
+		// playerList.x = pixiApp.screen.width - playerList.width;
+		// playerList.y = pixiApp.screen.height - playerList.height; 
+
+		// blankMenu = new Menu(undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
+		// pixiApp.stage.addChild(blankMenu);
+		// blankMenu.y = pixiApp.screen.height - blankMenu.height;
+
+		// const state = store.getState();
+		// _.chain(state.battleTimers)
+		// .map(battleTimer => battleTimer.entity)
+		// .forEach(battleTimerEntity =>
+		// {
+		// 	startBattleTimer(battleTimerEntity, window, 
+		// 	doneEvent =>
+		// 	{
+		// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+		// 		// log("characterEntity done:", doneEvent.characterEntity);
+		// 		
+		// 	},
+		// 	progressEvent =>
+		// 	{
+		// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
+		// 	});
+		// })
+		// .value();
+
+		// showHitPointsLowered(secondPlayerAction.playerEntity);
+
+	// });
 
 	
 };
