@@ -14,8 +14,7 @@ class TextDropper extends PIXI.Container
 		me.addChild(field);
 		const point = {x: target.x, y: target.y};
 //		point = target.localToGlobal(point);
-		field.x = point.x + target.width - (field.width / 2);
-		field.y = point.y + target.height - field.height;
+		
 		
 		
 		// const _border = new PIXI.Graphics();
@@ -32,6 +31,8 @@ class TextDropper extends PIXI.Container
 		{
 			field.text = "MISS";
 		}
+		field.x = point.x + (target.width / 2) - (field.width / 2);
+		field.y = point.y + target.height - field.height;
 		// field.defaultTextFormat.color = color;
 		field.tint = color;
 
