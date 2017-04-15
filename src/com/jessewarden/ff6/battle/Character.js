@@ -1,8 +1,9 @@
+const log = console.log;
 const Row = require("../enums/Row");
 const _ = require("lodash");
 const {Subject} = require("rx");
 const {BattleTimer, MODE_PLAYER, EFFECT_NORMAL} = require('./battleTimer');
-const BattleState = require('../enums/BattleState');
+import BattleState from '../enums/BattleState';
 const {
 	isGauntlet,
 	isAtlasArmlet,

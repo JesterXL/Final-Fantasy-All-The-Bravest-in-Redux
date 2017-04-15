@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "browser-sync start --server --files 'bundle.js'",
-    "test": "mocha-webpack 'src/**/*.test.js'"
+    "test": "mocha-webpack 'src/**/*.test.js'",
+    "browsersync": "browser-sync start --proxy 'localhost:3000' --files 'bundle.js'"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "howler": "^2.0.3",
     "lodash": "^4.17.4",
     "pixi.js": "^4.4.2",
+    "quicksettings": "^3.0.1",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1"
   }

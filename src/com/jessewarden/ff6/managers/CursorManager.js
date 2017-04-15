@@ -19,6 +19,8 @@ export default class CursorManager extends PIXI.Container
 		var prefix = 'src/images/';
 		var cursorPath = prefix + "cursor.png";
 		me.sprite = new PIXI.Sprite.fromImage(cursorPath);
+		me.sprite.anchor.x = 0.3;
+		me.sprite.anchor.y = 0.1;
 		me.addChild(me.sprite);
 
 		me.targets = [];
@@ -39,7 +41,6 @@ export default class CursorManager extends PIXI.Container
 		let prevent = false;
 		me.keyboardManagerChangesSub = me.keyboardManager.changes.subscribe( keyEvent =>
 		{
-			log("keyCode:", keyEvent.keyCode);
 			const keyCode = keyEvent.keyCode;
 			switch(keyCode)
 			{
@@ -62,7 +63,13 @@ export default class CursorManager extends PIXI.Container
 
 				case 13: // enter
 					prevent = true;
-					me.changes.onNext({type: EVENT_SELECTED});
+					const target = me.targets[me.selectedIndex];
+					me.changes.onNext({
+						type: EVENT_SELECTED, 
+						target, 
+						index: me.selectedIndex,
+						text: target.text
+					});
 					break;
 
 				case 39: // right
@@ -205,7 +212,6 @@ export default class CursorManager extends PIXI.Container
 		{
 			return;
 		}
-		log("me._selectedIndex:", me._selectedIndex);
 		const target = me.targets[me._selectedIndex];
 		me._setCursorVisible(true);
 		// console.log("target.parent.y:", this.targetsParent.y);

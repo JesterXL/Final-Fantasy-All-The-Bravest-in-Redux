@@ -57,7 +57,7 @@ export default class Menu extends PIXI.Container
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
 			    wordWrap : false,
-                fontSize: 36
+                fontSize: 54
 			};
 			const textField = new PIXI.Text('???');
             // const textField = new PIXI.extras.BitmapText("???", {font: "36px Final Fantasy VI SNESa"});
@@ -137,7 +137,7 @@ export default class Menu extends PIXI.Container
         {
             field.x = startX;
             field.y = startY;
-            startY += 24;
+            startY += 36;
 			me._items.addChild(field);
         })
         .value();

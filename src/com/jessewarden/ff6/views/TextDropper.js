@@ -72,7 +72,7 @@ class TextDropper extends PIXI.Container
 			    dropShadowColor : '#000000',
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
-				fontSize: 18,
+				fontSize: 54,
 			    wordWrap : false
 			};
 			// var style = {

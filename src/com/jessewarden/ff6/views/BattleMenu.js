@@ -24,10 +24,10 @@ export default class BattleMenu extends PIXI.Container
 		me.mainMenuItems.push({name: "Attack"});
 		me.mainMenuItems.push({name: "Items"});
 
-		me.mainMenu = new Menu(me.mainMenuItems, 156, 120);
+		me.mainMenu = new Menu(me.mainMenuItems, 200, 120);
 		me.addChild(me.mainMenu);
-		me.mainMenu.x = 34;
-		me.mainMenu.y = 100;
+		me.mainMenu.x = 8;
+		me.mainMenu.y = 151;
 
 		me.defendMenuItems = []
 		me.defendMenuItems.push({name: "Defend"});
@@ -52,7 +52,6 @@ export default class BattleMenu extends PIXI.Container
 			switch(type)
 			{
 				case EVENT_MOVE_RIGHT:
-					log("move right");
 					if(me.state == 'main')
 					{
 						me.setState('defense');
@@ -64,7 +63,6 @@ export default class BattleMenu extends PIXI.Container
 					break;
 
 				case EVENT_MOVE_LEFT:
-					log("move left");
 					if(me.state == 'defense')
 					{
 						me.setState('main');

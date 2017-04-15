@@ -1,3 +1,4 @@
+const log = console.log;
 import QuickSettings from 'quicksettings';
 
 let unsubscribe;
@@ -8,15 +9,15 @@ let monsterSettings;
 
 export default function debugWindows(store)
 {
-	entitySettings = QuickSettings.create(810, 10, 'Debug Entities');
+	entitySettings = QuickSettings.create(510, 10, 'Debug Entities');
 	entitySettings.addHTML('Entities', '<p>Waiting...</p>');
 	entitySettings.overrideStyle('Entities', 'padding', '4px');
 
-	componentSettings = QuickSettings.create(1020, 10, 'Debug Components');
+	componentSettings = QuickSettings.create(720, 10, 'Debug Components');
 	componentSettings.addHTML('Components', '<p>Waiting...</p>');
 	componentSettings.setWidth(230);
 
-	initiativeOrderSettings = QuickSettings.create(1260, 10, 'Debug Initiative');
+	initiativeOrderSettings = QuickSettings.create(960, 10, 'Debug Initiative');
 	initiativeOrderSettings.addHTML('Characters', 'Waiting...');
 
 	monsterSettings = QuickSettings.create(810, 340, 'Debug Initiative');
@@ -56,13 +57,14 @@ var monstersToHTML = (monsters) => {
 function redraw(store)
 {
 	var state = store.getState();
+	// log(state);
 	updateOnlyIfChanged(entitySettings, 'Entities', entitiesToHTML(state.entities));
 	updateOnlyIfChanged(componentSettings, 'Components', componentsToHTML(state.components));
 	
-	var characters = _.filter(state.components, c => c.type === 'Character');
+	var characters = _.filter(state.characters, c => c.type === 'Character' && c.characterType === 'player');
 	updateOnlyIfChanged(initiativeOrderSettings, 'Characters', initiativeCharactersToHTML(characters));
 	
-	var monsters = _.filter(state.components, c => c.type === 'Character' && c.characterType === 'monster');
+	var monsters = _.filter(state.characters, c => c.type === 'Character' && c.characterType === 'monster');
 	updateOnlyIfChanged(monsterSettings, 'Monsters', monstersToHTML(monsters));
 
 
@@ -70,8 +72,8 @@ function redraw(store)
 
 function updateOnlyIfChanged(setting, title, html)
 {
-	if(setting.getHTML(title) != html)
+	if(setting.getValue(title) != html)
 	{
-		setting.setHTML(title, html);
+		setting.setValue(title, html);
 	}
 }

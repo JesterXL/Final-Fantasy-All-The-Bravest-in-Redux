@@ -2,7 +2,7 @@ import BattleTimerBar from './BattleTimerBar';
 
 export default class PlayerList extends PIXI.Container
 {
-	constructor(store, width=140, height=80)
+	constructor(store, width=350, height=200)
 	{
 		super();
         const me = this;
@@ -51,7 +51,7 @@ export default class PlayerList extends PIXI.Container
 			    dropShadowAngle : Math.PI / 6,
 			    dropShadowDistance : 2,
 			    wordWrap : false,
-				fontSize: 18
+				fontSize: 36
 			});
 			const textField = new PIXI.Text('???');
             textField.style = style;

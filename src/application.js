@@ -11,6 +11,7 @@ import {
 	UPDATE_BATTLE_TIMER
 } from './com/jessewarden/ff6/battletimers';
 import { menustate } from './com/jessewarden/ff6/menustate';
+import { currentCharacter } from './com/jessewarden/ff6/currentcharacter';
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
@@ -33,10 +34,11 @@ export const setupRedux = ()=>
 		timers,
 		characters,
 		battleTimers,
-		menustate
+		menustate,
+		currentCharacter
 	});
-	store = createStore(allReducers, applyMiddleware(logger));
-	// store = createStore(allReducers);
+	// store = createStore(allReducers, applyMiddleware(logger));
+	store = createStore(allReducers);
 	pixiApp = setupPixi();
 	store.dispatch({type: 'cow'});
 
@@ -47,23 +49,13 @@ export const setupRedux = ()=>
 	const battleMenu = new BattleMenu(cursorManager, store);
 	pixiApp.stage.addChild(battleMenu);
 	battleMenu.show();
-
-	// const mainMenuItems = []
-	// mainMenuItems.push({name: "Attack"});
-	// mainMenuItems.push({name: "Items"});
-
-	// const mainMenu = new Menu(mainMenuItems, 156, 120);
-	// pixiApp.stage.addChild(mainMenu);
-
-	// const testMenu = new Menu(['uno', 'dos'], 200, 200);
-	// pixiApp.stage.addChild(testMenu);
-
-	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
-	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
-	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
-	// PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
-	// PIXI.loader.load((loader, resources) =>
-	// {
+	
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.woff');
+	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
+	PIXI.loader.load((loader, resources) =>
+	{
 	// 	keyboardManager = new KeyboardManager();
 	// 	cursorManager = new CursorManager(keyboardManager);
 	// 	pixiApp.stage.addChild(cursorManager);
@@ -71,41 +63,41 @@ export const setupRedux = ()=>
 	// 	const battleMenu = new BattleMenu(keyboardManager, cursorManager);
 	// 	battleMenu.show();
 
-		// addPlayerAndBattleTimer('Cow');
-		// const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
-		// addMonsterAndBattleTimer();
-		// const playerList = new PlayerList(store);
-		// pixiApp.stage.addChild(playerList);
+		addPlayerAndBattleTimer('Cow');
+		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
+		addMonsterAndBattleTimer();
+		const playerList = new PlayerList(store);
+		pixiApp.stage.addChild(playerList);
 		// log("pixiApp.screen:", pixiApp.screen);
-		// playerList.x = pixiApp.screen.width - playerList.width;
-		// playerList.y = pixiApp.screen.height - playerList.height; 
+		playerList.x = pixiApp.renderer.width - playerList.width;
+		playerList.y = pixiApp.renderer.height - playerList.height;; 
 
 		// blankMenu = new Menu(undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
 		// pixiApp.stage.addChild(blankMenu);
 		// blankMenu.y = pixiApp.screen.height - blankMenu.height;
 
-		// const state = store.getState();
-		// _.chain(state.battleTimers)
-		// .map(battleTimer => battleTimer.entity)
-		// .forEach(battleTimerEntity =>
-		// {
-		// 	startBattleTimer(battleTimerEntity, window, 
-		// 	doneEvent =>
-		// 	{
-		// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-		// 		// log("characterEntity done:", doneEvent.characterEntity);
-		// 		
-		// 	},
-		// 	progressEvent =>
-		// 	{
-		// 		store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
-		// 	});
-		// })
-		// .value();
+		const state = store.getState();
+		_.chain(state.battleTimers)
+		.map(battleTimer => battleTimer.entity)
+		.forEach(battleTimerEntity =>
+		{
+			startBattleTimer(battleTimerEntity, window, 
+			doneEvent =>
+			{
+				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+				// log("characterEntity done:", doneEvent.characterEntity);
+				
+			},
+			progressEvent =>
+			{
+				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: progressEvent.entity, event: progressEvent});
+			});
+		})
+		.value();
 
-		// showHitPointsLowered(secondPlayerAction.playerEntity);
+		showHitPointsLowered(secondPlayerAction.playerEntity);
 
-	// });
+	});
 
 	
 };
@@ -162,6 +154,7 @@ export const removePlayer = (id)=>
 export const addPlayerAndBattleTimer = (name)=>
 {
 	const playerID = guid();
+	store.dispatch({type: ADD_ENTITY, entity: playerID});
 	const playerEvent = addPlayer(playerID, name);
 	const battleTimerID = guid();
 	const battleTimerEvent = addBattleTimer(battleTimerID, playerID);
@@ -181,6 +174,7 @@ export const addMonster = (id)=>
 export const addMonsterAndBattleTimer = ()=>
 {
 	const monsterID = guid();
+	store.dispatch({type: ADD_ENTITY, entity: monsterID});
 	const monsterEvent = addMonster(monsterID);
 	const battleTimerID = guid();
 	const battleTimerEvent = addBattleTimer(battleTimerID, monsterID);
@@ -197,9 +191,10 @@ export const setupPixi = ()=>
 {
 	// const app = new PIXI.Application(768,  762);
 	// const app = new PIXI.Application(512, 448);
-	const app = new PIXI.Application(256, 224, {
+	const ratio = _.defaultTo(window.devicePixelRatio, 1);
+	const app = new PIXI.Application(750, 1334, {
 		antialias: true,
-		resolution: 2
+		resolution: ratio
 	});
 	document.body.appendChild(app.view);
 
@@ -265,7 +260,7 @@ export const getSpriteFromCharacter = character =>
 	}
 	else if(character.characterType === 'monster')
 	{
-		sprite = new PIXI.Sprite.fromImage(basePath + '/goblin.png');
+		sprite = new PIXI.Sprite.fromImage('./src/images/goblin.png');
 		sprite.x = monsterStartX;
 		sprite.y = monsterStartY;
 		monsterStartX += 10;
