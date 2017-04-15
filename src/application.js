@@ -8,10 +8,13 @@ import {
 	battleTimers,
 	CREATE_BATTLE_TIMER,
 	START_BATTLE_TIMER,
-	UPDATE_BATTLE_TIMER
+	UPDATE_BATTLE_TIMER,
+	RESET_AND_START_BATTLE_TIMER
 } from './com/jessewarden/ff6/battletimers';
 import { menustate } from './com/jessewarden/ff6/menustate';
-import { currentCharacter } from './com/jessewarden/ff6/currentcharacter';
+import { currentCharacter, SET_CHARACTER_TURN, CHARACTER_TURN_OVER, NO_CHARACTER } from './com/jessewarden/ff6/currentcharacter';
+import { playerState, PLAYER_READY} from './com/jessewarden/ff6/playerstate';
+import * as playerStateModule from './com/jessewarden/ff6/playerstate';
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
@@ -21,9 +24,9 @@ import "gsap";
 import TextDropper from './com/jessewarden/ff6/views/TextDropper';
 import Menu from './com/jessewarden/ff6/views/Menu';
 import BattleMenu from './com/jessewarden/ff6/views/BattleMenu';
-import "howler";
-import CursorManager from './com/jessewarden/ff6/managers/CursorManager';
-import KeyboardManager from './com/jessewarden/ff6/managers/KeyboardManager';
+import "howler"; 
+import CharacterSprite from './com/jessewarden/ff6/views/CharacterSprite';
+import { getHit, getDamage, getHitDefaultGetHitOptions } from './com/jessewarden/ff6/battle/BattleUtils';
 
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 let keyboardManager, cursorManager;
@@ -35,20 +38,13 @@ export const setupRedux = ()=>
 		characters,
 		battleTimers,
 		menustate,
-		currentCharacter
+		currentCharacter,
+		playerState
 	});
 	// store = createStore(allReducers, applyMiddleware(logger));
 	store = createStore(allReducers);
 	pixiApp = setupPixi();
 	store.dispatch({type: 'cow'});
-
-	keyboardManager = new KeyboardManager();
-	cursorManager = new CursorManager(keyboardManager, store);
-	pixiApp.stage.addChild(cursorManager);
-
-	const battleMenu = new BattleMenu(cursorManager, store);
-	pixiApp.stage.addChild(battleMenu);
-	battleMenu.show();
 	
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.eot');
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.ttf');
@@ -85,8 +81,13 @@ export const setupRedux = ()=>
 			doneEvent =>
 			{
 				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-				// log("characterEntity done:", doneEvent.characterEntity);
-				
+				log("characterEntity done:", doneEvent.characterEntity);
+				const character = _.find(store.getState().characters, character => character.entity === doneEvent.characterEntity);
+				if(character.characterType === 'player' && store.getState().currentCharacter === NO_CHARACTER)
+				{
+					store.dispatch({type: SET_CHARACTER_TURN, entity: doneEvent.characterEntity});
+					store.dispatch({type: PLAYER_READY, entity: doneEvent.characterEntity});
+				}
 			},
 			progressEvent =>
 			{
@@ -96,6 +97,65 @@ export const setupRedux = ()=>
 		.value();
 
 		showHitPointsLowered(secondPlayerAction.playerEntity);
+
+		let currentKnownState = playerStateModule.WAITING;
+		let battleMenu;
+		const stateSub = store.subscribe(()=>
+		{
+			const state = store.getState();
+			if(state.playerState === currentKnownState)
+			{
+				return;
+			}
+
+			switch(currentKnownState)
+			{
+				case playerStateModule.CHOOSE:
+					// battleMenu.parent.removeChild(battleMenu);
+					// battleMenu = undefined;
+					break;
+
+				case playerStateModule.WAITING:
+				default:
+					break;
+			}
+
+			currentKnownState = state.playerState;
+			
+			switch(state.playerState)
+			{
+				case playerStateModule.CHOOSE:
+					if(!battleMenu)
+					{
+						battleMenu = new BattleMenu(store);
+						pixiApp.stage.addChild(battleMenu);
+						battleMenu.changes.subscribe(event =>
+						{
+							// log("BattleMenu::event:", event);
+							switch(event.menuItem.name)
+							{
+								case 'Attack':
+									// log("clicked attack");
+									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ATTACK_CHOOSE_TARGET});
+								default:
+									return;
+							}
+						});
+					}
+					battleMenu.y = 200;
+					battleMenu.alpha = 1;
+					break;
+				
+				case playerStateModule.ATTACK_CHOOSE_TARGET:
+					battleMenu.alpha = 0.5;
+					break;
+
+
+				case playerStateModule.WAITING:
+				default:
+					break;
+			}
+		});
 
 	});
 
@@ -220,6 +280,8 @@ export const setupPixi = ()=>
 		{
 			addCharacters(charactersToAdd, charactersContainer);
 		}
+
+
 	});
 	return app;
 };
@@ -247,22 +309,17 @@ let monsterStartY = 20;
 
 export const getSpriteFromCharacter = character =>
 {
-	
 	let sprite;
 	const basePath = './src/com/jessewarden/ff6/characters';
 	if(character.characterType === 'player')
 	{
-		sprite = new PIXI.Sprite.fromImage('./src/images/locke.png');
-		sprite.x = playerStartX;
-		sprite.y = playerStartY;
-		playerStartX += 10;
-		playerStartY += 30;
+		sprite = new CharacterSprite('./src/images/locke.png', character.entity, true, store, playerStartX, playerStartY);
+		playerStartX += 20;
+		playerStartY += 60;
 	}
 	else if(character.characterType === 'monster')
 	{
-		sprite = new PIXI.Sprite.fromImage('./src/images/goblin.png');
-		sprite.x = monsterStartX;
-		sprite.y = monsterStartY;
+		sprite = new CharacterSprite('./src/images/goblin.png', character.entity, false, store, monsterStartX, monsterStartY);
 		monsterStartX += 10;
 		monsterStartY += 40;
 	}
@@ -271,6 +328,20 @@ export const getSpriteFromCharacter = character =>
 		throw new Error("Unknown character type");
 	}
 	sprite.entity = character.entity;
+	sprite.changes.subscribe(event =>
+	{
+		log("Sprite clicked as attack target, event:", event);
+		attackTarget(event.entity, event.sprite)
+		.then(result=>
+		{
+			log("attack target complete, result:", result);
+			
+		})
+		.catch(error =>
+		{
+			log("attack target error:", error);
+		});
+	});
 	return sprite;
 };
 
@@ -317,4 +388,69 @@ export const showHitPointsLowered = (playerEntity)=>
 		textDropper.addTextDrop(characterSprite, 2);
 		return Promise.resolve(store.dispatch({type: CHARACTER_HIT_POINTS_CHANGED, newHitPoints: 8, entity: playerEntity}));
 	});
+};
+
+export const attackTarget = async (targetEntity, targetSprite)=>
+{
+	const state = store.getState();
+	log(state);
+	const playerEntity = state.currentCharacter;
+	const playerSprite = _.find(charactersContainer.children, sprite => sprite.entity === playerEntity);
+	const playerCharacter = _.find(state.characters, character => character.entity === playerEntity);
+	const targetCharacter = _.find(state.characters, character => character.entity === targetEntity);
+	log("targetEntity:", targetEntity);
+	log("targetSprite:", targetSprite);
+	log("playerEntity:", playerEntity);
+	log("playerSprite:", playerSprite);
+	log("playerCharacter:", playerCharacter);
+	log("targetCharacter:", targetCharacter);
+	const startPlayerX = playerSprite.x;
+	const startPlayerY = playerSprite.y;
+	await playerSprite.leapTowardsTarget(targetSprite.x, targetSprite.y);
+	const hitOptions = getHitDefaultGetHitOptions();
+	const hitResult = getHit(hitOptions);
+	if(hitResult.hit === false)
+	{
+		textDropper.addTextDrop(targetSprite, 0, 0xFFFFFF, true);
+	}
+	else
+	{
+		const damageResult = getDamage();
+		textDropper.addTextDrop(targetSprite, damageResult.value);
+	}
+	await playerSprite.leapBackToStartingPosition(startPlayerX, startPlayerY, startPlayerX + 10, startPlayerY + 10);
+	store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.WAITING});
+	// reset battletimer
+	const battleTimers = store.getState().battleTimers;
+	const playerBattleTimer = _.find(battleTimers, battleTimer => battleTimer.characterEntity === playerEntity);
+	store.dispatch({type: RESET_AND_START_BATTLE_TIMER, entity: playerBattleTimer.entity});
+	
+	// see if any players are waiting
+	
+	const characters = store.getState().characters;
+	const readyPlayers = _.chain(battleTimers)
+	.filter(battleTimer => battleTimer.characterEntity !== playerEntity)
+	.filter(battleTimer => battleTimer.complete)
+	.reduce((acc, battleTimer) =>
+	{
+		const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
+		if(character)
+		{
+			acc.push(character);
+		}
+		return acc;
+	}, [])
+	.filter(character => character.characterType === 'player')
+	.value();
+	if(readyPlayers.length > 0)
+	{
+		if(store.getState().currentCharacter === playerEntity)
+		{
+			store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
+			const nextReadyPlayer = _.first(readyPlayers);
+			store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
+			store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
+		}
+		
+	}	
 };

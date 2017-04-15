@@ -11,6 +11,7 @@ export const EFFECT_SLOW   = 48;
 
 export const MAX_GAUGE     = 65536;
 const TIME_SLICE    = 33;
+const THIRTY_TIMES_A_SECOND = 1000 / 30;
 
 export const getPercentage = (gauge) =>
 {
@@ -94,6 +95,12 @@ export class Timer
 // TODO: make monster mode work, I don't get the algo man
 export class BattleTimer
 {
+	get complete()
+	{
+		const me = this;
+		return me.percentage === 1 && me.gauge === MAX_GAUGE
+	}
+
 	constructor(entity, characterEntity, counter=0, gauge=0, effect=EFFECT_NORMAL, mode=MODE_PLAYER, speed=1)
 	{
 		const me = this;
@@ -107,12 +114,27 @@ export class BattleTimer
 		me.speed = speed;
 	}
 
+	reset()
+	{
+		const me = this;
+		me.counter = 0;
+		me.gauge = 0;
+	}
+
+	resetAndStartTimer()
+	{
+		const me = this;
+		me.reset();
+		me.startTimer(me.window, me.doneCallback, me.progressCallback);
+	}
+
 	startTimer(window, doneCallback, progressCallback)
 	{
 		const me = this;
+		me.window = window;
 		me.doneCallback = doneCallback;
 		me.progressCallback = progressCallback;
-		const THIRTY_TIMES_A_SECOND = 1000 / 30;
+		
 		if(_.isNil(me.thirtyMillisecondCounter))
 		{
 			me.thirtyMillisecondCounter = 0;

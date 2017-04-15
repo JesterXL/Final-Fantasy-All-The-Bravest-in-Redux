@@ -3,6 +3,7 @@ export const DESTROY_BATTLE_TIMER = 'DESTROY_BATTLE_TIMER';
 export const START_BATTLE_TIMER   = 'START_BATTLE_TIMER';
 export const STOP_BATTLE_TIMER    = 'STOP_BATTLE_TIMER';
 export const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
+export const RESET_AND_START_BATTLE_TIMER = 'RESET_AND_START_BATTLE_TIMER';
 // export const BATTLE_TIMER_DONE = 'BATTLE_TIMER_DONE';
 
 import { 
@@ -63,6 +64,13 @@ export const stopBattleTimer = (state, action)=>
     return state;
 };
 
+export const resetAndStartBattleTimer = (state, action)=>
+{
+    const battleTimer = findBattleTimer(state, action);
+    battleTimer.resetAndStartTimer();
+    return state;
+};
+
 export const battleTimers = (state=[], action) =>
 {
 	switch(action.type)
@@ -71,6 +79,7 @@ export const battleTimers = (state=[], action) =>
         case DESTROY_BATTLE_TIMER: return destroyBattleTimer(state, action);
         case START_BATTLE_TIMER: return startBattleTimer(state, action);
         case STOP_BATTLE_TIMER: return stopBattleTimer(state, action);
+        case RESET_AND_START_BATTLE_TIMER: return resetAndStartBattleTimer(state, action);
         case UPDATE_BATTLE_TIMER:
         default: return state;
 	}

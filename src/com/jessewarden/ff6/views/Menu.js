@@ -96,7 +96,7 @@ export default class Menu extends PIXI.Container
             field.interactive = true;
             style.fill = "#FFFFFF";
         }
-        field.on('mouseup', (event)=>
+        field.on('pointerdown', (event)=>
         {
             me.changes.onNext(
                 { type: 'click', menuItem }
