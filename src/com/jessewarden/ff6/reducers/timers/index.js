@@ -2,7 +2,7 @@ export const CREATE_TIMER = 'CREATE_TIMER';
 export const DESTROY_TIMER = 'DESTROY_TIMER';
 export const START_TIMER  = 'START_TIMER';
 export const STOP_TIMER   = 'STOP_TIMER';
-import { Timer } from '../battle/battleTimer'; 
+import { Timer } from '../../battle/battleTimer'; 
 
 export const createTimer = (state, action) =>
 {

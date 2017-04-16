@@ -1,20 +1,7 @@
 const log = console.log;
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import logger from 'redux-logger';
-import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/entities';
-import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/timers';
-import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED } from './com/jessewarden/ff6/characters';
-import {
-	battleTimers,
-	CREATE_BATTLE_TIMER,
-	START_BATTLE_TIMER,
-	UPDATE_BATTLE_TIMER,
-	RESET_AND_START_BATTLE_TIMER
-} from './com/jessewarden/ff6/battletimers';
-import { menustate } from './com/jessewarden/ff6/menustate';
-import { currentCharacter, SET_CHARACTER_TURN, CHARACTER_TURN_OVER, NO_CHARACTER } from './com/jessewarden/ff6/currentcharacter';
-import { playerState, PLAYER_READY} from './com/jessewarden/ff6/playerstate';
-import * as playerStateModule from './com/jessewarden/ff6/playerstate';
+
 import * as ff6 from 'final-fantasy-6-algorithms';
 const {guid} = ff6.core;
 import * as _ from 'lodash';
@@ -27,8 +14,23 @@ import BattleMenu from './com/jessewarden/ff6/views/BattleMenu';
 import "howler"; 
 import CharacterSprite from './com/jessewarden/ff6/views/CharacterSprite';
 import { getHit, getDamage, getHitDefaultGetHitOptions } from './com/jessewarden/ff6/battle/BattleUtils';
-import { items, REMOVE_ITEM } from './com/jessewarden/ff6/items'
-import { selectedItem, SELECT_ITEM } from './com/jessewarden/ff6/selecteditem'
+
+import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/reducers/entities';
+import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/reducers/timers';
+import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED } from './com/jessewarden/ff6/reducers/characters';
+import {
+	battleTimers,
+	CREATE_BATTLE_TIMER,
+	START_BATTLE_TIMER,
+	UPDATE_BATTLE_TIMER,
+	RESET_AND_START_BATTLE_TIMER
+} from './com/jessewarden/ff6/reducers/battletimers';
+import { menustate } from './com/jessewarden/ff6/reducers/menustate';
+import { currentCharacter, SET_CHARACTER_TURN, CHARACTER_TURN_OVER, NO_CHARACTER } from './com/jessewarden/ff6/reducers/currentcharacter';
+import { playerState, PLAYER_READY} from './com/jessewarden/ff6/reducers/playerstate';
+import * as playerStateModule from './com/jessewarden/ff6/reducers/playerstate';
+import { items, REMOVE_ITEM } from './com/jessewarden/ff6/reducers/items'
+import { selectedItem, SELECT_ITEM } from './com/jessewarden/ff6/reducers/selecteditem'
 
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 let keyboardManager, cursorManager;

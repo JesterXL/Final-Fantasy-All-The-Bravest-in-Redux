@@ -1,9 +1,9 @@
 export const CREATE_CHARACTER = 'CREATE_CHARACTER';
 export const DESTROY_CHARACTER = 'DESTROY_CHARACTER';
 export const CHARACTER_HIT_POINTS_CHANGED = 'CHARACTER_HITPOINTS_CHANGED';
-import BattleState from '../enums/BattleState';
+import BattleState from '../../enums/BattleState';
 
-import { getCharacter } from '../battle/Character'; 
+import { getCharacter } from '../../battle/Character'; 
 
 export const createCharacter = (state, action)=>
 {

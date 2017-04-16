@@ -4,7 +4,7 @@
 // import "howler";
 import { Subject } from 'rx';
 import BattleTimerBar from './BattleTimerBar';
-import { ATTACK_CHOOSE_TARGET, CHOOSE_ITEM_TARGET } from '../playerstate';
+import { ATTACK_CHOOSE_TARGET, CHOOSE_ITEM_TARGET } from '../reducers/playerstate';
 
 export default class CharacterSprite extends PIXI.Container
 {
