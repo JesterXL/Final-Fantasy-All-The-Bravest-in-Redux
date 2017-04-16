@@ -30,7 +30,7 @@ import { menustate } from './com/jessewarden/ff6/reducers/menustate';
 import { currentCharacter, SET_CHARACTER_TURN, CHARACTER_TURN_OVER, NO_CHARACTER } from './com/jessewarden/ff6/reducers/currentcharacter';
 import { playerState, PLAYER_READY} from './com/jessewarden/ff6/reducers/playerstate';
 import * as playerStateModule from './com/jessewarden/ff6/reducers/playerstate';
-import { items, REMOVE_ITEM } from './com/jessewarden/ff6/reducers/items'
+import { items, REMOVE_ITEM, ADD_ITEM, getItem } from './com/jessewarden/ff6/reducers/items'
 import { selectedItem, SELECT_ITEM } from './com/jessewarden/ff6/reducers/selecteditem'
 
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
@@ -221,7 +221,12 @@ export const setupRedux = ()=>
 
 	});
 
+	setTimeout(()=>
+	{
+		store.dispatch({type: ADD_ITEM, item: getItem(guid(), 'Potion')});
+	}, 7 * 1000);
 	log(store.getState());
+
 };
 
 export const setupAndStartGameTimer = ()=>

@@ -31,4 +31,3 @@ export const items = (state=[getItem(guid(), Potion)], action) =>
 		default: return state;
 	}
 }
-
