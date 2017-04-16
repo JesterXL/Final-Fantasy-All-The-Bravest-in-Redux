@@ -26,6 +26,11 @@ export default class CharacterSprite extends PIXI.Container
         me.sprite = new PIXI.Sprite.fromImage(image);
         me.addChild(me.sprite);
 
+		me.debugField = me.getTextField();
+		me.debugField.text = '...';
+		me.debugField.y = 30;
+		me.addChild(me.debugField);
+
         if(showBattleTimerBar)
         {
             me.battleTimerBar = new BattleTimerBar(30, 10);
@@ -58,7 +63,29 @@ export default class CharacterSprite extends PIXI.Container
                 me.interactive = me.buttonMode = true;
                 me.off('pointerdown', me.clickEvent);
             }
+			const character = _.find(state.characters, character => character.entity === me.entity);
+			me.debugField.text = 'defending: ' + character.defending;
         });
+	}
+
+	getTextField()
+	{
+		const me = this;
+		const style = {
+
+			fontFamily: 'Final Fantasy VI SNESa',
+			fill : '#FFFFFF',
+			dropShadow : true,
+			dropShadowColor : '#000000',
+			dropShadowAngle : Math.PI / 6,
+			dropShadowDistance : 2,
+			wordWrap : false,
+			fontSize: 18
+		};
+		const textField = new PIXI.Text('???');
+		// const textField = new PIXI.extras.BitmapText("???", {font: "36px Final Fantasy VI SNESa"});
+		textField.style = new PIXI.TextStyle(style);
+		return textField;
 	}
 
     clickEvent(event)

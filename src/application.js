@@ -15,9 +15,10 @@ import "howler";
 import CharacterSprite from './com/jessewarden/ff6/views/CharacterSprite';
 import { getHit, getDamage, getHitDefaultGetHitOptions } from './com/jessewarden/ff6/battle/BattleUtils';
 
+// reducers
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/reducers/entities';
 import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/reducers/timers';
-import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED } from './com/jessewarden/ff6/reducers/characters';
+import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED, SET_CHARACTER_DEFENDING } from './com/jessewarden/ff6/reducers/characters';
 import {
 	battleTimers,
 	CREATE_BATTLE_TIMER,
@@ -91,8 +92,7 @@ export const setupRedux = ()=>
 				const character = _.find(store.getState().characters, character => character.entity === doneEvent.characterEntity);
 				if(character.characterType === 'player' && store.getState().currentCharacter === NO_CHARACTER)
 				{
-					store.dispatch({type: SET_CHARACTER_TURN, entity: doneEvent.characterEntity});
-					store.dispatch({type: PLAYER_READY, entity: doneEvent.characterEntity});
+					setPlayerToReady(doneEvent.characterEntity);
 				}
 			},
 			progressEvent =>
@@ -159,7 +159,10 @@ export const setupRedux = ()=>
 
 								case 'Items':
 									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ITEMS});
-									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ITEMS});
+									return;
+								
+								case 'Defend':
+									defend();
 									return;
 
 								default:
@@ -574,9 +577,26 @@ const setNextReadyPlayerToCurrent = store =>
 		{
 			store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
 			const nextReadyPlayer = _.first(readyPlayers);
-			store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
-			store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
+			setPlayerToReady(nextReadyPlayer.entity);
 		}
 		
 	}	
+};
+
+const defend = async ()=>
+{
+	const state = store.getState();
+
+	store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.DEFEND});
+	store.dispatch({type: SET_CHARACTER_DEFENDING, defending: true, entity: state.currentCharacter});
+	endCurrentPlayerTurn(store);
+	resetPlayersBattleTimer(store);
+	setNextReadyPlayerToCurrent(store);
+};
+
+const setPlayerToReady = entity =>
+{
+	store.dispatch({type: SET_CHARACTER_DEFENDING, defending: false, entity});
+	store.dispatch({type: SET_CHARACTER_TURN, entity});
+	store.dispatch({type: PLAYER_READY, entity});
 };
