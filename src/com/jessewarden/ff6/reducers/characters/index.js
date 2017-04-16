@@ -1,5 +1,6 @@
 export const CREATE_CHARACTER = 'CREATE_CHARACTER';
 export const DESTROY_CHARACTER = 'DESTROY_CHARACTER';
+export const SET_CHARACTER_DEFENDING = 'SET_CHARACTER_DEFENDING';
 export const CHARACTER_HIT_POINTS_CHANGED = 'CHARACTER_HITPOINTS_CHANGED';
 import BattleState from '../../enums/BattleState';
 
@@ -61,6 +62,15 @@ export const hitPointsChanged = (state, action)=>
     return replaceCharacter(state, action, updatedCharacter);
 };
 
+export const characterDefending = (state, action)=>
+{
+    const character = findCharacter(state, action);
+    const updatedCharacter = Object.assign({}, character, {
+        defending: action.defending
+    });
+    return replaceCharacter(state, action, updatedCharacter);
+};
+
 export const characters = (state=[], action) =>
 {
 	switch(action.type)
@@ -68,6 +78,7 @@ export const characters = (state=[], action) =>
 		case CREATE_CHARACTER: return createCharacter(state, action);
         case DESTROY_CHARACTER: return destroyCharacter(state, action);
         case CHARACTER_HIT_POINTS_CHANGED: return hitPointsChanged(state, action);
+        case SET_CHARACTER_DEFENDING: return characterDefending(state, action);
         default: return state;
 	}
 }
