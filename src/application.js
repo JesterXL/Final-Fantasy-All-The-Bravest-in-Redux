@@ -27,6 +27,8 @@ import BattleMenu from './com/jessewarden/ff6/views/BattleMenu';
 import "howler"; 
 import CharacterSprite from './com/jessewarden/ff6/views/CharacterSprite';
 import { getHit, getDamage, getHitDefaultGetHitOptions } from './com/jessewarden/ff6/battle/BattleUtils';
+import { items, REMOVE_ITEM } from './com/jessewarden/ff6/items'
+import { selectedItem, SELECT_ITEM } from './com/jessewarden/ff6/selecteditem'
 
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 let keyboardManager, cursorManager;
@@ -39,7 +41,9 @@ export const setupRedux = ()=>
 		battleTimers,
 		menustate,
 		currentCharacter,
-		playerState
+		playerState,
+		items,
+		selectedItem
 	});
 	// store = createStore(allReducers, applyMiddleware(logger));
 	store = createStore(allReducers);
@@ -99,7 +103,7 @@ export const setupRedux = ()=>
 		showHitPointsLowered(secondPlayerAction.playerEntity);
 
 		let currentKnownState = playerStateModule.WAITING;
-		let battleMenu;
+		let battleMenu, itemsMenu;
 		const stateSub = store.subscribe(()=>
 		{
 			const state = store.getState();
@@ -137,19 +141,58 @@ export const setupRedux = ()=>
 								case 'Attack':
 									// log("clicked attack");
 									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ATTACK_CHOOSE_TARGET});
+									return;
+
+								case 'Items':
+									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ITEMS});
+									store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.ITEMS});
+									return;
+
 								default:
 									return;
 							}
 						});
 					}
 					battleMenu.y = 200;
-					battleMenu.alpha = 1;
+					battleMenu.visible = true;
+					battleMenu.interactiveChildren = true;
 					break;
 				
 				case playerStateModule.ATTACK_CHOOSE_TARGET:
-					battleMenu.alpha = 0.5;
+					battleMenu.visible = false;
+					battleMenu.interactiveChildren = false;
 					break;
-
+				
+				case playerStateModule.ITEMS:
+					if(!itemsMenu)
+					{
+						const itemsToShow = _.map(store.getState().items, item => Object.assign({}, item, {
+							name: item.itemType
+						}));
+						itemsMenu = new Menu(itemsToShow, 300, 200);
+						pixiApp.stage.addChild(itemsMenu);
+						itemsMenu.changes.subscribe(event =>
+						{
+							store.dispatch({
+								type: SELECT_ITEM,
+								item: event.menuItem.entity
+							});
+							store.dispatch({
+								type: playerStateModule.CHANGE_PLAYER_STATE, 
+								state: playerStateModule.CHOOSE_ITEM_TARGET
+							});
+						});
+					}
+					itemsMenu.x = 300;
+					itemsMenu.y = 200;
+					itemsMenu.visible = true;
+					itemsMenu.interactiveChildren = true;
+					itemsMenu.alpha = 1;
+					break;
+				
+				case playerStateModule.CHOOSE_ITEM_TARGET:
+					itemsMenu.alpha = 0.5;
+					itemsMenu.interactiveChildren = false;
 
 				case playerStateModule.WAITING:
 				default:
@@ -159,7 +202,7 @@ export const setupRedux = ()=>
 
 	});
 
-	
+	log(store.getState());
 };
 
 export const setupAndStartGameTimer = ()=>
@@ -331,16 +374,36 @@ export const getSpriteFromCharacter = character =>
 	sprite.changes.subscribe(event =>
 	{
 		log("Sprite clicked as attack target, event:", event);
-		attackTarget(event.entity, event.sprite)
-		.then(result=>
+		const state = store.getState();
+		switch(state.playerState)
 		{
-			log("attack target complete, result:", result);
+			case playerStateModule.ATTACK_CHOOSE_TARGET:
+				attackTarget(event.entity, event.sprite)
+				.then(result=>
+				{
+					log("attack target complete, result:", result);
+					
+				})
+				.catch(error =>
+				{
+					log("attack target error:", error);
+				});
+				return;
 			
-		})
-		.catch(error =>
-		{
-			log("attack target error:", error);
-		});
+			case playerStateModule.CHOOSE_ITEM_TARGET:
+				applyItemToTarget(event.entity, event.sprite)
+				.then(result=>
+				{
+					log("applyItemToTarget complete, result:", result);
+					
+				})
+				.catch(error =>
+				{
+					log("applyItemToTarget error:", error);
+				});
+				return;
+		}
+		
 	});
 	return sprite;
 };
@@ -453,4 +516,64 @@ export const attackTarget = async (targetEntity, targetSprite)=>
 		}
 		
 	}	
+};
+
+export const applyItemToTarget = async (targetEntity, targetSprite)=>
+{
+	log("   ");
+	log("********");
+	log("   ");
+	log("applyItemToTarget");
+	const state = store.getState();
+	log("state:", state);
+
+	const selectedItem = state.selectedItem;
+	const item = _.find(state.items, item => item.entity === selectedItem);
+	log("item:", item);
+	store.dispatch({type: REMOVE_ITEM, item: selectedItem});
+	switch(item.itemType)
+	{
+		case 'Potion':
+			textDropper.addTextDrop(targetSprite, 250, 0x00FF00);
+			break;
+
+		default:
+			return;
+	}
+
+	// const playerEntity = state.currentCharacter;
+	// store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.WAITING});
+	// // reset battletimer
+	// const battleTimers = store.getState().battleTimers;
+	// const playerBattleTimer = _.find(battleTimers, battleTimer => battleTimer.characterEntity === playerEntity);
+	// store.dispatch({type: RESET_AND_START_BATTLE_TIMER, entity: playerBattleTimer.entity});
+	
+	// // see if any players are waiting
+	
+	// const characters = store.getState().characters;
+	// const readyPlayers = _.chain(battleTimers)
+	// .filter(battleTimer => battleTimer.characterEntity !== playerEntity)
+	// .filter(battleTimer => battleTimer.complete)
+	// .reduce((acc, battleTimer) =>
+	// {
+	// 	const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
+	// 	if(character)
+	// 	{
+	// 		acc.push(character);
+	// 	}
+	// 	return acc;
+	// }, [])
+	// .filter(character => character.characterType === 'player')
+	// .value();
+	// if(readyPlayers.length > 0)
+	// {
+	// 	if(store.getState().currentCharacter === playerEntity)
+	// 	{
+	// 		store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
+	// 		const nextReadyPlayer = _.first(readyPlayers);
+	// 		store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
+	// 		store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
+	// 	}
+		
+	// }	
 };

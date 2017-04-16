@@ -4,7 +4,7 @@
 // import "howler";
 import { Subject } from 'rx';
 import BattleTimerBar from './BattleTimerBar';
-import { ATTACK_CHOOSE_TARGET } from '../playerstate';
+import { ATTACK_CHOOSE_TARGET, CHOOSE_ITEM_TARGET } from '../playerstate';
 
 export default class CharacterSprite extends PIXI.Container
 {
@@ -46,13 +46,13 @@ export default class CharacterSprite extends PIXI.Container
         me.storeSub = me.store.subscribe(()=>
         {
             const state = store.getState();
-            if(readyToBeCickedOn === false && state.playerState === ATTACK_CHOOSE_TARGET)
+            if(readyToBeCickedOn === false && state.playerState === ATTACK_CHOOSE_TARGET || state.playerState === CHOOSE_ITEM_TARGET)
             {
                 readyToBeCickedOn = true;
                 me.interactive = me.buttonMode = true;
                 me.on('pointerdown', me.clickEvent);
             }
-            else if(readyToBeCickedOn === true && state.playerState !== ATTACK_CHOOSE_TARGET)
+            else if(readyToBeCickedOn === true && state.playerState !== ATTACK_CHOOSE_TARGET || state.playerState === CHOOSE_ITEM_TARGET)
             {
                 readyToBeCickedOn = false;
                 me.interactive = me.buttonMode = true;

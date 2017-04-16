@@ -26,6 +26,7 @@ export const getCharacter = (entity)=>
 	vm.name = '';
 	vm.battleState = BattleState.WAITING;
 	vm.hitPoints = 10;
+	vm.maxHitPoints = 10;
 	vm.vigor = 10;
 	vm.speed = 80;
 	vm.stamina = 10;
