@@ -18,13 +18,42 @@ export default class BattleMenu extends PIXI.Container
 
 		const me = this;
 
-		me.mainMenuItems = []
-		me.mainMenuItems.push({name: "Attack"});
-		me.mainMenuItems.push({name: "Items"});
-		me.mainMenuItems.push({name: "Defend"});
-		me.mainMenuItems.push({name: "Change Row"});
+		me.mainMenuItems = [
+			{name: 'Attack'},
+			{name: 'Items'},
+			{name: 'Defend'},
+			{name: 'Change Row'}
+		];
 		me.mainMenu = new Menu(me.mainMenuItems, 300, 200);
 		me.addChild(me.mainMenu);
+
+		store.subscribe(()=>
+		{
+			const state = store.getState();
+			if(state.items.length === 0)
+			{
+				me.setMenuItems(me.mainMenuItems = [
+					{name: 'Attack'},
+					{name: 'Items', disabled: true},
+					{name: 'Defend'},
+					{name: 'Change Row'}
+				]);
+			}
+			else
+			{
+				me.setMenuItems(me.mainMenuItems = [
+					{name: 'Attack'},
+					{name: 'Items'},
+					{name: 'Defend'},
+					{name: 'Change Row'}
+				]);
+			}
+		});
+	}
+
+	setMenuItems(items)
+	{
+		this.mainMenu.setMenuItems(items);
 	}
 
 }
