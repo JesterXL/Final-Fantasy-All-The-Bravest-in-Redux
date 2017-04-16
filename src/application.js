@@ -112,6 +112,15 @@ export const setupRedux = ()=>
 				return;
 			}
 
+			if(battleMenu)
+			{
+				battleMenu.visible = false;
+			}
+			if(itemsMenu)
+			{
+				itemsMenu.visible = false;
+			}
+			
 			switch(currentKnownState)
 			{
 				case playerStateModule.CHOOSE:
@@ -120,6 +129,9 @@ export const setupRedux = ()=>
 					break;
 
 				case playerStateModule.WAITING:
+					
+					break;
+
 				default:
 					break;
 			}
@@ -164,11 +176,12 @@ export const setupRedux = ()=>
 					break;
 				
 				case playerStateModule.ITEMS:
+					const itemsToShow = _.map(store.getState().items, item => Object.assign({}, item, {
+						name: item.itemType
+					}));
 					if(!itemsMenu)
 					{
-						const itemsToShow = _.map(store.getState().items, item => Object.assign({}, item, {
-							name: item.itemType
-						}));
+						
 						itemsMenu = new Menu(itemsToShow, 300, 200);
 						pixiApp.stage.addChild(itemsMenu);
 						itemsMenu.changes.subscribe(event =>
@@ -188,6 +201,7 @@ export const setupRedux = ()=>
 					itemsMenu.visible = true;
 					itemsMenu.interactiveChildren = true;
 					itemsMenu.alpha = 1;
+					itemsMenu.setMenuItems(itemsToShow);
 					break;
 				
 				case playerStateModule.CHOOSE_ITEM_TARGET:
@@ -482,40 +496,9 @@ export const attackTarget = async (targetEntity, targetSprite)=>
 		textDropper.addTextDrop(targetSprite, damageResult.value);
 	}
 	await playerSprite.leapBackToStartingPosition(startPlayerX, startPlayerY, startPlayerX + 10, startPlayerY + 10);
-	store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.WAITING});
-	// reset battletimer
-	const battleTimers = store.getState().battleTimers;
-	const playerBattleTimer = _.find(battleTimers, battleTimer => battleTimer.characterEntity === playerEntity);
-	store.dispatch({type: RESET_AND_START_BATTLE_TIMER, entity: playerBattleTimer.entity});
-	
-	// see if any players are waiting
-	
-	const characters = store.getState().characters;
-	const readyPlayers = _.chain(battleTimers)
-	.filter(battleTimer => battleTimer.characterEntity !== playerEntity)
-	.filter(battleTimer => battleTimer.complete)
-	.reduce((acc, battleTimer) =>
-	{
-		const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
-		if(character)
-		{
-			acc.push(character);
-		}
-		return acc;
-	}, [])
-	.filter(character => character.characterType === 'player')
-	.value();
-	if(readyPlayers.length > 0)
-	{
-		if(store.getState().currentCharacter === playerEntity)
-		{
-			store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
-			const nextReadyPlayer = _.first(readyPlayers);
-			store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
-			store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
-		}
-		
-	}	
+	endCurrentPlayerTurn(store);
+	resetPlayersBattleTimer(store);
+	setNextReadyPlayerToCurrent(store);
 };
 
 export const applyItemToTarget = async (targetEntity, targetSprite)=>
@@ -541,39 +524,57 @@ export const applyItemToTarget = async (targetEntity, targetSprite)=>
 			return;
 	}
 
-	// const playerEntity = state.currentCharacter;
-	// store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.WAITING});
-	// // reset battletimer
-	// const battleTimers = store.getState().battleTimers;
-	// const playerBattleTimer = _.find(battleTimers, battleTimer => battleTimer.characterEntity === playerEntity);
-	// store.dispatch({type: RESET_AND_START_BATTLE_TIMER, entity: playerBattleTimer.entity});
-	
-	// // see if any players are waiting
-	
-	// const characters = store.getState().characters;
-	// const readyPlayers = _.chain(battleTimers)
-	// .filter(battleTimer => battleTimer.characterEntity !== playerEntity)
-	// .filter(battleTimer => battleTimer.complete)
-	// .reduce((acc, battleTimer) =>
-	// {
-	// 	const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
-	// 	if(character)
-	// 	{
-	// 		acc.push(character);
-	// 	}
-	// 	return acc;
-	// }, [])
-	// .filter(character => character.characterType === 'player')
-	// .value();
-	// if(readyPlayers.length > 0)
-	// {
-	// 	if(store.getState().currentCharacter === playerEntity)
-	// 	{
-	// 		store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
-	// 		const nextReadyPlayer = _.first(readyPlayers);
-	// 		store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
-	// 		store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
-	// 	}
+	endCurrentPlayerTurn(store);
+	resetPlayersBattleTimer(store);
+	setNextReadyPlayerToCurrent(store);
+};
+
+const endCurrentPlayerTurn = store =>
+{
+	const state = store.getState();
+	const playerEntity = state.currentCharacter;
+	return store.dispatch({type: playerStateModule.CHANGE_PLAYER_STATE, state: playerStateModule.WAITING});
+};
+
+const resetPlayersBattleTimer = store =>
+{
+	const state = store.getState();
+	const playerEntity = state.currentCharacter;
+	const battleTimers = state.battleTimers;
+	const playerBattleTimer = _.find(battleTimers, battleTimer => battleTimer.characterEntity === playerEntity);
+	return store.dispatch({type: RESET_AND_START_BATTLE_TIMER, entity: playerBattleTimer.entity});
+};
+
+const setNextReadyPlayerToCurrent = store =>
+{
+	// see if any players are waiting
+	const state = store.getState();
+	const playerEntity = state.currentCharacter;
+	const characters = state.characters;
+	const battleTimers = state.battleTimers;
+	const readyPlayers = _.chain(battleTimers)
+	.filter(battleTimer => battleTimer.characterEntity !== playerEntity)
+	.filter(battleTimer => battleTimer.complete)
+	.reduce((acc, battleTimer) =>
+	{
+		const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
+		if(character)
+		{
+			acc.push(character);
+		}
+		return acc;
+	}, [])
+	.filter(character => character.characterType === 'player')
+	.value();
+	if(readyPlayers.length > 0)
+	{
+		if(state.currentCharacter === playerEntity)
+		{
+			store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
+			const nextReadyPlayer = _.first(readyPlayers);
+			store.dispatch({type: SET_CHARACTER_TURN, entity: nextReadyPlayer.entity});
+			store.dispatch({type: PLAYER_READY, entity: nextReadyPlayer.entity});
+		}
 		
-	// }	
+	}	
 };
