@@ -13,7 +13,7 @@ import {
     EFFECT_SLOW,
     MODE_MONSTER,
     MODE_PLAYER
-} from '../battle/battleTimer'; 
+} from '../../battle/battleTimer'; 
 
 export const createBattleTimer = (state, action)=>
 {
