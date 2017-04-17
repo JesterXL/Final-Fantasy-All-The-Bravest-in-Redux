@@ -46,10 +46,7 @@ export const getCharacter = (entity)=>
 	vm.body;
 	vm.relic1;
 	vm.relic2;
-	vm._row = Row.FRONT;
-	vm.id = _INCREMENT++;
-	// vm.subject = new Subject();
-	// vm.generator = makeBattleTimer(vm);
+	vm.row = Row.FRONT;
 	vm.type = 'Character';
 	vm.characterType = 'player';
 	return vm;

@@ -6,4 +6,4 @@ const s4 = ()=> Math
 const guid = ()=> s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 
-module.exports = guid;
+export default guid;
