@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import logger from 'redux-logger';
 
 import * as ff6 from 'final-fantasy-6-algorithms';
-const {guid} = ff6.core;
+import guid from './com/jessewarden/ff6/core/guid';
 import * as _ from 'lodash';
 import BattleTimerBar from './com/jessewarden/ff6/views/BattleTimerBar';
 import PlayerList from './com/jessewarden/ff6/views/PlayerList';
@@ -12,8 +12,17 @@ import TextDropper from './com/jessewarden/ff6/views/TextDropper';
 import Menu from './com/jessewarden/ff6/views/Menu';
 import BattleMenu from './com/jessewarden/ff6/views/BattleMenu';
 import "howler"; 
+import Row from './com/jessewarden/ff6/enums/Row';
 import CharacterSprite from './com/jessewarden/ff6/views/CharacterSprite';
-import { getHit, getDamage, getHitDefaultGetHitOptions } from './com/jessewarden/ff6/battle/BattleUtils';
+import { 
+	getHit, 
+	getDamage, 
+	getHitDefaultGetHitOptions,
+	getRandomHitOrMissValue,
+	getRandomStaminaHitOrMissValue,
+	getMonsterStamina,
+	getDefaultDamageOptions
+} from './com/jessewarden/ff6/battle/BattleUtils';
 
 // reducers
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/reducers/entities';
@@ -494,16 +503,38 @@ export const attackTarget = async (targetEntity, targetSprite)=>
 	const startPlayerX = playerSprite.x;
 	const startPlayerY = playerSprite.y;
 	await playerSprite.leapTowardsTarget(targetSprite.x, targetSprite.y);
+
+
 	const hitOptions = getHitDefaultGetHitOptions();
+	hitOptions.randomHitOrMissValue = getRandomHitOrMissValue();
+	hitOptions.randomStaminaHitOrMissValue = getRandomStaminaHitOrMissValue();
+	hitOptions.hitRate = 180; // from Dirk
+	hitOptions.defense = 60;
+	hitOptions.targetStamina = getMonsterStamina(33);
+
 	const hitResult = getHit(hitOptions);
+	
+	
 	if(hitResult.hit === false)
 	{
 		textDropper.addTextDrop(targetSprite, 0, 0xFFFFFF, true);
 	}
 	else
 	{
-		const damageResult = getDamage();
-		textDropper.addTextDrop(targetSprite, damageResult.value);
+		const damageOptions = getDefaultDamageOptions();
+		damageOptions.attacker = playerCharacter;
+		damageOptions.targetStamina = hitOptions.targetStamina;
+		damageOptions.targetDefending = targetCharacter.defending;
+		damageOptions.targetIsInBackRow = targetCharacter.row === Row.BACK;
+		damageOptions.targetIsSelf = targetCharacter.entity === playerCharacter.entity;
+		damageOptions.targetIsCharacter = targetCharacter.characterType === 'player';
+		damageOptions.hitRate = hitOptions.hitRate;
+		damageOptions.attackerIsCharacter = playerCharacter.characterType === 'player';
+		damageOptions.attackerIsInBackRow = playerCharacter.row === Row.BACK;
+
+		const damageResult = getDamage(damageOptions);
+		log("damageResult:", damageResult);
+		textDropper.addTextDrop(targetSprite, damageResult.damage);
 	}
 	await playerSprite.leapBackToStartingPosition(startPlayerX, startPlayerY, startPlayerX + 10, startPlayerY + 10);
 	endCurrentPlayerTurn(store);

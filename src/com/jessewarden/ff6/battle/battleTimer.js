@@ -90,6 +90,13 @@ export class Timer
 		me.running = false;
 		delete me.tickCallback;
 	}
+
+	// resume()
+	// {
+	// 	const me = this;
+	// 	me.running = true;
+	// 	me.window.requestAnimationFrame(me.tickBound);
+	// }
 }
 
 // TODO: make monster mode work, I don't get the algo man
@@ -127,6 +134,12 @@ export class BattleTimer
 		me.reset();
 		me.startTimer(me.window, me.doneCallback, me.progressCallback);
 	}
+
+	// resume()
+	// {
+	// 	const me = this;
+	// 	me.timer.resume();
+	// }
 
 	startTimer(window, doneCallback, progressCallback)
 	{

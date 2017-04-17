@@ -304,25 +304,20 @@ export const getDamageStep9 = (
 	return damage;
 };
 
-function getRandomHitOrMissValue()
-{
-	return getRandomNumberFromRange(0, 99);
-}
+export const getRandomHitOrMissValue = ()=> getRandomNumberFromRange(0, 99);
 
-function getRandomStaminaHitOrMissValue()
-{
-	return getRandomNumberFromRange(0, 127);
-}
+export const getRandomStaminaHitOrMissValue = ()=> getRandomNumberFromRange(0, 127);
 
-function getRandomImageStatusRemoval()
-{
-	return getRandomNumberFromRange(0, 3);
-}
+export const getRandomImageStatusRemoval = ()=> getRandomNumberFromRange(0, 3);
 
-function getRemoveImageStatus()
+export const getRemoveImageStatus = ()=> getRandomNumberFromRange(1, 4) === 4;
+
+export const getMonsterStamina = maxHitPoints =>
 {
-	return getRandomNumberFromRange(1, 4) === 4;
-}
+	// (Max HP / 512) + 16
+	const result = (maxHitPoints / 512) + 16;
+	return _.clamp(result, 0, 40);
+};
 
 export const getHitResult = (hit, removeImageStatus=false) =>
 {
@@ -619,7 +614,7 @@ export const getDefaultDamageOptions = (
 		targetIsWeakToElement: false
 	};
 };
-export const getDamage = (options=getDefaultDamageOptions) =>
+export const getDamage = (options=getDefaultDamageOptions()) =>
 {
 	const attacker                                  = _.get(options, 'attacker');
 	const targetStamina                             = _.get(options, 'targetStamina');
