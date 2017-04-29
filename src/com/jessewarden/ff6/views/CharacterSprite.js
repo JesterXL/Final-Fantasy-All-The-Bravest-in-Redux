@@ -64,7 +64,10 @@ export default class CharacterSprite extends PIXI.Container
                 me.off('pointerdown', me.clickEvent);
             }
 			const character = _.find(state.characters, character => character.entity === me.entity);
-			me.debugField.text = 'defending: ' + character.defending;
+			let debugString = 'defending:' + character.defending;
+			debugString += '\n' + character.entity.substring(0, 5);
+			debugString += '\nhp:' + character.hitPoints;
+			me.debugField.text = debugString;
         });
 	}
 

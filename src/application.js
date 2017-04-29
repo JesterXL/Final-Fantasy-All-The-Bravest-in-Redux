@@ -27,13 +27,20 @@ import {
 // reducers
 import { entities, ADD_ENTITY, REMOVE_ENTITY } from './com/jessewarden/ff6/reducers/entities';
 import { timers, CREATE_TIMER, START_TIMER, STOP_TIMER } from './com/jessewarden/ff6/reducers/timers';
-import { characters, CREATE_CHARACTER, DESTROY_CHARACTER, CHARACTER_HIT_POINTS_CHANGED, SET_CHARACTER_DEFENDING } from './com/jessewarden/ff6/reducers/characters';
+import { 
+	characters, 
+	CREATE_CHARACTER, 
+	DESTROY_CHARACTER, 
+	CHARACTER_HIT_POINTS_CHANGED, 
+	SET_CHARACTER_DEFENDING,
+	APPLY_DAMAGE } from './com/jessewarden/ff6/reducers/characters';
 import {
 	battleTimers,
 	CREATE_BATTLE_TIMER,
 	START_BATTLE_TIMER,
 	UPDATE_BATTLE_TIMER,
-	RESET_AND_START_BATTLE_TIMER
+	RESET_AND_START_BATTLE_TIMER,
+	STOP_ALL_BATTLE_TIMERS
 } from './com/jessewarden/ff6/reducers/battletimers';
 import { menustate } from './com/jessewarden/ff6/reducers/menustate';
 import { currentCharacter, SET_CHARACTER_TURN, CHARACTER_TURN_OVER, NO_CHARACTER } from './com/jessewarden/ff6/reducers/currentcharacter';
@@ -42,6 +49,7 @@ import * as playerStateModule from './com/jessewarden/ff6/reducers/playerstate';
 import { items, REMOVE_ITEM, ADD_ITEM, getItem } from './com/jessewarden/ff6/reducers/items'
 import { selectedItem, SELECT_ITEM } from './com/jessewarden/ff6/reducers/selecteditem'
 
+let battleSprites;
 let store, unsubscribe, pixiApp, charactersContainer, blankMenu;
 let keyboardManager, cursorManager;
 export const setupRedux = ()=>
@@ -68,25 +76,13 @@ export const setupRedux = ()=>
 	PIXI.loader.add('./src/fonts/Final_Fantasy_VI_SNESa.svg');
 	PIXI.loader.load((loader, resources) =>
 	{
-	// 	keyboardManager = new KeyboardManager();
-	// 	cursorManager = new CursorManager(keyboardManager);
-	// 	pixiApp.stage.addChild(cursorManager);
-
-	// 	const battleMenu = new BattleMenu(keyboardManager, cursorManager);
-	// 	battleMenu.show();
-
 		addPlayerAndBattleTimer('Cow');
 		const secondPlayerAction = addPlayerAndBattleTimer('JesterXL');
 		addMonsterAndBattleTimer();
 		const playerList = new PlayerList(store);
-		pixiApp.stage.addChild(playerList);
-		// log("pixiApp.screen:", pixiApp.screen);
+		battleSprites.addChild(playerList);
 		playerList.x = pixiApp.renderer.width - playerList.width;
-		playerList.y = pixiApp.renderer.height - playerList.height;; 
-
-		// blankMenu = new Menu(undefined, pixiApp.screen.width - playerList._width - 4, playerList._height);
-		// pixiApp.stage.addChild(blankMenu);
-		// blankMenu.y = pixiApp.screen.height - blankMenu.height;
+		playerList.y = pixiApp.renderer.height - playerList.height;
 
 		const state = store.getState();
 		_.chain(state.battleTimers)
@@ -97,12 +93,16 @@ export const setupRedux = ()=>
 			doneEvent =>
 			{
 				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-				log("characterEntity done:", doneEvent.characterEntity);
+				// log("characterEntity ready:", doneEvent.characterEntity);
 				const character = _.find(store.getState().characters, character => character.entity === doneEvent.characterEntity);
-				if(character.characterType === 'player' && store.getState().currentCharacter === NO_CHARACTER)
+				// log("currentCharacter:", store.getState().currentCharacter);
+				if(character.characterType !== 'player')
 				{
-					setPlayerToReady(doneEvent.characterEntity);
+					// TODO
+					log("Monster, not a player, so AI should take over.");
+					return;
 				}
+				setNextReadyPlayerToCurrent(store);
 			},
 			progressEvent =>
 			{
@@ -155,9 +155,10 @@ export const setupRedux = ()=>
 					if(!battleMenu)
 					{
 						battleMenu = new BattleMenu(store);
-						pixiApp.stage.addChild(battleMenu);
+						battleSprites.addChild(battleMenu);
 						battleMenu.changes.subscribe(event =>
 						{
+							battleMenu.interactiveChildren = false;
 							// log("BattleMenu::event:", event);
 							switch(event.menuItem.name)
 							{
@@ -171,6 +172,9 @@ export const setupRedux = ()=>
 									return;
 								
 								case 'Defend':
+									log(" ");
+									log("** clicked defend **");
+									log(" ");
 									defend();
 									return;
 
@@ -180,8 +184,41 @@ export const setupRedux = ()=>
 						});
 					}
 					battleMenu.y = 200;
-					battleMenu.visible = true;
+					battleMenu.visible = false;
 					battleMenu.interactiveChildren = true;
+					_.delay(()=>
+					{
+						const scale = {
+							x: 0.9,
+							y: 0.9
+						};
+						TweenMax.to(scale, 0.5, {
+							x: 1,
+							y: 1,
+							onUpdate: ()=>
+							{
+								battleMenu.visible = true;
+								battleMenu.scale.x = scale.x;
+								battleMenu.scale.y = scale.y;
+							},
+							ease: Bounce.easeOut
+						});
+					}, 300);
+					
+			// 		TweenMax.to(me, 0.7, {
+			// 	bezier: {
+			// 		type: 'thru',
+			// 		values: [
+			// 	{ x: startWX, y: startWY}, 
+			// 	{x: middleX, y: middleY},
+			// 	{ x: targetX, y: targetY}
+			// ],
+			// 		curviness: 2
+			// 	},
+			// 	ease: Linear.easeInOut,
+			// 	onComplete: success
+			// });
+
 					break;
 				
 				case playerStateModule.ATTACK_CHOOSE_TARGET:
@@ -197,7 +234,7 @@ export const setupRedux = ()=>
 					{
 						
 						itemsMenu = new Menu(itemsToShow, 300, 200);
-						pixiApp.stage.addChild(itemsMenu);
+						battleSprites.addChild(itemsMenu);
 						itemsMenu.changes.subscribe(event =>
 						{
 							store.dispatch({
@@ -334,11 +371,14 @@ export const setupPixi = ()=>
 	});
 	document.body.appendChild(app.view);
 
+	battleSprites = new PIXI.Container();
+	app.stage.addChild(battleSprites);
+
 	charactersContainer = new PIXI.Container();
-	app.stage.addChild(charactersContainer);
+	battleSprites.addChild(charactersContainer);
 
 	textDropper = new TextDropper();
-	app.stage.addChild(textDropper);
+	battleSprites.addChild(textDropper);
 
 	const unsubscribe = store.subscribe(()=>
 	{
@@ -535,12 +575,43 @@ export const attackTarget = async (targetEntity, targetSprite)=>
 		const damageResult = getDamage(damageOptions);
 		log("damageResult:", damageResult);
 		textDropper.addTextDrop(targetSprite, damageResult.damage);
+
+		store.dispatch({type: APPLY_DAMAGE, damage: damageResult.damage, entity: targetEntity})
 	}
 	await playerSprite.leapBackToStartingPosition(startPlayerX, startPlayerY, startPlayerX + 10, startPlayerY + 10);
+
+	// if all monsters dead, we win. If all players dead, we lose.
+	if(allPlayersDead(store) === true)
+	{
+		// game over, man...
+		store.dispatch({type: STOP_ALL_BATTLE_TIMERS});
+		showGameOver();
+		return;
+	}
+	else if(allMonstersDead(store) === true)
+	{
+		// we win!
+		store.dispatch({type: STOP_ALL_BATTLE_TIMERS});
+		showGameOver();
+		return;
+	}
+
 	endCurrentPlayerTurn(store);
 	resetPlayersBattleTimer(store);
 	setNextReadyPlayerToCurrent(store);
 };
+
+export const allMonstersDead = store =>
+	_.chain(store.getState().characters)
+	.filter(character => character.characterType === 'monster')
+	.every(character => character.hitPoints <= 0)
+	.value();
+
+export const allPlayersDead = store =>
+	_.chain(store.getState().characters)
+	.filter(character => character.characterType === 'player')
+	.every(character => character.hitPoints <= 0)
+	.value();
 
 export const applyItemToTarget = async (targetEntity, targetSprite)=>
 {
@@ -590,14 +661,18 @@ const setNextReadyPlayerToCurrent = store =>
 {
 	// see if any players are waiting
 	const state = store.getState();
+	log("state:", state);
 	const playerEntity = state.currentCharacter;
 	const characters = state.characters;
 	const battleTimers = state.battleTimers;
 	const readyPlayers = _.chain(battleTimers)
 	.filter(battleTimer => battleTimer.characterEntity !== playerEntity)
 	.filter(battleTimer => battleTimer.complete)
+	.sortBy('completedTime')
+	.reverse()
 	.reduce((acc, battleTimer) =>
 	{
+		log("completedTime:", battleTimer.completedTime);
 		const character = _.find(characters, character => character.entity === battleTimer.characterEntity);
 		if(character)
 		{
@@ -612,6 +687,7 @@ const setNextReadyPlayerToCurrent = store =>
 		if(state.currentCharacter === playerEntity)
 		{
 			store.dispatch({type: CHARACTER_TURN_OVER, entity: playerEntity});
+			log("readyPlayers:", readyPlayers);
 			const nextReadyPlayer = _.first(readyPlayers);
 			setPlayerToReady(nextReadyPlayer.entity);
 		}
@@ -619,7 +695,7 @@ const setNextReadyPlayerToCurrent = store =>
 	}	
 };
 
-const defend = async ()=>
+const defend = ()=>
 {
 	const state = store.getState();
 
@@ -635,4 +711,41 @@ const setPlayerToReady = entity =>
 	store.dispatch({type: SET_CHARACTER_DEFENDING, defending: false, entity});
 	store.dispatch({type: SET_CHARACTER_TURN, entity});
 	store.dispatch({type: PLAYER_READY, entity});
+};
+
+const showGameOver = ()=>
+{
+	battleSprites.visible = false;
+	const style = {
+		fontFamily: 'Final Fantasy VI SNESa',
+		fill : '#FFFFFF',
+		dropShadow : true,
+		dropShadowColor : '#000000',
+		dropShadowAngle : Math.PI / 6,
+		dropShadowDistance : 2,
+		wordWrap : false,
+		fontSize: 144
+	};
+	const textField = new PIXI.Text('Game Over');
+	textField.style = new PIXI.TextStyle(style);
+	textField.scale.set(0.5);
+	pixiApp.stage.addChild(textField);
+	textField.x = 170;
+	textField.y = 100;
+	const scale = {
+		x: textField.scale.x,
+		y: textField.scale.y
+	};
+	TweenMax.to(scale, 3, {
+		x: 1,
+		y: 1,
+		ease: Expo.easeOut,
+		onUpdate: ()=>
+		{
+			textField.scale.x = scale.x;
+			textField.scale.y = scale.y;
+			// textField.x = pixiApp.renderer.width - textField.width;
+			// textField.y = pixiApp.renderer.height - textField.height;
+		}
+	});
 };
