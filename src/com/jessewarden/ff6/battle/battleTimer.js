@@ -165,6 +165,7 @@ export class BattleTimer
 					me.gauge = MAX_GAUGE;
 					me.percentage = 1;
 					me.stopTimer();
+					me.completedTime = now;
 					me.doneCallback({
 						entity: me.entity,
 						characterEntity: me.characterEntity,

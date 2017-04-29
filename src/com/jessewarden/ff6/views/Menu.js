@@ -62,6 +62,12 @@ export default class Menu extends PIXI.Container
 			const textField = new PIXI.Text('???');
             // const textField = new PIXI.extras.BitmapText("???", {font: "36px Final Fantasy VI SNESa"});
             textField.style = new PIXI.TextStyle(style);
+			textField.on('click', event =>
+			{
+				me.changes.onNext(
+					{ type: 'click', menuItem: textField.menuItem }
+				);
+			});
 			return textField;
 		}
 	}
@@ -83,6 +89,7 @@ export default class Menu extends PIXI.Container
     {
         const me = this;
         const field = me.getTextField();
+		field.menuItem = menuItem;
         field.text = menuItem.name;
         const style = field.style;
         if(menuItem.disabled)
@@ -97,12 +104,6 @@ export default class Menu extends PIXI.Container
 			field.buttonMode = true;
             style.fill = "#FFFFFF";
         }
-        field.on('pointerdown', (event)=>
-        {
-            me.changes.onNext(
-                { type: 'click', menuItem }
-            );
-        });
         return field;
     }
 
