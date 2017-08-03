@@ -1,5 +1,7 @@
 const log = console.log;
 const _ = require("lodash");
+import { union } from 'folktale/adt/union/union';
+import Equality from 'folktale/adt/union/derivations/equality';
 
 const {
 	equippedWithGauntlet,
@@ -15,15 +17,12 @@ const {
 
 const PERFECT_HIT_RATE = 255;
 
-export const divide = (a, b)=>
-{
-	return Math.floor(a / b);
-};
+export const divide = (a, b) => Math.floor(a / b);
 
 export const getRandomNumberFromRange = (start, end)=>
 {
-	var range = end - start;
-	var result = Math.random() * range;
+	let range = end - start;
+	let result = Math.random() * range;
 	result += start;
 	return Math.round(result);
 };
@@ -45,7 +44,7 @@ export const getDamageStep1 = (
 )=>
 {
 
-	var damage = 0;
+	let damage = 0;
 
 	if(isPhysicalAttack === false && isPlayerAndNotMonster === true)
 	{
@@ -57,13 +56,13 @@ export const getDamageStep1 = (
 	}
 	else if(isPhysicalAttack === true && isPlayerAndNotMonster === true)
 	{
-		var vigor2 = vigor * 2;
+		let vigor2 = vigor * 2;
 		if (vigor >= 128)
 		{
 			vigor2 = 255;
 		}
 
-		var attack = battlePower + vigor2;
+		let attack = battlePower + vigor2;
 
 		if (equippedWithGauntlet)
 		{
@@ -90,10 +89,7 @@ export const getDamageStep1 = (
 	return damage;
 };
 
-export const getRandomMonsterVigor = ()=>
-{
-	return getRandomNumberFromRange(56, 63);
-};
+export const getRandomMonsterVigor = ()=> getRandomNumberFromRange(56, 63);
 
 export const getDamageStep2 = (
 	damage = 0,
@@ -246,7 +242,7 @@ export const getDamageStep7 = (damage = 0,
 						hittingTargetsBack = false,
 						isPhysicalAttack = true) =>
 {
-	var multiplier = 0;
+	let multiplier = 0;
 	if(isPhysicalAttack && hittingTargetsBack)
 	{
 		multiplier += 1;
@@ -320,12 +316,10 @@ export const getMonsterStamina = maxHitPoints =>
 };
 
 export const getHitResult = (hit, removeImageStatus=false) =>
-{
-	return {
-		hit,
-		removeImageStatus
-	};
-};
+({
+	hit,
+	removeImageStatus
+});
 
 // Step 4e. Chance to hit
 
@@ -493,7 +487,7 @@ export const getHit = (options=getHitDefaultGetHitOptions()) =>
 
 		if(isPhysicalAttack && targetHasImageStatus)
 		{
-			var removeImageStatus = getRemoveImageStatus();
+			let removeImageStatus = getRemoveImageStatus();
 			if(removeImageStatus)
 			{
 				// this'll remove Image status
@@ -574,46 +568,45 @@ export const getDefaultDamageOptions = (
 	getCriticalHitFunction=getCriticalHit, 
 	getDamageModificationsVarianceFunction=getDamageModificationsVariance
 )=>
-{
-	return {
-		attacker, // Character
-		getCriticalHitFunction,
-		getDamageModificationsVarianceFunction,
-		targetStamina: null,
-		isPhysicalAttack: true,
-		targetHasClearStatus: false,
-		protectedFromWound: false,
-		attackMissesDeathProtectedTargets: false,
-		attackCanBeBlockedByStamina: true,
-		spellUnblockable: false,
-		targetHasSleepStatus: false,
-		targetHasPetrifyStatus: false,
-		targetHasFreezeStatus: false,
-		targetHasStopStatus: false,
-		targetHasSafeStatus: false,
-		targetHasShellStatus: false,
-		targetDefending: false,
-		targetIsInBackRow: false,
-		targetHasMorphStatus: false,
-		targetIsSelf: false,
-		targetIsCharacter: false,
-		backOfTarget: false,
-		targetHasImageStatus: false,
-		hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
-		magicBlock: 0,
-		specialAttackType: null,
-		attackerIsCharacter: true,
-		attackingMultipleTargets: false,
-		attackerIsInBackRow: false,
-		attackerHasMorphStatus: false,
-		attackerHasBerserkStatusAndPhysicalAttack: false,
-		elementHasBeenNullified: false,
-		targetAbsorbsElement: false,
-		targetIsImmuneToElement: false,
-		targetIsResistantToElement: false,
-		targetIsWeakToElement: false
-	};
-};
+({
+	attacker, // Character
+	getCriticalHitFunction,
+	getDamageModificationsVarianceFunction,
+	targetStamina: null,
+	isPhysicalAttack: true,
+	targetHasClearStatus: false,
+	protectedFromWound: false,
+	attackMissesDeathProtectedTargets: false,
+	attackCanBeBlockedByStamina: true,
+	spellUnblockable: false,
+	targetHasSleepStatus: false,
+	targetHasPetrifyStatus: false,
+	targetHasFreezeStatus: false,
+	targetHasStopStatus: false,
+	targetHasSafeStatus: false,
+	targetHasShellStatus: false,
+	targetDefending: false,
+	targetIsInBackRow: false,
+	targetHasMorphStatus: false,
+	targetIsSelf: false,
+	targetIsCharacter: false,
+	backOfTarget: false,
+	targetHasImageStatus: false,
+	hitRate: 0,  // TODO: need weapon's info, this is where hitRate comes from
+	magicBlock: 0,
+	specialAttackType: null,
+	attackerIsCharacter: true,
+	attackingMultipleTargets: false,
+	attackerIsInBackRow: false,
+	attackerHasMorphStatus: false,
+	attackerHasBerserkStatusAndPhysicalAttack: false,
+	elementHasBeenNullified: false,
+	targetAbsorbsElement: false,
+	targetIsImmuneToElement: false,
+	targetIsResistantToElement: false,
+	targetIsWeakToElement: false
+});
+
 export const getDamage = (options=getDefaultDamageOptions()) =>
 {
 	const attacker                                  = _.get(options, 'attacker');

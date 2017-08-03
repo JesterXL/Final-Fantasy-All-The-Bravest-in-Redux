@@ -24,7 +24,7 @@ import {
 } from './BattleUtils';
 const log = console.log;
 
-describe('#BattleUtils', ()=>
+describe.only('#BattleUtils', ()=>
 {
 	// it('divide', ()=>
 	// {
