@@ -81,8 +81,11 @@ export const setupRedux = ()=>
 		addMonsterAndBattleTimer();
 		const playerList = new PlayerList(store);
 		battleSprites.addChild(playerList);
-		playerList.x = pixiApp.renderer.width - playerList.width;
-		playerList.y = pixiApp.renderer.height - playerList.height;
+		// log("pixiApp.renderer.width:", pixiApp.renderer.width); // reporting 1,000, wat...
+		// playerList.x = pixiApp.renderer.width - playerList.width;
+		// playerList.y = pixiApp.renderer.height - playerList.height;
+		playerList.x = 400;
+		playerList.y = 200;
 
 		const state = store.getState();
 		_.chain(state.battleTimers)
@@ -92,8 +95,11 @@ export const setupRedux = ()=>
 			startBattleTimer(battleTimerEntity, window, 
 			doneEvent =>
 			{
+				console.log("### battle timer done ###");
 				store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
-				// log("characterEntity ready:", doneEvent.characterEntity);
+				// log("characterEntity ready:", doneEvent.characterEntity);er
+
+				// TODO/FIXME: We're finding characters, but there is no priority or done sorting... it's always getting the same character
 				const character = _.find(store.getState().characters, character => character.entity === doneEvent.characterEntity);
 				// log("currentCharacter:", store.getState().currentCharacter);
 				if(character.characterType !== 'player')

@@ -6,6 +6,7 @@ export const STOP_ALL_BATTLE_TIMERS = 'STOP_ALL_BATTLE_TIMERS';
 export const UPDATE_BATTLE_TIMER  = 'UPDATE_BATTLE_TIMER';
 export const RESET_AND_START_BATTLE_TIMER = 'RESET_AND_START_BATTLE_TIMER';
 // export const BATTLE_TIMER_DONE = 'BATTLE_TIMER_DONE';
+const _ = require('lodash');
 
 import { 
     BattleTimer,
@@ -78,6 +79,15 @@ export const resetAndStartBattleTimer = (state, action)=>
     return state;
 };
 
+export const updateBattleTimer = (state, action)=>
+{
+    // store.dispatch({type: UPDATE_BATTLE_TIMER, entity: doneEvent.entity, event: doneEvent});
+    // console.log("** updateBattleTimer **");
+    const chars = _.map(state, timer => timer.characterEntity);
+    // console.log("order:", chars);
+    return state;
+};
+
 export const battleTimers = (state=[], action) =>
 {
 	switch(action.type)
@@ -88,7 +98,7 @@ export const battleTimers = (state=[], action) =>
         case STOP_BATTLE_TIMER: return stopBattleTimer(state, action);
         case RESET_AND_START_BATTLE_TIMER: return resetAndStartBattleTimer(state, action);
         case STOP_ALL_BATTLE_TIMERS: return stopAllBattleTimers(state, action);
-        case UPDATE_BATTLE_TIMER:
+        case UPDATE_BATTLE_TIMER: return updateBattleTimer(state, action);
         default: return state;
 	}
 }
