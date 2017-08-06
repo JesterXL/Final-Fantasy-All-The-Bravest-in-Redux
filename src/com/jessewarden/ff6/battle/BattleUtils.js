@@ -17,7 +17,18 @@ const {
 
 const PERFECT_HIT_RATE = 255;
 
-export const divide = (a, b) => Math.floor(a / b);
+const _divide = (a, b) => Math.floor(a / b);
+const NaNToZero = o => {
+	if(_.isNaN(o))
+	{
+		return 0;
+	}
+	else
+	{
+		return o;
+	}
+};
+export const divide = _.flow([_divide, NaNToZero]);
 
 export const getRandomNumberFromRange = (start, end)=>
 {

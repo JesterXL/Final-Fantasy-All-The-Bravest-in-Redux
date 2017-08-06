@@ -2,6 +2,7 @@ import {expect, assert, should } from 'chai';
 should();
 import _ from 'lodash';
 import { 
+	divide,
 	getRandomNumberFromRange,
 	getDamageStep1,
 	getRandomMonsterVigor,
@@ -24,14 +25,21 @@ import {
 } from './BattleUtils';
 const log = console.log;
 
+import jsverify from 'jsverify';
+import { property, integer } from 'jsverify';
+
+
 describe.only('#BattleUtils', ()=>
 {
-	// it('divide', ()=>
-	// {
-	// 	const result = divide(2, 1);
-    //     log("result:", 1);
-    //     result.should.equal(1);
-	// });
+	it('divide', ()=>
+	{
+		const result = divide(10, 2);
+        result.should.equal(5);
+	});
+	property("divide is never NaN", integer, integer, (i, n) =>
+	{
+		return _.isNaN(divide(i, n)) === false;
+	});
 	it("getRandomNumberFromRange", ()=>
 	{
 		const result = getRandomNumberFromRange(1, 10);
