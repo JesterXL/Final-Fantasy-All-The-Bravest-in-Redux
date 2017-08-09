@@ -1,7 +1,7 @@
 const log = console.log;
 const _ = require("lodash");
-import { union } from 'folktale/adt/union/union';
-import Equality from 'folktale/adt/union/derivations/equality';
+// import { union } from 'folktale/adt/union/union';
+// import Equality from 'folktale/adt/union/derivations/equality';
 
 const {
 	equippedWithGauntlet,
@@ -371,14 +371,14 @@ export const getHitFromBlockValue = (isPhysicalAttack=true, hitRate, magicBlockO
 	// NOTE: here in case we handle that whole 'magic block' bug; for now both if thens do the same
 	if(isPhysicalAttack === false)
 	{
-		log("magicBlock:", magicBlockOrDefense);
-		log("hitRate:", hitRate);
+		// log("magicBlock:", magicBlockOrDefense);
+		// log("hitRate:", hitRate);
 		blockValue =  step4e(magicBlockOrDefense);
 	}
 	else
 	{
-		log("defenese:", magicBlockOrDefense);
-		log("hitRate:", hitRate);
+		// log("defenese:", magicBlockOrDefense);
+		// log("hitRate:", hitRate);
 		blockValue =  step4e(magicBlockOrDefense);
 	}
 
@@ -536,12 +536,12 @@ export const getHit = (options=getHitDefaultGetHitOptions()) =>
 
 	const magicBlockOrDefense = getMagicBlockOrDefense(isPhysicalAttack, magicBlock, defense);
 	const hitFromBlockValue = getHitFromBlockValue(isPhysicalAttack, hitRate, magicBlockOrDefense, step4e, randomHitOrMissValue);
-	log("      ");
-	log("\n");
-	log("hitFromBlockValue:", hitFromBlockValue);
-	log("randomHitOrMissValue:", randomHitOrMissValue);
-	log("randomStaminaHitOrMissValue:", randomStaminaHitOrMissValue);
-	log("targetStamina:", targetStamina);
+	// log("      ");
+	// log("\n");
+	// log("hitFromBlockValue:", hitFromBlockValue);
+	// log("randomHitOrMissValue:", randomHitOrMissValue);
+	// log("randomStaminaHitOrMissValue:", randomStaminaHitOrMissValue);
+	// log("targetStamina:", targetStamina);
 	if(hitFromBlockValue === true)
 	{
 		if(targetStamina >= randomStaminaHitOrMissValue)

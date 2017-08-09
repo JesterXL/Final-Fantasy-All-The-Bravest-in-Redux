@@ -28,8 +28,7 @@ const log = console.log;
 import jsverify from 'jsverify';
 import { property, integer } from 'jsverify';
 
-
-describe.only('#BattleUtils', ()=>
+describe('#BattleUtils', ()=>
 {
 	it('divide', ()=>
 	{
@@ -44,6 +43,11 @@ describe.only('#BattleUtils', ()=>
 	{
 		const result = getRandomNumberFromRange(1, 10);
 		_.inRange(result, 1, 10).should.be.true;
+	});
+	property("divide is never NaN", 'integer 1 10', max =>
+	{
+		const result = getRandomNumberFromRange(1, max);
+		return result >= 1 && result <= max;
 	});
 	describe("#getDamageStep1", ()=>
 	{

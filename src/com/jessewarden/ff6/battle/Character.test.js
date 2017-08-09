@@ -1,3 +1,17 @@
+import { should } from 'chai';
+import {
+    getCharacter
+} from './Character';
+describe("#Character", ()=>
+{
+    describe("#getCharacter", ()=>
+    {
+        it('should work with good entity', ()=>
+        {
+            getCharacter('1').should.exist;
+        });
+    });
+});
 // import {expect, assert, should } from 'chai';
 // should();
 // import _ from 'lodash';

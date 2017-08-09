@@ -6,16 +6,9 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "browser-sync start --server --files 'bundle.js'",
-    "test": "mocha --compilers js:babel-core/register --require babel-polyfill src/com/jessewarden/ff6/**/*.test.js",
-    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text mocha --compilers js:babel-core/register --require babel-polyfill 'src/com/jessewarden/ff6/**/*.test.js'",
+    "test": "mocha --compilers js:babel-core/register --require babel-polyfill ./src/com/jessewarden/ff6/battle/BattleUtils.test.js",
+    "coverage": "NODE_ENV=test webpack && nyc --reporter=lcov --reporter=text npm test",
     "browsersync": "browser-sync start --proxy 'localhost:3000' --files 'bundle.js'"
-  },
-  "nyc": {
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
   },
   "repository": {
     "type": "git",
