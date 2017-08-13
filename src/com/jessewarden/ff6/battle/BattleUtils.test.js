@@ -39,7 +39,7 @@ describe('#BattleUtils', ()=>
 	{
 		return _.isNaN(divide(i, n)) === false;
 	});
-	it("getRandomNumberFromRange", ()=>
+	it.only("getRandomNumberFromRange", ()=>
 	{
 		const result = getRandomNumberFromRange(1, 10);
 		_.inRange(result, 1, 10).should.be.true;

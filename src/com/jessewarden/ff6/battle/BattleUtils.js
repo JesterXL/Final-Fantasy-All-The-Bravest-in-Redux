@@ -2,6 +2,9 @@ const log = console.log;
 const _ = require("lodash");
 // import { union } from 'folktale/adt/union/union';
 // import Equality from 'folktale/adt/union/derivations/equality';
+const Result = require('folktale/result');
+const Validation = require('folktale/validation');
+const { Success, Failure } = Validation;
 
 const {
 	equippedWithGauntlet,
@@ -30,13 +33,12 @@ const NaNToZero = o => {
 };
 export const divide = _.flow([_divide, NaNToZero]);
 
-export const getRandomNumberFromRange = (start, end)=>
-{
-	let range = end - start;
-	let result = Math.random() * range;
-	result += start;
-	return Math.round(result);
-};
+export const getRandomNumberFromRange = (start, end)=> Math.random() * (end - start) + start;
+
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
 // level is an int
 export const getDamageStep1 = (
@@ -116,7 +118,7 @@ export const getDamageStep2 = (
 	{
 		damage *= 5/4;
 	}
-	if(isPhysicalAttack === false && (equippedWith1Earring || equippedWith2HeroRings))
+	if(isPhysicalAttack === false && (equippedWith1Earring || equippedWith1HeroRing))
 	{
 		damage *= 5/4;
 	}
